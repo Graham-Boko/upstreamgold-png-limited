@@ -32,8 +32,9 @@ body {
   padding: 18px 0;
 }
 
+/* Balanced logo */
 .logo-img {
-  height: 150px;
+  height: 90px;
 }
 
 /* NAV */
@@ -163,6 +164,28 @@ h2 {
 
 .contact-grid .card h3 {
   margin-bottom: 15px;
+}
+
+/* ✅ PERFECT CONTACT ALIGNMENT (GRID FIX) */
+.contact-grid .card p {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Smaller icons */
+.contact-grid .card i {
+  font-size: 14px !important;
+  margin-top: 4px;
+  color: #b8860b;
+}
+
+/* Ensure text block aligns properly */
+.contact-grid .card span {
+  display: block;
 }
 
 /* FORM */
