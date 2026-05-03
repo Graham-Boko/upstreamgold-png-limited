@@ -1,44 +1,19 @@
-/* =========================
-   12. JAVASCRIPT (ADD TO SCRIPT.JS)
-   ========================= */
-
-/*
-MENU TOGGLE
-*/
-
+/* MENU TOGGLE */
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('nav ul');
+const navContainer = document.querySelector('.nav');
 
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-});
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navContainer.classList.toggle('menu-open'); // shifts ☰ icon
+  });
+}
 
-/*
-SCROLL ANIMATION
-*/
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+/* CLOSE MENU ON CLICK */
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    navContainer.classList.remove('menu-open'); // close shift too
   });
 });
-
-document.querySelectorAll('.card, .section-title').forEach(el => {
-  el.classList.add('fade-in');
-  observer.observe(el);
-});
-
-/* =========================
-   13. MULTI PAGE STRUCTURE
-   ========================= */
-
-/*
-index.html → Home page (this design)
-about.html → Who we are + mission/vision
-services.html → service cards only
-team.html → staff profiles
-contact.html → form + map
-
-All pages use SAME header + footer
-*/
