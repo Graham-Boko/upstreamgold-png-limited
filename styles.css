@@ -205,31 +205,51 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   STATS SECTION
+   HERO STATS (NEW GLASS STYLE)
    ========================= */
-.stats{
-  background:#0b1f3a;
-  color:#fff;
-  padding:60px 0;
-}
-
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  text-align:center;
+.hero-stats{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
   gap:20px;
 }
 
-.stats i{
-  font-size:22px;
-  color:#f0c14b;
-  margin-bottom:10px;
+.hero-stats .stat-box{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.18);
+  padding:18px 22px;
+  border-radius:16px;
+  min-width:160px;
+  text-align:center;
+  color:#fff;
+  transition:0.3s;
 }
 
-.stats h3{
-  font-size:28px;
-  color:#f0c14b;
+.hero-stats .stat-box:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,0.12);
 }
+
+.hero-stats i{
+  font-size:22px;
+  color:#f0c14b;
+  margin-bottom:8px;
+  display:block;
+}
+
+.hero-stats h3{
+  font-size:28px;
+  color:#fff;
+}
+
+.hero-stats p{
+  font-size:12px;
+  opacity:0.85;
+}
+
 
 /* =========================
    FOOTER
