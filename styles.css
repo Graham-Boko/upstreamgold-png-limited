@@ -1,11 +1,11 @@
 /* =========================
    UPSTREAM GOLD WEBSITE
-   FULL PREMIUM MULTI-PAGE SYSTEM
-   (CSS + JS + PAGE STRUCTURE)
+   FULL RESPONSIVE PREMIUM CSS
+   (UPDATED + FIXED MENU + YOUR THEME PRESERVED)
    ========================= */
 
 /* =========================
-   1. GLOBAL STYLES
+   GLOBAL STYLES
    ========================= */
 *{
   margin:0;
@@ -17,7 +17,11 @@
 body{
   background:#f5f7fb;
   color:#1a1a1a;
-  line-height:1.6;
+  overflow-x:hidden;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 .container{
@@ -31,7 +35,7 @@ a{
 }
 
 /* =========================
-   2. NAVIGATION (ALL PAGES)
+   NAVIGATION
    ========================= */
 .header {
   background: #fff;
@@ -41,7 +45,7 @@ a{
   border-bottom: 1px solid #e5e7eb;
 }
 
-.nav{
+.header .container.nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -55,10 +59,11 @@ nav ul{
   display:flex;
   list-style:none;
   gap:20px;
+
 }
 
 nav ul li a{
-  color:#000000;
+  color:#000;
   font-weight:500;
   position:relative;
   padding:6px;
@@ -80,18 +85,31 @@ nav ul li a.active::after{
   width:100%;
 }
 
+/* =========================
+   MENU TOGGLE
+   ========================= */
 .menu-toggle{
+  margin-left:auto;
   display:none;
-  color:#fff;
-  font-size:22px;
+  font-size:26px;
+  cursor:pointer;
+  color:#000;
+  z-index:1001;
+  transition:0.3s ease;
+}
+
+.nav.menu-open .menu-toggle i{
+  transform:rotate(90deg);
+  color:#000; /* keeps same as default */
 }
 
 /* =========================
-   3. HERO SECTION
+   HERO SECTION
    ========================= */
 .hero{
-  height:85vh;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1581091012184-7c4f8f8c9d6c') center/cover;
+  height:70vh;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1581091012184-7c4f8f8c9d6c') center/cover;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -111,6 +129,7 @@ nav ul li a.active::after{
   opacity:0.9;
 }
 
+/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -127,8 +146,12 @@ nav ul li a.active::after{
   box-shadow:0 8px 20px rgba(240,193,75,0.3);
 }
 
+.btn:active{
+  transform:scale(0.97);
+}
+
 /* =========================
-   4. SECTIONS
+   SECTIONS
    ========================= */
 .section{
   padding:70px 0;
@@ -146,7 +169,7 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   5. CARDS
+   CARDS
    ========================= */
 .card{
   background:#fff;
@@ -165,6 +188,7 @@ nav ul li a.active::after{
   text-align:center;
 }
 
+/* ICONS */
 .service-icon{
   font-size:28px;
   color:#0b1f3a;
@@ -172,7 +196,7 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   6. GRID SYSTEM
+   GRID SYSTEM
    ========================= */
 .services-grid{
   display:grid;
@@ -181,7 +205,7 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   7. STATS SECTION
+   STATS SECTION
    ========================= */
 .stats{
   background:#0b1f3a;
@@ -208,20 +232,7 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   8. CTA SECTION
-   ========================= */
-.cta{
-  background:#f0c14b;
-  text-align:center;
-  padding:60px 20px;
-}
-
-.cta h2{
-  margin-bottom:10px;
-}
-
-/* =========================
-   9. FOOTER
+   FOOTER
    ========================= */
 .footer{
   background:#0b1f3a;
@@ -235,7 +246,8 @@ nav ul li a.active::after{
   gap:30px;
 }
 
-.footer h4, .footer h3{
+.footer h4,
+.footer h3{
   margin-bottom:10px;
 }
 
@@ -251,6 +263,7 @@ nav ul li a.active::after{
   color:#fff;
 }
 
+/* SOCIAL ICONS */
 .social-icons a{
   display:inline-flex;
   width:38px;
@@ -260,11 +273,18 @@ nav ul li a.active::after{
   align-items:center;
   margin-right:8px;
   color:#fff;
+  transition:0.3s;
 }
 
 .facebook{background:#1877F2;}
 .linkedin{background:#0A66C2;}
 
+.social-icons a:hover{
+  transform:translateY(-4px);
+  opacity:0.9;
+}
+
+/* FOOTER BOTTOM */
 .footer-bottom{
   text-align:center;
   margin-top:30px;
@@ -274,7 +294,7 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   10. ANIMATIONS (MODERN EFFECTS)
+   ANIMATIONS
    ========================= */
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(30px);}
@@ -284,7 +304,7 @@ nav ul li a.active::after{
 .fade-in{
   opacity:0;
   transform:translateY(30px);
-  transition:1s;
+  transition:0.8s ease;
 }
 
 .fade-in.show{
@@ -293,27 +313,121 @@ nav ul li a.active::after{
 }
 
 /* =========================
-   11. MOBILE RESPONSIVE
+   RESPONSIVE DESIGN
    ========================= */
-@media(max-width:768px){
-  nav ul{
-    display:none;
-    flex-direction:column;
-    background:#0b1f3a;
-    position:absolute;
-    top:70px;
-    right:0;
-    width:200px;
-    padding:20px;
-  }
 
-  nav ul.active{
-    display:flex;
+/* TABLET */
+@media(max-width:1024px){
+  .hero h1{
+    font-size:40px;
   }
+}
+
+/* MOBILE MENU FIX */
+@media(max-width:768px){
 
   .menu-toggle{
     display:block;
   }
+
+nav ul{
+  position:fixed;
+  top:110px;
+  right:-100%;
+  width:280px;
+  flex-direction:column;
+  padding:18px;
+
+  border-radius:10px 0 0 10px;
+
+  /* GLASS EFFECT */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-left: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow:-5px 10px 25px rgba(0,0,0,0.15);
+
+  transition:0.35s ease;
+  height:auto;
 }
 
+  nav ul.active{
+    right:0;
+  }
 
+  nav ul li{
+    margin-bottom:15px;
+  }
+
+nav ul li a{
+  color:#000;
+  font-weight:500;
+  font-size:16px; /* same feel as desktop */
+}
+
+nav ul li a:hover{
+  color:#f0c14b;
+}
+
+  .hero{
+    height:auto;
+    padding:100px 20px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section{
+    padding:60px 0;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+/* SMALL MOBILE */
+@media(max-width:480px){
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .btn{
+    padding:10px 18px;
+    font-size:14px;
+  }
+
+  .logo-img{
+    height:70px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+    font-size:24px;
+  }
+
+  .card{
+    padding:20px;
+  }
+}
+
+/* SAFETY */
+img{
+  max-width:100%;
+  height:auto;
+}
