@@ -451,3 +451,198 @@ img{
   max-width:100%;
   height:auto;
 }
+
+/* =========================
+   BOARD SECTION (PREMIUM)
+   ========================= */
+
+.board-section .section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+/* GRID */
+.board-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:30px;
+}
+
+/* CARD STYLE */
+.board-card{
+  background:#fff;
+  padding:30px 20px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  transition:0.3s ease;
+  position:relative;
+}
+
+.board-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* AVATAR */
+.board-avatar{
+  width:70px;
+  height:70px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#0b1f3a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  color:#ffffff;
+}
+
+/* NAME */
+.board-card h3{
+  font-size:18px;
+  margin-bottom:5px;
+  color:#0b1f3a;
+}
+
+/* ROLE */
+.board-card span{
+  display:block;
+  font-weight:600;
+  color:#0b1f3a;
+  margin-bottom:5px;
+}
+
+/* TYPE (shareholder, independent etc) */
+.board-card p{
+  font-size:14px;
+  color:#666;
+}
+
+
+/* OPTIONAL LINE DECORATION */
+.board-card::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:40px;
+  height:3px;
+  background:#0b1f3a;
+  border-radius:2px;
+  opacity:0;
+  transition:0.3s;
+}
+
+.board-card:hover::after{
+  opacity:1;
+}
+
+
+/* =========================
+   MANAGEMENT (PROFESSIONAL) and team
+   ========================= */
+
+.management-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:25px;
+}
+
+.management-card{
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 18px rgba(0,0,0,0.08);
+  transition:0.3s;
+  position:relative;
+}
+
+.management-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.management-card i{
+  font-size:26px;
+  color:#0b1f3a;
+  margin-bottom:12px;
+  
+}
+
+/* TITLE */
+.management-card h3{
+  font-size:18px;
+  margin-bottom:8px;
+  color:#0b1f3a;
+}
+
+/* TEXT */
+.management-card p{
+  font-size:14px;
+  color:#555;
+  line-height:1.5;
+}
+
+/* LEFT BORDER ACCENT */
+.management-card::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#0b1f3a;
+  border-radius:12px 0 0 12px;
+}
+
+/* =========================
+   TECHNICAL TEAM (CLEAN)
+   ========================= */
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
+}
+
+.team-card{
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid #e5e7eb;
+  transition:0.3s;
+}
+
+.team-card:hover{
+ transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* TITLE */
+.team-card h3{
+  font-size:16px;
+  color:#0b1f3a;
+  margin-bottom:5px;
+}
+
+/* SUB ROLE */
+.team-card span{
+  font-size:13px;
+  color:#555;
+  font-weight:500;
+}
+
+.team-card::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#0b1f3a;
+  border-radius:12px 0 0 12px;
+}
