@@ -54,7 +54,7 @@
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; line-height: 1.2; margin-bottom: 24px; color: #FFFFFF; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
     .hero p { font-size: 1.1rem; color: #F0F0F0; margin-bottom: 36px; max-width: 620px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height: 1.6; }
     
-    /* NEW PILLARS SECTION — exactly as per image layout */
+    /* Pillars Section (existing) */
     .pillars-section {
       margin: 60px 0 20px;
     }
@@ -99,19 +99,106 @@
       margin: 0;
     }
     
-    /* Responsive pillars */
+    /* NEW FOCUS AREAS SECTION - Exactly as per image layout */
+    .focus-section {
+      margin: 70px 0 60px;
+    }
+    .focus-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .focus-header .section-sub {
+      margin-bottom: 12px;
+    }
+    .focus-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0F1A2E;
+      letter-spacing: -0.3px;
+    }
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .focus-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 32px 24px 28px;
+      text-align: left;
+      border: 1px solid rgba(200,163,55,0.2);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 22px -12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .focus-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold-light);
+      box-shadow: var(--shadow-md);
+    }
+    .focus-icon {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .focus-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1E2A3E;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .focus-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .focus-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      color: var(--gold-dark);
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .focus-link i {
+      transition: transform 0.2s;
+    }
+    .focus-link:hover {
+      color: var(--gold);
+    }
+    .focus-link:hover i {
+      transform: translateX(4px);
+    }
+    
+    /* Responsive */
     @media (max-width: 1000px) {
-      .pillars-grid {
+      .pillars-grid, .focus-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
       }
+      .focus-header h2 {
+        font-size: 2.2rem;
+      }
     }
     @media (max-width: 600px) {
-      .pillars-grid {
+      .pillars-grid, .focus-grid {
         grid-template-columns: 1fr;
       }
-      .pillar-card {
-        padding: 28px 20px;
+      .focus-card {
+        padding: 28px 22px;
+      }
+      .focus-header h2 {
+        font-size: 1.8rem;
       }
     }
     
@@ -119,8 +206,6 @@
     .section-sub { color: var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 20px; font-weight: 600; }
     .two-col { display: flex; flex-wrap: wrap; gap: 70px; margin: 50px 0 30px; }
     .col { flex: 1; min-width: 250px; }
-    .content-block { margin-bottom: 60px; }
-    .content-block p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; }
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin: 40px 0; }
     .feature-card { background: #FCFAF7; border-radius: 28px; padding: 28px 24px; border: 1px solid #EFF2F9; transition: 0.2s; }
     .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); border-color: var(--gold-light); }
@@ -128,7 +213,7 @@
     .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 600; }
     .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
     
-    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); }
+    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); margin-top: 20px; }
     .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
     .footer-col { flex: 1; min-width: 180px; }
     .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
@@ -181,39 +266,27 @@
     </div>
   </section>
   
-  <!-- REPLACED STATS SECTION WITH PILLARS FROM IMAGE (EXACT CONTENT & LAYOUT) -->
+  <!-- Pillars Section -->
   <div class="pillars-section">
     <div class="container">
       <div class="pillars-grid">
-        <!-- Pillar 1: Exploration Focused -->
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fas fa-compass"></i>
-          </div>
+          <div class="pillar-icon"><i class="fas fa-compass"></i></div>
           <h3>EXPLORATION FOCUSED</h3>
           <p>Building a pipeline of high-potential gold assets across PNG.</p>
         </div>
-        <!-- Pillar 2: PNG Rooted -->
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fas fa-flag-checkered"></i>
-          </div>
+          <div class="pillar-icon"><i class="fas fa-flag-checkered"></i></div>
           <h3>PNG ROOTED</h3>
           <p>Proudly Papua New Guinean owned and committed to the nation's development.</p>
         </div>
-        <!-- Pillar 3: Responsible Growth -->
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fas fa-seedling"></i>
-          </div>
+          <div class="pillar-icon"><i class="fas fa-seedling"></i></div>
           <h3>RESPONSIBLE GROWTH</h3>
           <p>We operate with integrity, respecting our people, communities and environment.</p>
         </div>
-        <!-- Pillar 4: Value Creation -->
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fas fa-gem"></i>
-          </div>
+          <div class="pillar-icon"><i class="fas fa-gem"></i></div>
           <h3>VALUE CREATION</h3>
           <p>Creating long-term value for shareholders and stakeholders.</p>
         </div>
@@ -228,12 +301,12 @@
       <div class="two-col">
         <div class="col">
           <h2 class="section-title"></h2>
-          <p style="color: var(--text-muted);">Upstream Gold (PNG) Ltd is a Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
+          <p style="color: var(--text-muted);">Upstream Gold (PNG) Ltd is a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
         </div>
         <div class="col">
           <div class="section-sub" style="margin-bottom:12px">Learn More</div>
           <p><a href="about.html" style="color:var(--gold); font-weight:500; text-decoration: none;">About Upstream Gold →</a></p>
-          <p style="margin-top: 16px;"><a href="leadership.html" style="color:var(--gold); font-weight:500; text-decoration: none;">Meet our Team →</a></p>
+          <p style="margin-top: 16px;"><a href="team.html" style="color:var(--gold); font-weight:500; text-decoration: none;">Meet our Team →</a></p>
         </div>
       </div>
     </div>
@@ -253,7 +326,45 @@
     </div>
   </section>
 
-
+  <!-- NEW OUR FOCUS AREAS SECTION - exactly as per image design -->
+  <div class="focus-section">
+    <div class="container">
+      <div class="focus-header">
+        <div class="section-sub">✦ WHAT WE DO</div>
+        <h2>OUR FOCUS AREAS</h2>
+      </div>
+      <div class="focus-grid">
+        <!-- Card 1: Natural Resource Development -->
+        <div class="focus-card">
+          <div class="focus-icon"><i class="fas fa-mountain"></i></div>
+          <h3>Natural Resource Development</h3>
+          <p>Using PNG's resources responsibly to drive economic growth.</p>
+          <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Card 2: Education & Career Pathways -->
+        <div class="focus-card">
+          <div class="focus-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Education & Career Pathways</h3>
+          <p>Connecting individuals to quality education and career opportunities.</p>
+          <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Card 3: Training & Capacity Building -->
+        <div class="focus-card">
+          <div class="focus-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h3>Training & Capacity Building</h3>
+          <p>Providing practical training and real-world experience.</p>
+          <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Card 4: Sustainable Livelihoods -->
+        <div class="focus-card">
+          <div class="focus-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Sustainable Livelihoods</h3>
+          <p>Creating opportunities that reduce poverty and build resilience.</p>
+          <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="footer">
@@ -269,7 +380,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="team.html">team</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="compliance.html">Compliance</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
