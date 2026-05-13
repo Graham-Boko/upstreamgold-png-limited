@@ -23,7 +23,7 @@
     .btn-gold { display: inline-block; background: var(--gold); color: white; font-weight: 600; padding: 12px 34px; border-radius: 40px; transition: all 0.3s; text-decoration: none; box-shadow: 0 4px 8px rgba(200,163,55,0.2); }
     .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 12px 22px -8px rgba(160,126,21,0.3); }
     
-    /* Hero section - far left alignment */
+    /* Hero section */
     .hero { 
       min-height: 90vh; 
       display: flex; 
@@ -53,8 +53,178 @@
     .hero-sub { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 6px; color: var(--gold); margin-bottom: 24px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; line-height: 1.2; margin-bottom: 24px; color: #FFFFFF; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
     .hero p { font-size: 1.1rem; color: #F0F0F0; margin-bottom: 36px; max-width: 620px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height: 1.6; }
+
+ /* PREMIUM STATS SECTION */
+.stats-section {
+  position: relative;
+  margin-top: -85px;
+  z-index: 10;
+}
+
+.stats-bar {
+  background: linear-gradient(135deg, #1E2430 0%, #2B3445 55%, #3A4458 100%);
+  border-radius: 22px;
+  padding: 26px 34px;
+
+  width: 92%;
+  max-width: 1220px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+
+  box-shadow: 0 18px 36px -18px rgba(30,42,62,0.28);
+
+  border: 1px solid rgba(200,163,55,0.14);
+
+  overflow: hidden;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(200,163,55,0.08);
+
+  border: 1px solid rgba(200,163,55,0.14);
+
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-icon {
+  transform: translateY(-3px);
+  background: rgba(200,163,55,0.14);
+}
+
+.stat-icon i {
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.stat-content h3 {
+  font-size: 1.55rem;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.stat-content p {
+  color: rgba(245,245,245,0.82);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  max-width: 160px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 54px;
+  background: rgba(200,163,55,0.18);
+  margin: 0 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .stats-section {
+    margin-top: -40px;
+  }
+
+  .stats-bar {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    border-radius: 24px;
+  }
+
+  .stat-item {
+    align-items: flex-start;
+  }
+
+  .stat-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .stat-icon {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+  }
+
+  .stat-icon i {
+    font-size: 1.6rem;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .stats-section {
+    margin-top: -40px;
+  }
+
+  .stats-bar {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    border-radius: 24px;
+  }
+
+  .stat-item {
+    align-items: flex-start;
+  }
+
+  .stat-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .stat-icon {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+  }
+
+  .stat-icon i {
+    font-size: 1.6rem;
+  }
+}
     
-    /* Pillars Section (existing) */
+    /* Pillars Section */
     .pillars-section {
       margin: 60px 0 20px;
     }
@@ -99,7 +269,7 @@
       margin: 0;
     }
     
-    /* NEW FOCUS AREAS SECTION - Exactly as per image layout */
+    /* FOCUS AREAS SECTION with image + centered bottom icon */
     .focus-section {
       margin: 70px 0 60px;
     }
@@ -125,7 +295,7 @@
     .focus-card {
       background: #FFFFFF;
       border-radius: 28px;
-      padding: 32px 24px 28px;
+      padding: 28px 24px 28px;
       text-align: left;
       border: 1px solid rgba(200,163,55,0.2);
       transition: all 0.3s ease;
@@ -138,15 +308,54 @@
       border-color: var(--gold-light);
       box-shadow: var(--shadow-md);
     }
-    .focus-icon {
-      font-size: 2.4rem;
-      color: var(--gold);
+    /* Image container for s.png with relative positioning */
+    .focus-image-wrapper {
+      position: relative;
+      width: 100%;
       margin-bottom: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1 / 0.9;
+      background: #F5F2EA;
+    }
+    .focus-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .focus-card:hover .focus-img {
+      transform: scale(1.02);
+    }
+    /* Icon positioned at bottom center of the image */
+    .image-bottom-icon {
+      position: absolute;
+      bottom: -18px;  /* half outside to overlap bottom edge */
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 2px solid white;
+      transition: all 0.2s;
+      z-index: 2;
+    }
+    .focus-card:hover .image-bottom-icon {
+      background: var(--gold-dark);
+      transform: translateX(-50%) scale(1.05);
     }
     .focus-card h3 {
       font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin: 18px 0 12px 0;
       color: #1E2A3E;
       font-family: 'Cormorant Garamond', serif;
     }
@@ -195,10 +404,7 @@
         grid-template-columns: 1fr;
       }
       .focus-card {
-        padding: 28px 22px;
-      }
-      .focus-header h2 {
-        font-size: 1.8rem;
+        padding: 24px 20px;
       }
     }
     
@@ -213,7 +419,7 @@
     .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 600; }
     .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
     
-    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); margin-top: 20px; }
+    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); }
     .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
     .footer-col { flex: 1; min-width: 180px; }
     .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
@@ -236,6 +442,244 @@
       .footer-grid { flex-direction: column; gap: 32px; } 
       .logo-img { height: 40px; } 
     }
+
+/* ============================= */
+/* PREMIUM WHO WE ARE SECTION */
+/* ============================= */
+
+.who-section {
+  padding: 90px 0 100px;
+  background:
+    radial-gradient(circle at top left, rgba(200,163,55,0.05), transparent 30%),
+    linear-gradient(to bottom, #fffdf9, #ffffff);
+  overflow: hidden;
+}
+
+.who-wrapper {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.who-content {
+  max-width: 560px;
+}
+
+.who-content .section-sub {
+  margin-bottom: 28px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 7px;
+}
+
+.who-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.4rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #11233D;
+  margin-bottom: 34px;
+  letter-spacing: -2px;
+}
+
+.who-line {
+  width: 74px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 34px;
+}
+
+.who-content p {
+  font-size: 1.12rem;
+  line-height: 2;
+  color: #4E5C72;
+  margin-bottom: 28px;
+}
+
+.who-links {
+  margin-top: 55px;
+}
+
+.who-links .section-sub {
+  margin-bottom: 22px;
+}
+
+.who-link-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.who-link-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,163,55,0.25);
+  background: rgba(255,255,255,0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gold);
+  font-size: 1.4rem;
+
+  box-shadow: 0 10px 24px -18px rgba(0,0,0,0.2);
+
+  transition: all 0.3s ease;
+}
+
+.who-link-item:hover .who-link-icon {
+  transform: translateY(-3px);
+  background: var(--gold);
+  color: white;
+}
+
+.who-link-item a {
+  color: var(--gold-dark);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.who-link-item a:hover {
+  color: var(--gold);
+  padding-left: 4px;
+}
+
+/* IMAGE CARD */
+
+.who-image-card {
+  position: relative;
+  border-radius: 34px;
+  overflow: hidden;
+  min-height: 720px;
+
+  border: 1px solid rgba(200,163,55,0.35);
+
+  box-shadow:
+    0 50px 80px -40px rgba(15,26,46,0.35),
+    0 20px 40px -24px rgba(200,163,55,0.18);
+
+  isolation: isolate;
+}
+
+.who-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  filter:
+    brightness(0.92)
+    contrast(1.04)
+    saturate(0.95);
+
+  transition: transform 0.8s ease;
+}
+
+.who-image-card:hover img {
+  transform: scale(1.04);
+}
+
+.who-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 44px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(10,18,32,0.82) 0%,
+      rgba(10,18,32,0.45) 28%,
+      rgba(10,18,32,0.08) 58%,
+      rgba(10,18,32,0) 100%
+    );
+}
+
+.who-overlay-sub {
+  color: var(--gold);
+  font-size: 0.82rem;
+  letter-spacing: 6px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.who-overlay-line {
+  width: 90px;
+  height: 1px;
+  background: rgba(200,163,55,0.7);
+  margin-bottom: 24px;
+}
+
+.who-overlay-text {
+  color: rgba(255,255,255,0.96);
+
+  font-size: 2rem;
+  line-height: 1.6;
+  font-weight: 400;
+
+  max-width: 540px;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.35);
+}
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+  .who-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .who-image-card {
+    min-height: 620px;
+  }
+
+  .who-heading {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .who-section {
+    padding: 70px 0;
+  }
+
+  .who-heading {
+    font-size: 2.8rem;
+  }
+
+  .who-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .who-image-card {
+    min-height: 500px;
+    border-radius: 28px;
+  }
+
+  .who-overlay-text {
+    font-size: 1.4rem;
+  }
+
+  .who-image-overlay {
+    padding: 28px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -257,15 +701,81 @@
   </div>
 </header>
 <main>
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-sub">✦ Strategic Partner in Extractive Industry</div>
-      <h1>EXPLORING TODAY. BUILDING TOMORROW.</h1>
-      <p>Upstream Gold (PNG) Limited is a nationally owned company delivering innovative, reliable, and sustainable solutions across the mining, logistics, and development sectors</p>
-      <a href="services.html" class="btn-gold">Our services <i class="fas fa-arrow-right"></i></a>
+ <section class="hero">
+  <div class="hero-content">
+    <div class="hero-sub">✦ Strategic Partner in Extractive Industry</div>
+    <h1>EXPLORING TODAY. BUILDING TOMORROW.</h1>
+    <p>
+      Upstream Gold (PNG) Limited is a nationally owned company delivering
+      innovative, reliable, and sustainable solutions across the mining,
+      logistics, and development sectors
+    </p>
+
+    <a href="services.html" class="btn-gold">
+      Our services <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+<!-- NEW PREMIUM STATS BAR -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-bar">
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <div class="stat-content">
+          <h3>2024</h3>
+          <p>Established</p>
+        </div>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+
+        <div class="stat-content">
+          <h3>60+</h3>
+          <p>Years of combined experience</p>
+        </div>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-hard-hat"></i>
+        </div>
+
+        <div class="stat-content">
+          <h3>PNG</h3>
+          <p>Operartions</p>
+        </div>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-seedling"></i>
+        </div>
+
+        <div class="stat-content">
+          <h3>100%</h3>
+          <p>Commitment</p>
+        </div>
+      </div>
+
     </div>
-  </section>
-  
+  </div>
+</section>
+
   <!-- Pillars Section -->
   <div class="pillars-section">
     <div class="container">
@@ -294,24 +804,90 @@
     </div>
   </div>
 
-  <!-- Who We Are section -->
-  <section style="padding: 20px 0 30px;">
-    <div class="container">
-      <div class="section-sub">✦ Who We Are</div>
-      <div class="two-col">
-        <div class="col">
-          <h2 class="section-title"></h2>
-          <p style="color: var(--text-muted);">Upstream Gold (PNG) Ltd is a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
+<!-- PREMIUM WHO WE ARE SECTION -->
+<section class="who-section">
+  <div class="container">
+
+    <div class="who-wrapper">
+
+      <!-- LEFT -->
+      <div class="who-content">
+
+        <div class="section-sub">
+          ✦ WHO WE ARE
         </div>
-        <div class="col">
-          <div class="section-sub" style="margin-bottom:12px">Learn More</div>
-          <p><a href="about.html" style="color:var(--gold); font-weight:500; text-decoration: none;">About Upstream Gold →</a></p>
-          <p style="margin-top: 16px;"><a href="team.html" style="color:var(--gold); font-weight:500; text-decoration: none;">Meet our Team →</a></p>
+
+        <h2 class="who-heading">
+          Building Papua New Guinea’s Future
+        </h2>
+
+        <div class="who-line"></div>
+
+        <p>
+          Upstream Gold (PNG) Ltd is a 100% Papua New Guinean-owned company,
+          established in 2024.
+        </p>
+
+        <p>
+          Our leadership team brings together geoscientists, development
+          practitioners, and former government executives with over 100 years
+          of combined experience in major national projects.
+        </p>
+
+        <div class="who-links">
+
+          <div class="section-sub">
+            LEARN MORE
+          </div>
+
+          <div class="who-link-item">
+            <div class="who-link-icon">
+              <i class="fas fa-user"></i>
+            </div>
+
+            <a href="about.html">
+              About Upstream Gold →
+            </a>
+          </div>
+
+          <div class="who-link-item">
+            <div class="who-link-icon">
+              <i class="fas fa-users"></i>
+            </div>
+
+            <a href="team.html">
+              Meet our Team →
+            </a>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
 
+      <!-- RIGHT -->
+      <div class="who-image-card">
+
+        <img src="who-we-are.png" alt="Papua New Guinea Landscape">
+
+        <div class="who-image-overlay">
+
+          <div class="who-overlay-sub">
+            ✦ LOCALLY ROOTED. NATIONALLY COMMITTED.
+          </div>
+
+          <div class="who-overlay-line"></div>
+
+          <div class="who-overlay-text">
+            Proudly investing in Papua New Guinea’s future through responsible
+            development, strong partnerships, and shared success.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- Why Choose Us -->
   <section style="padding: 20px 0; background: #FCFAF7;">
     <div class="container">
@@ -326,7 +902,7 @@
     </div>
   </section>
 
-  <!-- NEW OUR FOCUS AREAS SECTION - exactly as per image design -->
+  <!-- OUR FOCUS AREAS section - with s.png images and bottom-centered icons (FA icons removed) -->
   <div class="focus-section">
     <div class="container">
       <div class="focus-header">
@@ -336,28 +912,40 @@
       <div class="focus-grid">
         <!-- Card 1: Natural Resource Development -->
         <div class="focus-card">
-          <div class="focus-icon"><i class="fas fa-mountain"></i></div>
+          <div class="focus-image-wrapper">
+            <img src="s.png" alt="Natural Resource Development" class="focus-img">
+            <div class="image-bottom-icon"><i class="fas fa-gem"></i></div>
+          </div>
           <h3>Natural Resource Development</h3>
           <p>Using PNG's resources responsibly to drive economic growth.</p>
           <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
         </div>
         <!-- Card 2: Education & Career Pathways -->
         <div class="focus-card">
-          <div class="focus-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="focus-image-wrapper">
+            <img src="s.png" alt="Education & Career Pathways" class="focus-img">
+            <div class="image-bottom-icon"><i class="fas fa-gem"></i></div>
+          </div>
           <h3>Education & Career Pathways</h3>
           <p>Connecting individuals to quality education and career opportunities.</p>
           <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
         </div>
         <!-- Card 3: Training & Capacity Building -->
         <div class="focus-card">
-          <div class="focus-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <div class="focus-image-wrapper">
+            <img src="s.png" alt="Training & Capacity Building" class="focus-img">
+            <div class="image-bottom-icon"><i class="fas fa-gem"></i></div>
+          </div>
           <h3>Training & Capacity Building</h3>
           <p>Providing practical training and real-world experience.</p>
           <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
         </div>
         <!-- Card 4: Sustainable Livelihoods -->
         <div class="focus-card">
-          <div class="focus-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="focus-image-wrapper">
+            <img src="s.png" alt="Sustainable Livelihoods" class="focus-img">
+            <div class="image-bottom-icon"><i class="fas fa-gem"></i></div>
+          </div>
           <h3>Sustainable Livelihoods</h3>
           <p>Creating opportunities that reduce poverty and build resilience.</p>
           <a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a>
@@ -386,7 +974,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>Contact & Compliance</h4>
         <div class="contact-line"><i class="fas fa-map-marker-alt"></i> <span>Kwalimu Precincts, Waigani, NCD</span></div>
         <div class="contact-line"><i class="fas fa-envelope"></i> <span>upstreamgoldpng@gmail.com</span></div>
         <div class="contact-line"><i class="fas fa-phone-alt"></i> <span>+675 7XXXXXXX</span></div>
