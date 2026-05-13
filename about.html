@@ -1,224 +1,319 @@
-<!-- ================= IMPROVED ABOUT PAGE (CORPORATE LEVEL FINAL POLISHED) ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Upstream Gold</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <title>Upstream Gold (PNG) Ltd | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.5; scroll-behavior: smooth; }
+    :root { --gold: #C8A337; --gold-dark: #A07E15; --gold-light: #F2E5C2; --text-muted: #4A5A72; --shadow-sm: 0 8px 20px -6px rgba(0,0,0,0.05); --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .header { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,163,55,0.2); padding: 12px 0; z-index: 100; }
+    .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .logo-img { height: 50px; width: auto; display: block; }
+    .logo-text { display: none; }
+    .nav-links { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { font-weight: 500; font-size: 0.9rem; text-decoration: none; color: #1E2A3E; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { border: 1px solid var(--gold); padding: 8px 24px; border-radius: 40px; font-weight: 600; color: var(--gold-dark); transition: all 0.25s; }
+    .nav-cta:hover { background: var(--gold); color: white; border-color: var(--gold); }
+    .btn-gold { display: inline-block; background: var(--gold); color: white; font-weight: 600; padding: 12px 34px; border-radius: 40px; transition: all 0.3s; text-decoration: none; box-shadow: 0 4px 8px rgba(200,163,55,0.2); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 12px 22px -8px rgba(160,126,21,0.3); }
+    
+    /* Hero section - far left alignment with background image */
+    .hero { 
+      min-height: 65vh; 
+      display: flex; 
+      align-items: center; 
+      position: relative;
+      background: url('hero.png') center center / cover no-repeat;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 750px;
+      text-align: left;
+      width: 100%;
+    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: #FFFFFF; text-shadow: 0 2px 8px rgba(0,0,0,0.3); letter-spacing: -0.5px; }
+    .hero p { font-size: 1rem; color: #F0F0F0; margin-bottom: 0; max-width: 620px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height: 1.6; }
+    
+    /* About main content (aligned with image content) */
+    .about-main {
+      padding: 70px 0 80px;
+    }
+    .section-tag {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .about-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #0F1A2E;
+    }
+    .about-description {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 85%;
+    }
+    
+    /* FOUR-COLUMN GRID (Mission, Vision, Values, Commitment all in one row) */
+    .four-col-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 48px 0 20px;
+    }
+    .core-card {
+      background: #FCFAF7;
+      border-radius: 28px;
+      padding: 28px 24px;
+      border: 1px solid #EFF2F9;
+      transition: all 0.25s;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .core-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-light);
+      box-shadow: var(--shadow-md);
+    }
+    .card-icon {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .core-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1E2A3E;
+      letter-spacing: -0.2px;
+    }
+    .core-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    /* Values list inside card */
+    .values-list {
+      list-style: none;
+      margin-top: 6px;
+      padding-left: 0;
+    }
+    .values-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1E2A3E;
+    }
+    .values-list li i {
+      color: var(--gold);
+      width: 20px;
+      font-size: 0.9rem;
+    }
+    .commitment-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .stock-ticker {
+      display: inline-block;
+      background: #F2E5C2;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Responsive: stacked on tablet & mobile */
+    @media (max-width: 1000px) {
+      .four-col-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+    @media (max-width: 650px) {
+      .four-col-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-headline { font-size: 2.4rem; }
+      .about-description { max-width: 100%; }
+    }
+    @media (max-width: 900px) { 
+      .container { padding: 0 24px; } 
+      .hero { min-height: 50vh; padding-left: 5%; padding-right: 5%; } 
+      .hero h1 { font-size: 2.2rem; }
+    }
+    
+    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); margin-top: 20px; }
+    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
+    .footer-col { flex: 1; min-width: 180px; }
+    .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
+    .footer-col p { font-size: 0.85rem; line-height: 1.6; opacity: 0.8; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a { text-decoration: none; color: #475569; transition: color 0.2s; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--gold); }
+    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
+    .social-icons a { background: #FFFFFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.25s; color: #5B6E8C; font-size: 1.1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03); border: 1px solid #E9EDF2; }
+    .social-icons a:hover { background: var(--gold); color: white; transform: translateY(-3px); border-color: var(--gold); }
+    .contact-line { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #475569; }
+    .contact-line i { color: var(--gold); width: 24px; }
+    .footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid #E9EDF2; font-size: 0.75rem; color: #94A3B8; }
+  </style>
 </head>
-
 <body>
-
-  <header class="header">
+<header class="header">
   <div class="container nav">
-
-    <img src="logo2.png" alt="Logo" class="logo-img">
-
-    <div class="menu-toggle">
-      <i class="fa fa-bars"></i>
+    <div class="logo">
+      <img src="logo2.png" alt="Upstream Gold (PNG) Ltd Logo" class="logo-img">
+      <span class="logo-text">UPSTREAM GOLD<span>®</span></span>
     </div>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-  </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero small-hero">
-  <div class="hero-content">
-    <h1>About Us</h1>
-    <p>Driving sustainable growth and national development in Papua New Guinea</p>
-  </div>
-  </section>
-
-  <!-- COMPANY OVERVIEW -->
-  <section class="section">
-  <div class="container">
-    <h2>Company Overview</h2>
-    <br>
-    <div class="card">
-      Upstream Gold (PNG) Ltd is a nationally owned company engaged in mining, petroleum, logistics and development services. With a strong vision for sustainable development, the company aims to be a strategic leader and trusted partner in Papua New Guinea’s extractive industry.
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Partner</a>
     </div>
   </div>
-  </section>
-
-  <!-- MISSION & VISION -->
-  <section class="section alt">
-  <div class="container">
-    <h2>Mission & Vision</h2>
-    <br>
-    <div class="projects-grid">
-
-      <div class="card project-card">
-        <i class="fa-solid fa-bullseye service-icon"></i>
-        <h3>Mission</h3>
-        <br>
-        <p>
-          To create and establish strategically positioned businesses, socially responsible programs and practical solutions that lay the foundation for long-term development.
-        </p>
-      </div>
-      <br>
-      <div class="card project-card">
-        <i class="fa-solid fa-eye service-icon"></i>
-        <h3>Vision</h3>
-        <br>
-        <p>
-          To promote, enhance and advance service delivery through dynamic development models for growth and prosperity.
-        </p>
-      </div>
-
+</header>
+<main>
+  <!-- Hero section (preserved from original) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>EMPOWERING SUSTAINABLE GROWTH IN PAPUA NEW GUINEA</h1>
+      <p>Upstream Gold (PNG) Limited is a nationally owned company delivering innovative, reliable, and sustainable solutions across the mining, petroleum, logistics, and development sectors.</p>
     </div>
-  </div>
   </section>
 
-  <!-- CORE VALUES -->
-  <section class="section">
-  <div class="container">
-    <h2>Core Values</h2>
-    <br>
-
-    <div class="services-grid">
-
-      <div class="card service-card">
-        <i class="fa-solid fa-glasses service-icon"></i>
-        <h3>Transparency</h3>
-      </div>
-
-      <div class="card service-card">
-        <i class="fa-solid fa-scale-balanced service-icon"></i>
-        <h3>Accountability</h3>
-      </div>
-
-      <div class="card service-card">
-        <i class="fa-solid fa-people-group service-icon"></i>
-        <h3>Teamwork</h3>
-      </div>
-
-      <div class="card service-card">
-        <i class="fa-solid fa-lightbulb service-icon"></i>
-        <h3>Innovation</h3>
-      </div>
-
-    </div>
-  </div>
-  </section>
-
-  <!-- DEVELOPMENT FOCUS -->
-  <section class="section alt">
-  <div class="container">
-    <h2>Development Focus</h2>
-    <br>
-    <div class="projects-grid">
-
-      <!-- OBJECTIVE -->
-      <div class="card project-card">
-        <i class="fa-solid fa-seedling service-icon"></i>
-        <h3>Objective</h3>
-        <br>
-        <p>
-          To use natural resources as a catalyst for development in the remote areas of Papua New Guinea through improved living standards of people.
-        </p>
-      </div>
-      <br>
-      <!-- TARGET AUDIENCE -->
-      <div class="card project-card">
-        <i class="fa-solid fa-users service-icon"></i>
-        <h3>Target Audience</h3>
-
-        <p style="margin-top:10px;">
-          ✔ Career development opportunities for individuals
-        </p>
-
-        <p>
-          ✔ Training and skills development programs
-        </p>
-
-        <p>
-          ✔ Sustainable livelihoods and poverty reduction initiatives
-        </p>
-
-      </div>
-
-    </div>
-  </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section">
-  <div class="container">
-    <h2>Our Experience</h2>
-    <br>
-    <div class="card">
-      Our team comprises experienced geoscientists and development professionals with decades of combined experience in mining, oil & gas, and national development projects both locally and internationally.
-    </div>
-   </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-col">
-      <h3>Upstream Gold (PNG) Ltd</h3>
-      <p>
-        Strategic Mining, Petroleum & Development Partner in Papua New Guinea.
+  <!-- About content exactly as per image: WHO WE ARE + mission/vision/values/commitment in ONE ROW -->
+  <div class="about-main">
+    <div class="container">
+      <!-- WHO WE ARE section (from image) -->
+      <div class="section-tag">✦ WHO WE ARE</div>
+      <h2 class="about-headline">Exploring Today.<br>Building Tomorrow.</h2>
+      <p class="about-description">
+        Upstream Gold (PNG) Limited is an exploration company listed on the Port Moresby Stock Exchange (Code: UPG). We are committed to unlocking the significant gold potential across Papua New Guinea through disciplined exploration, technical excellence, and responsible development.
       </p>
+      <p class="about-description" style="margin-top: -12px;">
+        Our experienced team combines local knowledge with global expertise to deliver long-term value for our shareholders, partners and the communities in which we operate.
+      </p>
+      <div class="stock-ticker">
+        <i class="fas fa-chart-line" style="margin-right: 6px;"></i> POMSoX: UPG
+      </div>
+
+      <!-- FOUR CARDS IN ONE ROW: Mission | Vision | Values | Commitment -->
+      <div class="four-col-grid">
+        <!-- Mission Card -->
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>To discover and develop high-quality gold assets in Papua New Guinea while creating sustainable value for our shareholders and stakeholders.</p>
+        </div>
+        
+        <!-- Vision Card -->
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To be Papua New Guinea's leading gold exploration company, recognised for our people, our partnerships and our performance.</p>
+        </div>
+        
+        <!-- Values Card (list with icons) -->
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-gem"></i></div>
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li><i class="fas fa-handshake"></i> Integrity</li>
+            <li><i class="fas fa-shield-alt"></i> Safety</li>
+            <li><i class="fas fa-heart"></i> Respect</li>
+            <li><i class="fas fa-chart-line"></i> Excellence</li>
+            <li><i class="fas fa-leaf"></i> Responsibility</li>
+          </ul>
+        </div>
+        
+        <!-- Commitment Card -->
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Our Commitment</h3>
+          <p class="commitment-text">We are committed to operating responsibly, respecting our environment and supporting the communities where we work.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="team.html">Team</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li>Mining & Petroleum</li>
-        <li>Logistics</li>
-        <li>Commercial Services</li>
-        <li>Development Programs</li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p><i class="fa fa-location-dot"></i> Waigani, Port Moresby</p>
-      <p><i class="fa fa-envelope"></i> upstreamgoldpng@gmail.com</p>
-
-      <div class="social-icons">
-  <a href="https://facebook.com" target="_blank" class="facebook">
-    <i class="fa-brands fa-facebook-f"></i>
-  </a>
-  <br>
-  <a href="https://linkedin.com" target="_blank" class="linkedin">
-    <i class="fa-brands fa-linkedin-in"></i>
-  </a>
   </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="font-size:1.6rem; margin-bottom:16px;">UPSTREAM GOLD<span>®</span></div>
+        <p>Empowering sustainable growth in Papua New Guinea through innovation, partnerships, and responsible development.</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Compliance</h4>
+        <div class="contact-line"><i class="fas fa-map-marker-alt"></i> <span>Kwalimu Precincts, Waigani, NCD</span></div>
+        <div class="contact-line"><i class="fas fa-envelope"></i> <span>upstreamgoldpng@gmail.com</span></div>
+        <div class="contact-line"><i class="fas fa-phone-alt"></i> <span>+675 7XXXXXXX</span></div>
+        <div style="margin: 16px 0 8px;"><a href="#" style="color: #475569; text-decoration: none; font-size:0.8rem;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color: #475569; text-decoration: none; font-size:0.8rem;">Terms of Use</a></div>
+      </div>
     </div>
-
+    <div class="footer-bottom">
+      <p>© 2025 Upstream Gold (PNG) Limited. All Rights Reserved.</p>
+    </div>
   </div>
-
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> Upstream Gold (PNG) Limited</p>
-  </div>
-  </footer>
-  <script src="script.js"></script>
-  </body>
+</footer>
+</body>
 </html>
