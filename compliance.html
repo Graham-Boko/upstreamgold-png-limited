@@ -1,200 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Upstream Gold (PNG) Ltd | Governance & Compliance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.5; scroll-behavior: smooth; }
-    :root { --gold: #C8A337; --gold-dark: #A07E15; --gold-light: #F2E5C2; --text-muted: #4A5A72; --shadow-sm: 0 8px 20px -6px rgba(0,0,0,0.05); --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08); }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    .header { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,163,55,0.2); padding: 18px 0; z-index: 100; }
-    .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 700; }
-    .logo span { color: var(--gold); }
-    .logo small { font-size: 0.7rem; display: block; color: var(--gold-dark); font-family: 'Inter', sans-serif; }
-    .nav-links { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
-    .nav-links a { font-weight: 500; font-size: 0.9rem; text-decoration: none; color: #1E2A3E; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-cta { border: 1px solid var(--gold); padding: 8px 24px; border-radius: 40px; font-weight: 600; color: var(--gold-dark); }
-    .nav-cta:hover { background: var(--gold); color: white; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: #0F1A2E; margin-bottom: 16px; }
-    .section-sub { color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 5px; margin-bottom: 20px; font-weight: 600; }
-    .hero-section { padding: 100px 0 40px; }
-    .hero-intro p { max-width: 700px; color: var(--text-muted); font-size: 1.05rem; margin-top: 16px; }
-    .section-spacer { margin: 60px 0 40px; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; margin: 40px 0 20px; }
-    .compliance-card { background: #FCFAF7; border-radius: 28px; padding: 28px 24px; border: 1px solid #EFF2F9; transition: all 0.25s; display: flex; flex-direction: column; }
-    .compliance-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold-light); }
-    .compliance-icon { font-size: 2.4rem; color: var(--gold); margin-bottom: 20px; }
-    .compliance-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
-    .compliance-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex: 1; }
-    .btn-download { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--gold); color: var(--gold-dark); padding: 8px 18px; border-radius: 40px; font-weight: 600; font-size: 0.8rem; text-decoration: none; transition: all 0.2s; width: fit-content; }
-    .btn-download:hover { background: var(--gold); color: white; border-color: var(--gold); }
-    .membership-grid { display: flex; flex-wrap: wrap; gap: 24px; margin: 30px 0 20px; }
-    .membership-badge { background: #FFFFFF; border-radius: 60px; padding: 12px 28px; display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(200,163,55,0.3); box-shadow: var(--shadow-sm); }
-    .membership-badge i { font-size: 1.5rem; color: var(--gold); }
-    .membership-badge span { font-weight: 600; font-size: 0.9rem; }
-    .regulatory-block { background: #FCFAF7; border-radius: 32px; padding: 40px; margin: 50px 0 30px; border-left: 6px solid var(--gold); }
-    .btn-gold-outline { display: inline-block; background: transparent; border: 1px solid var(--gold); color: var(--gold-dark); padding: 12px 28px; border-radius: 40px; font-weight: 600; text-decoration: none; transition: 0.25s; margin-top: 16px; }
-    .btn-gold-outline:hover { background: var(--gold); color: white; }
-    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); }
-    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
-    .footer-col { flex: 1; min-width: 180px; }
-    .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
-    .footer-col p { font-size: 0.85rem; line-height: 1.6; opacity: 0.8; margin-bottom: 16px; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 12px; }
-    .footer-links a { text-decoration: none; color: #475569; transition: color 0.2s; font-size: 0.85rem; }
-    .footer-links a:hover { color: var(--gold); }
-    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
-    .social-icons a { background: #FFFFFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.25s; color: #5B6E8C; font-size: 1.1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03); border: 1px solid #E9EDF2; }
-    .social-icons a:hover { background: var(--gold); color: white; transform: translateY(-3px); border-color: var(--gold); }
-    .contact-line { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #475569; }
-    .contact-line i { color: var(--gold); width: 24px; }
-    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); }
-    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
-    .footer-col { flex: 1; min-width: 180px; }
-    .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
-    .footer-col p { font-size: 0.85rem; line-height: 1.6; opacity: 0.8; margin-bottom: 16px; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 12px; }
-    .footer-links a { text-decoration: none; color: #475569; transition: color 0.2s; font-size: 0.85rem; }
-    .footer-links a:hover { color: var(--gold); }
-    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
-    .social-icons a { background: #FFFFFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.25s; color: #5B6E8C; font-size: 1.1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03); border: 1px solid #E9EDF2; }
-    .social-icons a:hover { background: var(--gold); color: white; transform: translateY(-3px); border-color: var(--gold); }
-    .contact-line { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #475569; }
-    .contact-line i { color: var(--gold); width: 24px; }
-    .footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid #E9EDF2; font-size: 0.75rem; color: #94A3B8; }
-    @media (max-width: 900px) { .container { padding: 0 24px; } .section-title { font-size: 2.2rem; } .hero-section { padding: 70px 0 20px; } .membership-badge { padding: 8px 20px; } .regulatory-block { padding: 28px 24px; } }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --gold:#C8A337;
+      --gold-dark:#A07E15;
+      --gold-light:#F4E8C9;
+      --navy:#0E1A2B;
+      --text:#1E2A3E;
+      --muted:#667085;
+      --bg:#F8FAFC;
+      --white:#ffffff;
+
+      --shadow-sm:0 10px 25px rgba(15,23,42,0.05);
+      --shadow-md:0 20px 40px rgba(15,23,42,0.08);
+      --shadow-lg:0 30px 60px rgba(15,23,42,0.12);
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .container{
+      max-width:1280px;
+      margin:auto;
+      padding:0 32px;
+    }
+
+    /* HEADER */
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(255,255,255,0.9);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(200,163,55,0.15);
+    }
+
+    .nav{
+      height:90px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:30px;
+    }
+
+    .logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      font-weight:700;
+      color:var(--navy);
+      line-height:1;
+    }
+
+    .logo span{
+      color:var(--gold);
+    }
+
+    .logo small{
+      display:block;
+      font-family:'Inter',sans-serif;
+      font-size:.72rem;
+      letter-spacing:2px;
+      margin-top:6px;
+      color:var(--gold-dark);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:34px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:500;
+      transition:.3s;
+      position:relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--gold);
+    }
+
+    .nav-cta{
+      padding:10px 24px;
+      border-radius:50px;
+      border:1px solid var(--gold);
+      color:var(--gold-dark)!important;
+      font-weight:600!important;
+    }
+
+    .nav-cta:hover{
+      background:var(--gold);
+      color:white!important;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      padding:120px 0 100px;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:650px;
+      height:650px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(200,163,55,0.14), transparent 70%);
+      top:-250px;
+      right:-180px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-sub{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:5px;
+      font-size:.78rem;
+      font-weight:700;
+      margin-bottom:24px;
+    }
+
+    .hero-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:4.3rem;
+      line-height:1.05;
+      color:var(--navy);
+      margin-bottom:24px;
+    }
+
+    .hero-title span{
+      color:var(--gold);
+    }
+
+    .hero-text{
+      color:var(--muted);
+      max-width:650px;
+      font-size:1.06rem;
+      margin-bottom:34px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary{
+      background:var(--gold);
+      color:white;
+      padding:14px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      background:var(--gold-dark);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(200,163,55,0.4);
+      padding:14px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      color:var(--gold-dark);
+      font-weight:600;
+      background:white;
+      transition:.3s;
+    }
+
+    .btn-outline:hover{
+      background:var(--gold);
+      color:white;
+    }
+
+    /* HERO CARD */
+
+    .hero-card{
+      background:white;
+      border-radius:40px;
+      padding:40px;
+      box-shadow:var(--shadow-lg);
+      border:1px solid rgba(200,163,55,0.12);
+      position:relative;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:40px;
+      padding:1px;
+      background:linear-gradient(to bottom right, rgba(200,163,55,0.4), transparent);
+      -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+    }
+
+    .hero-card-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:28px;
+    }
+
+    .hero-badge{
+      background:#FFF8E8;
+      color:var(--gold-dark);
+      padding:10px 16px;
+      border-radius:40px;
+      font-size:.8rem;
+      font-weight:700;
+    }
+
+    .hero-shield{
+      width:70px;
+      height:70px;
+      border-radius:24px;
+      background:linear-gradient(135deg,#F8E9BC,#C8A337);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:1.7rem;
+    }
+
+    .hero-card h3{
+      font-size:1.7rem;
+      color:var(--navy);
+      margin-bottom:14px;
+    }
+
+    .hero-card p{
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .stat-box{
+      background:#FAFBFD;
+      border:1px solid #EEF2F7;
+      border-radius:24px;
+      padding:20px;
+    }
+
+    .stat-box h4{
+      font-size:1.8rem;
+      color:var(--gold-dark);
+      margin-bottom:6px;
+    }
+
+    .stat-box span{
+      font-size:.88rem;
+      color:var(--muted);
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:40px 0 90px;
+    }
+
+    .section-head{
+      margin-bottom:45px;
+    }
+
+    .section-sub{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:4px;
+      font-size:.76rem;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      color:var(--navy);
+      margin-bottom:14px;
+    }
+
+    .section-text{
+      color:var(--muted);
+      max-width:760px;
+      font-size:1rem;
+    }
+
+    /* DOCUMENT GRID */
+
+    .doc-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .doc-card{
+      background:white;
+      border-radius:34px;
+      padding:34px 28px;
+      border:1px solid #EDF1F6;
+      transition:.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .doc-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-md);
+      border-color:rgba(200,163,55,0.25);
+    }
+
+    .doc-card::after{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      background:rgba(200,163,55,0.06);
+      border-radius:50%;
+      right:-40px;
+      top:-40px;
+    }
+
+    .doc-icon{
+      width:70px;
+      height:70px;
+      border-radius:22px;
+      background:#FFF8E8;
+      color:var(--gold-dark);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.6rem;
+      margin-bottom:24px;
+      position:relative;
+      z-index:2;
+    }
+
+    .doc-card h3{
+      font-size:1.35rem;
+      margin-bottom:12px;
+      color:var(--navy);
+      position:relative;
+      z-index:2;
+    }
+
+    .doc-card p{
+      color:var(--muted);
+      font-size:.94rem;
+      margin-bottom:28px;
+      position:relative;
+      z-index:2;
+    }
+
+    .download-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 20px;
+      border-radius:50px;
+      text-decoration:none;
+      border:1px solid rgba(200,163,55,0.4);
+      color:var(--gold-dark);
+      font-weight:600;
+      transition:.3s;
+      position:relative;
+      z-index:2;
+    }
+
+    .download-btn:hover{
+      background:var(--gold);
+      color:white;
+    }
+
+    /* MEMBERSHIPS */
+
+    .membership-wrapper{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      margin-top:40px;
+    }
+
+    .membership{
+      background:white;
+      border-radius:60px;
+      padding:14px 24px;
+      border:1px solid rgba(200,163,55,0.2);
+      display:flex;
+      align-items:center;
+      gap:14px;
+      box-shadow:var(--shadow-sm);
+      transition:.3s;
+    }
+
+    .membership:hover{
+      transform:translateY(-4px);
+    }
+
+    .membership i{
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .membership span{
+      font-size:.92rem;
+      font-weight:600;
+      color:var(--text);
+    }
+
+    /* REGULATORY BLOCK */
+
+    .regulatory{
+      margin-top:90px;
+      background:linear-gradient(135deg,#0F1A2E,#15243C);
+      border-radius:40px;
+      padding:70px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .regulatory::before{
+      content:"";
+      position:absolute;
+      width:400px;
+      height:400px;
+      border-radius:50%;
+      background:rgba(200,163,55,0.1);
+      right:-120px;
+      top:-120px;
+    }
+
+    .reg-content{
+      position:relative;
+      z-index:2;
+      max-width:820px;
+    }
+
+    .reg-icon{
+      width:82px;
+      height:82px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      font-size:2rem;
+      margin-bottom:26px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .regulatory h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      color:white;
+      margin-bottom:20px;
+    }
+
+    .regulatory p{
+      color:rgba(255,255,255,0.78);
+      font-size:1rem;
+      margin-bottom:34px;
+      line-height:1.8;
+    }
+
+    /* FOOTER */
+
+    .footer{
+      background:#0D1727;
+      padding:80px 0 35px;
+      margin-top:110px;
+      color:white;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr;
+      gap:50px;
+      margin-bottom:50px;
+    }
+
+    .footer-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      margin-bottom:18px;
+    }
+
+    .footer-logo span{
+      color:var(--gold);
+    }
+
+    .footer p{
+      color:rgba(255,255,255,0.7);
+      font-size:.92rem;
+    }
+
+    .footer h4{
+      margin-bottom:22px;
+      color:white;
+      font-size:1rem;
+    }
+
+    .footer-links{
+      list-style:none;
+    }
+
+    .footer-links li{
+      margin-bottom:14px;
+    }
+
+    .footer-links a{
+      text-decoration:none;
+      color:rgba(255,255,255,0.72);
+      transition:.3s;
+      font-size:.9rem;
+    }
+
+    .footer-links a:hover{
+      color:var(--gold);
+    }
+
+    .contact-line{
+      display:flex;
+      gap:14px;
+      margin-bottom:16px;
+      color:rgba(255,255,255,0.72);
+      font-size:.9rem;
+    }
+
+    .contact-line i{
+      color:var(--gold);
+      margin-top:4px;
+    }
+
+    .social-icons{
+      display:flex;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .social-icons a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,0.06);
+      color:white;
+      text-decoration:none;
+      transition:.3s;
+    }
+
+    .social-icons a:hover{
+      background:var(--gold);
+      transform:translateY(-4px);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:30px;
+      text-align:center;
+      color:rgba(255,255,255,0.5);
+      font-size:.8rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-title{
+        font-size:3.3rem;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .container{
+        padding:0 20px;
+      }
+
+      .nav{
+        height:auto;
+        padding:18px 0;
+        flex-direction:column;
+      }
+
+      .nav-links{
+        justify-content:center;
+        gap:18px;
+      }
+
+      .hero{
+        padding:90px 0 70px;
+      }
+
+      .hero-title{
+        font-size:2.6rem;
+      }
+
+      .section-title{
+        font-size:2.3rem;
+      }
+
+      .regulatory{
+        padding:40px 28px;
+      }
+
+      .regulatory h2{
+        font-size:2.2rem;
+      }
+
+    }
+
   </style>
 </head>
 <body>
-<header class="header">
-  <div class="container nav">
-    <div class="logo">UPSTREAM GOLD<span>®</span><small>PNG Ltd</small></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="team.html">Team</a>
-      <a href="compliance.html">Compliance</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="nav-cta">Partner</a>
-    </div>
-  </div>
-</header>
-<main>
-  <!-- Hero section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="section-sub">✦ TRANSPARENCY & COMPLIANCE</div>
-      <h1 class="section-title">Documents & Credentials</h1>
-      <div class="hero-intro">
-        <p>Our commitment to integrity, governance, and responsible operations – certified and transparent.</p>
+
+  <!-- HEADER -->
+
+  <header class="header">
+    <div class="container nav">
+
+      <div class="logo">
+        UPSTREAM GOLD<span>®</span>
+        <small>PNG LTD</small>
       </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+        <a href="compliance.html" class="active">Compliance</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Partner</a>
+      </div>
+
     </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-grid">
+
+        <div>
+
+          <div class="hero-sub">
+            ✦ TRANSPARENCY & GOVERNANCE
+          </div>
+
+          <h1 class="hero-title">
+            Documents,
+            <span>Credentials</span>
+            & Compliance
+          </h1>
+
+          <p class="hero-text">
+            Our commitment to integrity, governance, transparency, and responsible operations across Papua New Guinea’s extractive industry sector.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn-primary">
+              Download Documents
+            </a>
+
+            <a href="contact.html" class="btn-outline">
+              Contact Compliance Team
+            </a>
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="hero-card">
+
+            <div class="hero-card-top">
+
+              <div class="hero-badge">
+                Certified & Verified
+              </div>
+
+              <div class="hero-shield">
+                <i class="fas fa-shield-check"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Responsible Corporate Governance
+            </h3>
+
+            <p>
+              Upstream Gold (PNG) Ltd maintains high standards of operational compliance, ethical conduct, environmental responsibility, and stakeholder transparency.
+            </p>
+
+            <div class="hero-stats">
+
+              <div class="stat-box">
+                <h4>100%</h4>
+                <span>Regulatory Compliance</span>
+              </div>
+
+              <div class="stat-box">
+                <h4>5+</h4>
+                <span>Corporate Certifications</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
-  <!-- Corporate Compliance / Documents cards -->
-  <div class="container">
-    <div class="section-spacer">
-      <h2 style="font-family:'Cormorant Garamond'; font-size:1.9rem; margin-bottom:8px;">Corporate Compliance</h2>
-      <p style="color:var(--gold); font-weight:500; margin-bottom:20px;">Key Certifications & Policies</p>
-    </div>
-    <div class="card-grid">
-      <div class="compliance-card">
-        <div class="compliance-icon"><i class="fas fa-building"></i></div>
-        <h3>IPA Certificate</h3>
-        <p>Investment Promotion Authority registration – certified PNG business entity.</p>
-        <a href="#" class="btn-download"><i class="fas fa-download"></i> Download PDF</a>
-      </div>
-      <div class="compliance-card">
-        <div class="compliance-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-        <h3>TIN Certificate</h3>
-        <p>Tax Identification Number – fully compliant with Internal Revenue Commission.</p>
-        <a href="#" class="btn-download"><i class="fas fa-download"></i> Download PDF</a>
-      </div>
-      <div class="compliance-card">
-        <div class="compliance-icon"><i class="fas fa-scroll"></i></div>
-        <h3>Code of Conduct</h3>
-        <p>Ethical framework, anti-corruption policy, and governance standards.</p>
-        <a href="#" class="btn-download"><i class="fas fa-download"></i> Download PDF</a>
-      </div>
-      <div class="compliance-card">
-        <div class="compliance-icon"><i class="fas fa-hard-hat"></i></div>
-        <h3>HSE Policy</h3>
-        <p>Health, Safety, and Environment commitment – international standards.</p>
-        <a href="#" class="btn-download"><i class="fas fa-download"></i> Download PDF</a>
-      </div>
-      <div class="compliance-card">
-        <div class="compliance-icon"><i class="fas fa-hand-holding-heart"></i></div>
-        <h3>Community Commitment</h3>
-        <p>Our community engagement and local content strategy.</p>
-        <a href="#" class="btn-download"><i class="fas fa-download"></i> Download PDF</a>
-      </div>
-    </div>
+  <!-- DOCUMENTS -->
 
-    <!-- Industry Recognition -->
-    <div class="section-spacer" style="margin-top: 80px;">
-      <h2 style="font-family:'Cormorant Garamond'; font-size:1.9rem; margin-bottom:8px;">Industry Recognition</h2>
-      <p style="color:var(--gold); font-weight:500; margin-bottom:20px;">Memberships & Affiliations</p>
-    </div>
-    <div class="membership-grid">
-      <div class="membership-badge"><i class="fas fa-hard-hat"></i><span>PNG Chamber of Mines & Petroleum</span></div>
-      <div class="membership-badge"><i class="fas fa-chart-line"></i><span>EITI Supporting Member</span></div>
-      <div class="membership-badge"><i class="fas fa-shield-alt"></i><span>ISO 45001 (Occupational Health & Safety)</span></div>
-      <div class="membership-badge"><i class="fas fa-chalkboard-user"></i><span>Registered Training Provider – PNG DPE</span></div>
-    </div>
+  <section class="section">
 
-    <!-- Full Regulatory Compliance -->
-    <div class="regulatory-block">
-      <i class="fas fa-gavel" style="font-size:2rem; color:var(--gold); margin-bottom:16px; display:inline-block;"></i>
-      <h3 style="font-family:'Cormorant Garamond'; font-size:1.7rem; margin-bottom:12px;">Full Regulatory Compliance</h3>
-      <p style="color:var(--text-muted); margin-bottom:16px;">Upstream Gold (PNG) Ltd operates in strict adherence to all applicable laws and regulations in Papua New Guinea, including the Mining Act 1992, Environment Act 2000, and Companies Act 1997. All necessary licenses, permits, and approvals are current and available for inspection.</p>
-      <a href="contact.html" class="btn-gold-outline"><i class="fas fa-check-circle"></i> Request Verification</a>
-    </div>
-  </div>
-</main>
+    <div class="container">
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo" style="font-size:1.6rem; margin-bottom:16px;">UPSTREAM GOLD<span>®</span></div>
-        <p>Strategic partner in extractive industry — locally rooted, globally experienced.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="team.html">team</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact & Compliance</h4>
-        <div class="contact-line"><i class="fas fa-map-marker-alt"></i> <span>Kwalimu Precincts, Waigani, NCD</span></div>
-        <div class="contact-line"><i class="fas fa-envelope"></i> <span>upstreamgoldpng@gmail.com</span></div>
-        <div class="contact-line"><i class="fas fa-phone-alt"></i> <span>+675 7XXXXXXX</span></div>
-        <div class="social-icons">
-          <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <div class="section-head">
+
+        <div class="section-sub">
+          ✦ CORPORATE COMPLIANCE
         </div>
+
+        <h2 class="section-title">
+          Key Certifications & Policies
+        </h2>
+
+        <p class="section-text">
+          Essential corporate registrations, governance policies, and compliance documentation supporting our operations.
+        </p>
+
       </div>
+
+      <div class="doc-grid">
+
+        <div class="doc-card">
+
+          <div class="doc-icon">
+            <i class="fas fa-building"></i>
+          </div>
+
+          <h3>IPA Certificate</h3>
+
+          <p>
+            Investment Promotion Authority registration confirming Upstream Gold as a certified PNG business entity.
+          </p>
+
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </a>
+
+        </div>
+
+        <div class="doc-card">
+
+          <div class="doc-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+
+          <h3>TIN Certificate</h3>
+
+          <p>
+            Official Tax Identification Number documentation confirming IRC compliance and tax registration.
+          </p>
+
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </a>
+
+        </div>
+
+        <div class="doc-card">
+
+          <div class="doc-icon">
+            <i class="fas fa-scroll"></i>
+          </div>
+
+          <h3>Code of Conduct</h3>
+
+          <p>
+            Ethical governance framework outlining transparency, accountability, anti-corruption, and professional standards.
+          </p>
+
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </a>
+
+        </div>
+
+        <div class="doc-card">
+
+          <div class="doc-icon">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+
+          <h3>HSE Policy</h3>
+
+          <p>
+            Health, Safety & Environment policies aligned with responsible operational and workplace practices.
+          </p>
+
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </a>
+
+        </div>
+
+        <div class="doc-card">
+
+          <div class="doc-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+
+          <h3>Community Commitment</h3>
+
+          <p>
+            Community engagement strategy focused on local empowerment, partnerships, and sustainable development.
+          </p>
+
+          <a href="#" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- MEMBERSHIPS -->
+
+      <div class="section-head" style="margin-top:100px;">
+
+        <div class="section-sub">
+          ✦ INDUSTRY RECOGNITION
+        </div>
+
+        <h2 class="section-title">
+          Memberships & Affiliations
+        </h2>
+
+      </div>
+
+      <div class="membership-wrapper">
+
+        <div class="membership">
+          <i class="fas fa-hard-hat"></i>
+          <span>PNG Chamber of Mines & Petroleum</span>
+        </div>
+
+        <div class="membership">
+          <i class="fas fa-chart-line"></i>
+          <span>EITI Supporting Member</span>
+        </div>
+
+        <div class="membership">
+          <i class="fas fa-shield-alt"></i>
+          <span>ISO 45001 Occupational Safety</span>
+        </div>
+
+        <div class="membership">
+          <i class="fas fa-chalkboard-user"></i>
+          <span>Registered Training Provider – PNG DPE</span>
+        </div>
+
+      </div>
+
+      <!-- REGULATORY -->
+
+      <div class="regulatory">
+
+        <div class="reg-content">
+
+          <div class="reg-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+
+          <h2>
+            Full Regulatory Compliance
+          </h2>
+
+          <p>
+            Upstream Gold (PNG) Ltd operates in strict adherence to all applicable laws and regulations in Papua New Guinea, including the Mining Act 1992, Environment Act 2000, and Companies Act 1997. All required licenses, permits, certifications, and operational approvals are current and maintained in accordance with national standards.
+          </p>
+
+          <a href="contact.html" class="btn-primary">
+            Request Verification
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <div class="footer-logo">
+            UPSTREAM GOLD<span>®</span>
+          </div>
+
+          <p>
+            Strategic partner in extractive industry — locally rooted, globally experienced.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h4>Explore</h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="compliance.html">Compliance</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4>Contact & Compliance</h4>
+
+          <div class="contact-line">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kwalimu Precincts, Waigani, NCD</span>
+          </div>
+
+          <div class="contact-line">
+            <i class="fas fa-envelope"></i>
+            <span>upstreamgoldpng@gmail.com</span>
+          </div>
+
+          <div class="contact-line">
+            <i class="fas fa-phone-alt"></i>
+            <span>+675 7XXXXXXX</span>
+          </div>
+
+          <div class="social-icons">
+
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#">
+              <i class="fas fa-envelope"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Upstream Gold (PNG) Limited
+      </div>
+
     </div>
-  </div>
-</footer>
+
+  </footer>
+
 </body>
 </html>
