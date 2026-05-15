@@ -92,7 +92,7 @@
       top: 0;
       width: 100%;
       background: rgba(11, 20, 32, 0.82);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(200, 163, 55, 0.25);
       z-index: 1000;
       transition: var(--transition-smooth);
@@ -208,7 +208,7 @@
   text-transform:uppercase;
   margin-bottom:22px;
   font-weight:600;
-  line-height:1.5;
+  line-height:1.5a;
 }
 
 .hero h1{
@@ -627,6 +627,17 @@
 
 @media (max-width: 768px){
 
+  pillar-card,
+  .focus-card,
+  .feature-card,
+  .esg-card{
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  }
+
+    .header{
+    backdrop-filter: none;
+  }
+
   .container{
     padding:0 18px;
   }
@@ -816,7 +827,12 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 800, once: true, offset: 80 });
+  AOS.init({
+  duration: 500,
+  once: true,
+  offset: 40,
+  disable: window.innerWidth < 768
+});
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
   if(menuBtn) {
