@@ -622,7 +622,7 @@
     }
 
     /* =========================
-       MOBILE FIXES – LAG REMOVED
+       MOBILE FIXES – LAG REMOVED (CORRECTED FOR ESG)
     ========================= */
     @media (max-width: 768px) {
       /* Disable all backdrop-filter on scrolling elements – major cause of lag */
@@ -636,9 +636,12 @@
       .stats-bar {
         background: #0F172A;  /* dark solid, no gradient+blur */
       }
+
+      /* ESG cards keep semi-transparent dark background – DO NOT OVERRIDE WITH WHITE */
       .esg-card {
-        background: rgba(255,255,255,0.08);
+        background: rgba(255, 255, 255, 0.08) !important;
       }
+
       .section-sub {
         background: rgba(200, 163, 55, 0.15);
       }
@@ -648,11 +651,18 @@
         backdrop-filter: none;
       }
 
-      /* Ensure cards have solid fallback (will-change kept) */
-      .pillar-card, .focus-card, .feature-card, .esg-card {
+      /* For pillar, focus, feature cards – use white background, but EXCLUDE esg-card */
+      .pillar-card, .focus-card, .feature-card {
         background: #FFFFFF;
         backdrop-filter: none;
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      }
+
+      /* Ensure ESG cards are not accidentally white (explicit re-assurance) */
+      .esg-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: none;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
       }
 
       .container {
@@ -706,7 +716,6 @@
 <header class="header">
   <div class="container nav">
     <div class="logo">
-      <!-- ADDED width + height for image to avoid layout shift -->
       <img src="logo2.png" alt="Upstream Gold PNG" class="logo-img" width="auto" height="52">
     </div>
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
@@ -777,7 +786,6 @@
           </div>
         </div>
         <div class="who-image-card" data-aos="zoom-in">
-          <!-- ADDED width and height for image to avoid layout recalculation -->
           <img src="who-we-are.png" alt="Papua New Guinea Landscape" width="800" height="600" loading="lazy">
           <div class="who-image-overlay">
             <div class="who-overlay-sub" style="color:var(--gold); letter-spacing:4px;">✦ LOCALLY ROOTED. NATIONALLY COMMITTED.</div>
@@ -810,7 +818,6 @@
       <h2 class="section-title">OUR FOCUS AREAS</h2>
     </div>
     <div class="focus-grid">
-      <!-- All images now have explicit width+height and loading=lazy -->
       <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Resource Dev" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-hard-hat"></i></div></div><h3>Natural Resource Development</h3><p>Using PNG's resources responsibly to drive economic growth.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
       <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Education" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-graduation-cap"></i></div></div><h3>Education & Career Pathways</h3><p>Connecting individuals to quality education and career opportunities.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
       <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Training" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-chalkboard"></i></div></div><h3>Training & Capacity Building</h3><p>Providing practical training and real-world experience.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
