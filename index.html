@@ -23,7 +23,6 @@
       background: #FFFFFF;
       color: #121926;
       line-height: 1.5;
-      /* FIXED: removed scroll-behavior:smooth – causes lag on mobile */
       overflow-x: hidden;
     }
 
@@ -86,14 +85,15 @@
       line-height: 1.2;
     }
 
-    /* ---------- PREMIUM NAVBAR (GLASSMORPHISM) ---------- */
+    /* ---------- PREMIUM NAVBAR (WHITE BACKGROUND) ---------- */
     .header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(11, 20, 32, 0.82);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(200, 163, 55, 0.25);
+      background: #FFFFFF;
+      backdrop-filter: none;
+      border-bottom: 1px solid rgba(200, 163, 55, 0.45);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
       z-index: 1000;
       transition: var(--transition-smooth);
       padding: 10px 0;
@@ -109,8 +109,8 @@
     .logo img {
       height: 52px;
       width: auto;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
       transition: transform 0.3s;
+      filter: none;
     }
     .logo img:hover { transform: scale(1.02); }
 
@@ -124,7 +124,7 @@
       font-weight: 500;
       font-size: 0.9rem;
       text-decoration: none;
-      color: #F1F5F9;
+      color: #1E2A3A;
       transition: 0.25s;
       letter-spacing: 0.3px;
       position: relative;
@@ -165,7 +165,6 @@
       border-color: var(--gold);
     }
 
-    /* mobile menu */
     .menu-toggle {
       display: none;
       font-size: 1.8rem;
@@ -188,7 +187,7 @@
         ),
         url('hero.png') center center / cover no-repeat;
       background-attachment:unset;
-      padding:140px 0 100px;
+      padding:140px 0 120px;
     }
 
     .hero-content {
@@ -326,16 +325,123 @@
       letter-spacing: 1px;
     }
 
-    /* ---------- GLASS CARD SYSTEM ---------- */
-    .pillars-grid, .focus-grid, .feature-grid, .esg-grid {
+    /* ---------- PILLARS (circular icons) ---------- */
+    .pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 28px;
       margin: 50px 0 40px;
     }
 
-    /* FIX: will-change to reduce repaint cost on scroll */
-    .pillar-card, .focus-card, .feature-card, .esg-card {
+    .pillar-card {
+      background: #FCFAF7;
+      border: 1px solid #ECEFF4;
+      border-radius: 30px;
+      padding: 38px 30px;
+      transition: var(--transition-smooth);
+      text-align: center;
+      will-change: transform;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-premium);
+      border-color: var(--gold-light);
+    }
+
+    .pillar-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #0E2340;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .pillar-icon i {
+      color: var(--gold);
+      font-size: 2rem;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #10213A;
+    }
+
+    .pillar-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ---------- FEATURE CARDS (WHY CHOOSE US) - UPDATED ICON STYLE ---------- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 50px 0 40px;
+    }
+
+    .feature-card {
+      background: #FCFAF7;
+      border: 1px solid #ECEFF4;
+      border-radius: 30px;
+      padding: 38px 30px;
+      transition: var(--transition-smooth);
+      text-align: center;
+      will-change: transform;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-premium);
+      border-color: var(--gold-light);
+    }
+
+    .feature-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #0E2340;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .feature-icon i {
+      color: var(--gold);
+      font-size: 2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #10213A;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* Focus areas grid (unchanged) */
+    .focus-grid, .esg-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 50px 0 40px;
+    }
+
+    .focus-card, .esg-card {
       will-change: transform;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(2px);
@@ -346,27 +452,26 @@
       box-shadow: 0 12px 28px -14px rgba(0,0,0,0.04);
     }
 
-    .pillar-card:hover, .focus-card:hover, .feature-card:hover, .esg-card:hover {
+    .focus-card:hover, .esg-card:hover {
       transform: translateY(-8px);
       border-color: var(--gold);
       box-shadow: 0 32px 48px -24px rgba(0,0,0,0.18);
     }
 
-    .pillar-icon, .feature-card i, .esg-icon {
+    .esg-icon {
       font-size: 2.4rem;
       color: var(--gold);
       margin-bottom: 24px;
       display: inline-block;
     }
 
-    .pillar-card h3, .focus-card h3, .feature-card h3, .esg-card h3 {
+    .focus-card h3, .esg-card h3 {
       font-size: 1.45rem;
       font-weight: 700;
       margin-bottom: 16px;
       font-family: 'Cormorant Garamond', serif;
     }
 
-    /* Focus image wrapper */
     .focus-image-wrapper {
       position: relative;
       border-radius: 24px;
@@ -568,7 +673,7 @@
       transform: translateY(-3px);
     }
 
-    /* ---------- RESPONSIVE (DESKTOP FIRST) ---------- */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1100px) {
       .pillars-grid, .focus-grid, .feature-grid, .esg-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -593,8 +698,8 @@
         left: -100%;
         width: 80%;
         height: calc(100vh - 70px);
-        background: rgba(11, 20, 32, 0.98);
-        backdrop-filter: blur(20px);
+        background: #FFFFFF;
+        backdrop-filter: none;
         flex-direction: column;
         align-items: flex-start;
         padding: 40px 32px;
@@ -602,11 +707,15 @@
         gap: 30px;
         z-index: 999;
         border-right: 1px solid var(--gold);
+        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
       }
       .nav-links.active {
         left: 0;
       }
-      .nav-links a { font-size: 1.1rem; }
+      .nav-links a {
+        font-size: 1.1rem;
+        color: #1E2A3A;
+      }
       .stats-bar {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -621,87 +730,60 @@
       .btn-group { flex-direction: column; align-items: flex-start; }
     }
 
-    /* =========================
-       MOBILE FIXES – LAG REMOVED (CORRECTED FOR ESG)
-    ========================= */
+    /* Mobile performance */
     @media (max-width: 768px) {
-      /* Disable all backdrop-filter on scrolling elements – major cause of lag */
-      .stats-bar,
-      .esg-card,
-      .section-sub {
+      .stats-bar, .esg-card, .section-sub {
         backdrop-filter: none !important;
       }
-
-      /* Solid backgrounds as fallback for readability */
       .stats-bar {
-        background: #0F172A;  /* dark solid, no gradient+blur */
+        background: #0F172A;
       }
-
-      /* ESG cards keep semi-transparent dark background – DO NOT OVERRIDE WITH WHITE */
       .esg-card {
         background: rgba(255, 255, 255, 0.08) !important;
       }
-
       .section-sub {
         background: rgba(200, 163, 55, 0.15);
       }
-
-      /* Header blur already disabled earlier */
-      .header {
-        backdrop-filter: none;
-      }
-
-      /* For pillar, focus, feature cards – use white background, but EXCLUDE esg-card */
       .pillar-card, .focus-card, .feature-card {
         background: #FFFFFF;
         backdrop-filter: none;
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
       }
-
-      /* Ensure ESG cards are not accidentally white (explicit re-assurance) */
       .esg-card {
         background: rgba(255, 255, 255, 0.08);
         backdrop-filter: none;
         box-shadow: 0 8px 16px rgba(0,0,0,0.15);
       }
-
       .container {
         padding: 0 18px;
       }
-
       .hero {
         min-height: auto;
         padding: 140px 0 90px;
         background-attachment: unset;
       }
-
       .hero-content {
         width: 100%;
       }
-
       .hero-sub {
         font-size: .7rem;
         letter-spacing: 2px;
         line-height: 1.5;
         margin-bottom: 18px;
       }
-
       .hero h1 {
         font-size: clamp(2.5rem, 11vw, 4rem);
         line-height: .95;
         margin-bottom: 20px;
       }
-
       .hero p {
         font-size: 1rem;
         line-height: 1.7;
       }
-
       .btn-group {
         width: 100%;
         flex-direction: column;
       }
-
       .btn-primary,
       .btn-outline {
         width: 100%;
@@ -762,10 +844,26 @@
   <!-- Pillars Section -->
   <div class="container" data-aos="fade-up">
     <div class="pillars-grid">
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-compass"></i></div><h3>EXPLORATION FOCUSED</h3><p>Building a pipeline of high-potential gold assets across PNG.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-flag-checkered"></i></div><h3>PNG ROOTED</h3><p>Proudly Papua New Guinean owned and committed to the nation's development.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-seedling"></i></div><h3>RESPONSIBLE GROWTH</h3><p>We operate with integrity, respecting our people, communities and environment.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>VALUE CREATION</h3><p>Creating long-term value for shareholders and stakeholders.</p></div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-compass"></i></div>
+        <h3>EXPLORATION FOCUSED</h3>
+        <p>Building a pipeline of high-potential gold assets across PNG.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-flag-checkered"></i></div>
+        <h3>PNG ROOTED</h3>
+        <p>Proudly Papua New Guinean owned and committed to the nation's development.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-seedling"></i></div>
+        <h3>RESPONSIBLE GROWTH</h3>
+        <p>We operate with integrity, respecting our people, communities and environment.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="fas fa-gem"></i></div>
+        <h3>VALUE CREATION</h3>
+        <p>Creating long-term value for shareholders and stakeholders.</p>
+      </div>
     </div>
   </div>
 
@@ -797,16 +895,36 @@
     </div>
   </section>
 
-  <!-- Why Choose Us -->
+  <!-- Why Choose Us (UPDATED with circular feature icons) -->
   <section style="padding: 20px 0 60px; background:#FCFAF7;">
     <div class="container">
       <div class="section-sub">✦ WHY CHOOSE US</div>
       <div class="feature-grid" data-aos="fade-up">
-        <div class="feature-card"><i class="fas fa-flag-checkered"></i><h3>Nationally owned</h3><p>Community focused, deeply rooted in PNG’s development.</p></div>
-        <div class="feature-card"><i class="fas fa-chalkboard-user"></i><h3>Technical expertise</h3><p>Strong industry knowledge across mining, petroleum and logistics.</p></div>
-        <div class="feature-card"><i class="fas fa-handshake"></i><h3>Integrity & standards</h3><p>Commitment to professional ethics and responsible operations.</p></div>
-        <div class="feature-card"><i class="fas fa-seedling"></i><h3>Sustainable growth</h3><p>Focus on local empowerment and long‑term value creation.</p></div>
-        <div class="feature-card"><i class="fas fa-bullhorn"></i><h3>Strategic approach</h3><p>Partnerships that drive project delivery and shared success.</p></div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-flag-checkered"></i></div>
+          <h3>Nationally owned</h3>
+          <p>Community focused, deeply rooted in PNG’s development.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h3>Technical expertise</h3>
+          <p>Strong industry knowledge across mining, petroleum and logistics.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Integrity & standards</h3>
+          <p>Commitment to professional ethics and responsible operations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Sustainable growth</h3>
+          <p>Focus on local empowerment and long‑term value creation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Strategic approach</h3>
+          <p>Partnerships that drive project delivery and shared success.</p>
+        </div>
       </div>
     </div>
   </section>
