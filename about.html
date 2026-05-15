@@ -11,7 +11,7 @@
     body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.5; scroll-behavior: smooth; }
     :root { --gold: #C8A337; --gold-dark: #A07E15; --gold-light: #F2E5C2; --text-muted: #4A5A72; --shadow-sm: 0 8px 20px -6px rgba(0,0,0,0.05); --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08); }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    .header { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,163,55,0.2); padding: 12px 0; z-index: 100; }
+    .header { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(200,163,55,0.2); padding: 12px 0; z-index: 100; }
     .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
     .logo-img { height: 50px; width: auto; display: block; }
     .logo-text { display: none; }
@@ -82,7 +82,7 @@
       max-width: 85%;
     }
     
-    /* Mission, Vision, Values, Commitment Cards */
+    /* Premium circular icon cards (matching index.html) */
     .four-col-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -91,50 +91,63 @@
     }
     .core-card {
       background: #FCFAF7;
-      border-radius: 28px;
-      padding: 28px 24px;
-      border: 1px solid #EFF2F9;
-      transition: all 0.25s;
+      border-radius: 30px;
+      padding: 38px 30px;
+      border: 1px solid #ECEFF4;
+      transition: all 0.3s;
+      text-align: center;
       box-shadow: var(--shadow-sm);
       height: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
     .core-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: var(--gold-light);
       box-shadow: var(--shadow-md);
     }
+    /* Circular icon container - same as pillar/feature cards */
     .card-icon {
-      font-size: 2.2rem;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #0E2340;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .card-icon i {
       color: var(--gold);
-      margin-bottom: 20px;
+      font-size: 2rem;
     }
     .core-card h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 16px;
-      color: #1E2A3E;
-      letter-spacing: -0.2px;
+      color: #10213A;
     }
     .core-card p {
       color: var(--text-muted);
       line-height: 1.6;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-bottom: 0;
     }
     .values-list {
       list-style: none;
-      margin-top: 6px;
+      margin-top: 0;
       padding-left: 0;
+      text-align: left;
+      width: 100%;
     }
     .values-list li {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 14px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 500;
       color: #1E2A3E;
     }
@@ -144,7 +157,7 @@
       font-size: 0.9rem;
     }
     .commitment-text {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       line-height: 1.6;
       color: var(--text-muted);
     }
@@ -160,7 +173,7 @@
       letter-spacing: 0.5px;
     }
     
-    /* PREMIUM "WHAT DRIVES US" SECTION */
+    /* PREMIUM "WHAT DRIVES US" SECTION with circular icons in row */
     .aspirations-section {
       position: relative;
       background: linear-gradient(135deg, #FCFAF7 0%, #F8F5EE 100%);
@@ -169,18 +182,6 @@
       margin: 70px 0 40px;
       border: 1px solid rgba(200,163,55,0.25);
       box-shadow: 0 25px 45px -12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
-      transition: all 0.3s ease;
-    }
-    .aspirations-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 10% 20%, rgba(200,163,55,0.03) 0%, transparent 70%);
-      pointer-events: none;
-      border-radius: 56px;
     }
     .aspirations-sub {
       display: inline-block;
@@ -224,7 +225,7 @@
     .aspiration-item {
       display: flex;
       gap: 24px;
-      align-items: flex-start;
+      align-items: center;
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(2px);
       padding: 20px 28px;
@@ -238,25 +239,25 @@
       transform: translateX(6px);
       box-shadow: var(--shadow-sm);
     }
+    /* Circular icon for aspiration items (slightly smaller for row layout) */
     .aspiration-icon {
-      background: linear-gradient(145deg, #FFFFFF, #F5F2EA);
-      width: 58px;
-      height: 58px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #0E2340;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 30px;
-      color: var(--gold);
-      font-size: 1.7rem;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.02), inset 0 1px 0 rgba(255,255,255,0.9);
-      border: 1px solid rgba(200,163,55,0.2);
+      flex-shrink: 0;
       transition: all 0.25s;
+    }
+    .aspiration-icon i {
+      color: var(--gold);
+      font-size: 1.8rem;
     }
     .aspiration-item:hover .aspiration-icon {
       transform: scale(1.02);
-      color: var(--gold-dark);
-      border-color: var(--gold);
-      box-shadow: 0 8px 18px rgba(160,126,21,0.08);
+      background: #13263F;
     }
     .aspiration-item p {
       flex: 1;
@@ -289,9 +290,11 @@
         gap: 18px;
       }
       .aspiration-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 1.5rem;
+        width: 60px;
+        height: 60px;
+      }
+      .aspiration-icon i {
+        font-size: 1.6rem;
       }
       .aspiration-item p {
         font-size: 0.95rem;
@@ -310,11 +313,18 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 12px;
+        gap: 16px;
       }
       .aspirations-heading:after {
         left: 50%;
         transform: translateX(-50%);
+      }
+      .card-icon {
+        width: 80px;
+        height: 80px;
+      }
+      .card-icon i {
+        font-size: 1.8rem;
       }
     }
     @media (max-width: 900px) { 
@@ -323,22 +333,67 @@
       .hero h1 { font-size: 2.2rem; }
     }
     
-    /* Footer */
-    .footer { background: #F8F9FC; color: #334155; padding: 64px 0 32px; border-top: 2px solid var(--gold-light); margin-top: 20px; }
-    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
-    .footer-col { flex: 1; min-width: 180px; }
-    .footer-col h4 { color: var(--gold-dark); margin-bottom: 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
-    .footer-col p { font-size: 0.85rem; line-height: 1.6; opacity: 0.8; margin-bottom: 16px; }
-    .footer-links { list-style: none; }
+    /* ---------- FOOTER ENTERPRISE ---------- */
+    .footer {
+      background: #050C18;
+      color: #B9C7D9;
+      padding: 70px 0 30px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
     .footer-links li { margin-bottom: 12px; }
-    .footer-links a { text-decoration: none; color: #475569; transition: color 0.2s; font-size: 0.85rem; }
+    .footer-links a {
+      text-decoration: none;
+      color: #B9C7D9;
+      transition: 0.2s;
+    }
     .footer-links a:hover { color: var(--gold); }
-    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
-    .social-icons a { background: #FFFFFF; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.25s; color: #5B6E8C; font-size: 1.1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03); border: 1px solid #E9EDF2; }
-    .social-icons a:hover { background: var(--gold); color: white; transform: translateY(-3px); border-color: var(--gold); }
-    .contact-line { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #475569; }
-    .contact-line i { color: var(--gold); width: 24px; }
-    .footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid #E9EDF2; font-size: 0.75rem; color: #94A3B8; }
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .social-icons a {
+      background: rgba(255,255,255,0.05);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      transition: 0.25s;
+    }
+    .social-icons a:hover {
+      background: var(--gold);
+      color: #0B1420;
+      transform: translateY(-3px);
+    }
+    .contact-line {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+    }
+    .contact-line i {
+      color: var(--gold);
+    }
   </style>
 </head>
 <body>
@@ -384,7 +439,7 @@
         <i class="fas fa-chart-line" style="margin-right: 6px;"></i> POMSoX: UPG
       </div>
 
-      <!-- Mission, Vision, Values, Commitment Cards -->
+      <!-- Mission, Vision, Values, Commitment Cards with circular icons -->
       <div class="four-col-grid">
         <div class="core-card">
           <div class="card-icon"><i class="fas fa-bullseye"></i></div>
@@ -413,7 +468,7 @@
         </div>
       </div>
 
-      <!-- PREMIUM SECTION: Our Aspirations / What Drives Us -->
+      <!-- PREMIUM SECTION: Our Aspirations / What Drives Us with circular icons -->
       <div class="aspirations-section">
         <div class="aspirations-sub">✦ OUR ASPIRATIONS</div>
         <h2 class="aspirations-heading">What Drives Us</h2>
@@ -443,39 +498,12 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo" style="font-size:1.6rem; margin-bottom:16px;">UPSTREAM GOLD<span>®</span></div>
-        <p>Empowering sustainable growth in Papua New Guinea through innovation, partnerships, and responsible development.</p>
-        <div class="social-icons">
-          <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="compliance.html">Compliance</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact & Compliance</h4>
-        <div class="contact-line"><i class="fas fa-map-marker-alt"></i> <span>Kwalimu Precincts, Waigani, NCD</span></div>
-        <div class="contact-line"><i class="fas fa-envelope"></i> <span>upstreamgoldpng@gmail.com</span></div>
-        <div class="contact-line"><i class="fas fa-phone-alt"></i> <span>+675 7XXXXXXX</span></div>
-        <div style="margin: 16px 0 8px;"><a href="#" style="color: #475569; text-decoration: none; font-size:0.8rem;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color: #475569; text-decoration: none; font-size:0.8rem;">Terms of Use</a></div>
-      </div>
+      <div class="footer-col"><div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div><p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Team</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact & Compliance</h4><div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div><div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div><div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div><div class="social-icons"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="mailto:upstreamgoldpng@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Upstream Gold (PNG) Limited. All Rights Reserved.</p>
-    </div>
+    <div class="footer-bottom" style="text-align:center; border-top:1px solid rgba(200,163,55,0.2); padding-top:32px; margin-top:20px;"><p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p></div>
   </div>
 </footer>
-</body>
+</body>    
 </html>
