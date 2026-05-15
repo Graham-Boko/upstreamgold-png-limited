@@ -23,14 +23,14 @@
       background: #FFFFFF;
       color: #121926;
       line-height: 1.5;
-      scroll-behavior: smooth;
+      /* FIXED: removed scroll-behavior:smooth – causes lag on mobile */
       overflow-x: hidden;
     }
 
-    img{
-  max-width:100%;
-  height:auto;
-  display:block;
+    img {
+      max-width:100%;
+      height:auto;
+      display:block;
     }
 
     :root {
@@ -175,58 +175,56 @@
       border: none;
     }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  position:relative;
+    .hero {
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      background:
+        linear-gradient(
+          115deg,
+          rgba(0,0,0,.78) 0%,
+          rgba(0,0,0,.42) 100%
+        ),
+        url('hero.png') center center / cover no-repeat;
+      background-attachment:unset;
+      padding:140px 0 100px;
+    }
 
-  background:
-    linear-gradient(
-      115deg,
-      rgba(0,0,0,.78) 0%,
-      rgba(0,0,0,.42) 100%
-    ),
-    url('hero.png') center center / cover no-repeat;
+    .hero-content {
+      width:100%;
+      max-width:800px;
+      position:relative;
+      z-index:2;
+    }
 
-  background-attachment:unset;
+    .hero-sub {
+      font-size:.82rem;
+      letter-spacing:clamp(2px,1vw,8px);
+      color:var(--gold);
+      text-transform:uppercase;
+      margin-bottom:22px;
+      font-weight:600;
+      line-height:1.5;
+    }
 
-  padding:140px 0 100px;
-}
+    .hero h1 {
+      font-size:clamp(2.8rem,8vw,5.2rem);
+      line-height:.95;
+      color:#fff;
+      margin-bottom:26px;
+      font-weight:800;
+      text-shadow:0 4px 20px rgba(0,0,0,.4);
+    }
 
-.hero-content{
-  width:100%;
-  max-width:800px;
-  position:relative;
-  z-index:2;
-}
+    .hero p {
+      font-size:clamp(1rem,2vw,1.2rem);
+      line-height:1.7;
+      color:rgba(255,255,255,.92);
+      max-width:620px;
+      margin-bottom:40px;
+    }
 
-.hero-sub{
-  font-size:.82rem;
-  letter-spacing:clamp(2px,1vw,8px);
-  color:var(--gold);
-  text-transform:uppercase;
-  margin-bottom:22px;
-  font-weight:600;
-  line-height:1.5a;
-}
-
-.hero h1{
-  font-size:clamp(2.8rem,8vw,5.2rem);
-  line-height:.95;
-  color:#fff;
-  margin-bottom:26px;
-  font-weight:800;
-  text-shadow:0 4px 20px rgba(0,0,0,.4);
-}
-
-.hero p{
-  font-size:clamp(1rem,2vw,1.2rem);
-  line-height:1.7;
-  color:rgba(255,255,255,.92);
-  max-width:620px;
-  margin-bottom:40px;
-}
     .btn-group {
       display: flex;
       gap: 20px;
@@ -336,7 +334,9 @@
       margin: 50px 0 40px;
     }
 
+    /* FIX: will-change to reduce repaint cost on scroll */
     .pillar-card, .focus-card, .feature-card, .esg-card {
+      will-change: transform;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(2px);
       border-radius: 32px;
@@ -568,7 +568,7 @@
       transform: translateY(-3px);
     }
 
-    /* ---------- RESPONSIVE ---------- */
+    /* ---------- RESPONSIVE (DESKTOP FIRST) ---------- */
     @media (max-width: 1100px) {
       .pillars-grid, .focus-grid, .feature-grid, .esg-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -622,67 +622,83 @@
     }
 
     /* =========================
-   MOBILE FIXES
-========================= */
+       MOBILE FIXES – LAG REMOVED
+    ========================= */
+    @media (max-width: 768px) {
+      /* Disable all backdrop-filter on scrolling elements – major cause of lag */
+      .stats-bar,
+      .esg-card,
+      .section-sub {
+        backdrop-filter: none !important;
+      }
 
-@media (max-width: 768px){
+      /* Solid backgrounds as fallback for readability */
+      .stats-bar {
+        background: #0F172A;  /* dark solid, no gradient+blur */
+      }
+      .esg-card {
+        background: rgba(255,255,255,0.08);
+      }
+      .section-sub {
+        background: rgba(200, 163, 55, 0.15);
+      }
 
-  pillar-card,
-  .focus-card,
-  .feature-card,
-  .esg-card{
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  }
+      /* Header blur already disabled earlier */
+      .header {
+        backdrop-filter: none;
+      }
 
-    .header{
-    backdrop-filter: none;
-  }
+      /* Ensure cards have solid fallback (will-change kept) */
+      .pillar-card, .focus-card, .feature-card, .esg-card {
+        background: #FFFFFF;
+        backdrop-filter: none;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      }
 
-  .container{
-    padding:0 18px;
-  }
+      .container {
+        padding: 0 18px;
+      }
 
-  .hero{
-    min-height:auto;
-    padding:140px 0 90px;
-    background-attachment:unset;
-  }
+      .hero {
+        min-height: auto;
+        padding: 140px 0 90px;
+        background-attachment: unset;
+      }
 
-  .hero-content{
-    width:100%;
-  }
+      .hero-content {
+        width: 100%;
+      }
 
-  .hero-sub{
-    font-size:.7rem;
-    letter-spacing:2px;
-    line-height:1.5;
-    margin-bottom:18px;
-  }
+      .hero-sub {
+        font-size: .7rem;
+        letter-spacing: 2px;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
 
-  .hero h1{
-    font-size:clamp(2.5rem,11vw,4rem);
-    line-height:.95;
-    margin-bottom:20px;
-  }
+      .hero h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+        line-height: .95;
+        margin-bottom: 20px;
+      }
 
-  .hero p{
-    font-size:1rem;
-    line-height:1.7;
-  }
+      .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
 
-  .btn-group{
-    width:100%;
-    flex-direction:column;
-  }
+      .btn-group {
+        width: 100%;
+        flex-direction: column;
+      }
 
-  .btn-primary,
-  .btn-outline{
-    width:100%;
-    justify-content:center;
-    text-align:center;
-  }
-
-}
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -690,7 +706,8 @@
 <header class="header">
   <div class="container nav">
     <div class="logo">
-      <img src="logo2.png" alt="Upstream Gold PNG" class="logo-img">
+      <!-- ADDED width + height for image to avoid layout shift -->
+      <img src="logo2.png" alt="Upstream Gold PNG" class="logo-img" width="auto" height="52">
     </div>
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
     <div class="nav-links" id="navLinks">
@@ -760,7 +777,8 @@
           </div>
         </div>
         <div class="who-image-card" data-aos="zoom-in">
-          <img src="who-we-are.png" alt="Papua New Guinea Landscape">
+          <!-- ADDED width and height for image to avoid layout recalculation -->
+          <img src="who-we-are.png" alt="Papua New Guinea Landscape" width="800" height="600" loading="lazy">
           <div class="who-image-overlay">
             <div class="who-overlay-sub" style="color:var(--gold); letter-spacing:4px;">✦ LOCALLY ROOTED. NATIONALLY COMMITTED.</div>
             <div class="who-overlay-line" style="width:60px; height:2px; background:var(--gold); margin:14px 0 18px;"></div>
@@ -792,14 +810,15 @@
       <h2 class="section-title">OUR FOCUS AREAS</h2>
     </div>
     <div class="focus-grid">
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Resource Dev" class="focus-img"><div class="image-bottom-icon"><i class="fas fa-hard-hat"></i></div></div><h3>Natural Resource Development</h3><p>Using PNG's resources responsibly to drive economic growth.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Education" class="focus-img"><div class="image-bottom-icon"><i class="fas fa-graduation-cap"></i></div></div><h3>Education & Career Pathways</h3><p>Connecting individuals to quality education and career opportunities.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Training" class="focus-img"><div class="image-bottom-icon"><i class="fas fa-chalkboard"></i></div></div><h3>Training & Capacity Building</h3><p>Providing practical training and real-world experience.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Livelihoods" class="focus-img"><div class="image-bottom-icon"><i class="fas fa-leaf"></i></div></div><h3>Sustainable Livelihoods</h3><p>Creating opportunities that reduce poverty and build resilience.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
+      <!-- All images now have explicit width+height and loading=lazy -->
+      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Resource Dev" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-hard-hat"></i></div></div><h3>Natural Resource Development</h3><p>Using PNG's resources responsibly to drive economic growth.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
+      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Education" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-graduation-cap"></i></div></div><h3>Education & Career Pathways</h3><p>Connecting individuals to quality education and career opportunities.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
+      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Training" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-chalkboard"></i></div></div><h3>Training & Capacity Building</h3><p>Providing practical training and real-world experience.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
+      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Livelihoods" class="focus-img" width="400" height="340" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-leaf"></i></div></div><h3>Sustainable Livelihoods</h3><p>Creating opportunities that reduce poverty and build resilience.</p><a href="services.html" class="focus-link">LEARN MORE <i class="fas fa-arrow-right"></i></a></div>
     </div>
   </div>
 
-  <!-- NEW ESG Section (Corporate Premium) -->
+  <!-- ESG Section (Corporate Premium) -->
   <section class="esg-section">
     <div class="container" data-aos="fade-up">
       <div class="section-sub" style="color:var(--gold-light); background:rgba(200,163,55,0.15);">✦ ESG COMMITMENT</div>
@@ -828,11 +847,11 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
-  duration: 500,
-  once: true,
-  offset: 40,
-  disable: window.innerWidth < 768
-});
+    duration: 500,
+    once: true,
+    offset: 40,
+    disable: window.innerWidth < 768
+  });
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
   if(menuBtn) {
