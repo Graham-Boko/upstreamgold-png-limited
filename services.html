@@ -154,7 +154,7 @@
       top: 0;
     }
 
-    /* ---------- HERO (CINEMATIC, SAME AS INDEX) ---------- */
+    /* ---------- HERO (EXACTLY LIKE INDEX.HTML) ---------- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -191,18 +191,58 @@
       text-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
-    .hero-line {
-      width: 100px;
-      height: 3px;
-      background: var(--gold);
-      margin: 28px 0;
-    }
-
     .hero p {
       font-size: clamp(1rem, 2vw, 1.2rem);
       line-height: 1.7;
       color: rgba(255,255,255,0.92);
       max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #0B1420;
+      padding: 14px 38px;
+      font-weight: 700;
+      border-radius: 48px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: white;
+      padding: 14px 38px;
+      border-radius: 48px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(200,163,55,0.15);
+      border-color: var(--gold-light);
+      transform: translateY(-3px);
     }
 
     /* ---------- SERVICES SECTION (PRESERVED ORIGINAL LAYOUT) ---------- */
@@ -481,12 +521,11 @@
       transform: translateY(-3px);
     }
 
-    /* Footer (EXACTLY AS INDEX) */
+    /* Footer (EXACTLY AS INDEX.HTML) */
     .footer {
-      background: #0B1420;
-      color: #B9C7D9;
+      background: #FAFBFD;
+      border-top: 1px solid #E9EDF4;
       padding: 70px 0 30px;
-      border-top: 2px solid var(--gold);
     }
 
     .footer-grid {
@@ -498,7 +537,7 @@
     }
 
     .footer-col h4 {
-      color: var(--gold);
+      color: #0F1A2E;
       margin-bottom: 20px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -514,7 +553,7 @@
 
     .footer-links a {
       text-decoration: none;
-      color: #B9C7D9;
+      color: #5B6678;
       transition: 0.2s;
     }
 
@@ -529,40 +568,46 @@
     }
 
     .social-icons a {
-      background: rgba(255,255,255,0.05);
+      background: #FFFFFF;
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--gold);
       transition: 0.25s;
+      text-decoration: none;
     }
 
     .social-icons a:hover {
       background: var(--gold);
-      color: #0B1420;
+      color: #FFFFFF;
       transform: translateY(-3px);
     }
 
     .contact-line {
       display: flex;
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 16px;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.92rem;
     }
 
     .contact-line i {
       color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .contact-line span {
+      color: #5B6678;
     }
 
     .footer-bottom {
+      border-top: 1px solid #E9EDF4;
+      padding-top: 26px;
       text-align: center;
-      border-top: 1px solid rgba(200,163,55,0.2);
-      padding-top: 32px;
-      margin-top: 20px;
+      color: #94A3B8;
       font-size: 0.82rem;
     }
 
@@ -648,6 +693,36 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .hero-content {
+        width: 100%;
+      }
+      .hero-sub {
+        font-size: .7rem;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+        line-height: .95;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .btn-group {
+        width: 100%;
+        flex-direction: column;
+      }
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
     @media (max-width: 680px) {
       .services-wrapper {
         margin-top: 0;
@@ -682,19 +757,22 @@
   </header>
 
   <main id="main-content">
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (REDESIGNED TO MATCH INDEX) -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <div class="hero-sub">✦ OUR SERVICES</div>
-          <h1>Four-tier<br>business<br>operations</h1>
-          <div class="hero-line"></div>
+          <h1>Four-tier<br>business operations</h1>
           <p>Upstream Gold is structured to provide end-to-end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
+          <div class="btn-group">
+            <a href="services.html" class="btn-primary">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-outline">Contact Executives</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES CONTENT -->
+    <!-- SERVICES CONTENT (UNCHANGED) -->
     <section class="services-wrapper">
       <div class="container">
         <div class="services-box">
@@ -748,7 +826,7 @@
       </div>
     </section>
 
-    <!-- Approach Section -->
+    <!-- Approach Section (UNCHANGED) -->
     <section class="approach">
       <div class="container">
         <div class="section-sub">✦ HOW WE WORK</div>
@@ -762,7 +840,7 @@
       </div>
     </section>
 
-    <!-- Partners & CTA -->
+    <!-- Partners & CTA (UNCHANGED) -->
     <div class="container">
       <div class="bottom-grid">
         <div class="partners-box">
@@ -784,13 +862,19 @@
     </div>
   </main>
 
-  <!-- FOOTER (IDENTICAL TO INDEX) -->
+  <!-- FOOTER (IDENTICAL TO INDEX.HTML) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
           <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
           <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Explore</h4>
@@ -805,15 +889,9 @@
         </div>
         <div class="footer-col">
           <h4>Contact & Compliance</h4>
-          <div class="contact-line"><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-envelope" style="color:var(--gold);"></i><span>upstreamgoldpng@gmail.com</span></div>
-          <div class="contact-line"><i class="fas fa-phone-alt" style="color:var(--gold);"></i><span>+675 7XXXXXXX</span></div>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
+          <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
+          <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
+          <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -832,7 +910,6 @@
           const expanded = navLinks.classList.toggle('active');
           menuBtn.setAttribute('aria-expanded', expanded);
         });
-        // Close menu when any navigation link is clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -840,7 +917,6 @@
           });
         });
       }
-      // Lazy load images without loading attribute
       document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
     })();
   </script>
