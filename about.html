@@ -37,7 +37,7 @@
       margin: 0 auto;
       padding: 0 40px;
     }
-    /* Skip link for accessibility */
+    /* Skip link */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -52,9 +52,9 @@
     .skip-link:focus {
       top: 0;
     }
-    /* Header & Navigation - matching index.html exactly */
+    /* Header - identical to index */
     .header {
-      position: sticky;
+      position: fixed;
       top: 0;
       width: 100%;
       background: #FFFFFF;
@@ -69,10 +69,6 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
     }
     .logo img {
       height: 52px;
@@ -132,38 +128,88 @@
       background: none;
       border: none;
     }
-    /* Hero section (about page original) */
-    .hero { 
-      min-height: 65vh; 
-      display: flex; 
-      align-items: center; 
+    /* Hero - exactly like index.html */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
       position: relative;
-      background: linear-gradient(115deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.55) 100%), url('hero.png') center center / cover no-repeat;
-      padding-left: 3%;
-      padding-right: 8%;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 1;
+      background: linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 100%), url('hero.png') center center / cover no-repeat;
+      padding: 140px 0 120px;
     }
     .hero-content {
+      width: 100%;
+      max-width: 800px;
       position: relative;
       z-index: 2;
-      max-width: 750px;
-      text-align: left;
-      width: 100%;
     }
-    .hero-sub { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 6px; color: var(--gold); margin-bottom: 24px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: #FFFFFF; text-shadow: 0 2px 8px rgba(0,0,0,0.3); letter-spacing: -0.5px; }
-    .hero p { font-size: 1rem; color: #F0F0F0; margin-bottom: 0; max-width: 620px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height: 1.6; }
-    
-    /* About main content */
+    .hero-sub {
+      font-size: .82rem;
+      letter-spacing: clamp(2px,1vw,8px);
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem,8vw,5.2rem);
+      line-height: .95;
+      color: #fff;
+      margin-bottom: 26px;
+      font-weight: 800;
+      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .hero p {
+      font-size: clamp(1rem,2vw,1.2rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,.92);
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #0B1420;
+      padding: 14px 38px;
+      font-weight: 700;
+      border-radius: 48px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: white;
+      padding: 14px 38px;
+      border-radius: 48px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      backdrop-filter: blur(6px);
+    }
+    .btn-outline:hover {
+      background: rgba(200,163,55,0.15);
+      border-color: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    /* About main content (unchanged, but added slight spacing) */
     .about-main {
       padding: 70px 0 80px;
     }
@@ -190,8 +236,6 @@
       margin-bottom: 32px;
       max-width: 85%;
     }
-    
-    /* Premium circular icon cards */
     .four-col-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -280,8 +324,6 @@
       margin-top: 12px;
       letter-spacing: 0.5px;
     }
-    
-    /* Aspirations section */
     .aspirations-section {
       position: relative;
       background: linear-gradient(135deg, #FCFAF7 0%, #F8F5EE 100%);
@@ -382,13 +424,12 @@
       font-family: 'Cormorant Garamond', serif;
       letter-spacing: -0.2px;
     }
-    
-    /* Footer - Enterprise style (matching index) */
+
+    /* Footer - EXACTLY like index.html */
     .footer {
-      background: #0B1420;
-      color: #B9C7D9;
+      background: #FAFBFD;
+      border-top: 1px solid #E9EDF4;
       padding: 70px 0 30px;
-      border-top: 2px solid var(--gold);
     }
     .footer-grid {
       display: flex;
@@ -398,7 +439,7 @@
       margin-bottom: 50px;
     }
     .footer-col h4 {
-      color: var(--gold);
+      color: #0F1A2E;
       margin-bottom: 20px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -409,7 +450,7 @@
     .footer-links li { margin-bottom: 12px; }
     .footer-links a {
       text-decoration: none;
-      color: #B9C7D9;
+      color: #5B6678;
       transition: 0.2s;
     }
     .footer-links a:hover { color: var(--gold); }
@@ -419,40 +460,45 @@
       margin-top: 24px;
     }
     .social-icons a {
-      background: rgba(255,255,255,0.05);
+      background: #FFFFFF;
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--gold);
       transition: 0.25s;
+      text-decoration: none;
     }
     .social-icons a:hover {
       background: var(--gold);
-      color: #0B1420;
+      color: #FFFFFF;
       transform: translateY(-3px);
     }
     .contact-line {
       display: flex;
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 16px;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.92rem;
     }
     .contact-line i {
       color: var(--gold);
+      margin-top: 4px;
+    }
+    .contact-line span {
+      color: #5B6678;
     }
     .footer-bottom {
-      border-top: 1px solid rgba(200,163,55,0.2);
-      padding-top: 32px;
+      border-top: 1px solid #E9EDF4;
+      padding-top: 26px;
       text-align: center;
-      margin-top: 20px;
+      color: #94A3B8;
       font-size: 0.82rem;
     }
-    
-    /* ---------- RESPONSIVE BREAKPOINTS (matching index hamburger styling) ---------- */
+
+    /* Responsive (matching index) */
     @media (max-width: 1100px) {
       .four-col-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -464,8 +510,8 @@
     }
     @media (max-width: 850px) {
       .container { padding: 0 24px; }
-      .hero { min-height: 50vh; padding-left: 5%; padding-right: 5%; }
-      .hero h1 { font-size: 2.2rem; }
+      .hero { min-height: auto; padding: 140px 0 90px; }
+      .hero h1 { font-size: 3.4rem; }
       .menu-toggle {
         display: block;
       }
@@ -492,9 +538,6 @@
         font-size: 1.1rem;
         color: #1E2A3A;
       }
-      .nav-links a:after {
-        bottom: -4px;
-      }
       .four-col-grid {
         grid-template-columns: 1fr;
       }
@@ -509,10 +552,55 @@
         transform: translateX(-50%);
       }
       .about-description { max-width: 100%; }
+      .footer-grid {
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-content {
+        width: 100%;
+      }
+      .hero-sub {
+        font-size: .7rem;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+        line-height: .95;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .btn-group {
+        width: 100%;
+        flex-direction: column;
+      }
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .stats-bar {
+        background: #0F172A;
+      }
+      .esg-card {
+        background: rgba(255, 255, 255, 0.08) !important;
+      }
+      .section-sub {
+        background: rgba(200, 163, 55, 0.15);
+      }
+      .pillar-card, .focus-card, .feature-card {
+        background: #FFFFFF;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      }
     }
     @media (max-width: 680px) {
       .section-title { font-size: 2.2rem; }
-      .hero h1 { font-size: 1.9rem; }
+      .hero h1 { font-size: 2.2rem; }
       .hero-sub { letter-spacing: 4px; font-size: 0.7rem; }
       .four-col-grid { gap: 18px; }
       .core-card { padding: 28px 20px; }
@@ -547,16 +635,22 @@
   </header>
 
   <main id="main-content">
-    <!-- Hero section from original about -->
+    <!-- Hero section - redesigned to match index.html -->
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-sub">✦ WHO WE ARE</div>
-        <h1>ABOUT US</h1>
-        <p>Upstream Gold (PNG) Ltd is a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-sub">✦ ABOUT UPSTREAM GOLD</div>
+          <h1>ABOUT US</h1>
+          <p>Upstream Gold (PNG) Ltd is a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
+          <div class="btn-group">
+            <a href="services.html" class="btn-primary">Our Services <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-outline">Contact Executives</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- About content -->
+    <!-- About main content (unchanged structure, kept all original sections) -->
     <div class="about-main">
       <div class="container">
         <div class="section-tag">✦ Company Overview</div>
@@ -570,7 +664,7 @@
           <i class="fas fa-chart-line" style="margin-right: 6px;"></i> POMSoX: UPG
         </div>
 
-        <!-- Mission, Vision, Values, Commitment Cards with circular icons -->
+        <!-- Mission, Vision, Values, Commitment Cards -->
         <div class="four-col-grid">
           <div class="core-card">
             <div class="card-icon"><i class="fas fa-bullseye"></i></div>
@@ -626,12 +720,19 @@
     </div>
   </main>
 
+  <!-- Footer - exactly as index.html -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamard';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
+          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
           <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Explore</h4>
@@ -649,12 +750,6 @@
           <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
           <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
           <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -664,7 +759,7 @@
   </footer>
 
   <script>
-    // Mobile hamburger toggle functionality - exactly as in index.html
+    // Mobile hamburger toggle (same as index)
     (function() {
       const menuBtn = document.getElementById('mobileMenuBtn');
       const navLinks = document.getElementById('navLinks');
@@ -673,7 +768,6 @@
           const expanded = navLinks.classList.toggle('active');
           menuBtn.setAttribute('aria-expanded', expanded);
         });
-        // Close mobile menu when any nav link is clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -681,7 +775,6 @@
           });
         });
       }
-      // Optional: lazy loading for all images without loading attribute
       document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
     })();
   </script>
