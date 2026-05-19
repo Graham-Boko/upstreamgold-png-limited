@@ -19,7 +19,7 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #FFFFFF;
-      color: #1E2A3E;
+      color: #121926;
       line-height: 1.5;
       overflow-x: hidden;
     }
@@ -153,36 +153,98 @@
       border: none;
     }
 
-    /* ---------- CONTACT PAGE STYLES (PRESERVED & ENHANCED) ---------- */
-    .page-header {
-      padding: 140px 0 40px;
-      background: linear-gradient(145deg, #FCFAF7 0%, #FFFFFF 100%);
+    /* ---------- HERO (EXACTLY LIKE INDEX.HTML) ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 100%),
+                  url('hero.png') center center / cover no-repeat;
+      padding: 140px 0 120px;
     }
 
-    .section-sub {
+    .hero-content {
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-sub {
+      font-size: .82rem;
+      letter-spacing: clamp(2px, 1vw, 8px);
       color: var(--gold);
       text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 5px;
+      margin-bottom: 22px;
       font-weight: 600;
-      margin-bottom: 20px;
     }
 
-    .section-title {
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      line-height: .95;
+      color: #fff;
+      margin-bottom: 26px;
+      font-weight: 800;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.2rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,.92);
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #0B1420;
+      padding: 14px 38px;
       font-weight: 700;
-      color: #0F1A2E;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      max-width: 600px;
+      border-radius: 48px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-size: 1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
     }
 
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: white;
+      padding: 14px 38px;
+      border-radius: 48px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(200,163,55,0.15);
+      border-color: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    /* ---------- CONTACT PAGE STYLES (PRESERVED ORIGINAL) ---------- */
     .contact-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -192,7 +254,7 @@
       padding: 56px;
       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
       border: 1px solid rgba(200,163,55,0.15);
-      margin: 30px 0 80px;
+      margin: 60px 0 90px;
     }
 
     .contact-info {
@@ -262,12 +324,11 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- FOOTER (MATCHES INDEX: DARK BACKGROUND, GOLD ACCENTS) ---------- */
+    /* ---------- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) ---------- */
     .footer {
-      background: #0B1420;
-      color: #B9C7D9;
+      background: #FAFBFD;
+      border-top: 1px solid #E9EDF4;
       padding: 70px 0 30px;
-      border-top: 2px solid var(--gold);
     }
 
     .footer-grid {
@@ -279,7 +340,7 @@
     }
 
     .footer-col h4 {
-      color: var(--gold);
+      color: #0F1A2E;
       margin-bottom: 20px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -295,7 +356,7 @@
 
     .footer-links a {
       text-decoration: none;
-      color: #B9C7D9;
+      color: #5B6678;
       transition: 0.2s;
     }
 
@@ -310,44 +371,50 @@
     }
 
     .social-icons a {
-      background: rgba(255,255,255,0.05);
+      background: #FFFFFF;
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--gold);
       transition: 0.25s;
+      text-decoration: none;
     }
 
     .social-icons a:hover {
       background: var(--gold);
-      color: #0B1420;
+      color: #FFFFFF;
       transform: translateY(-3px);
     }
 
     .contact-line {
       display: flex;
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 16px;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.92rem;
     }
 
     .contact-line i {
       color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .contact-line span {
+      color: #5B6678;
     }
 
     .footer-bottom {
+      border-top: 1px solid #E9EDF4;
+      padding-top: 26px;
       text-align: center;
-      border-top: 1px solid rgba(200,163,55,0.2);
-      padding-top: 32px;
-      margin-top: 20px;
+      color: #94A3B8;
       font-size: 0.82rem;
     }
 
-    /* ---------- RESPONSIVE (MATCHES INDEX) ---------- */
+    /* ---------- RESPONSIVE (MATCHES INDEX EXACTLY) ---------- */
     @media (max-width: 1100px) {
       .footer-grid {
         flex-direction: column;
@@ -389,17 +456,50 @@
         font-size: 1.1rem;
         color: #1E2A3A;
       }
-      .page-header {
-        padding: 120px 0 30px;
+      .hero {
+        min-height: auto;
+        padding: 140px 0 90px;
       }
-      .section-title {
-        font-size: 2.5rem;
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .contact-wrapper {
+        margin: 40px 0 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        width: 100%;
+      }
+      .hero-sub {
+        font-size: .7rem;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+        line-height: .95;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
       }
     }
 
     @media (max-width: 680px) {
-      .section-title {
-        font-size: 2rem;
+      .hero h1 {
+        font-size: 2.5rem;
       }
       .contact-wrapper {
         padding: 28px 20px;
@@ -437,18 +537,24 @@
   </header>
 
   <main id="main-content">
-    <!-- PAGE HEADER -->
-    <section class="page-header">
+    <!-- HERO SECTION (REDESIGNED TO MATCH INDEX) -->
+    <section class="hero">
       <div class="container">
-        <div class="section-sub">✦ GET IN TOUCH</div>
-        <h1 class="section-title">Investor & Partnership Inquiries</h1>
-        <p class="section-desc">We welcome strategic joint venture discussions, supplier registrations, and investment opportunities.</p>
+        <div class="hero-content">
+          <div class="hero-sub">✦ GET IN TOUCH</div>
+          <h1>Investor &<br>Partnership Inquiries</h1>
+          <p>We welcome strategic joint venture discussions, supplier registrations, and investment opportunities.</p>
+          <div class="btn-group">
+            <a href="#contact-form" class="btn-primary">Send Inquiry <i class="fas fa-arrow-right"></i></a>
+            <a href="mailto:upstreamgoldpng@gmail.com" class="btn-outline">Email Directly</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (PRESERVED ORIGINAL) -->
     <div class="container">
-      <div class="contact-wrapper">
+      <div class="contact-wrapper" id="contact-form">
         <div class="contact-info">
           <h3>Port Moresby HQ</h3>
           <p>Kwalimu Precincts, Ground Level<br>Somare Circuit, Waigani, NCD<br>P.O BOX 3239, BOROKO 1111<br>Papua New Guinea</p>
@@ -470,7 +576,7 @@
     </div>
   </main>
 
-  <!-- FOOTER (MATCHES INDEX DARK STYLE) -->
+  <!-- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -478,9 +584,9 @@
           <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
           <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
           <div class="social-icons">
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
             <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
