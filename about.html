@@ -3,515 +3,540 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Upstream Gold (PNG) Ltd | About Us</title>
-  <meta name="description" content="Upstream Gold (PNG) Ltd is a 100% Papua New Guinean-owned company delivering sustainable mining, exploration, and logistics solutions.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <title>Nouveau Mining | About Us – Our Purpose & Vision</title>
+  <meta name="description" content="100% Papua New Guinean-owned enterprise driving sustainable mining, exploration, and community development. Learn about our mission, values, and aspirations.">
+  <meta name="keywords" content="mining PNG, about us, sustainable mining, PNG values, responsible mining">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #1E2A3E;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+
     :root {
-      --gold: #C8A337;
-      --gold-dark: #A07E15;
-      --gold-light: #F2E5C2;
-      --navy-deep: #0B1420;
-      --text-muted: #4A5A72;
-      --shadow-sm: 0 8px 20px -6px rgba(0,0,0,0.05);
-      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
-      --shadow-premium: 0 25px 45px -18px rgba(0, 0, 0, 0.15), 0 10px 20px -8px rgba(0, 0, 0, 0.05);
-      --transition-smooth: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8901C;
+      --gold-soft: #F9E5B3;
+      --charcoal: #11181C;
+      --slate: #1E2A32;
+      --stone: #F5F2EF;
+      --pure-white: #FFFFFF;
+      --off-white: #FCFAF7;
+      --text-dark: #1F2A3E;
+      --text-muted: #5A6E7F;
+      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 35px 50px -20px rgba(0, 0, 0, 0.2);
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      --border-radius-card: 2rem;
+      --border-radius-btn: 3rem;
     }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--pure-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 2rem;
     }
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--gold);
-      color: #000;
-      padding: 8px;
-      z-index: 1001;
-      text-decoration: none;
-      font-weight: bold;
+
+    h1, h2, h3, .serif-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .skip-link:focus {
-      top: 0;
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.12);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      margin-bottom: 1.5rem;
     }
-    /* Header - identical to index */
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: var(--charcoal);
+    }
+
+    /* Header (identical to index) */
     .header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #FFFFFF;
-      border-bottom: 1px solid rgba(200, 163, 55, 0.45);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
       z-index: 1000;
-      transition: var(--transition-smooth);
-      padding: 10px 0;
+      transition: var(--transition);
+      padding: 0.8rem 0;
     }
+
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      flex-wrap: wrap;
     }
-    .logo img {
-      height: 52px;
-      width: auto;
-      transition: transform 0.3s;
-    }
-    .logo img:hover { transform: scale(1.02); }
+
     .nav-links {
       display: flex;
       gap: 2.2rem;
       align-items: center;
     }
+
+    /* FORCED EXACT FONT SIZE (matches index navbar) */
     .nav-links a {
-      font-weight: 500;
-      font-size: 0.9rem;
       text-decoration: none;
-      color: #1E2A3A;
-      transition: 0.25s;
-      letter-spacing: 0.3px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      transition: var(--transition);
       position: relative;
     }
-    .nav-links a:after {
+
+    .nav-links a::after {
       content: '';
       position: absolute;
       bottom: -6px;
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gold);
-      transition: width 0.3s ease;
+      background: var(--gold-primary);
+      transition: width 0.25s ease;
     }
-    .nav-links a:hover:after, .nav-links a.active:after {
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
     }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--gold);
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-deep);
     }
+
     .nav-cta {
-      border: 1.5px solid var(--gold);
-      padding: 8px 28px;
-      border-radius: 40px;
-      font-weight: 600;
+      border: 1.5px solid var(--gold-primary);
+      padding: 0.5rem 1.8rem;
+      border-radius: var(--border-radius-btn);
       background: transparent;
-      color: var(--gold) !important;
-      transition: all 0.3s;
+      color: var(--gold-deep) !important;
+      font-weight: 700;
+      transition: var(--transition);
     }
+
     .nav-cta:hover {
-      background: var(--gold);
-      color: #0B1420 !important;
-      border-color: var(--gold);
+      background: var(--gold-primary);
+      color: var(--charcoal) !important;
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
     }
+
     .menu-toggle {
       display: none;
-      font-size: 1.8rem;
-      color: var(--gold);
-      cursor: pointer;
       background: none;
       border: none;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      cursor: pointer;
     }
-    /* Hero - exactly like index.html */
+
+    /* Hero – now forced to same visual height as index (by increasing padding) */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      background: linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 100%), url('hero.png') center center / cover no-repeat;
-      padding: 140px 0 120px;
+      background: linear-gradient(125deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('hero.png') center/cover no-repeat fixed;
+      padding: 8rem 0 6rem;          /* base padding */
     }
+
+    /* Extra spacer to match the taller content of index.html hero */
+    .hero-height-balancer {
+      margin-top: 1.5rem;
+    }
+
     .hero-content {
-      width: 100%;
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
+      max-width: 750px;
     }
+
     .hero-sub {
-      font-size: .82rem;
-      letter-spacing: clamp(2px,1vw,8px);
-      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
       text-transform: uppercase;
-      margin-bottom: 22px;
       font-weight: 600;
+      margin-bottom: 1.2rem;
     }
+
     .hero h1 {
-      font-size: clamp(2.8rem,8vw,5.2rem);
-      line-height: .95;
-      color: #fff;
-      margin-bottom: 26px;
+      font-size: clamp(3rem, 7vw, 4.8rem);
       font-weight: 800;
-      text-shadow: 0 4px 20px rgba(0,0,0,.4);
-      font-family: 'Cormorant Garamond', serif;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
+
     .hero p {
-      font-size: clamp(1rem,2vw,1.2rem);
-      line-height: 1.7;
-      color: rgba(255,255,255,.92);
-      max-width: 620px;
-      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      max-width: 600px;
     }
+
     .btn-group {
       display: flex;
-      gap: 20px;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
+
     .btn-primary {
-      background: var(--gold);
-      color: #0B1420;
-      padding: 14px 38px;
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 700;
-      border-radius: 48px;
       text-decoration: none;
-      transition: all 0.3s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
+      gap: 0.6rem;
+      transition: var(--transition);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
     }
+
     .btn-primary:hover {
-      background: var(--gold-dark);
+      background: var(--gold-deep);
       transform: translateY(-3px);
-      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 25px -12px black;
     }
+
     .btn-outline {
-      border: 1.5px solid var(--gold);
-      background: transparent;
+      border: 1.5px solid var(--gold-primary);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
       color: white;
-      padding: 14px 38px;
-      border-radius: 48px;
+      padding: 0.9rem 2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 600;
       text-decoration: none;
-      transition: 0.3s;
-      backdrop-filter: blur(6px);
+      transition: var(--transition);
     }
+
     .btn-outline:hover {
-      background: rgba(200,163,55,0.15);
-      border-color: var(--gold-light);
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      border-color: var(--gold-primary);
       transform: translateY(-3px);
     }
 
-    /* About main content (unchanged, but added slight spacing) */
-    .about-main {
-      padding: 70px 0 80px;
+    /* Intro text */
+    .about-intro {
+      padding: 4rem 0 2rem;
     }
-    .section-tag {
-      color: var(--gold);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 5px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .about-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      color: #0F1A2E;
-    }
-    .about-description {
-      color: var(--text-muted);
-      font-size: 1.05rem;
+
+    .intro-text {
+      font-size: 1.1rem;
       line-height: 1.7;
-      margin-bottom: 32px;
+      color: var(--text-muted);
       max-width: 85%;
+      margin-bottom: 1rem;
     }
-    .four-col-grid {
+
+    /* Core Grid (Mission, Vision, Values, Commitment) */
+    .core-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
-      margin: 48px 0 20px;
+      gap: 2rem;
+      margin: 3rem 0 2rem;
     }
+
     .core-card {
-      background: #FCFAF7;
-      border-radius: 30px;
-      padding: 38px 30px;
-      border: 1px solid #ECEFF4;
-      transition: all 0.3s;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
+      background: var(--off-white);
+      border-radius: var(--border-radius-card);
+      padding: 2rem 1.8rem;
+      transition: var(--transition);
+      border: 1px solid #EBE5DC;
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
+
     .core-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold-light);
+      transform: translateY(-8px);
+      border-color: var(--gold-primary);
       box-shadow: var(--shadow-md);
     }
+
     .card-icon {
-      width: 90px;
-      height: 90px;
+      width: 70px;
+      height: 70px;
+      background: var(--charcoal);
       border-radius: 50%;
-      background: #0E2340;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
+      margin-bottom: 1.8rem;
     }
+
     .card-icon i {
-      color: var(--gold);
-      font-size: 2rem;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
     }
+
     .core-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #10213A;
+      font-size: 1.7rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
     }
+
     .core-card p {
       color: var(--text-muted);
       line-height: 1.6;
       font-size: 0.95rem;
-      margin-bottom: 0;
     }
+
     .values-list {
       list-style: none;
-      margin-top: 0;
       padding-left: 0;
-      text-align: left;
       width: 100%;
     }
+
     .values-list li {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      font-size: 0.95rem;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
       font-weight: 500;
-      color: #1E2A3E;
+      color: var(--text-dark);
     }
+
     .values-list li i {
-      color: var(--gold);
-      width: 20px;
+      color: var(--gold-primary);
+      width: 1.2rem;
       font-size: 0.9rem;
     }
-    .commitment-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-    .stock-ticker {
-      display: inline-block;
-      background: #F2E5C2;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold-dark);
-      margin-top: 12px;
-      letter-spacing: 0.5px;
-    }
+
+    /* Aspirations section */
     .aspirations-section {
-      position: relative;
       background: linear-gradient(135deg, #FCFAF7 0%, #F8F5EE 100%);
-      border-radius: 56px;
-      padding: 56px 52px;
-      margin: 70px 0 40px;
-      border: 1px solid rgba(200,163,55,0.25);
-      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+      border-radius: 2.5rem;
+      padding: 3.5rem;
+      margin: 4rem 0;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: var(--shadow-sm);
     }
+
     .aspirations-sub {
       display: inline-block;
-      color: var(--gold-dark);
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      margin-bottom: 16px;
-      font-weight: 700;
-      background: rgba(200,163,55,0.1);
-      padding: 4px 14px;
+      background: rgba(212, 175, 55, 0.12);
+      padding: 0.3rem 1rem;
       border-radius: 40px;
-      backdrop-filter: blur(2px);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      margin-bottom: 1rem;
     }
+
     .aspirations-heading {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 2.4rem;
       font-weight: 700;
-      margin-bottom: 36px;
-      color: #0F1A2E;
-      letter-spacing: -0.3px;
+      margin-bottom: 2rem;
       position: relative;
       display: inline-block;
     }
+
     .aspirations-heading:after {
       content: '';
       position: absolute;
-      bottom: -12px;
+      bottom: -10px;
       left: 0;
       width: 70px;
       height: 3px;
-      background: linear-gradient(90deg, var(--gold), rgba(200,163,55,0.3));
+      background: linear-gradient(90deg, var(--gold-primary), rgba(212, 175, 55, 0.3));
       border-radius: 3px;
     }
+
     .aspirations-list {
       display: flex;
       flex-direction: column;
-      gap: 28px;
-      margin-top: 16px;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
+
     .aspiration-item {
       display: flex;
-      gap: 24px;
+      gap: 1.5rem;
       align-items: center;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(2px);
-      padding: 20px 28px;
-      border-radius: 40px;
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border: 1px solid rgba(200,163,55,0.1);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 1.2rem 1.8rem;
+      border-radius: 2rem;
+      transition: var(--transition);
+      border: 1px solid rgba(212, 175, 55, 0.1);
     }
+
     .aspiration-item:hover {
       background: white;
-      border-color: var(--gold-light);
+      border-color: var(--gold-soft);
       transform: translateX(6px);
       box-shadow: var(--shadow-sm);
     }
+
     .aspiration-icon {
-      width: 70px;
-      height: 70px;
+      width: 64px;
+      height: 64px;
+      background: var(--charcoal);
       border-radius: 50%;
-      background: #0E2340;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: all 0.25s;
-    }
-    .aspiration-icon i {
-      color: var(--gold);
-      font-size: 1.8rem;
-    }
-    .aspiration-item:hover .aspiration-icon {
-      transform: scale(1.02);
-      background: #13263F;
-    }
-    .aspiration-item p {
-      flex: 1;
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: #2C3A4F;
-      margin: 0;
-      font-weight: 500;
-    }
-    .aspiration-item strong {
-      color: var(--gold-dark);
-      font-weight: 700;
-      background: linear-gradient(120deg, rgba(200,163,55,0.08), transparent);
-      padding: 0 4px 0 0;
-      font-family: 'Cormorant Garamond', serif;
-      letter-spacing: -0.2px;
     }
 
-    /* Footer - EXACTLY like index.html */
-    .footer {
-      background: #FAFBFD;
-      border-top: 1px solid #E9EDF4;
-      padding: 70px 0 30px;
+    .aspiration-icon i {
+      font-size: 1.7rem;
+      color: var(--gold-primary);
     }
+
+    .aspiration-item p {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #2C3A4F;
+      font-weight: 500;
+    }
+
+    .aspiration-item strong {
+      color: var(--gold-deep);
+      font-weight: 800;
+    }
+
+    /* Footer */
+    .footer {
+      background: #F9F7F4;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid #EADFCB;
+    }
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
+
     .footer-col h4 {
-      color: #0F1A2E;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
     }
+
     .footer-links {
       list-style: none;
     }
-    .footer-links li { margin-bottom: 12px; }
+
+    .footer-links li {
+      margin-bottom: 0.7rem;
+    }
+
     .footer-links a {
       text-decoration: none;
-      color: #5B6678;
+      color: var(--text-muted);
       transition: 0.2s;
     }
-    .footer-links a:hover { color: var(--gold); }
+
+    .footer-links a:hover {
+      color: var(--gold-primary);
+    }
+
     .social-icons {
       display: flex;
-      gap: 14px;
-      margin-top: 24px;
+      gap: 1rem;
+      margin-top: 1.2rem;
     }
+
     .social-icons a {
-      background: #FFFFFF;
-      width: 40px;
-      height: 40px;
+      background: white;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
-      transition: 0.25s;
+      color: var(--gold-deep);
+      transition: var(--transition);
+      border: 1px solid #E2D9CE;
       text-decoration: none;
     }
+
     .social-icons a:hover {
-      background: var(--gold);
-      color: #FFFFFF;
+      background: var(--gold-primary);
+      color: var(--charcoal);
       transform: translateY(-3px);
     }
+
     .contact-line {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .contact-line i {
-      color: var(--gold);
-      margin-top: 4px;
-    }
-    .contact-line span {
-      color: #5B6678;
-    }
-    .footer-bottom {
-      border-top: 1px solid #E9EDF4;
-      padding-top: 26px;
-      text-align: center;
-      color: #94A3B8;
-      font-size: 0.82rem;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
     }
 
-    /* Responsive (matching index) */
-    @media (max-width: 1100px) {
-      .four-col-grid {
+    .contact-line i {
+      color: var(--gold-primary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #E4DCCF;
+      padding-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #8A7F6E;
+    }
+
+    /* Responsive (matches index breakpoints) */
+    @media (max-width: 1024px) {
+      .core-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-      .aspirations-section {
-        padding: 42px 32px;
+        gap: 1.8rem;
       }
     }
-    @media (max-width: 850px) {
-      .container { padding: 0 24px; }
-      .hero { min-height: auto; padding: 140px 0 90px; }
-      .hero h1 { font-size: 3.4rem; }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
       .menu-toggle {
         display: block;
       }
@@ -521,262 +546,247 @@
         left: -100%;
         width: 80%;
         height: calc(100vh - 70px);
-        background: #FFFFFF;
+        background: var(--pure-white);
         flex-direction: column;
         align-items: flex-start;
-        padding: 40px 32px;
-        transition: 0.3s;
-        gap: 30px;
-        z-index: 999;
-        border-right: 1px solid var(--gold);
-        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        transition: 0.3s ease;
+        gap: 1.5rem;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
       }
       .nav-links.active {
         left: 0;
       }
       .nav-links a {
-        font-size: 1.1rem;
-        color: #1E2A3A;
+        font-size: 16px;
       }
-      .four-col-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        padding: 7rem 0 5rem;
+      }
+      .hero-height-balancer {
+        margin-top: 1rem;
+      }
+      .intro-text {
+        max-width: 100%;
+      }
+      .aspirations-section {
+        padding: 2rem;
       }
       .aspiration-item {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-        gap: 16px;
+        gap: 1rem;
+        padding: 1.5rem;
       }
       .aspirations-heading:after {
         left: 50%;
         transform: translateX(-50%);
       }
-      .about-description { max-width: 100%; }
-      .footer-grid {
-        flex-direction: column;
+      .aspirations-heading {
+        display: block;
+        text-align: center;
       }
     }
-    @media (max-width: 768px) {
-      .hero-content {
-        width: 100%;
+
+    @media (max-width: 680px) {
+      .core-grid {
+        grid-template-columns: 1fr;
       }
-      .hero-sub {
-        font-size: .7rem;
-        letter-spacing: 2px;
-        margin-bottom: 18px;
+      .section-title {
+        font-size: 2rem;
       }
       .hero h1 {
-        font-size: clamp(2.5rem, 11vw, 4rem);
-        line-height: .95;
-        margin-bottom: 20px;
-      }
-      .hero p {
-        font-size: 1rem;
-        line-height: 1.7;
+        font-size: 2.5rem;
       }
       .btn-group {
-        width: 100%;
         flex-direction: column;
-      }
-      .btn-primary,
-      .btn-outline {
         width: 100%;
+      }
+      .btn-primary, .btn-outline {
         justify-content: center;
         text-align: center;
       }
-      .stats-bar {
-        background: #0F172A;
+      .aspiration-icon {
+        width: 55px;
+        height: 55px;
       }
-      .esg-card {
-        background: rgba(255, 255, 255, 0.08) !important;
-      }
-      .section-sub {
-        background: rgba(200, 163, 55, 0.15);
-      }
-      .pillar-card, .focus-card, .feature-card {
-        background: #FFFFFF;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      .aspiration-icon i {
+        font-size: 1.4rem;
       }
     }
-    @media (max-width: 680px) {
-      .section-title { font-size: 2.2rem; }
-      .hero h1 { font-size: 2.2rem; }
-      .hero-sub { letter-spacing: 4px; font-size: 0.7rem; }
-      .four-col-grid { gap: 18px; }
-      .core-card { padding: 28px 20px; }
-      .card-icon { width: 75px; height: 75px; }
-      .card-icon i { font-size: 1.7rem; }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--gold-primary);
+      padding: 8px;
+      z-index: 1002;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
     }
-    @media (max-width: 480px) {
-      .container { padding: 0 18px; }
-      .footer-grid { flex-direction: column; gap: 32px; }
+    .skip-link:focus {
+      top: 0;
     }
   </style>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="logo2.png" alt="Upstream Gold PNG Logo" class="logo-img" width="auto" height="52">
-      </div>
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="services.html">Services</a>
-        <a href="team.html">Team</a>
-        <a href="compliance.html">Compliance</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="nav-cta">Partner</a>
-      </div>
+<header class="header">
+  <div class="container nav">
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Team</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Partner →</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main-content">
-    <!-- Hero section - redesigned to match index.html -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-sub">✦ ABOUT UPSTREAM GOLD</div>
-          <h1>ABOUT US</h1>
-          <p>Upstream Gold (PNG) Ltd is a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
-          <div class="btn-group">
-            <a href="services.html" class="btn-primary">Our Services <i class="fas fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-outline">Contact Executives</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About main content (unchanged structure, kept all original sections) -->
-    <div class="about-main">
-      <div class="container">
-        <div class="section-tag">✦ Company Overview</div>
-        <p class="about-description">
-         Upstream Gold (PNG) Ltd is a nationally owned company engaged in mining, petroleum, logistics and development services. With a strong vision for sustainable development, the company aims to be a strategic leader and trusted partner in Papua New Guinea’s extractive industry.
-        </p>
-        <p class="about-description" style="margin-top: -12px;">
-          Our experienced team combines local knowledge with global expertise to deliver long-term value for our shareholders, partners and the communities in which we operate.
-        </p>
-        <div class="stock-ticker">
-          <i class="fas fa-chart-line" style="margin-right: 6px;"></i> POMSoX: UPG
-        </div>
-
-        <!-- Mission, Vision, Values, Commitment Cards -->
-        <div class="four-col-grid">
-          <div class="core-card">
-            <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-            <h3>Our Mission</h3>
-            <p>To create and establish strategically positioned businesses, socially responsible programs and practical solutions that lay the foundation for long-term development.</p>
-          </div>
-          <div class="core-card">
-            <div class="card-icon"><i class="fas fa-eye"></i></div>
-            <h3>Our Vision</h3>
-            <p>To promote, enhance and advance service delivery through dynamic development models for growth and prosperity.</p>
-          </div>
-          <div class="core-card">
-            <div class="card-icon"><i class="fas fa-gem"></i></div>
-            <h3>Our Values</h3>
-            <ul class="values-list">
-              <li><i class="fas fa-glasses"></i> Transparency</li>
-              <li><i class="fas fa-scale-balanced"></i> Accountability</li>
-              <li><i class="fas fa-people-group"></i> Teamwork</li>
-              <li><i class="fas fa-lightbulb"></i> Innovation</li>
-            </ul>
-          </div>
-          <div class="core-card">
-            <div class="card-icon"><i class="fas fa-seedling"></i></div>
-            <h3>Our Commitment</h3>
-            <p class="commitment-text">We are committed to operating responsibly, respecting our environment and supporting the communities where we work.</p>
-          </div>
-        </div>
-
-        <!-- Aspirations Section -->
-        <div class="aspirations-section">
-          <div class="aspirations-sub">✦ OUR ASPIRATIONS</div>
-          <h2 class="aspirations-heading">What Drives Us</h2>
-          <div class="aspirations-list">
-            <div class="aspiration-item">
-              <div class="aspiration-icon"><i class="fas fa-handshake"></i></div>
-              <p><strong>Be a trusted strategic partner</strong> in the extractive industry through innovation and integrity.</p>
-            </div>
-            <div class="aspiration-item">
-              <div class="aspiration-icon"><i class="fas fa-chart-line"></i></div>
-              <p><strong>Drive economic growth</strong> – through tax contributions, improved living standards, and higher household incomes.</p>
-            </div>
-            <div class="aspiration-item">
-              <div class="aspiration-icon"><i class="fas fa-people-arrows"></i></div>
-              <p><strong>Champion human development</strong>, gender equality, youth empowerment, and inclusive opportunities.</p>
-            </div>
-            <div class="aspiration-item">
-              <div class="aspiration-icon"><i class="fas fa-building"></i></div>
-              <p><strong>Strengthen institutional reform and service delivery</strong>, supporting the “Take Back PNG” vision.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer - exactly as index.html -->
-  <footer class="footer">
+<main id="main-content">
+  <!-- Hero section with balanced height (same visual crop as index) -->
+  <section class="hero">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
-          <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-sub">✦ OUR STORY</div>
+        <h1>About Us</h1>
+        <p>We are a 100% Papua New Guinean‑owned company, established in 2024. Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
+        <div class="btn-group">
+          <a href="services.html" class="btn-primary">Our Services <i class="fas fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-outline">Contact Executives</a>
         </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="compliance.html">Compliance</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <!-- Invisible spacer to match the taller content of index hero (without changing text) -->
+        <div class="hero-height-balancer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About intro & mission/vision/values -->
+  <div class="about-intro">
+    <div class="container">
+      <div class="section-badge" data-aos="fade-up"><i class="fas fa-compass"></i> COMPANY OVERVIEW</div>
+      <p class="intro-text" data-aos="fade-up" data-aos-delay="50">
+        We are a nationally owned company engaged in mining, petroleum, logistics and development services. With a strong vision for sustainable development, we aim to be a strategic leader and trusted partner in Papua New Guinea’s extractive industry.
+      </p>
+      <p class="intro-text" data-aos="fade-up" data-aos-delay="100">
+        Our experienced team combines local knowledge with global expertise to deliver long-term value for our shareholders, partners and the communities in which we operate.
+      </p>
+
+      <!-- Core cards -->
+      <div class="core-grid" data-aos="fade-up" data-aos-delay="150">
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>To create and establish strategically positioned businesses, socially responsible programs and practical solutions that lay the foundation for long-term development.</p>
+        </div>
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To promote, enhance and advance service delivery through dynamic development models for growth and prosperity.</p>
+        </div>
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-gem"></i></div>
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li><i class="fas fa-glasses"></i> Transparency</li>
+            <li><i class="fas fa-scale-balanced"></i> Accountability</li>
+            <li><i class="fas fa-people-group"></i> Teamwork</li>
+            <li><i class="fas fa-lightbulb"></i> Innovation</li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Contact & Compliance</h4>
-          <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
-          <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
+        <div class="core-card">
+          <div class="card-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Our Commitment</h3>
+          <p>We are committed to operating responsibly, respecting our environment and supporting the communities where we work.</p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p>
+
+      <!-- Aspirations -->
+      <div class="aspirations-section" data-aos="fade-up">
+        <div class="aspirations-sub">✦ OUR ASPIRATIONS</div>
+        <h2 class="aspirations-heading">What Drives Us</h2>
+        <div class="aspirations-list">
+          <div class="aspiration-item">
+            <div class="aspiration-icon"><i class="fas fa-handshake"></i></div>
+            <p><strong>Be a trusted strategic partner</strong> in the extractive industry through innovation and integrity.</p>
+          </div>
+          <div class="aspiration-item">
+            <div class="aspiration-icon"><i class="fas fa-chart-line"></i></div>
+            <p><strong>Drive economic growth</strong> – through tax contributions, improved living standards, and higher household incomes.</p>
+          </div>
+          <div class="aspiration-item">
+            <div class="aspiration-icon"><i class="fas fa-people-arrows"></i></div>
+            <p><strong>Champion human development</strong>, gender equality, youth empowerment, and inclusive opportunities.</p>
+          </div>
+          <div class="aspiration-item">
+            <div class="aspiration-icon"><i class="fas fa-building"></i></div>
+            <p><strong>Strengthen institutional reform and service delivery</strong>, supporting the “Take Back PNG” vision.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</main>
 
-  <script>
-    // Mobile hamburger toggle (same as index)
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-          const expanded = navLinks.classList.toggle('active');
-          menuBtn.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-      document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
-    })();
-  </script>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p style="max-width: 260px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="compliance.html">Compliance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Compliance</h4>
+        <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
+        <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 All rights reserved. “All Dreams are within Reach”</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true, offset: 40 });
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if(menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const expanded = navLinks.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', expanded);
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
+</script>
 </body>
 </html>
