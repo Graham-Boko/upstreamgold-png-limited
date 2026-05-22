@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>Upstream Gold (PNG) Ltd | Services</title>
-  <meta name="description" content="Upstream Gold (PNG) Ltd provides integrated mining, petroleum, logistics, and development services across Papua New Guinea.">
+  <title>Services | Integrated Solutions</title>
+  <meta name="description" content="We provide integrated mining, petroleum, logistics, and development services across Papua New Guinea.">
 
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
       padding: 0 40px;
     }
 
-    /* ---------- HEADER (IDENTICAL TO INDEX.HTML) ---------- */
+    /* ---------- HEADER (WITHOUT LOGO) ---------- */
     .header {
       position: fixed;
       top: 0;
@@ -68,13 +68,6 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
-    .logo img {
-      height: 52px;
-      width: auto;
-      transition: transform 0.3s;
-    }
-    .logo img:hover { transform: scale(1.02); }
 
     .nav-links {
       display: flex;
@@ -154,7 +147,7 @@
       top: 0;
     }
 
-    /* ---------- HERO (EXACTLY LIKE INDEX.HTML) ---------- */
+    /* ---------- HERO (WITHOUT COMPANY NAME) ---------- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -245,7 +238,7 @@
       transform: translateY(-3px);
     }
 
-    /* ---------- SERVICES SECTION (PRESERVED ORIGINAL LAYOUT) ---------- */
+    /* ---------- SERVICES SECTION ---------- */
     .services-wrapper {
       margin-top: -60px;
       position: relative;
@@ -521,7 +514,7 @@
       transform: translateY(-3px);
     }
 
-    /* Footer (EXACTLY AS INDEX.HTML) */
+    /* Footer (WITHOUT COMPANY NAME) */
     .footer {
       background: #FAFBFD;
       border-top: 1px solid #E9EDF4;
@@ -611,7 +604,7 @@
       font-size: 0.82rem;
     }
 
-    /* ---------- RESPONSIVE (MATCHES INDEX EXACTLY) ---------- */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1100px) {
       .services-grid,
       .approach-grid {
@@ -737,33 +730,30 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- HEADER (IDENTICAL TO INDEX.HTML) -->
+  <!-- HEADER (LOGO REMOVED) -->
   <header class="header">
     <div class="container nav">
-      <div class="logo">
-        <img src="logo2.png" alt="Upstream Gold PNG Logo" class="logo-img" width="auto" height="52">
-      </div>
       <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html" class="active">Services</a>
         <a href="team.html">Team</a>
-        <a href="compliance.html">Compliance</a>
         <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
         <a href="contact.html" class="nav-cta">Partner</a>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- HERO SECTION (REDESIGNED TO MATCH INDEX) -->
+    <!-- HERO SECTION (COMPANY NAME REMOVED) -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <div class="hero-sub">✦ OUR SERVICES</div>
           <h1>Four-tier<br>business operations</h1>
-          <p>Upstream Gold is structured to provide end-to-end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
+          <p>We are structured to provide end-to-end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
           <div class="btn-group">
             <a href="services.html" class="btn-primary">Explore Solutions <i class="fas fa-arrow-right"></i></a>
             <a href="contact.html" class="btn-outline">Contact Executives</a>
@@ -772,13 +762,13 @@
       </div>
     </section>
 
-    <!-- SERVICES CONTENT (UNCHANGED) -->
+    <!-- SERVICES CONTENT (COMPANY NAME REMOVED FROM DESCRIPTION) -->
     <section class="services-wrapper">
       <div class="container">
         <div class="services-box">
           <div class="section-sub">✦ WHAT WE DO</div>
           <h2 class="section-title">Integrated services</h2>
-          <p class="section-desc">Upstream Gold (PNG) Ltd delivers strategic commercial, exploration, logistics and development services designed to support sustainable industry growth.</p>
+          <p class="section-desc">We deliver strategic commercial, exploration, logistics and development services designed to support sustainable industry growth.</p>
 
           <div class="services-grid">
             <div class="service-card">
@@ -826,7 +816,7 @@
       </div>
     </section>
 
-    <!-- Approach Section (UNCHANGED) -->
+    <!-- Approach Section -->
     <section class="approach">
       <div class="container">
         <div class="section-sub">✦ HOW WE WORK</div>
@@ -840,7 +830,7 @@
       </div>
     </section>
 
-    <!-- Partners & CTA (UNCHANGED) -->
+    <!-- Partners & CTA -->
     <div class="container">
       <div class="bottom-grid">
         <div class="partners-box">
@@ -862,18 +852,16 @@
     </div>
   </main>
 
-  <!-- FOOTER (IDENTICAL TO INDEX.HTML) -->
+  <!-- FOOTER (COMPANY NAME REMOVED) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
-          <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+          <p style="margin-top:0;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
           <div class="social-icons">
             <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
             <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -883,24 +871,23 @@
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="team.html">Team</a></li>
-            <li><a href="compliance.html">Compliance</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Contact & Compliance</h4>
           <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
           <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p>
+        <p>© 2025 All rights reserved. “All Dreams are within Reach”</p>
       </div>
     </div>
   </footer>
 
-  <!-- MOBILE MENU SCRIPT (EXACT FUNCTIONALITY AS INDEX) -->
+  <!-- MOBILE MENU SCRIPT -->
   <script>
     (function() {
       const menuBtn = document.getElementById('mobileMenuBtn');
