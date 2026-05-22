@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>Upstream Gold (PNG) Ltd | Our Team</title>
-  <meta name="description" content="Meet the experienced leadership, management, and technical team behind Upstream Gold (PNG) Ltd — driving responsible mining and development in Papua New Guinea.">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Our Team | Leadership & Expertise – Nouveau Mining</title>
+  <meta name="description" content="Meet the experienced leadership, board, and technical team driving responsible mining and development in Papua New Guinea.">
+  <meta name="keywords" content="mining team PNG, exploration leadership, geologists PNG, community affairs">
+  
+  <!-- Preconnect & Modern Fonts (Identical to Index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
+    /* ---------- RESET & VARIABLES (EXACT SAME AS INDEX) ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #121926;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
     :root {
-      --gold: #C8A337;
-      --gold-dark: #A07E15;
-      --gold-light: #F2E5C2;
-      --navy-deep: #0B1420;
-      --slate-charcoal: #1F2937;
-      --off-white: #F8FAFC;
-      --text-muted: #4B5E77;
-      --shadow-premium: 0 25px 45px -18px rgba(0, 0, 0, 0.15), 0 10px 20px -8px rgba(0, 0, 0, 0.05);
-      --transition-smooth: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8901C;
+      --gold-soft: #F9E5B3;
+      --charcoal: #11181C;
+      --slate: #1E2A32;
+      --stone: #F5F2EF;
+      --pure-white: #FFFFFF;
+      --off-white: #FCFAF7;
+      --text-dark: #1F2A3E;
+      --text-muted: #5A6E7F;
+      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 35px 50px -20px rgba(0, 0, 0, 0.2);
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      --border-radius-card: 2rem;
+      --border-radius-btn: 3rem;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--pure-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 2rem;
     }
 
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--gold);
-      color: #000;
-      padding: 8px;
-      z-index: 1001;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus {
-      top: 0;
+    /* Typography Refined (index styles) */
+    h1, h2, h3, .serif-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    /* ---------- HEADER (IDENTICAL TO INDEX.HTML) ---------- */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.12);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2.2rem; }
+      .container { padding: 0 1.5rem; }
+    }
+
+    /* Premium Header (Glass) — exact same as index */
     .header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #FFFFFF;
-      border-bottom: 1px solid rgba(200, 163, 55, 0.45);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
       z-index: 1000;
-      transition: var(--transition-smooth);
-      padding: 10px 0;
+      transition: var(--transition);
+      padding: 0.8rem 0;
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      flex-wrap: wrap;
     }
-
-    .logo img {
-      height: 52px;
-      width: auto;
-      transition: transform 0.3s;
-    }
-    .logo img:hover { transform: scale(1.02); }
 
     .nav-links {
       display: flex;
@@ -98,386 +118,363 @@
     }
 
     .nav-links a {
-      font-weight: 500;
-      font-size: 0.9rem;
       text-decoration: none;
-      color: #1E2A3A;
-      transition: 0.25s;
-      letter-spacing: 0.3px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      transition: var(--transition);
       position: relative;
     }
 
-    .nav-links a:after {
+    .nav-links a::after {
       content: '';
       position: absolute;
       bottom: -6px;
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gold);
-      transition: width 0.3s ease;
+      background: var(--gold-primary);
+      transition: width 0.25s ease;
     }
 
-    .nav-links a:hover:after,
-    .nav-links a.active:after {
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--gold);
+      color: var(--gold-deep);
     }
 
     .nav-cta {
-      border: 1.5px solid var(--gold);
-      padding: 8px 28px;
-      border-radius: 40px;
-      font-weight: 600;
+      border: 1.5px solid var(--gold-primary);
+      padding: 0.5rem 1.8rem;
+      border-radius: var(--border-radius-btn);
       background: transparent;
-      color: var(--gold) !important;
-      transition: all 0.3s;
+      color: var(--gold-deep) !important;
+      font-weight: 700;
+      transition: var(--transition);
     }
 
     .nav-cta:hover {
-      background: var(--gold);
-      color: #0B1420 !important;
-      border-color: var(--gold);
+      background: var(--gold-primary);
+      color: var(--charcoal) !important;
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
     }
 
     .menu-toggle {
       display: none;
-      font-size: 1.8rem;
-      color: var(--gold);
-      cursor: pointer;
       background: none;
       border: none;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      cursor: pointer;
     }
 
-    /* ---------- HERO (EXACTLY LIKE INDEX.HTML) ---------- */
+    /* Hero – dramatic & immersive (identical to index) */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      background: linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 100%),
-                  url('hero.png') center center / cover no-repeat;
-      padding: 140px 0 120px;
+      background: linear-gradient(125deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 100%), url('hero.png') center/cover no-repeat fixed;
+      padding: 8rem 0 6rem;
     }
 
     .hero-content {
-      width: 100%;
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
+      max-width: 750px;
     }
 
     .hero-sub {
-      font-size: .82rem;
-      letter-spacing: clamp(2px, 1vw, 8px);
-      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
       text-transform: uppercase;
-      margin-bottom: 22px;
       font-weight: 600;
+      margin-bottom: 1.2rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5.2rem);
-      line-height: .95;
-      color: #fff;
-      margin-bottom: 26px;
+      font-size: clamp(3rem, 7vw, 5rem);
       font-weight: 800;
-      font-family: 'Cormorant Garamond', serif;
-      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      line-height: 1.7;
-      color: rgba(255,255,255,.92);
-      max-width: 620px;
-      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      max-width: 550px;
     }
 
     .btn-group {
       display: flex;
-      gap: 20px;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
     .btn-primary {
-      background: var(--gold);
-      color: #0B1420;
-      padding: 14px 38px;
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 700;
-      border-radius: 48px;
       text-decoration: none;
-      transition: all 0.3s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
+      gap: 0.6rem;
+      transition: var(--transition);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
-      background: var(--gold-dark);
+      background: var(--gold-deep);
       transform: translateY(-3px);
-      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 25px -12px black;
     }
 
     .btn-outline {
-      border: 1.5px solid var(--gold);
-      background: transparent;
+      border: 1.5px solid var(--gold-primary);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
       color: white;
-      padding: 14px 38px;
-      border-radius: 48px;
+      padding: 0.9rem 2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 600;
       text-decoration: none;
-      transition: 0.3s;
-      backdrop-filter: blur(6px);
+      transition: var(--transition);
     }
 
     .btn-outline:hover {
-      background: rgba(200,163,55,0.15);
-      border-color: var(--gold-light);
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      border-color: var(--gold-primary);
       transform: translateY(-3px);
     }
 
-    /* ---------- STATS SECTION (PRESERVED TEAM LAYOUT, UPDATED TO MATCH INDEX DARK STYLE) ---------- */
+    /* Stats Bar – premium floating (EXACT same as index) */
     .stats-section {
-      margin-top: -70px;
+      margin-top: -3rem;
       position: relative;
-      z-index: 20;
+      z-index: 15;
     }
 
     .stats-bar {
-      background: linear-gradient(125deg, #111A28 0%, #182432 100%);
-      backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 32px 44px;
+      background: linear-gradient(135deg, #0F1922 0%, #1A2A32 100%);
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      box-shadow: 0 28px 44px -24px rgba(0,0,0,0.5);
-      border: 1px solid rgba(200,163,55,0.25);
+      gap: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(212, 175, 55, 0.3);
     }
 
     .stat-item {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 1.2rem;
     }
 
     .stat-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(200,163,55,0.12);
+      width: 56px;
+      height: 56px;
+      background: rgba(212, 175, 55, 0.12);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(200,163,55,0.3);
+      border: 1px solid rgba(212, 175, 55, 0.4);
     }
 
     .stat-icon i {
-      font-size: 1.8rem;
-      color: var(--gold);
+      font-size: 1.6rem;
+      color: var(--gold-primary);
     }
 
     .stat-content h3 {
-      font-size: 1.9rem;
-      color: white;
+      font-size: 1.8rem;
       font-weight: 800;
-      line-height: 1.2;
-      font-family: 'Inter', sans-serif;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     .stat-content p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
     }
 
-    /* ---------- TEAM SECTIONS (PRESERVED FROM ORIGINAL) ---------- */
-    .section {
-      padding: 90px 0 30px;
+    /* Team specific grid & cards (in harmony with index cards) */
+    .team-category {
+      margin: 5rem 0 2rem;
     }
 
-    .category-title {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 36px;
-    }
-
-    .category-title i {
-      font-size: 2rem;
-      color: var(--gold);
-    }
-
-    .category-title h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
-      color: #0F1A2E;
-      font-weight: 700;
-    }
-
-    .category-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(200,163,55,0.4);
+    .category-header {
+      margin-bottom: 2.8rem;
     }
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .team-card {
-      background: #FCFAF7;
-      border: 1px solid #ECEFF4;
-      border-radius: 30px;
-      padding: 34px 24px;
-      transition: 0.3s;
+      background: var(--off-white);
+      border-radius: var(--border-radius-card);
+      padding: 2rem 1.5rem;
+      transition: var(--transition);
+      border: 1px solid #EBE5DC;
       text-align: center;
-      box-shadow: 0 8px 22px -16px rgba(0,0,0,0.08);
+      backdrop-filter: blur(0px);
     }
 
     .team-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-premium);
-      border-color: var(--gold-light);
+      transform: translateY(-8px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-md);
     }
 
     .team-avatar {
-      width: 90px;
-      height: 90px;
+      width: 96px;
+      height: 96px;
+      background: var(--charcoal);
       border-radius: 50%;
-      background: #0E2340;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      transition: 0.3s ease;
+      margin: 0 auto 1.5rem;
+      transition: transform 0.3s;
     }
 
     .team-avatar i {
-      color: var(--gold);
-      font-size: 2rem;
-    }
-
-    .team-card:hover .team-avatar {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 24px rgba(0,0,0,0.15);
+      font-size: 2.4rem;
+      color: var(--gold-primary);
     }
 
     .team-card h4 {
-      font-size: 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 8px;
-      color: #0F1A2E;
+      margin-bottom: 0.4rem;
+      color: var(--charcoal);
     }
 
     .team-role {
-      color: var(--gold-dark);
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.82rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 14px;
+      letter-spacing: 1px;
+      color: var(--gold-deep);
+      margin-bottom: 0.8rem;
     }
 
     .team-desc {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    /* JOIN SECTION (PRESERVED) */
+    /* Join Section – Inspired by premium approach (like ESG section but warm) */
     .join-section {
-      margin: 100px 0 70px;
+      margin: 5rem 0 4rem;
     }
 
     .join-card {
-      background: linear-gradient(to right, rgba(5,20,40,0.97), rgba(4,29,65,0.96)), url('team-pattern.png') center/cover;
-      border-radius: 32px;
-      padding: 46px 50px;
+      background: linear-gradient(125deg, #0F1922 0%, #1C2C36 100%);
+      border-radius: 2rem;
+      padding: 3rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 30px;
-      color: #fff;
+      gap: 2rem;
+      flex-wrap: wrap;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: var(--shadow-lg);
     }
 
     .join-left {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 1.8rem;
+      flex-wrap: wrap;
     }
 
     .join-icon {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
+      background: rgba(212, 175, 55, 0.1);
       border-radius: 50%;
-      border: 1px solid rgba(200,163,55,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid var(--gold-primary);
+    }
+
+    .join-icon i {
       font-size: 2.2rem;
-      color: var(--gold);
+      color: var(--gold-primary);
     }
 
     .join-content h3 {
       font-size: 2rem;
-      margin-bottom: 10px;
-      font-family: 'Cormorant Garamond', serif;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.6rem;
     }
 
     .join-content p {
-      color: rgba(255,255,255,0.85);
-      max-width: 580px;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 550px;
     }
 
     .btn-gold {
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      padding: 0.9rem 2rem;
+      border-radius: var(--border-radius-btn);
+      font-weight: 700;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #D9AB31, #B88917);
-      color: #fff;
-      text-decoration: none;
-      padding: 16px 34px;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: 0.3s;
+      gap: 0.6rem;
+      transition: var(--transition);
       white-space: nowrap;
     }
 
     .btn-gold:hover {
+      background: var(--gold-deep);
       transform: translateY(-3px);
+      box-shadow: 0 15px 20px -12px rgba(0,0,0,0.3);
     }
 
-    /* ---------- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) ---------- */
+    /* Footer – exact same as index */
     .footer {
-      background: #FAFBFD;
-      border-top: 1px solid #E9EDF4;
-      padding: 70px 0 30px;
+      background: #F9F7F4;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid #EADFCB;
+      margin-top: 2rem;
     }
 
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
 
     .footer-col h4 {
-      color: #0F1A2E;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
     }
 
     .footer-links {
@@ -485,88 +482,67 @@
     }
 
     .footer-links li {
-      margin-bottom: 12px;
+      margin-bottom: 0.7rem;
     }
 
     .footer-links a {
       text-decoration: none;
-      color: #5B6678;
+      color: var(--text-muted);
       transition: 0.2s;
     }
 
     .footer-links a:hover {
-      color: var(--gold);
+      color: var(--gold-primary);
     }
 
     .social-icons {
       display: flex;
-      gap: 14px;
-      margin-top: 24px;
+      gap: 1rem;
+      margin-top: 1.2rem;
     }
 
     .social-icons a {
-      background: #FFFFFF;
-      width: 40px;
-      height: 40px;
+      background: white;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
-      transition: 0.25s;
+      color: var(--gold-deep);
+      transition: var(--transition);
+      border: 1px solid #E2D9CE;
       text-decoration: none;
     }
 
     .social-icons a:hover {
-      background: var(--gold);
-      color: #FFFFFF;
+      background: var(--gold-primary);
+      color: var(--charcoal);
       transform: translateY(-3px);
     }
 
     .contact-line {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .contact-line i {
-      color: var(--gold);
-      margin-top: 4px;
-    }
-
-    .contact-line span {
-      color: #5B6678;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
     }
 
     .footer-bottom {
-      border-top: 1px solid #E9EDF4;
-      padding-top: 26px;
       text-align: center;
-      color: #94A3B8;
-      font-size: 0.82rem;
+      border-top: 1px solid #E4DCCF;
+      padding-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #8A7F6E;
     }
 
-    /* ---------- RESPONSIVE (MATCHES INDEX EXACTLY) ---------- */
-    @media (max-width: 1100px) {
+    /* Responsive (aligned with index) */
+    @media (max-width: 1024px) {
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
       }
-      .join-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-grid {
-        flex-direction: column;
-        gap: 32px;
-      }
     }
 
-    @media (max-width: 850px) {
-      .container {
-        padding: 0 24px;
-      }
+    @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
@@ -576,284 +552,208 @@
         left: -100%;
         width: 80%;
         height: calc(100vh - 70px);
-        background: #FFFFFF;
+        background: var(--pure-white);
         flex-direction: column;
         align-items: flex-start;
-        padding: 40px 32px;
-        transition: 0.3s;
-        gap: 30px;
-        z-index: 999;
-        border-right: 1px solid var(--gold);
-        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        transition: 0.3s ease;
+        gap: 1.5rem;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
       }
       .nav-links.active {
         left: 0;
       }
-      .nav-links a {
-        font-size: 1.1rem;
-        color: #1E2A3A;
-      }
-      .hero {
-        min-height: auto;
-        padding: 140px 0 90px;
-      }
-      .hero h1 {
-        font-size: 3rem;
-      }
-      .btn-group {
-        flex-direction: column;
-      }
-      .btn-primary,
-      .btn-outline {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
       .stats-bar {
         grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .category-title {
-        flex-wrap: wrap;
-      }
-      .category-line {
-        display: none;
+        gap: 1.5rem;
       }
       .team-grid {
         grid-template-columns: 1fr;
       }
       .join-card {
-        padding: 36px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+      }
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-primary, .btn-outline {
+        justify-content: center;
+        text-align: center;
       }
       .join-left {
         flex-direction: column;
         align-items: flex-start;
       }
-    }
-
-    @media (max-width: 768px) {
-      .hero-content {
-        width: 100%;
-      }
-      .hero-sub {
-        font-size: .7rem;
-        letter-spacing: 2px;
-        margin-bottom: 18px;
-      }
-      .hero h1 {
-        font-size: clamp(2.5rem, 11vw, 4rem);
-        line-height: .95;
-        margin-bottom: 20px;
-      }
-      .hero p {
-        font-size: 1rem;
-        line-height: 1.7;
+      .footer-grid {
+        flex-direction: column;
       }
     }
 
-    @media (max-width: 680px) {
-      .section-title {
-        font-size: 2.2rem;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .stats-bar {
-        background: #0F172A;
-      }
-      .team-card {
-        background: #FFFFFF;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--gold-primary);
+      padding: 8px;
+      z-index: 1002;
+      text-decoration: none;
+      color: black;
     }
+    .skip-link:focus { top: 0; }
   </style>
 </head>
-
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
-  <header class="header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="logo2.png" alt="Upstream Gold PNG Logo" class="logo-img" width="auto" height="52">
-      </div>
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="team.html" class="active">Team</a>
-        <a href="compliance.html">Compliance</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="nav-cta">Partner</a>
+<!-- Header identical to index -->
+<header class="header">
+  <div class="container nav">
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Partner →</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Hero Section – identical styling, adapted content -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-sub">✦ OUR PEOPLE, OUR STRENGTH</div>
+        <h1>Our Experienced <br><span style="color: var(--gold-primary);">Leadership Team</span></h1>
+        <p>A team of professionals with over 100 years of combined experience in the extractive industry and development sectors in Papua New Guinea and internationally.</p>
+        <div class="btn-group">
+          <a href="#board-team" class="btn-primary">Meet Our Leaders <i class="fas fa-arrow-right"></i></a>
+          <a href="#join-team" class="btn-outline">Join Our Team</a>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main id="main-content">
-    <!-- HERO SECTION (INDEX STYLE) -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-sub">✦ OUR PEOPLE, OUR STRENGTH</div>
-          <h1>Our Experienced <br><span style="color:var(--gold);">Leadership Team</span></h1>
-          <p>A team of professionals with over 100 years of combined experience in the extractive industry and development sectors in Papua New Guinea and internationally.</p>
-          <div class="btn-group">
-            <a href="contact.html" class="btn-primary">Meet Our Leaders <i class="fas fa-arrow-right"></i></a>
-            <a href="careers.html" class="btn-outline">Join Our Team</a>
-          </div>
-        </div>
+  <!-- Stats Bar (same as index style with relevant stats) -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-content"><h3>Board+</h3><p>EXPERIENCED GOVERNANCE</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-hard-hat"></i></div><div class="stat-content"><h3>Technical</h3><p>EXPLORATION MASTERY</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-handshake"></i></div><div class="stat-content"><h3>Collaboration</h3><p>COMMUNITY FIRST</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-award"></i></div><div class="stat-content"><h3>100+</h3><p>YEARS COMBINED EXP.</p></div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- STATS SECTION (UPDATED TO DARK THEME LIKE INDEX) -->
-    <section class="stats-section">
-      <div class="container">
-        <div class="stats-bar">
-          <div class="stat-item">
-            <div class="stat-icon"><i class="fas fa-users"></i></div>
-            <div class="stat-content"><h3>Leadership</h3><p>Experienced Board & Management Team</p></div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-icon"><i class="fas fa-hard-hat"></i></div>
-            <div class="stat-content"><h3>Technical</h3><p>Mining, Petroleum & Exploration Expertise</p></div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-icon"><i class="fas fa-handshake"></i></div>
-            <div class="stat-content"><h3>Collaboration</h3><p>Strong Stakeholder & Community Engagement</p></div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-icon"><i class="fas fa-award"></i></div>
-            <div class="stat-content"><h3>Integrity</h3><p>Committed to Excellence</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+  <div class="container">
     <!-- BOARD SECTION -->
-    <section class="section">
-      <div class="container">
-        <div class="category-title">
-          <i class="fas fa-gavel"></i>
-          <h2>Board (Governance)</h2>
-          <div class="category-line"></div>
-        </div>
-        <div class="team-grid">
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Chairman</h4><div class="team-role">Shareholder</div><div class="team-desc">Provides strategic oversight and governance leadership.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Director</h4><div class="team-role">Shareholder</div><div class="team-desc">Guides corporate strategy and stakeholder relations.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Director</h4><div class="team-role">Shareholder</div><div class="team-desc">Oversees financial and operational performance.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Director</h4><div class="team-role">Independent</div><div class="team-desc">Provides impartial guidance and audit oversight.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Director</h4><div class="team-role">Chief Executive Officer</div><div class="team-desc">Leads executive management and corporate vision.</div></div>
-        </div>
+    <div class="team-category" id="board-team" data-aos="fade-up">
+      <div class="category-header">
+        <div class="section-badge"><i class="fas fa-gavel"></i> Governance</div>
+        <h2 class="section-title">Board of Directors</h2>
       </div>
-    </section>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Chairman</h4><div class="team-role">Founding Shareholder</div><div class="team-desc">Strategic oversight and corporate governance leadership with deep PNG expertise.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Director</h4><div class="team-role">Shareholder</div><div class="team-desc">Guides corporate strategy, stakeholder relations and long-term value creation.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-line"></i></div><h4>Director</h4><div class="team-role">Finance & Audit</div><div class="team-desc">Oversees financial integrity, risk management and operational performance.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-balance-scale"></i></div><h4>Director</h4><div class="team-role">Independent</div><div class="team-desc">Impartial guidance, audit oversight and best-practice governance.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-globe"></i></div><h4>Director</h4><div class="team-role">Chief Executive Officer</div><div class="team-desc">Leads executive management, corporate vision and operational excellence.</div></div>
+      </div>
+    </div>
 
     <!-- MANAGEMENT SECTION -->
-    <section class="section">
-      <div class="container">
-        <div class="category-title">
-          <i class="fas fa-building"></i>
-          <h2>Management (Executive Leadership)</h2>
-          <div class="category-line"></div>
-        </div>
-        <div class="team-grid">
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Chief Executive Officer</h4><div class="team-role">Strategic Leadership</div><div class="team-desc">Overall company direction and corporate vision.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Office Manager</h4><div class="team-role">Operations & Administration</div><div class="team-desc">Daily operations, administration, and internal coordination.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Exploration Manager</h4><div class="team-role">Geological Field Operations</div><div class="team-desc">Leads exploration programs and geological field operations.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Lead Consulting Geoscientist</h4><div class="team-role">Resource Evaluation</div><div class="team-desc">Expert geological analysis and resource evaluation.</div></div>
-        </div>
+    <div class="team-category" data-aos="fade-up" data-aos-delay="100">
+      <div class="category-header">
+        <div class="section-badge"><i class="fas fa-building"></i> Executive Leadership</div>
+        <h2 class="section-title">Management Team</h2>
       </div>
-    </section>
-
-    <!-- TECHNICAL TEAM SECTION -->
-    <section class="section">
-      <div class="container">
-        <div class="category-title">
-          <i class="fas fa-hard-hat"></i>
-          <h2>Technical Team (Technical Excellence)</h2>
-          <div class="category-line"></div>
-        </div>
-        <div class="team-grid">
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Team Leader – Petroleum Exploration</h4><div class="team-role">Petroleum</div><div class="team-desc">Leads hydrocarbon exploration and drilling programs.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Team Leader – Mining Exploration</h4><div class="team-role">Mining</div><div class="team-desc">Directs mineral exploration and resource definition.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Community Affairs Manager</h4><div class="team-role">Stakeholder Relations</div><div class="team-desc">Manages community engagement, local content, and social programs.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Geology</div><div class="team-desc">Specialises in geological mapping, sampling, and target generation.</div></div>
-          <div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Geology</div><div class="team-desc">Experienced in resource estimation and geophysical interpretation.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOIN SECTION -->
-    <section class="join-section">
-      <div class="container">
-        <div class="join-card">
-          <div class="join-left">
-            <div class="join-icon"><i class="fas fa-handshake"></i></div>
-            <div class="join-content"><h3>Join Our Team</h3><p>We are always looking for talented professionals who share our commitment to responsible mining and local empowerment.</p></div>
-          </div>
-          <a href="contact.html" class="btn-gold">Explore Careers <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
-          <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="compliance.html">Compliance</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact & Compliance</h4>
-          <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
-          <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-circle"></i></div><h4>Chief Executive Officer</h4><div class="team-role">Strategic Leadership</div><div class="team-desc">Overall company direction, corporate vision and international partnerships.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-clipboard-list"></i></div><h4>Office Manager</h4><div class="team-role">Operations & Admin</div><div class="team-desc">Daily operations, administration and internal coordination across projects.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-map-marked-alt"></i></div><h4>Exploration Manager</h4><div class="team-role">Geological Field Operations</div><div class="team-desc">Leads exploration programs, field logistics and greenfields target generation.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-hard-hat"></i></div><h4>Lead Consulting Geoscientist</h4><div class="team-role">Resource Evaluation</div><div class="team-desc">Expert geological analysis, resource modeling and technical assurance.</div></div>
       </div>
     </div>
-  </footer>
 
-  <!-- MOBILE MENU SCRIPT (EXACT FUNCTIONALITY AS INDEX) -->
-  <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-          const expanded = navLinks.classList.toggle('active');
-          menuBtn.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-      document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
-    })();
-  </script>
+    <!-- TECHNICAL TEAM SECTION -->
+    <div class="team-category" data-aos="fade-up" data-aos-delay="200">
+      <div class="category-header">
+        <div class="section-badge"><i class="fas fa-microscope"></i> Technical Excellence</div>
+        <h2 class="section-title">Technical & Operational Experts</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-oil-can"></i></div><h4>Team Leader – Petroleum Exploration</h4><div class="team-role">Petroleum</div><div class="team-desc">Leads hydrocarbon exploration, basin analysis and drilling programs.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-gem"></i></div><h4>Team Leader – Mining Exploration</h4><div class="team-role">Mining</div><div class="team-desc">Directs mineral exploration, resource definition and project advancement.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-handshake"></i></div><h4>Community Affairs Manager</h4><div class="team-role">Stakeholder Relations</div><div class="team-desc">Manages community engagement, local content and social performance programs.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-mountain"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Geology</div><div class="team-desc">Specialist in geological mapping, geochemical sampling and target generation.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-pie"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Resource Estimation</div><div class="team-desc">Experienced in geophysical interpretation and 3D resource modeling.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-leaf"></i></div><h4>ESG & Sustainability Lead</h4><div class="team-role">Environmental & Social</div><div class="team-desc">Drives ESG frameworks, biodiversity and community development initiatives.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Join Our Team Section (premium callout matching index aesthetics) -->
+  <section class="join-section" id="join-team">
+    <div class="container">
+      <div class="join-card" data-aos="zoom-in">
+        <div class="join-left">
+          <div class="join-icon"><i class="fas fa-users"></i></div>
+          <div class="join-content">
+            <h3>Shape the future of responsible mining</h3>
+            <p>We are always looking for passionate professionals who share our commitment to sustainable development, local empowerment and technical excellence.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-gold">Explore Careers <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer exactly same as index -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p style="max-width: 260px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Team</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="contact-line"><i class="fas fa-map-marker-alt" style="color:var(--gold-primary);"></i><span>Kwalimu Precincts, Waigani, NCD</span></div><div class="contact-line"><i class="fas fa-phone-alt" style="color:var(--gold-primary);"></i><span>+675 7XXXXXXX</span></div></div>
+    </div>
+    <div class="footer-bottom"><p>© "All Dreams are within Reach"</p></div>
+  </div>
+</footer>
+
+<!-- Scripts: AOS and mobile menu (exactly as index) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true, offset: 40 });
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if(menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const expanded = navLinks.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', expanded);
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
+</script>
 </body>
 </html>
