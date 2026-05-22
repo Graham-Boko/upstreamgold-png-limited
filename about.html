@@ -167,17 +167,16 @@
       cursor: pointer;
     }
 
-    /* Hero – now forced to same visual height as index (by increasing padding) */
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
       background: linear-gradient(125deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('hero.png') center/cover no-repeat fixed;
-      padding: 8rem 0 6rem;          /* base padding */
+      padding: 8rem 0 6rem;
     }
 
-    /* Extra spacer to match the taller content of index.html hero */
     .hero-height-balancer {
       margin-top: 1.5rem;
     }
@@ -525,7 +524,7 @@
       color: #8A7F6E;
     }
 
-    /* Responsive (matches index breakpoints) */
+    /* Responsive */
     @media (max-width: 1024px) {
       .core-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -643,15 +642,15 @@
       <a href="about.html" class="active">About</a>
       <a href="services.html">Services</a>
       <a href="team.html">Team</a>
-      <a href="compliance.html">Compliance</a>
       <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
       <a href="contact.html" class="nav-cta">Partner →</a>
     </div>
   </div>
 </header>
 
 <main id="main-content">
-  <!-- Hero section with balanced height (same visual crop as index) -->
+  <!-- Hero section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -662,7 +661,6 @@
           <a href="services.html" class="btn-primary">Our Services <i class="fas fa-arrow-right"></i></a>
           <a href="contact.html" class="btn-outline">Contact Executives</a>
         </div>
-        <!-- Invisible spacer to match the taller content of index hero (without changing text) -->
         <div class="hero-height-balancer"></div>
       </div>
     </div>
@@ -753,8 +751,8 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="team.html">Team</a></li>
-          <li><a href="compliance.html">Compliance</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
         </ul>
       </div>
       <div class="footer-col">
