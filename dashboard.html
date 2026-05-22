@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Upstream Gold | Partner Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-deep: #B8901C;
+            --charcoal: #11181C;
+            --slate: #1E2A32;
+            --stone: #F5F2EF;
+            --pure-white: #FFFFFF;
+            --off-white: #FCFAF7;
+            --text-dark: #1F2A3E;
+            --text-muted: #5A6E7F;
+            --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            --border-radius-card: 1.8rem;
+            --border-radius-btn: 3rem;
+        }
+        body.dark {
+            --gold-primary: #D4AF37;
+            --gold-deep: #C9A227;
+            --charcoal: #0A0F12;
+            --pure-white: #11181C;
+            --off-white: #15232D;
+            --text-dark: #EFF3F6;
+            --text-muted: #9AAEBF;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            transition: background 0.2s, color 0.2s;
+        }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 280px;
+            background: var(--pure-white);
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-brand {
+            padding: 28px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--gold-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal);
+            font-size: 1.3rem;
+        }
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+        }
+        .brand-text span { color: var(--gold-primary); }
+        .nav-menu {
+            list-style: none;
+            padding: 24px 16px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 18px;
+            margin: 6px 0;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .nav-item i { width: 24px; font-size: 1.2rem; }
+        .nav-item.active {
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--gold-primary);
+        }
+        .nav-item:hover:not(.active) {
+            background: rgba(212, 175, 55, 0.06);
+            color: var(--gold-deep);
+        }
+        .wrike-side-link {
+            margin-top: 32px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 24px 16px 0;
+        }
+        .wrike-btn-side {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 40px;
+            padding: 10px 18px;
+            text-decoration: none;
+            color: var(--gold-primary);
+            font-weight: 700;
+            transition: 0.2s;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .wrike-btn-side:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateX(4px);
+        }
+        .main {
+            flex: 1;
+            margin-left: 280px;
+        }
+        .topbar {
+            background: var(--pure-white);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 12px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gold-primary);
+        }
+        .breadcrumb {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--gold-deep);
+            font-family: 'Playfair Display', serif;
+        }
+        .search-wrapper {
+            background: var(--off-white);
+            border-radius: 40px;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .search-wrapper input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 200px;
+            color: var(--text-dark);
+            font-family: inherit;
+        }
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .icon-btn:hover { color: var(--gold-primary); }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal);
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+        .logout-dropdown {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: var(--pure-white);
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 16px;
+            padding: 8px 0;
+            width: 120px;
+            display: none;
+            z-index: 200;
+            box-shadow: var(--shadow-sm);
+        }
+        .logout-dropdown button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .logout-dropdown button:hover { background: rgba(212,175,55,0.1); }
+        .page-container { padding: 32px 36px; }
+        .card {
+            background: var(--pure-white);
+            border-radius: var(--border-radius-card);
+            padding: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .org-node {
+            padding: 10px 14px;
+            border-left: 3px solid var(--gold-primary);
+            margin: 12px 0;
+            background: rgba(212, 175, 55, 0.04);
+            border-radius: 0 12px 12px 0;
+        }
+        .doc-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .doc-info h4 { margin-bottom: 4px; font-size: 1rem; }
+        .doc-info p { font-size: 0.75rem; color: var(--text-muted); }
+        .download-btn {
+            background: none;
+            border: 1px solid var(--gold-primary);
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .download-btn:hover {
+            background: var(--gold-primary);
+            color: var(--charcoal);
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .main { margin-left: 0; }
+            .mobile-toggle { display: block; }
+        }
+        @media (max-width: 768px) {
+            .search-wrapper { display: none; }
+            .page-container { padding: 20px; }
+        }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon"><i class="fas fa-gem"></i></div>
+            <div class="brand-text">Upstream<span>Gold</span></div>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item active" data-page="documents"><i class="fas fa-folder-open"></i><span>Documents</span></li>
+            <li class="nav-item" data-page="organisation"><i class="fas fa-sitemap"></i><span>Company Organisation Structure</span></li>
+            <li class="nav-item" data-page="calendar"><i class="fas fa-calendar-alt"></i><span>Calendar</span></li>
+        </ul>
+        <div class="wrike-side-link">
+            <a href="https://www.wrike.com/" target="_blank" rel="noopener noreferrer" class="wrike-btn-side">
+                <i class="fab fa-wrike"></i> <span>Open Wrike Workspace</span> <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </aside>
+    <div class="main">
+        <div class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+                <div class="breadcrumb" id="breadcrumb">Documents</div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <div class="search-wrapper"><i class="fas fa-search"></i><input type="text" id="globalSearch" placeholder="Search files..."></div>
+                <button class="icon-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <div class="user-avatar" id="userAvatar">
+                    <span id="userInitial">JD</span>
+                    <div class="logout-dropdown" id="logoutDropdown">
+                        <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sign out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-container" id="pageContainer"></div>
+    </div>
+</div>
+
+<script>
+    // ---------- AUTHENTICATION GUARD ----------
+    const isAuthenticated = sessionStorage.getItem('isAuthenticated');
+    if (!isAuthenticated) {
+        window.location.href = 'login.html';
+    }
+
+    // Display user email initial in avatar
+    const userEmail = sessionStorage.getItem('userEmail') || 'partner@upstreamgoldpng.com';
+    const initial = userEmail.charAt(0).toUpperCase();
+    document.getElementById('userInitial').innerText = initial;
+
+    // Logout dropdown
+    const userAvatar = document.getElementById('userAvatar');
+    const logoutDropdown = document.getElementById('logoutDropdown');
+    userAvatar.addEventListener('click', (e) => {
+        e.stopPropagation();
+        logoutDropdown.style.display = logoutDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', () => { logoutDropdown.style.display = 'none'; });
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        sessionStorage.removeItem('isAuthenticated');
+        sessionStorage.removeItem('userEmail');
+        window.location.href = 'login.html';
+    });
+
+    // ---------- DOCUMENTS (5 compliance PDFs) ----------
+    const complianceDocs = [
+        { title: "IPA Certificate", desc: "Investment Promotion Authority registration confirming our status as a certified PNG business entity.", icon: "fas fa-certificate" },
+        { title: "TIN Certificate", desc: "Official Tax Identification Number documentation confirming IRC compliance and tax registration.", icon: "fas fa-file-invoice" },
+        { title: "Code of Conduct", desc: "Ethical governance framework outlining transparency, accountability, anti-corruption, and professional standards.", icon: "fas fa-gavel" },
+        { title: "HSE Policy", desc: "Health, Safety & Environment policies aligned with responsible operational and workplace practices.", icon: "fas fa-hard-hat" },
+        { title: "Community Commitment", desc: "Community engagement strategy focused on local empowerment, partnerships, and sustainable development.", icon: "fas fa-hand-holding-heart" }
+    ];
+
+    function renderDocuments() {
+        let docsHtml = complianceDocs.map(doc => `
+            <div class="doc-card">
+                <div class="doc-info">
+                    <h4><i class="${doc.icon}" style="color: var(--gold-primary);"></i> ${doc.title}</h4>
+                    <p>${doc.desc}</p>
+                </div>
+                <a href="#" class="download-btn" data-doc="${doc.title}"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+        `).join('');
+        return `<div class="card"><h3><i class="fas fa-gavel"></i> Corporate & Compliance Documents</h3>${docsHtml}</div>`;
+    }
+
+    const pageContent = {
+        documents: renderDocuments,
+        organisation: () => `
+            <div class="card">
+                <h3><i class="fas fa-user-tie"></i> Board of Directors</h3>
+                <div class="org-node"><strong>Michael Konopa</strong> – Chairman (Former MRA Executive)</div>
+                <div class="org-node"><strong>Ruth Wanga</strong> – Non-Executive Director, ESG Lead</div>
+                <div class="org-node"><strong>David Toua</strong> – Independent Director</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 28px;">
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Executive Leadership</h3>
+                    <div class="org-node"><strong>David Nema</strong> – Managing Director</div>
+                    <div class="org-node"><strong>Sarah L. Kila</strong> – Chief Operating Officer</div>
+                    <div class="org-node"><strong>James P. Yama</strong> – Exploration Director</div>
+                    <div class="org-node"><strong>Grace T. Wama</strong> – Head of Community & Sustainability</div>
+                    <div class="org-node"><strong>Alan K. Poio</strong> – Chief Financial Officer</div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-hard-hat"></i> Operational Departments</h3>
+                    <div class="list-item"><span>Geology & Resource Modelling</span><span>12 members</span></div>
+                    <div class="list-item"><span>Mine Planning & Engineering</span><span>8 members</span></div>
+                    <div class="list-item"><span>Health, Safety & Environment</span><span>7 members</span></div>
+                    <div class="list-item"><span>Community & Government Relations</span><span>9 members</span></div>
+                    <div class="list-item"><span>Finance & Commercial</span><span>6 members</span></div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 28px;">
+                <h3><i class="fas fa-globe"></i> Regional Offices (PNG)</h3>
+                <div class="list-item"><span>Port Moresby – Corporate HQ</span><span>+675 308 7654</span></div>
+                <div class="list-item"><span>Lae – Logistics Hub</span><span>Operations center</span></div>
+                <div class="list-item"><span>Tabubil – Exploration Camp</span><span>Field office</span></div>
+            </div>
+        `,
+        calendar: () => `
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <h3>📅 June 2026</h3>
+                    <button id="addEventBtn" class="icon-btn" style="background: rgba(212,175,55,0.15); padding: 6px 14px; border-radius: 30px;"><i class="fas fa-plus"></i> New Event</button>
+                </div>
+                <div class="list-item"><span><strong>June 10</strong> – Board Meeting (Quarterly Review)</span><span class="badge">9:00 AM</span></div>
+                <div class="list-item"><span><strong>June 18</strong> – ESG Steering Committee</span><span class="badge">2:00 PM</span></div>
+                <div class="list-item"><span><strong>June 25</strong> – Exploration Data Review (Geology Team)</span><span class="badge">10:30 AM</span></div>
+                <div class="list-item"><span><strong>June 30</strong> – End of Q2 Reporting Deadline</span><span class="badge">All day</span></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 28px;">
+                <div class="card"><h4>📌 Upcoming deadlines</h4><div class="list-item"><span>Mine plan submission</span><span>Jun 28</span></div><div class="list-item"><span>Community report draft</span><span>Jul 02</span></div></div>
+                <div class="card"><h4>📎 Company holidays</h4><div class="list-item"><span>Independence Day (PNG)</span><span>Sep 16</span></div><div class="list-item"><span>Christmas break</span><span>Dec 25 – Jan 02</span></div></div>
+            </div>
+        `
+    };
+
+    const navItems = document.querySelectorAll('.nav-item');
+    const pageContainer = document.getElementById('pageContainer');
+    const breadcrumbSpan = document.getElementById('breadcrumb');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const sidebar = document.getElementById('sidebar');
+    const themeToggle = document.getElementById('themeToggle');
+
+    function renderPage(page) {
+        const content = pageContent[page] || pageContent.documents;
+        pageContainer.innerHTML = content();
+        if (page === 'calendar') {
+            const addBtn = document.getElementById('addEventBtn');
+            if (addBtn) addBtn.addEventListener('click', () => alert('New event feature coming soon.'));
+        }
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const docName = btn.getAttribute('data-doc') || 'document';
+                alert(`Downloading ${docName}.pdf – replace with actual file link.`);
+            });
+        });
+    }
+
+    function setActivePage(pageId) {
+        navItems.forEach(item => {
+            if (item.dataset.page === pageId) item.classList.add('active');
+            else item.classList.remove('active');
+        });
+        let title = pageId === 'documents' ? 'Documents' : (pageId === 'organisation' ? 'Company Organisation Structure' : 'Calendar');
+        breadcrumbSpan.innerText = title;
+        renderPage(pageId);
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            setActivePage(item.dataset.page);
+            if (window.innerWidth <= 1024) sidebar.classList.remove('open');
+        });
+    });
+    mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+
+    document.getElementById('globalSearch').addEventListener('input', (e) => {
+        if (e.target.value.length > 2) alert(`Search for "${e.target.value}" – integrated with search.`);
+    });
+    setActivePage('documents');
+</script>
+</body>
+</html>
