@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>Upstream Gold (PNG) Ltd | Governance & Compliance</title>
-  <meta name="description" content="Upstream Gold (PNG) Ltd — corporate compliance, IPA certificate, TIN, HSE policies, memberships, and regulatory adherence in Papua New Guinea.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Governance & Compliance | Certifications & Policies – Nouveau Mining</title>
+  <meta name="description" content="Corporate compliance, IPA certificate, TIN, HSE policies, memberships, and regulatory adherence in Papua New Guinea.">
+  <meta name="keywords" content="PNG compliance, mining governance, IPA certificate, HSE policy, extractive industry PNG">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <!-- Preconnect & Modern Fonts (Identical to Index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
+    /* ---------- RESET & VARIABLES (EXACT SAME AS INDEX) ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #121926;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
     :root {
-      --gold: #C8A337;
-      --gold-dark: #A07E15;
-      --gold-light: #F2E5C2;
-      --navy-deep: #0B1420;
-      --slate-charcoal: #1F2937;
-      --off-white: #F8FAFC;
-      --text-muted: #4B5E77;
-      --shadow-premium: 0 25px 45px -18px rgba(0, 0, 0, 0.15), 0 10px 20px -8px rgba(0, 0, 0, 0.05);
-      --transition-smooth: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8901C;
+      --gold-soft: #F9E5B3;
+      --charcoal: #11181C;
+      --slate: #1E2A32;
+      --stone: #F5F2EF;
+      --pure-white: #FFFFFF;
+      --off-white: #FCFAF7;
+      --text-dark: #1F2A3E;
+      --text-muted: #5A6E7F;
+      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 35px 50px -20px rgba(0, 0, 0, 0.2);
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      --border-radius-card: 2rem;
+      --border-radius-btn: 3rem;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--pure-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 2rem;
     }
 
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--gold);
-      color: #000;
-      padding: 8px;
-      z-index: 1001;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus {
-      top: 0;
+    /* Typography Refined */
+    h1, h2, h3, .serif-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    /* ---------- HEADER (IDENTICAL TO INDEX.HTML) ---------- */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.12);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2.2rem; }
+      .container { padding: 0 1.5rem; }
+    }
+
+    /* Premium Header (Glass) */
     .header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #FFFFFF;
-      border-bottom: 1px solid rgba(200, 163, 55, 0.45);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
       z-index: 1000;
-      transition: var(--transition-smooth);
-      padding: 10px 0;
+      transition: var(--transition);
+      padding: 0.8rem 0;
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      flex-wrap: wrap;
     }
-
-    .logo img {
-      height: 52px;
-      width: auto;
-      transition: transform 0.3s;
-    }
-    .logo img:hover { transform: scale(1.02); }
 
     .nav-links {
       display: flex;
@@ -98,377 +118,375 @@
     }
 
     .nav-links a {
-      font-weight: 500;
-      font-size: 0.9rem;
       text-decoration: none;
-      color: #1E2A3A;
-      transition: 0.25s;
-      letter-spacing: 0.3px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      transition: var(--transition);
       position: relative;
     }
 
-    .nav-links a:after {
+    .nav-links a::after {
       content: '';
       position: absolute;
       bottom: -6px;
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gold);
-      transition: width 0.3s ease;
+      background: var(--gold-primary);
+      transition: width 0.25s ease;
     }
 
-    .nav-links a:hover:after,
-    .nav-links a.active:after {
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--gold);
+      color: var(--gold-deep);
     }
 
     .nav-cta {
-      border: 1.5px solid var(--gold);
-      padding: 8px 28px;
-      border-radius: 40px;
-      font-weight: 600;
+      border: 1.5px solid var(--gold-primary);
+      padding: 0.5rem 1.8rem;
+      border-radius: var(--border-radius-btn);
       background: transparent;
-      color: var(--gold) !important;
-      transition: all 0.3s;
+      color: var(--gold-deep) !important;
+      font-weight: 700;
+      transition: var(--transition);
     }
 
     .nav-cta:hover {
-      background: var(--gold);
-      color: #0B1420 !important;
-      border-color: var(--gold);
+      background: var(--gold-primary);
+      color: var(--charcoal) !important;
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
     }
 
     .menu-toggle {
       display: none;
-      font-size: 1.8rem;
-      color: var(--gold);
-      cursor: pointer;
       background: none;
       border: none;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      cursor: pointer;
     }
 
-    /* ---------- HERO (EXACTLY LIKE INDEX.HTML) ---------- */
+    /* Hero – dramatic & immersive */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      background: linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 100%),
-                  url('hero.png') center center / cover no-repeat;
-      padding: 140px 0 120px;
+      background: linear-gradient(125deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 100%), url('hero.png') center/cover no-repeat fixed;
+      padding: 8rem 0 6rem;
     }
 
     .hero-content {
-      width: 100%;
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
+      max-width: 750px;
     }
 
     .hero-sub {
-      font-size: .82rem;
-      letter-spacing: clamp(2px, 1vw, 8px);
-      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
       text-transform: uppercase;
-      margin-bottom: 22px;
       font-weight: 600;
+      margin-bottom: 1.2rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5.2rem);
-      line-height: .95;
-      color: #fff;
-      margin-bottom: 26px;
+      font-size: clamp(3rem, 7vw, 5rem);
       font-weight: 800;
-      font-family: 'Cormorant Garamond', serif;
-      text-shadow: 0 4px 20px rgba(0,0,0,.4);
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      line-height: 1.7;
-      color: rgba(255,255,255,.92);
-      max-width: 620px;
-      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      max-width: 550px;
     }
 
     .btn-group {
       display: flex;
-      gap: 20px;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
     .btn-primary {
-      background: var(--gold);
-      color: #0B1420;
-      padding: 14px 38px;
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 700;
-      border-radius: 48px;
       text-decoration: none;
-      transition: all 0.3s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
+      gap: 0.6rem;
+      transition: var(--transition);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
-      background: var(--gold-dark);
+      background: var(--gold-deep);
       transform: translateY(-3px);
-      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 25px -12px black;
     }
 
     .btn-outline {
-      border: 1.5px solid var(--gold);
-      background: transparent;
+      border: 1.5px solid var(--gold-primary);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
       color: white;
-      padding: 14px 38px;
-      border-radius: 48px;
+      padding: 0.9rem 2rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 600;
       text-decoration: none;
-      transition: 0.3s;
-      backdrop-filter: blur(6px);
+      transition: var(--transition);
     }
 
     .btn-outline:hover {
-      background: rgba(200,163,55,0.15);
-      border-color: var(--gold-light);
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      border-color: var(--gold-primary);
       transform: translateY(-3px);
     }
 
-    /* ---------- DOCUMENTS SECTION (PRESERVED ORIGINAL LAYOUT) ---------- */
-    .section {
-      padding: 40px 0 90px;
+    /* Stats Bar – premium floating (optional but adds consistency) */
+    .stats-section {
+      margin-top: -3rem;
+      position: relative;
+      z-index: 15;
     }
 
-    .section-head {
-      margin-bottom: 45px;
+    .stats-bar {
+      background: linear-gradient(135deg, #0F1922 0%, #1A2A32 100%);
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(212, 175, 55, 0.3);
     }
 
-    .section-sub {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: .76rem;
-      font-weight: 700;
-      margin-bottom: 16px;
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
     }
 
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: #0E1A2B;
-      margin-bottom: 14px;
+    .stat-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(212, 175, 55, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(212, 175, 55, 0.4);
     }
 
-    .section-text {
-      color: #667085;
-      max-width: 760px;
-      font-size: 1rem;
+    .stat-icon i {
+      font-size: 1.6rem;
+      color: var(--gold-primary);
+    }
+
+    .stat-content h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .stat-content p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Document Cards (styled like focus/pillar cards from index) */
+    .doc-section {
+      padding: 5rem 0 3rem;
     }
 
     .doc-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0 2rem;
     }
 
     .doc-card {
-      background: white;
-      border-radius: 34px;
-      padding: 34px 28px;
-      border: 1px solid #EDF1F6;
-      transition: .35s;
-      position: relative;
-      overflow: hidden;
+      background: var(--off-white);
+      border-radius: var(--border-radius-card);
+      padding: 2rem 1.8rem;
+      transition: var(--transition);
+      border: 1px solid #EBE5DC;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
     }
 
     .doc-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(15,23,42,0.08);
-      border-color: rgba(200,163,55,0.25);
-    }
-
-    .doc-card::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: rgba(200,163,55,0.06);
-      border-radius: 50%;
-      right: -40px;
-      top: -40px;
-      pointer-events: none;
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-md);
     }
 
     .doc-icon {
       width: 70px;
       height: 70px;
-      border-radius: 22px;
-      background: #FFF8E8;
-      color: var(--gold-dark);
+      background: var(--charcoal);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .doc-icon i {
+      font-size: 1.8rem;
+      color: var(--gold-primary);
     }
 
     .doc-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      color: #0E1A2B;
-      position: relative;
-      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--charcoal);
     }
 
     .doc-card p {
-      color: #667085;
-      font-size: .94rem;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 2;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      flex: 1;
     }
 
     .download-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 11px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      border: 1px solid rgba(200,163,55,0.4);
-      color: var(--gold-dark);
+      gap: 0.6rem;
+      background: transparent;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-deep);
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--border-radius-btn);
       font-weight: 600;
-      transition: .3s;
-      position: relative;
-      z-index: 2;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: var(--transition);
+      align-self: flex-start;
     }
 
     .download-btn:hover {
-      background: var(--gold);
-      color: white;
+      background: var(--gold-primary);
+      color: var(--charcoal);
+      transform: translateY(-2px);
     }
 
+    /* Membership pills (like badges) */
     .membership-wrapper {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 40px;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
     }
 
     .membership {
-      background: white;
+      background: var(--off-white);
+      border: 1px solid #EBE5DC;
       border-radius: 60px;
-      padding: 14px 24px;
-      border: 1px solid rgba(200,163,55,0.2);
-      display: flex;
+      padding: 0.7rem 1.8rem;
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
-      box-shadow: 0 10px 25px rgba(15,23,42,0.05);
-      transition: .3s;
-    }
-
-    .membership:hover {
-      transform: translateY(-4px);
+      gap: 0.8rem;
+      transition: var(--transition);
     }
 
     .membership i {
-      color: var(--gold);
-      font-size: 1.2rem;
+      color: var(--gold-primary);
+      font-size: 1.1rem;
     }
 
     .membership span {
-      font-size: .92rem;
-      font-weight: 600;
-      color: #1E2A3E;
+      font-weight: 500;
+      color: var(--text-dark);
+      font-size: 0.85rem;
     }
 
-    .regulatory {
-      margin-top: 90px;
-      background: linear-gradient(135deg, #0F1A2E, #15243C);
-      border-radius: 40px;
-      padding: 70px;
-      position: relative;
-      overflow: hidden;
+    .membership:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-sm);
     }
 
-    .regulatory::before {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 400px;
+    /* Regulatory Dark Block (styled like ESG section from index) */
+    .regulatory-block {
+      background: var(--charcoal);
+      border-radius: 2rem;
+      padding: 3.5rem 3rem;
+      margin: 4rem 0 5rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .regulatory-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(212, 175, 55, 0.12);
       border-radius: 50%;
-      background: rgba(200,163,55,0.1);
-      right: -120px;
-      top: -120px;
-      pointer-events: none;
-    }
-
-    .reg-content {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-    }
-
-    .reg-icon {
-      width: 82px;
-      height: 82px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .regulatory-icon i {
       font-size: 2rem;
-      margin-bottom: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gold-primary);
     }
 
-    .regulatory h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+    .regulatory-block h2 {
       color: white;
-      margin-bottom: 20px;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
     }
 
-    .regulatory p {
-      color: rgba(255,255,255,0.78);
-      font-size: 1rem;
-      margin-bottom: 34px;
-      line-height: 1.8;
+    .regulatory-block p {
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 800px;
     }
 
-    /* ---------- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) ---------- */
+    /* Footer – exact same as index */
     .footer {
-      background: #FAFBFD;
-      border-top: 1px solid #E9EDF4;
-      padding: 70px 0 30px;
+      background: #F9F7F4;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid #EADFCB;
     }
 
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
 
     .footer-col h4 {
-      color: #0F1A2E;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
     }
 
     .footer-links {
@@ -476,81 +494,67 @@
     }
 
     .footer-links li {
-      margin-bottom: 12px;
+      margin-bottom: 0.7rem;
     }
 
     .footer-links a {
       text-decoration: none;
-      color: #5B6678;
+      color: var(--text-muted);
       transition: 0.2s;
     }
 
     .footer-links a:hover {
-      color: var(--gold);
+      color: var(--gold-primary);
     }
 
     .social-icons {
       display: flex;
-      gap: 14px;
-      margin-top: 24px;
+      gap: 1rem;
+      margin-top: 1.2rem;
     }
 
     .social-icons a {
-      background: #FFFFFF;
-      width: 40px;
-      height: 40px;
+      background: white;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      border: 1px solid #E8ECF2;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
-      transition: 0.25s;
+      color: var(--gold-deep);
+      transition: var(--transition);
+      border: 1px solid #E2D9CE;
       text-decoration: none;
     }
 
     .social-icons a:hover {
-      background: var(--gold);
-      color: #FFFFFF;
+      background: var(--gold-primary);
+      color: var(--charcoal);
       transform: translateY(-3px);
     }
 
     .contact-line {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .contact-line i {
-      color: var(--gold);
-      margin-top: 4px;
-    }
-
-    .contact-line span {
-      color: #5B6678;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
     }
 
     .footer-bottom {
-      border-top: 1px solid #E9EDF4;
-      padding-top: 26px;
       text-align: center;
-      color: #94A3B8;
-      font-size: 0.82rem;
+      border-top: 1px solid #E4DCCF;
+      padding-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #8A7F6E;
     }
 
-    /* ---------- RESPONSIVE (MATCHES INDEX EXACTLY) ---------- */
-    @media (max-width: 1100px) {
-      .footer-grid {
-        flex-direction: column;
-        gap: 32px;
+    /* Responsive (aligned with index) */
+    @media (max-width: 1024px) {
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 850px) {
-      .container {
-        padding: 0 24px;
-      }
+    @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
@@ -560,253 +564,204 @@
         left: -100%;
         width: 80%;
         height: calc(100vh - 70px);
-        background: #FFFFFF;
+        background: var(--pure-white);
         flex-direction: column;
         align-items: flex-start;
-        padding: 40px 32px;
-        transition: 0.3s;
-        gap: 30px;
-        z-index: 999;
-        border-right: 1px solid var(--gold);
-        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        transition: 0.3s ease;
+        gap: 1.5rem;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
       }
       .nav-links.active {
         left: 0;
       }
-      .nav-links a {
-        font-size: 1.1rem;
-        color: #1E2A3A;
-      }
-      .hero {
-        min-height: auto;
-        padding: 140px 0 90px;
-      }
-      .hero h1 {
-        font-size: 3rem;
-      }
-      .btn-group {
-        flex-direction: column;
-      }
-      .btn-primary,
-      .btn-outline {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-      .section-title {
-        font-size: 2.3rem;
-      }
-      .regulatory {
-        padding: 40px 28px;
-      }
-      .regulatory h2 {
-        font-size: 2.2rem;
+      .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
       .doc-grid {
         grid-template-columns: 1fr;
       }
+      .regulatory-block {
+        padding: 2rem 1.5rem;
+      }
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-primary, .btn-outline {
+        justify-content: center;
+        text-align: center;
+      }
       .membership-wrapper {
         flex-direction: column;
+        align-items: stretch;
       }
       .membership {
         justify-content: center;
       }
-      .footer-grid {
-        flex-direction: column;
-        gap: 32px;
-      }
     }
 
-    @media (max-width: 768px) {
-      .hero-content {
-        width: 100%;
-      }
-      .hero-sub {
-        font-size: .7rem;
-        letter-spacing: 2px;
-        margin-bottom: 18px;
-      }
-      .hero h1 {
-        font-size: clamp(2.5rem, 11vw, 4rem);
-        line-height: .95;
-        margin-bottom: 20px;
-      }
-      .hero p {
-        font-size: 1rem;
-        line-height: 1.7;
-      }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--gold-primary);
+      padding: 8px;
+      z-index: 1002;
+      text-decoration: none;
+      color: black;
     }
-
-    @media (max-width: 680px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-    }
+    .skip-link:focus { top: 0; }
   </style>
 </head>
-
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- HEADER (IDENTICAL TO INDEX.HTML) -->
-  <header class="header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="logo2.png" alt="Upstream Gold PNG Logo" class="logo-img" width="auto" height="52">
-      </div>
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="team.html">Team</a>
-        <a href="compliance.html" class="active">Compliance</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="nav-cta">Partner</a>
-      </div>
+<!-- Header identical to index -->
+<header class="header">
+  <div class="container nav">
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Team</a>
+      <a href="compliance.html" class="active">Compliance</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Partner →</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main-content">
-    <!-- HERO SECTION (REDESIGNED TO MATCH INDEX) -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-sub">✦ TRANSPARENCY & GOVERNANCE</div>
-          <h1>Documents, Credentials <br>& Compliance</h1>
-          <p>Our commitment to integrity, governance, transparency, and responsible operations across Papua New Guinea's extractive industry sector.</p>
-          <div class="btn-group">
-            <a href="#" class="btn-primary">Download Documents <i class="fas fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-outline">Contact Compliance Team</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOCUMENTS SECTION (PRESERVED ORIGINAL) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-sub">✦ CORPORATE COMPLIANCE</div>
-          <h2 class="section-title">Key Certifications & Policies</h2>
-          <p class="section-text">Essential corporate registrations, governance policies, and compliance documentation supporting our operations.</p>
-        </div>
-
-        <div class="doc-grid">
-          <div class="doc-card">
-            <div class="doc-icon"><i class="fas fa-building"></i></div>
-            <h3>IPA Certificate</h3>
-            <p>Investment Promotion Authority registration confirming Upstream Gold as a certified PNG business entity.</p>
-            <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
-          </div>
-          <div class="doc-card">
-            <div class="doc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-            <h3>TIN Certificate</h3>
-            <p>Official Tax Identification Number documentation confirming IRC compliance and tax registration.</p>
-            <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
-          </div>
-          <div class="doc-card">
-            <div class="doc-icon"><i class="fas fa-scroll"></i></div>
-            <h3>Code of Conduct</h3>
-            <p>Ethical governance framework outlining transparency, accountability, anti-corruption, and professional standards.</p>
-            <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
-          </div>
-          <div class="doc-card">
-            <div class="doc-icon"><i class="fas fa-hard-hat"></i></div>
-            <h3>HSE Policy</h3>
-            <p>Health, Safety & Environment policies aligned with responsible operational and workplace practices.</p>
-            <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
-          </div>
-          <div class="doc-card">
-            <div class="doc-icon"><i class="fas fa-hand-holding-heart"></i></div>
-            <h3>Community Commitment</h3>
-            <p>Community engagement strategy focused on local empowerment, partnerships, and sustainable development.</p>
-            <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
-          </div>
-        </div>
-
-        <!-- MEMBERSHIPS -->
-        <div class="section-head" style="margin-top:100px;">
-          <div class="section-sub">✦ INDUSTRY RECOGNITION</div>
-          <h2 class="section-title">Memberships & Affiliations</h2>
-        </div>
-        <div class="membership-wrapper">
-          <div class="membership"><i class="fas fa-hard-hat"></i><span>PNG Chamber of Mines & Petroleum</span></div>
-          <div class="membership"><i class="fas fa-chart-line"></i><span>EITI Supporting Member</span></div>
-          <div class="membership"><i class="fas fa-shield-alt"></i><span>ISO 45001 Occupational Safety</span></div>
-          <div class="membership"><i class="fas fa-chalkboard-user"></i><span>Registered Training Provider – PNG DPE</span></div>
-        </div>
-
-        <!-- REGULATORY COMPLIANCE BLOCK -->
-        <div class="regulatory">
-          <div class="reg-content">
-            <div class="reg-icon"><i class="fas fa-gavel"></i></div>
-            <h2>Full Regulatory Compliance</h2>
-            <p>Upstream Gold (PNG) Ltd operates in strict adherence to all applicable laws and regulations in Papua New Guinea, including the Mining Act 1992, Environment Act 2000, and Companies Act 1997. All required licenses, permits, certifications, and operational approvals are current and maintained in accordance with national standards.</p>
-            <a href="contact.html" class="btn-primary">Request Verification</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER (LIGHT VERSION, MATCHES INDEX.HTML) -->
-  <footer class="footer">
+<main id="main-content">
+  <!-- Hero Section – adapted for compliance -->
+  <section class="hero">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div style="font-size:1.8rem; font-weight:700; font-family:'Cormorant Garamond';">UPSTREAM GOLD<span style="color:var(--gold);">®</span></div>
-          <p style="margin-top:12px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:upstreamgoldpng@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-sub">✦ TRANSPARENCY & GOVERNANCE</div>
+        <h1>Documents, Credentials <br>& Compliance</h1>
+        <p>Our commitment to integrity, governance, transparency, and responsible operations across Papua New Guinea's extractive industry sector.</p>
+        <div class="btn-group">
+          <a href="#documents" class="btn-primary">Download Documents <i class="fas fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-outline">Contact Compliance Team</a>
         </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="compliance.html">Compliance</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact & Compliance</h4>
-          <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-envelope"></i><span>upstreamgoldpng@gmail.com</span></div>
-          <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Upstream Gold (PNG) Ltd — Incorporated 18th October 2024. “All Dreams are within Reach”</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- MOBILE MENU SCRIPT (EXACT FUNCTIONALITY AS INDEX) -->
-  <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-          const expanded = navLinks.classList.toggle('active');
-          menuBtn.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-      document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
-    })();
-  </script>
+  <!-- Stats bar (reinforcing trust, consistent with index) -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-file-contract"></i></div><div class="stat-content"><h3>100%</h3><p>REGULATORY ADHERENCE</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-award"></i></div><div class="stat-content"><h3>5+</h3><p>CERTIFICATIONS & POLICIES</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-handshake"></i></div><div class="stat-content"><h3>4+</h3><p>INDUSTRY MEMBERSHIPS</p></div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fas fa-gavel"></i></div><div class="stat-content"><h3>IPA</h3><p>FULLY REGISTERED</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents Section -->
+  <section class="doc-section" id="documents">
+    <div class="container">
+      <div class="section-badge" data-aos="fade-up"><i class="fas fa-folder-open"></i> Corporate Compliance</div>
+      <h2 class="section-title" data-aos="fade-up">Key Certifications & Policies</h2>
+      <p class="section-text" data-aos="fade-up" style="color: var(--text-muted); max-width: 760px; margin-bottom: 2rem;">Essential corporate registrations, governance policies, and compliance documentation supporting our operations.</p>
+
+      <div class="doc-grid" data-aos="fade-up">
+        <div class="doc-card">
+          <div class="doc-icon"><i class="fas fa-building"></i></div>
+          <h3>IPA Certificate</h3>
+          <p>Investment Promotion Authority registration confirming our status as a certified PNG business entity.</p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <h3>TIN Certificate</h3>
+          <p>Official Tax Identification Number documentation confirming IRC compliance and tax registration.</p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon"><i class="fas fa-scroll"></i></div>
+          <h3>Code of Conduct</h3>
+          <p>Ethical governance framework outlining transparency, accountability, anti-corruption, and professional standards.</p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon"><i class="fas fa-hard-hat"></i></div>
+          <h3>HSE Policy</h3>
+          <p>Health, Safety & Environment policies aligned with responsible operational and workplace practices.</p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Community Commitment</h3>
+          <p>Community engagement strategy focused on local empowerment, partnerships, and sustainable development.</p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+      </div>
+
+      <!-- Memberships & Affiliations -->
+      <div data-aos="fade-up">
+        <div class="section-badge" style="margin-top: 2rem;"><i class="fas fa-trophy"></i> Industry Recognition</div>
+        <h2 class="section-title">Memberships & Affiliations</h2>
+      </div>
+      <div class="membership-wrapper" data-aos="fade-up">
+        <div class="membership"><i class="fas fa-hard-hat"></i><span>PNG Chamber of Mines & Petroleum</span></div>
+        <div class="membership"><i class="fas fa-chart-line"></i><span>EITI Supporting Member</span></div>
+        <div class="membership"><i class="fas fa-shield-alt"></i><span>ISO 45001 Occupational Safety</span></div>
+        <div class="membership"><i class="fas fa-chalkboard-user"></i><span>Registered Training Provider – PNG DPE</span></div>
+      </div>
+
+      <!-- Regulatory Compliance Block (dark, similar to index's ESG section) -->
+      <div class="regulatory-block" data-aos="zoom-in">
+        <div class="regulatory-icon"><i class="fas fa-gavel"></i></div>
+        <h2>Full Regulatory Compliance</h2>
+        <p>We operate in strict adherence to all applicable laws and regulations in Papua New Guinea, including the Mining Act 1992, Environment Act 2000, and Companies Act 1997. All required licenses, permits, certifications, and operational approvals are current and maintained in accordance with national standards.</p>
+        <a href="contact.html" class="btn-primary" style="background: var(--gold-primary); color: var(--charcoal);">Request Verification <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer exactly same as index -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p style="max-width: 260px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Team</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact & Compliance</h4><div class="contact-line"><i class="fas fa-map-marker-alt" style="color:var(--gold-primary);"></i><span>Kwalimu Precincts, Waigani, NCD</span></div><div class="contact-line"><i class="fas fa-phone-alt" style="color:var(--gold-primary);"></i><span>+675 7XXXXXXX</span></div></div>
+    </div>
+    <div class="footer-bottom"><p>© "All Dreams are within Reach"</p></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true, offset: 40 });
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if(menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const expanded = navLinks.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', expanded);
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
+</script>
 </body>
 </html>
