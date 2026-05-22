@@ -62,9 +62,10 @@
       padding: 10px 0;
     }
 
+    /* FIX: Align nav links to the right (same as other pages) */
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -630,6 +631,9 @@
       }
       .menu-toggle {
         display: block;
+      }
+      .nav {
+        justify-content: space-between;  /* On mobile, keep toggle left and nav-links off-canvas */
       }
       .nav-links {
         position: fixed;
