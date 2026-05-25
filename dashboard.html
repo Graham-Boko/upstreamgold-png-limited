@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Partner Dashboard | Secure Access</title>
+    <title>Upstream Gold | Partner Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -31,9 +31,9 @@
             --shadow-elevated: 0 25px 50px -12px rgba(0,0,0,0.6);
             --shadow-card: 0 4px 20px rgba(0,0,0,0.3);
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-            --radius-lg: 1.5rem;
-            --radius-md: 1rem;
-            --radius-sm: 0.6rem;
+            --radius-lg: 2rem;
+            --radius-md: 1.2rem;
+            --radius-sm: 0.8rem;
         }
 
         body.light {
@@ -55,35 +55,27 @@
             min-height: 100vh;
             transition: background 0.3s, color 0.3s;
             background-image: radial-gradient(ellipse at 20% 20%, rgba(212,175,55,0.03) 0%, transparent 50%);
-            overflow-x: hidden;
         }
 
         .app {
             display: flex;
             min-height: 100vh;
-            width: 100%;
-            overflow-x: hidden;
         }
 
-        /* ---------- SIDEBAR (mobile‑ready) ---------- */
+        /* ---------- GLASS SIDEBAR ---------- */
         .sidebar {
             width: 280px;
             background: rgba(14, 22, 30, 0.7);
             backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             border-right: 1px solid var(--border-gold);
             position: fixed;
             height: 100vh;
             z-index: 100;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 8px 0 30px rgba(0,0,0,0.3);
-            transform: translateX(-100%);
-        }
-
-        .sidebar.open {
-            transform: translateX(0);
         }
 
         body.light .sidebar {
@@ -92,37 +84,33 @@
             box-shadow: 8px 0 30px rgba(0,0,0,0.05);
         }
 
-        @media (min-width: 1025px) {
-            .sidebar {
-                transform: translateX(0);
-            }
-        }
-
         .sidebar-brand {
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             border-bottom: 1px solid var(--border-gold);
         }
 
         .brand-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-deep));
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #0B0F13;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         .brand-text {
             font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
         .brand-text span {
@@ -131,149 +119,164 @@
 
         .nav-menu {
             list-style: none;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
             flex: 1;
         }
 
         .nav-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
-            margin: 4px 0;
-            border-radius: 40px;
+            gap: 14px;
+            padding: 12px 18px;
+            margin: 6px 0;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            transition: all 0.2s;
+            transition: var(--transition-smooth);
+            position: relative;
         }
 
         .nav-item i {
             width: 24px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            transition: 0.2s;
         }
 
         .nav-item.active {
             background: rgba(212, 175, 55, 0.12);
             color: var(--gold-primary);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
         }
 
         .nav-item:hover:not(.active) {
             background: rgba(212, 175, 55, 0.06);
             color: var(--gold-200);
+            transform: translateX(6px);
         }
 
         .wrike-side-link {
             margin-top: auto;
             border-top: 1px solid var(--border-gold);
-            padding: 1.2rem;
+            padding: 1.5rem 1rem;
         }
 
         .wrike-btn-side {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: rgba(212, 175, 55, 0.08);
             border: 1px solid var(--gold-primary);
-            border-radius: 40px;
-            padding: 8px 14px;
+            border-radius: 50px;
+            padding: 10px 18px;
             text-decoration: none;
             color: var(--gold-primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            justify-content: center;
-            transition: 0.2s;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
         }
 
-        /* ---------- MAIN CONTENT ---------- */
+        .wrike-btn-side:hover {
+            background: var(--gold-primary);
+            color: #0B0F13;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        /* ---------- MAIN AREA ---------- */
         .main {
             flex: 1;
-            width: 100%;
-            overflow-x: hidden;
+            margin-left: 280px;
+            display: flex;
+            flex-direction: column;
         }
 
         .topbar {
             background: rgba(14, 22, 30, 0.6);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-gold);
-            padding: 10px 1.2rem;
+            padding: 14px 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 90;
-            flex-wrap: wrap;
-            gap: 10px;
+        }
+
+        body.light .topbar {
+            background: rgba(255, 255, 255, 0.7);
         }
 
         .topbar-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 20px;
         }
 
         .mobile-toggle {
+            display: none;
             background: transparent;
             border: none;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--gold-primary);
             cursor: pointer;
-            display: block;
-        }
-
-        @media (min-width: 1025px) {
-            .mobile-toggle {
-                display: none;
-            }
         }
 
         .breadcrumb {
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--gold-primary);
+            letter-spacing: 0.3px;
         }
 
         .search-wrapper {
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-gold);
-            border-radius: 40px;
-            padding: 6px 16px;
+            border-radius: 50px;
+            padding: 8px 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            backdrop-filter: blur(8px);
         }
 
         .search-wrapper input {
             border: none;
             background: transparent;
             outline: none;
-            width: 140px;
+            width: 180px;
             color: var(--text-primary);
-            font-size: 0.85rem;
+            font-family: inherit;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 680px) {
-            .search-wrapper {
-                display: none;
-            }
+        .search-wrapper input::placeholder {
+            color: var(--text-secondary);
         }
 
         .icon-btn {
             background: none;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             color: var(--text-secondary);
-            padding: 6px;
+            transition: 0.2s;
+            padding: 8px;
             border-radius: 50%;
         }
 
+        .icon-btn:hover {
+            color: var(--gold-primary);
+            background: rgba(212,175,55,0.1);
+        }
+
         .user-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-deep));
             border-radius: 50%;
             display: flex;
@@ -284,31 +287,38 @@
             cursor: pointer;
             position: relative;
             border: 2px solid var(--gold-200);
+            transition: 0.2s;
+        }
+
+        .user-avatar:hover {
+            box-shadow: 0 0 20px rgba(212,175,55,0.4);
         }
 
         .logout-dropdown {
             position: absolute;
-            top: 42px;
+            top: 48px;
             right: 0;
             background: var(--surface);
             border: 1px solid var(--border-gold);
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 6px 0;
-            width: 130px;
+            width: 140px;
             display: none;
             z-index: 200;
             box-shadow: var(--shadow-elevated);
+            backdrop-filter: blur(12px);
         }
 
         .logout-dropdown button {
             background: transparent;
             border: none;
-            padding: 8px 14px;
+            padding: 10px 18px;
             width: 100%;
             text-align: left;
             cursor: pointer;
             color: var(--text-primary);
             font-weight: 500;
+            transition: 0.2s;
         }
 
         .logout-dropdown button:hover {
@@ -317,131 +327,142 @@
         }
 
         .page-container {
-            padding: 1.2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
+            padding: 2.5rem;
+            flex: 1;
         }
 
-        /* ---------- CARDS (compact on mobile) ---------- */
+        /* ---------- CARDS & COMPONENTS ---------- */
         .card {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-gold);
-            border-radius: 1.2rem;
-            padding: 1.2rem;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
             transition: var(--transition-smooth);
             box-shadow: var(--shadow-card);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
         }
 
-        .card h3, .card h4 {
-            font-family: var(--font-heading);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 35px rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
         }
 
         .list-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 14px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-            gap: 6px;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
         }
 
         .badge {
             background: rgba(212, 175, 55, 0.15);
             color: var(--gold-primary);
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
             font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
         .org-node {
-            padding: 10px 12px;
-            border-left: 3px solid var(--gold-primary);
-            margin: 10px 0;
+            padding: 12px 18px;
+            border-left: 4px solid var(--gold-primary);
+            margin: 14px 0;
             background: rgba(212, 175, 55, 0.04);
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
             font-weight: 500;
-            font-size: 0.9rem;
-            word-break: break-word;
         }
 
         .doc-card {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            padding: 14px 0;
+            align-items: center;
+            padding: 18px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.12);
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 16px;
         }
 
         .doc-info h4 {
-            font-size: 1rem;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .doc-info p {
             font-size: 0.8rem;
             color: var(--text-secondary);
-            max-width: 100%;
+            max-width: 400px;
         }
 
         .download-btn {
             background: transparent;
             border: 1.5px solid var(--gold-primary);
-            padding: 6px 16px;
-            border-radius: 40px;
+            padding: 8px 20px;
+            border-radius: 50px;
             color: var(--gold-primary);
-            font-weight: 600;
-            font-size: 0.75rem;
+            font-weight: 700;
             text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.4px;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--gold-primary);
+            color: #0B0F13;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+            transform: scale(1.02);
         }
 
         .two-col-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 2rem;
+            margin-top: 1.8rem;
         }
 
-        /* --- Mobile overrides for all sections --- */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main {
+                margin-left: 0;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
         @media (max-width: 768px) {
+            .search-wrapper {
+                display: none;
+            }
             .page-container {
-                padding: 0.8rem;
+                padding: 1.5rem;
             }
-            .card {
-                padding: 1rem;
-                border-radius: 1rem;
-            }
-            .card h3 {
-                font-size: 1.1rem;
+            .topbar {
+                padding: 12px 1.5rem;
             }
             .two-col-grid {
                 grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            .org-node {
-                padding: 8px 10px;
-                font-size: 0.85rem;
-            }
-            .list-item {
-                font-size: 0.85rem;
-                padding: 8px 0;
             }
             .doc-card {
                 flex-direction: column;
@@ -450,55 +471,23 @@
             .download-btn {
                 align-self: flex-end;
             }
-            .topbar {
-                padding: 8px 1rem;
-            }
-            .breadcrumb {
-                font-size: 1rem;
-            }
-            .user-avatar {
-                width: 34px;
-                height: 34px;
-            }
-        }
-
-        @media (max-width: 480px) {
             .card {
-                padding: 0.9rem;
-            }
-            .org-node {
-                font-size: 0.8rem;
-            }
-            .badge {
-                font-size: 0.65rem;
-            }
-            .btn-login, .download-btn {
-                font-size: 0.7rem;
-            }
-            .list-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .calendar-event {
-                flex-wrap: wrap;
+                padding: 1.5rem;
             }
         }
 
-        /* utility */
         button, .nav-item {
             cursor: pointer;
-        }
-        i, .fas, .fab {
-            pointer-events: none;
         }
     </style>
 </head>
 <body>
 <div class="app">
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
             <div class="brand-icon"><i class="fas fa-gem"></i></div>
-            <div class="brand-text">Partner<span>Hub</span></div>
+            <div class="brand-text">Upstream<span>Gold</span></div>
         </div>
         <ul class="nav-menu" id="navMenu">
             <li class="nav-item active" data-page="documents">
@@ -512,22 +501,23 @@
             </li>
         </ul>
         <div class="wrike-side-link">
-            <a href="#" class="wrike-btn-side" id="wrikeMockBtn">
+            <a href="https://www.wrike.com/" target="_blank" rel="noopener noreferrer" class="wrike-btn-side">
                 <i class="fab fa-wrike"></i> <span>Wrike Workspace</span> <i class="fas fa-external-link-alt"></i>
             </a>
         </div>
     </aside>
 
+    <!-- Main Content -->
     <div class="main">
         <div class="topbar">
             <div class="topbar-left">
                 <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
                 <div class="breadcrumb" id="breadcrumb">Documents</div>
             </div>
-            <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="display: flex; gap: 16px; align-items: center;">
                 <div class="search-wrapper">
                     <i class="fas fa-search" style="color: var(--gold-primary);"></i>
-                    <input type="text" id="globalSearch" placeholder="Search...">
+                    <input type="text" id="globalSearch" placeholder="Search documents...">
                 </div>
                 <button class="icon-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
                 <div class="user-avatar" id="userAvatar">
@@ -543,11 +533,13 @@
 </div>
 
 <script>
-    // Auth guard
-    if (!sessionStorage.getItem('isAuthenticated')) {
+    // ---------- AUTH GUARD ----------
+    const isAuthenticated = sessionStorage.getItem('isAuthenticated');
+    if (!isAuthenticated) {
         window.location.href = 'login.html';
     }
-    const userEmail = sessionStorage.getItem('userEmail') || 'partner@example.com';
+
+    const userEmail = sessionStorage.getItem('userEmail') || 'partner@upstreamgoldpng.com';
     document.getElementById('userInitial').innerText = userEmail.charAt(0).toUpperCase();
 
     // Logout dropdown
@@ -564,76 +556,76 @@
         window.location.href = 'login.html';
     });
 
-    // Dummy data
+    // ---------- DOCUMENTS DATA ----------
     const complianceDocs = [
-        { title: "IPA Certificate", desc: "Investment Promotion Authority registration.", icon: "fas fa-certificate" },
-        { title: "TIN Certificate", desc: "Tax Identification Number documentation.", icon: "fas fa-file-invoice" },
-        { title: "Code of Conduct", desc: "Ethical governance framework.", icon: "fas fa-gavel" },
-        { title: "HSE Policy", desc: "Health, Safety & Environment policies.", icon: "fas fa-hard-hat" },
-        { title: "Community Commitment", desc: "Community engagement strategy.", icon: "fas fa-hand-holding-heart" }
+        { title: "IPA Certificate", desc: "Investment Promotion Authority registration confirming our status as a certified PNG business entity.", icon: "fas fa-certificate" },
+        { title: "TIN Certificate", desc: "Official Tax Identification Number documentation confirming IRC compliance.", icon: "fas fa-file-invoice" },
+        { title: "Code of Conduct", desc: "Ethical governance framework outlining transparency, accountability, and professional standards.", icon: "fas fa-gavel" },
+        { title: "HSE Policy", desc: "Health, Safety & Environment policies aligned with responsible operational practices.", icon: "fas fa-hard-hat" },
+        { title: "Community Commitment", desc: "Community engagement strategy focused on local empowerment and sustainable development.", icon: "fas fa-hand-holding-heart" }
     ];
 
     function renderDocuments() {
-        return `<div class="card">
-            <h3><i class="fas fa-gavel" style="color: var(--gold-primary);"></i> Corporate Documents</h3>
-            ${complianceDocs.map(doc => `
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <h4><i class="${doc.icon}" style="color: var(--gold-primary);"></i> ${doc.title}</h4>
-                        <p>${doc.desc}</p>
-                    </div>
-                    <a href="#" class="download-btn" data-doc="${doc.title}"><i class="fas fa-download"></i> PDF</a>
+        let docsHtml = complianceDocs.map(doc => `
+            <div class="doc-card">
+                <div class="doc-info">
+                    <h4><i class="${doc.icon}" style="color: var(--gold-primary);"></i> ${doc.title}</h4>
+                    <p>${doc.desc}</p>
                 </div>
-            `).join('')}
-        </div>`;
+                <a href="#" class="download-btn" data-doc="${doc.title}"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+        `).join('');
+        return `<div class="card"><h3 style="font-family: var(--font-heading); margin-bottom: 1.2rem;"><i class="fas fa-gavel" style="color: var(--gold-primary);"></i> Corporate & Compliance Documents</h3>${docsHtml}</div>`;
     }
 
     const pageContent = {
         documents: renderDocuments,
         organisation: () => `
             <div class="card">
-                <h3><i class="fas fa-user-tie"></i> Board of Directors</h3>
-                <div class="org-node"><strong>Michael Konopa</strong> – Chairman</div>
-                <div class="org-node"><strong>Ruth Wanga</strong> – Non-Executive Director</div>
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;"><i class="fas fa-user-tie" style="color: var(--gold-primary);"></i> Board of Directors</h3>
+                <div class="org-node"><strong>Michael Konopa</strong> – Chairman (Former MRA Executive)</div>
+                <div class="org-node"><strong>Ruth Wanga</strong> – Non-Executive Director, ESG Lead</div>
                 <div class="org-node"><strong>David Toua</strong> – Independent Director</div>
             </div>
             <div class="two-col-grid">
                 <div class="card">
-                    <h3><i class="fas fa-chart-line"></i> Executive Leadership</h3>
+                    <h3 style="font-family: var(--font-heading);"><i class="fas fa-chart-line" style="color: var(--gold-primary);"></i> Executive Leadership</h3>
                     <div class="org-node"><strong>David Nema</strong> – Managing Director</div>
-                    <div class="org-node"><strong>Sarah L. Kila</strong> – COO</div>
+                    <div class="org-node"><strong>Sarah L. Kila</strong> – Chief Operating Officer</div>
                     <div class="org-node"><strong>James P. Yama</strong> – Exploration Director</div>
-                    <div class="org-node"><strong>Grace T. Wama</strong> – Community & Sustainability</div>
+                    <div class="org-node"><strong>Grace T. Wama</strong> – Head of Community & Sustainability</div>
+                    <div class="org-node"><strong>Alan K. Poio</strong> – Chief Financial Officer</div>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-hard-hat"></i> Departments</h3>
-                    <div class="list-item"><span>Geology & Resource</span><span class="badge">12</span></div>
-                    <div class="list-item"><span>Mine Planning</span><span class="badge">8</span></div>
-                    <div class="list-item"><span>HSE</span><span class="badge">7</span></div>
-                    <div class="list-item"><span>Community Relations</span><span class="badge">9</span></div>
+                    <h3 style="font-family: var(--font-heading);"><i class="fas fa-hard-hat" style="color: var(--gold-primary);"></i> Operational Departments</h3>
+                    <div class="list-item"><span>Geology & Resource Modelling</span><span class="badge">12</span></div>
+                    <div class="list-item"><span>Mine Planning & Engineering</span><span class="badge">8</span></div>
+                    <div class="list-item"><span>Health, Safety & Environment</span><span class="badge">7</span></div>
+                    <div class="list-item"><span>Community & Government Relations</span><span class="badge">9</span></div>
+                    <div class="list-item"><span>Finance & Commercial</span><span class="badge">6</span></div>
                 </div>
             </div>
             <div class="card">
-                <h3><i class="fas fa-globe"></i> Regional Offices</h3>
-                <div class="list-item"><span>Port Moresby – HQ</span><span>+675 308 7654</span></div>
-                <div class="list-item"><span>Lae – Logistics Hub</span><span>Operations</span></div>
-                <div class="list-item"><span>Tabubil – Exploration</span><span>Field office</span></div>
+                <h3 style="font-family: var(--font-heading);"><i class="fas fa-globe" style="color: var(--gold-primary);"></i> Regional Offices (PNG)</h3>
+                <div class="list-item"><span>Port Moresby – Corporate HQ</span><span>+675 308 7654</span></div>
+                <div class="list-item"><span>Lae – Logistics Hub</span><span>Operations center</span></div>
+                <div class="list-item"><span>Tabubil – Exploration Camp</span><span>Field office</span></div>
             </div>
         `,
         calendar: () => `
             <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-                    <h3>📅 June 2026</h3>
-                    <button id="addEventBtn" style="background: rgba(212,175,55,0.1); border: 1px solid var(--gold-primary); padding: 5px 14px; border-radius: 30px; color: var(--gold-primary); font-size: 0.8rem;"><i class="fas fa-plus"></i> New Event</button>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.8rem; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-family: var(--font-heading);">📅 June 2026</h3>
+                    <button id="addEventBtn" style="background: rgba(212,175,55,0.1); border: 1px solid var(--gold-primary); padding: 8px 18px; border-radius: 40px; color: var(--gold-primary); font-weight: 600;"><i class="fas fa-plus"></i> New Event</button>
                 </div>
-                <div class="list-item"><span><strong>Jun 10</strong> – Board Meeting</span><span class="badge">9:00 AM</span></div>
-                <div class="list-item"><span><strong>Jun 18</strong> – ESG Committee</span><span class="badge">2:00 PM</span></div>
-                <div class="list-item"><span><strong>Jun 25</strong> – Exploration Review</span><span class="badge">10:30 AM</span></div>
-                <div class="list-item"><span><strong>Jun 30</strong> – Q2 Reporting Deadline</span><span class="badge">All day</span></div>
+                <div class="list-item"><span><strong>June 10</strong> – Board Meeting (Quarterly Review)</span><span class="badge">9:00 AM</span></div>
+                <div class="list-item"><span><strong>June 18</strong> – ESG Steering Committee</span><span class="badge">2:00 PM</span></div>
+                <div class="list-item"><span><strong>June 25</strong> – Exploration Data Review</span><span class="badge">10:30 AM</span></div>
+                <div class="list-item"><span><strong>June 30</strong> – End of Q2 Reporting Deadline</span><span class="badge">All day</span></div>
             </div>
             <div class="two-col-grid">
-                <div class="card"><h4>📌 Upcoming deadlines</h4><div class="list-item"><span>Mine plan submission</span><span>Jun 28</span></div><div class="list-item"><span>Community report</span><span>Jul 02</span></div></div>
-                <div class="card"><h4>🎉 Holidays</h4><div class="list-item"><span>Independence Day (PNG)</span><span>Sep 16</span></div><div class="list-item"><span>Christmas break</span><span>Dec 25 – Jan 02</span></div></div>
+                <div class="card"><h4 style="margin-bottom: 1rem;">📌 Upcoming deadlines</h4><div class="list-item"><span>Mine plan submission</span><span>Jun 28</span></div><div class="list-item"><span>Community report draft</span><span>Jul 02</span></div></div>
+                <div class="card"><h4 style="margin-bottom: 1rem;">📎 Company holidays</h4><div class="list-item"><span>Independence Day (PNG)</span><span>Sep 16</span></div><div class="list-item"><span>Christmas break</span><span>Dec 25 – Jan 02</span></div></div>
             </div>
         `
     };
@@ -643,26 +635,26 @@
     const breadcrumb = document.getElementById('breadcrumb');
     const sidebar = document.getElementById('sidebar');
     const mobileToggle = document.getElementById('mobileToggle');
+    const themeToggle = document.getElementById('themeToggle');
 
     function renderPage(page) {
         const content = pageContent[page] || pageContent.documents;
         pageContainer.innerHTML = content();
         if (page === 'calendar') {
             const addBtn = document.getElementById('addEventBtn');
-            if (addBtn) addBtn.addEventListener('click', () => alert('Add event feature coming soon.'));
+            if (addBtn) addBtn.addEventListener('click', () => alert('New event feature coming soon.'));
         }
         document.querySelectorAll('.download-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert(`Download ${btn.dataset.doc || 'document'}.pdf – replace with actual link.`);
+                alert(`Downloading ${btn.dataset.doc}.pdf – replace with real link.`);
             });
         });
     }
 
     function setActivePage(pageId) {
         navItems.forEach(item => item.classList.toggle('active', item.dataset.page === pageId));
-        let title = pageId === 'documents' ? 'Documents' : (pageId === 'organisation' ? 'Organisation Structure' : 'Calendar');
-        breadcrumb.innerText = title;
+        breadcrumb.innerText = pageId === 'documents' ? 'Documents' : (pageId === 'organisation' ? 'Organisation Structure' : 'Calendar');
         renderPage(pageId);
     }
 
@@ -676,29 +668,25 @@
     mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
 
     // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('light');
         const isLight = document.body.classList.contains('light');
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
         themeToggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
+
+    // Init theme
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
 
-    // Search mock
+    // Search dummy
     document.getElementById('globalSearch').addEventListener('input', (e) => {
-        if (e.target.value.length > 2) console.log(`Search: ${e.target.value}`);
+        if (e.target.value.length > 2) alert(`Search for "${e.target.value}" – integrated soon.`);
     });
 
-    // Wrike mock link
-    document.getElementById('wrikeMockBtn').addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('Wrike integration – add your workspace URL.');
-    });
-
+    // Start
     setActivePage('documents');
 </script>
 </body>
