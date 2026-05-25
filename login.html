@@ -20,11 +20,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 16px;
       position: relative;
       overflow-x: hidden;
     }
 
+    /* softer background glow */
     body::before {
       content: "";
       position: absolute;
@@ -54,7 +55,6 @@
       --gold-dark: #A07E15;
       --gold-light: #F2E5C2;
       --gold-glow: rgba(200, 163, 55, 0.2);
-      --navy-light: #F9FBFD;
       --text-dark: #1E2A3A;
       --text-muted: #5B6678;
     }
@@ -65,7 +65,7 @@
       display: flex;
       flex-wrap: wrap;
       background: #FFFFFF;
-      border-radius: 48px;
+      border-radius: 40px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(200, 163, 55, 0.2);
       overflow: hidden;
       transition: transform 0.3s ease;
@@ -85,10 +85,11 @@
       }
     }
 
+    /* LEFT BRAND SIDE */
     .login-brand {
       flex: 1.2;
       background: linear-gradient(135deg, #FFFFFF 0%, #FCFAF7 100%);
-      padding: 48px 40px;
+      padding: 40px 32px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -97,29 +98,29 @@
     }
 
     .brand-icon {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       background: rgba(200, 163, 55, 0.1);
-      border-radius: 28px;
+      border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       border: 1px solid rgba(200, 163, 55, 0.25);
     }
 
     .brand-icon i {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--gold);
     }
 
     .login-brand h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: #0F1A2E;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .login-brand h2 span {
@@ -128,47 +129,48 @@
 
     .login-brand p {
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 32px;
-      max-width: 85%;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 90%;
     }
 
     .feature-list {
       list-style: none;
-      margin-top: 16px;
+      margin-top: 8px;
     }
 
     .feature-list li {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
       color: #2C3A4F;
     }
 
     .feature-list li i {
       color: var(--gold);
-      width: 24px;
-      font-size: 1.1rem;
+      width: 22px;
+      font-size: 1rem;
     }
 
+    /* RIGHT FORM PANEL */
     .login-form-panel {
       flex: 1;
-      padding: 56px 48px;
+      padding: 48px 40px;
       background: #FFFFFF;
     }
 
     .form-header {
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
     .form-header .badge {
       display: inline-block;
       background: var(--gold-light);
       color: var(--gold-dark);
-      padding: 5px 14px;
+      padding: 6px 14px;
       border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
@@ -178,7 +180,7 @@
 
     .form-header h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: #0F1A2E;
       margin-bottom: 8px;
@@ -214,10 +216,11 @@
       border: 1.5px solid #E9EDF4;
       border-radius: 32px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: all 0.25s ease;
       background: #FFFFFF;
       color: #1E2A3A;
+      -webkit-appearance: none;
     }
 
     .input-group input:focus {
@@ -231,7 +234,9 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 32px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .checkbox {
@@ -254,6 +259,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s;
+      padding: 4px 0;
     }
 
     .forgot-link:hover {
@@ -265,7 +271,7 @@
       width: 100%;
       background: var(--gold);
       color: #0B1420;
-      padding: 14px;
+      padding: 15px;
       border: none;
       border-radius: 44px;
       font-weight: 700;
@@ -288,7 +294,7 @@
     .register-link {
       text-align: center;
       margin-top: 28px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #5B6678;
     }
 
@@ -318,28 +324,34 @@
     .back-home a {
       color: #7C8BA0;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       transition: color 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 6px 0;
     }
 
     .back-home a:hover {
       color: var(--gold);
     }
 
+    /* ✅ ENHANCED MOBILE PROFESSIONALISM */
     @media (max-width: 900px) {
+      body {
+        padding: 12px;
+      }
       .login-container {
         flex-direction: column;
         max-width: 550px;
+        border-radius: 32px;
       }
       .login-brand {
         border-right: none;
         border-bottom: 1px solid rgba(200, 163, 55, 0.15);
         text-align: center;
         align-items: center;
-        padding: 40px 32px;
+        padding: 32px 24px;
       }
       .login-brand p {
         max-width: 100%;
@@ -347,31 +359,73 @@
       .feature-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 14px;
         justify-content: center;
       }
       .feature-list li {
         width: auto;
         margin-bottom: 0;
+        font-size: 0.85rem;
       }
       .login-form-panel {
-        padding: 40px 32px;
+        padding: 36px 28px;
+      }
+      .form-header h3 {
+        font-size: 1.8rem;
       }
     }
 
     @media (max-width: 480px) {
+      body {
+        padding: 8px;
+      }
       .login-brand h2 {
-        font-size: 2rem;
+        font-size: 1.9rem;
       }
       .brand-icon {
-        width: 64px;
-        height: 64px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
       }
       .brand-icon i {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+      .login-brand {
+        padding: 28px 20px;
       }
       .login-form-panel {
-        padding: 32px 24px;
+        padding: 28px 20px;
+      }
+      .form-header {
+        margin-bottom: 28px;
+      }
+      .input-group input {
+        padding: 14px 16px;
+        font-size: 1rem;
+      }
+      .btn-login {
+        padding: 14px;
+        font-size: 0.95rem;
+      }
+      .login-options {
+        font-size: 0.85rem;
+        margin-bottom: 28px;
+      }
+      .register-link {
+        margin-top: 24px;
+      }
+      hr {
+        margin: 24px 0 16px;
+      }
+    }
+
+    /* ensure tap targets are comfortable */
+    @media (pointer: coarse) {
+      .checkbox, .forgot-link, .back-home a, .register-link a {
+        padding: 6px 0;
+      }
+      .btn-login {
+        min-height: 52px;
       }
     }
   </style>
@@ -385,9 +439,9 @@
     <h2>UPSTREAM GOLD<span>®</span></h2>
     <p>Your secure gateway to partnership insights, project updates, and stakeholder collaboration.</p>
     <ul class="feature-list">
-      <li><i class="fas fa-chart-line"></i> Real-time project metrics</li>
-      <li><i class="fas fa-folder-open"></i> Document library & reports</li>
-      <li><i class="fas fa-handshake"></i> Direct partner support</li>
+      <li><i class="fas fa-chart-line"></i> Real-time metrics</li>
+      <li><i class="fas fa-folder-open"></i> Document library</li>
+      <li><i class="fas fa-handshake"></i> Partner support</li>
     </ul>
   </div>
 
@@ -465,5 +519,5 @@
     document.getElementById('remember').checked = true;
   }
 </script>
-</body>
+</body> 
 </html>
