@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Upstream Gold (PNG) Ltd | Partner Login</title>
+  <title>Sign In | Secure Access</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -25,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* softer background glow */
     body::before {
       content: "";
       position: absolute;
@@ -54,7 +53,6 @@
       --gold: #C8A337;
       --gold-dark: #A07E15;
       --gold-light: #F2E5C2;
-      --gold-glow: rgba(200, 163, 55, 0.2);
       --text-dark: #1E2A3A;
       --text-muted: #5B6678;
     }
@@ -315,16 +313,35 @@
       border-top: 1px solid #EDF2F7;
     }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #7C8BA0;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
     .back-home {
       display: block;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 20px;
     }
 
     .back-home a {
       color: #7C8BA0;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: color 0.2s;
       display: inline-flex;
       align-items: center;
@@ -336,7 +353,7 @@
       color: var(--gold);
     }
 
-    /* ✅ ENHANCED MOBILE PROFESSIONALISM */
+    /* MOBILE: HIDE LEFT BRAND SECTION */
     @media (max-width: 900px) {
       body {
         padding: 12px;
@@ -347,27 +364,10 @@
         border-radius: 32px;
       }
       .login-brand {
-        border-right: none;
-        border-bottom: 1px solid rgba(200, 163, 55, 0.15);
-        text-align: center;
-        align-items: center;
-        padding: 32px 24px;
-      }
-      .login-brand p {
-        max-width: 100%;
-      }
-      .feature-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        justify-content: center;
-      }
-      .feature-list li {
-        width: auto;
-        margin-bottom: 0;
-        font-size: 0.85rem;
+        display: none;
       }
       .login-form-panel {
+        width: 100%;
         padding: 36px 28px;
       }
       .form-header h3 {
@@ -378,20 +378,6 @@
     @media (max-width: 480px) {
       body {
         padding: 8px;
-      }
-      .login-brand h2 {
-        font-size: 1.9rem;
-      }
-      .brand-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 20px;
-      }
-      .brand-icon i {
-        font-size: 1.8rem;
-      }
-      .login-brand {
-        padding: 28px 20px;
       }
       .login-form-panel {
         padding: 28px 20px;
@@ -417,11 +403,13 @@
       hr {
         margin: 24px 0 16px;
       }
+      .footer-links {
+        gap: 16px;
+      }
     }
 
-    /* ensure tap targets are comfortable */
     @media (pointer: coarse) {
-      .checkbox, .forgot-link, .back-home a, .register-link a {
+      .checkbox, .forgot-link, .back-home a, .register-link a, .footer-links a {
         padding: 6px 0;
       }
       .btn-login {
@@ -436,26 +424,26 @@
     <div class="brand-icon">
       <i class="fas fa-gem"></i>
     </div>
-    <h2>UPSTREAM GOLD<span>®</span></h2>
-    <p>Your secure gateway to partnership insights, project updates, and stakeholder collaboration.</p>
+    <h2>SECURE<span>ACCESS</span></h2>
+    <p>Your trusted gateway to manage projects, collaborate with teams, and access real-time insights.</p>
     <ul class="feature-list">
-      <li><i class="fas fa-chart-line"></i> Real-time metrics</li>
-      <li><i class="fas fa-folder-open"></i> Document library</li>
-      <li><i class="fas fa-handshake"></i> Partner support</li>
+      <li><i class="fas fa-shield-alt"></i> Enterprise-grade security</li>
+      <li><i class="fas fa-chart-line"></i> Real-time analytics</li>
+      <li><i class="fas fa-headset"></i> 24/7 support</li>
     </ul>
   </div>
 
   <div class="login-form-panel">
     <div class="form-header">
-      <div class="badge">✦ SECURE ACCESS</div>
+      <div class="badge">✦ SECURE SIGN IN</div>
       <h3>Welcome back</h3>
-      <p>Sign in to access the Partner Dashboard</p>
+      <p>Sign in to your account</p>
     </div>
 
     <form id="loginForm">
       <div class="input-group">
         <label><i class="fas fa-envelope"></i> Email address</label>
-        <input type="email" id="email" placeholder="partner@upstreamgoldpng.com" required autocomplete="email">
+        <input type="email" id="email" placeholder="name@company.com" required autocomplete="email">
       </div>
       <div class="input-group">
         <label><i class="fas fa-lock"></i> Password</label>
@@ -468,16 +456,21 @@
         <a href="#" class="forgot-link">Forgot password?</a>
       </div>
       <button type="submit" class="btn-login">
-        <i class="fas fa-arrow-right-to-bracket"></i> Secure Login
+        <i class="fas fa-arrow-right-to-bracket"></i> Sign In
       </button>
     </form>
 
     <div class="register-link">
-      New partner? <a href="#">Request portal access</a>
+      Don't have an account? <a href="#">Create account</a>
     </div>
     <hr>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Support</a>
+    </div>
     <div class="back-home">
-      <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Upstream Gold homepage</a>
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
     </div>
   </div>
 </div>
@@ -497,22 +490,18 @@
       return;
     }
 
-    // Store authentication in sessionStorage
     sessionStorage.setItem('isAuthenticated', 'true');
     sessionStorage.setItem('userEmail', email);
 
-    // Optional: remember me (localStorage)
     if (document.getElementById('remember').checked) {
       localStorage.setItem('rememberedEmail', email);
     } else {
       localStorage.removeItem('rememberedEmail');
     }
 
-    // Redirect to dashboard (content page)
     window.location.href = 'dashboard.html';
   });
 
-  // Pre-fill remembered email
   const remembered = localStorage.getItem('rememberedEmail');
   if (remembered) {
     document.getElementById('email').value = remembered;
