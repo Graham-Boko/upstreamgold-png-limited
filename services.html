@@ -62,7 +62,6 @@
       padding: 10px 0;
     }
 
-    /* FIX: Align nav links to the right (same as other pages) */
     .nav {
       display: flex;
       justify-content: flex-end;
@@ -132,7 +131,6 @@
       border: none;
     }
 
-    /* Skip link (accessibility) */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -148,7 +146,7 @@
       top: 0;
     }
 
-    /* ---------- HERO (WITHOUT COMPANY NAME) ---------- */
+    /* ---------- HERO (GENERIC, NO SERVICE DETAILS) ---------- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -156,7 +154,8 @@
       position: relative;
       background: linear-gradient(115deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 100%),
                   url('hero.png') center center / cover no-repeat;
-      padding: 140px 0 120px;
+      padding: 140px 0 100px;
+      margin-bottom: 60px; /* added spacing below hero */
     }
 
     .hero-content {
@@ -176,8 +175,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5.2rem);
-      line-height: 0.95;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: 1.05;
       color: #fff;
       margin-bottom: 26px;
       font-weight: 800;
@@ -239,9 +238,8 @@
       transform: translateY(-3px);
     }
 
-    /* ---------- SERVICES SECTION ---------- */
+    /* ---------- SERVICES SECTION (WHAT WE DO – NO NEGATIVE MARGIN) ---------- */
     .services-wrapper {
-      margin-top: -60px;
       position: relative;
       z-index: 10;
     }
@@ -251,6 +249,7 @@
       border-radius: 40px;
       padding: 70px 50px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
     }
 
     .section-sub {
@@ -339,68 +338,72 @@
       line-height: 1.8;
     }
 
-    /* Aspiration */
-    .aspiration {
-      margin-top: 45px;
-      background: #FCFAF7;
-      border: 1px solid #EEE;
-      border-radius: 30px;
-      padding: 40px;
+    /* ---------- ASPIRATION CARD (STANDALONE) ---------- */
+    .aspiration-card {
+      background: #fff;
+      border-radius: 40px;
+      padding: 50px 50px;
+      margin: 40px 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border: 1px solid #ECEFF4;
+    }
+
+    .aspiration-inner {
       display: grid;
       grid-template-columns: 1.2fr 2fr;
       gap: 40px;
       align-items: center;
     }
 
-    .asp-left {
+    .aspiration-left {
       display: flex;
       gap: 24px;
       align-items: flex-start;
     }
 
-    .asp-left i {
+    .aspiration-left i {
       font-size: 4rem;
       color: var(--gold);
     }
 
-    .asp-left h3 {
+    .aspiration-left h3 {
       font-size: 2rem;
       font-family: 'Cormorant Garamond', serif;
       margin-bottom: 12px;
       color: #10213A;
     }
 
-    .asp-left p {
+    .aspiration-left p {
       color: var(--text-muted);
       line-height: 1.8;
     }
 
-    .asp-right {
+    .aspiration-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    .commit-box {
+    .commit-item {
       text-align: center;
       padding: 10px;
     }
 
-    .commit-box i {
+    .commit-item i {
       color: var(--gold);
       font-size: 2rem;
       margin-bottom: 14px;
     }
 
-    .commit-box p {
+    .commit-item p {
       font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
 
-    /* Approach Section */
+    /* ---------- APPROACH SECTION (HOW WE WORK) ---------- */
     .approach {
-      padding: 110px 0 30px;
+      padding: 80px 0 30px;
     }
 
     .approach-grid {
@@ -515,7 +518,7 @@
       transform: translateY(-3px);
     }
 
-    /* Footer (WITHOUT COMPANY NAME) */
+    /* Footer */
     .footer {
       background: #FAFBFD;
       border-top: 1px solid #E9EDF4;
@@ -608,20 +611,15 @@
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1100px) {
       .services-grid,
-      .approach-grid {
+      .approach-grid,
+      .aspiration-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .aspiration {
+      .aspiration-inner {
         grid-template-columns: 1fr;
-      }
-      .asp-right {
-        grid-template-columns: repeat(3, 1fr);
       }
       .bottom-grid {
         grid-template-columns: 1fr;
-      }
-      .hero h1 {
-        font-size: 4rem;
       }
     }
 
@@ -633,7 +631,7 @@
         display: block;
       }
       .nav {
-        justify-content: space-between;  /* On mobile, keep toggle left and nav-links off-canvas */
+        justify-content: space-between;
       }
       .nav-links {
         position: fixed;
@@ -661,6 +659,7 @@
       .hero {
         min-height: auto;
         padding: 140px 0 90px;
+        margin-bottom: 40px;
       }
       .hero h1 {
         font-size: 3rem;
@@ -668,9 +667,12 @@
       .services-box {
         padding: 50px 24px;
       }
+      .aspiration-card {
+        padding: 35px 25px;
+      }
       .services-grid,
       .approach-grid,
-      .asp-right,
+      .aspiration-grid,
       .partners,
       .footer-grid {
         grid-template-columns: 1fr;
@@ -678,15 +680,12 @@
       .section-title {
         font-size: 2.5rem;
       }
-      .asp-left {
+      .aspiration-left {
         flex-direction: column;
       }
       .partners-box,
       .cta-box {
         padding: 35px 25px;
-      }
-      .services-wrapper {
-        margin-top: -30px;
       }
     }
 
@@ -701,7 +700,7 @@
       }
       .hero h1 {
         font-size: clamp(2.5rem, 11vw, 4rem);
-        line-height: .95;
+        line-height: 1.05;
         margin-bottom: 20px;
       }
       .hero p {
@@ -721,11 +720,9 @@
     }
 
     @media (max-width: 680px) {
-      .services-wrapper {
-        margin-top: 0;
-      }
       .hero {
-        padding-bottom: 80px;
+        padding-bottom: 60px;
+        margin-bottom: 30px;
       }
     }
   </style>
@@ -734,7 +731,6 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- HEADER (LOGO REMOVED) -->
   <header class="header">
     <div class="container nav">
       <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
@@ -751,28 +747,28 @@
   </header>
 
   <main id="main-content">
-    <!-- HERO SECTION (COMPANY NAME REMOVED) -->
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-sub">✦ OUR SERVICES</div>
-          <h1>Four-tier<br>business operations</h1>
-          <p>We are structured to provide end-to-end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
+          <div class="hero-sub">✦ OUR CAPABILITIES</div>
+          <h1>Integrated solutions<br>for the extractive industry</h1>
+          <p>We deliver strategic commercial, exploration, logistics and development services across Papua New Guinea.</p>
           <div class="btn-group">
-            <a href="services.html" class="btn-primary">Explore Solutions <i class="fas fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-outline">Contact Executives</a>
+            <a href="#services-core" class="btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn-outline">Partner with us</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES CONTENT (COMPANY NAME REMOVED FROM DESCRIPTION) -->
-    <section class="services-wrapper">
+    <!-- SERVICES SECTION – WHAT WE DO (NO OVERLAP) -->
+    <div class="services-wrapper" id="services-core">
       <div class="container">
         <div class="services-box">
           <div class="section-sub">✦ WHAT WE DO</div>
-          <h2 class="section-title">Integrated services</h2>
-          <p class="section-desc">We deliver strategic commercial, exploration, logistics and development services designed to support sustainable industry growth.</p>
+          <h2 class="section-title">Four‑tier business operations</h2>
+          <p class="section-desc">We are structured to provide end‑to‑end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
 
           <div class="services-grid">
             <div class="service-card">
@@ -800,27 +796,31 @@
               <p>Recruitment, training, mentoring, development partnerships and community-focused service delivery initiatives.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- Aspiration block -->
-          <div class="aspiration">
-            <div class="asp-left">
-              <i class="fas fa-bullseye"></i>
-              <div>
-                <h3>Our aspiration</h3>
-                <p>To become a strategic leader in the extraction industry and a strategic joint venture partner across Papua New Guinea.</p>
-              </div>
+    <!-- ASPIRATION CARD – STANDALONE -->
+    <div class="container">
+      <div class="aspiration-card">
+        <div class="aspiration-inner">
+          <div class="aspiration-left">
+            <i class="fas fa-bullseye"></i>
+            <div>
+              <h3>Our aspiration</h3>
+              <p>To become a strategic leader in the extraction industry and a strategic joint venture partner across Papua New Guinea.</p>
             </div>
-            <div class="asp-right">
-              <div class="commit-box"><i class="fas fa-chart-line"></i><p>Contribute economic growth through improved development outcomes.</p></div>
-              <div class="commit-box"><i class="fas fa-people-group"></i><p>Promote human development, gender equality and empowerment.</p></div>
-              <div class="commit-box"><i class="fas fa-building-columns"></i><p>Improve institutional reform and service delivery mechanisms.</p></div>
-            </div>
+          </div>
+          <div class="aspiration-grid">
+            <div class="commit-item"><i class="fas fa-chart-line"></i><p>Contribute economic growth through improved development outcomes.</p></div>
+            <div class="commit-item"><i class="fas fa-people-group"></i><p>Promote human development, gender equality and empowerment.</p></div>
+            <div class="commit-item"><i class="fas fa-building-columns"></i><p>Improve institutional reform and service delivery mechanisms.</p></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Approach Section -->
+    <!-- APPROACH SECTION – HOW WE WORK -->
     <section class="approach">
       <div class="container">
         <div class="section-sub">✦ HOW WE WORK</div>
@@ -856,7 +856,6 @@
     </div>
   </main>
 
-  <!-- FOOTER (COMPANY NAME REMOVED) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -891,7 +890,6 @@
     </div>
   </footer>
 
-  <!-- MOBILE MENU SCRIPT -->
   <script>
     (function() {
       const menuBtn = document.getElementById('mobileMenuBtn');
