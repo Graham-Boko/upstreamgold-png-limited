@@ -55,7 +55,7 @@
       padding: 0 2rem;
     }
 
-    /* Typography Refined (index styles) */
+    /* Typography Refined */
     h1, h2, h3, .serif-heading {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -92,7 +92,7 @@
       .container { padding: 0 1.5rem; }
     }
 
-    /* Premium Header (Glass) — exact same as index */
+    /* Premium Header (Glass) */
     .header {
       position: fixed;
       top: 0;
@@ -173,7 +173,7 @@
       cursor: pointer;
     }
 
-    /* Hero – dramatic & immersive (identical to index) */
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -258,60 +258,7 @@
       transform: translateY(-3px);
     }
 
-    /* Stats Bar – premium floating (EXACT same as index) */
-    .stats-section {
-      margin-top: -3rem;
-      position: relative;
-      z-index: 15;
-    }
-
-    .stats-bar {
-      background: linear-gradient(135deg, #0F1922 0%, #1A2A32 100%);
-      border-radius: 2rem;
-      padding: 2rem 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .stat-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(212, 175, 55, 0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-    }
-
-    .stat-icon i {
-      font-size: 1.6rem;
-      color: var(--gold-primary);
-    }
-
-    .stat-content h3 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: white;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .stat-content p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-    }
-
-    /* Team specific grid & cards (in harmony with index cards) */
+    /* Team grid & cards */
     .team-category {
       margin: 5rem 0 2rem;
     }
@@ -382,7 +329,7 @@
       line-height: 1.6;
     }
 
-    /* Join Section – Inspired by premium approach (like ESG section but warm) */
+    /* Join Section */
     .join-section {
       margin: 5rem 0 4rem;
     }
@@ -455,7 +402,7 @@
       box-shadow: 0 15px 20px -12px rgba(0,0,0,0.3);
     }
 
-    /* Footer – exact same as index */
+    /* Footer */
     .footer {
       background: #F9F7F4;
       padding: 4rem 0 2rem;
@@ -535,9 +482,9 @@
       color: #8A7F6E;
     }
 
-    /* Responsive (aligned with index) */
+    /* Responsive */
     @media (max-width: 1024px) {
-      .stats-bar {
+      .team-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -563,10 +510,6 @@
       }
       .nav-links.active {
         left: 0;
-      }
-      .stats-bar {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
       }
       .team-grid {
         grid-template-columns: 1fr;
@@ -609,7 +552,7 @@
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<!-- Header updated: removed Compliance, added Login after Contact -->
+<!-- Header -->
 <header class="header">
   <div class="container nav">
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
@@ -626,7 +569,7 @@
 </header>
 
 <main id="main-content">
-  <!-- Hero Section – identical styling, adapted content -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -641,66 +584,79 @@
     </div>
   </section>
 
-  <!-- Stats Bar (same as index style with relevant stats) -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-content"><h3>Board+</h3><p>EXPERIENCED GOVERNANCE</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-hard-hat"></i></div><div class="stat-content"><h3>Technical</h3><p>EXPLORATION MASTERY</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-handshake"></i></div><div class="stat-content"><h3>Collaboration</h3><p>COMMUNITY FIRST</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-award"></i></div><div class="stat-content"><h3>100+</h3><p>YEARS COMBINED EXP.</p></div></div>
-      </div>
-    </div>
-  </section>
-
   <div class="container">
-    <!-- BOARD SECTION -->
+    <!-- BOARD SECTION – 1 Chairman + 4 Directors, no descriptions -->
     <div class="team-category" id="board-team" data-aos="fade-up">
       <div class="category-header">
         <div class="section-badge"><i class="fas fa-gavel"></i> Governance</div>
         <h2 class="section-title">Board of Directors</h2>
       </div>
       <div class="team-grid">
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Chairman</h4><div class="team-role">Founding Shareholder</div><div class="team-desc">Strategic oversight and corporate governance leadership with deep PNG expertise.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Director</h4><div class="team-role">Shareholder</div><div class="team-desc">Guides corporate strategy, stakeholder relations and long-term value creation.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-line"></i></div><h4>Director</h4><div class="team-role">Finance & Audit</div><div class="team-desc">Oversees financial integrity, risk management and operational performance.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-balance-scale"></i></div><h4>Director</h4><div class="team-role">Independent</div><div class="team-desc">Impartial guidance, audit oversight and best-practice governance.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-globe"></i></div><h4>Director</h4><div class="team-role">Chief Executive Officer</div><div class="team-desc">Leads executive management, corporate vision and operational excellence.</div></div>
+        <!-- Chairman -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Chairman</h4>
+          <div class="team-role">Shareholder</div>
+        </div>
+        <!-- Director 1 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Director</h4>
+          <div class="team-role">Shareholder</div>
+        </div>
+        <!-- Director 2 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Director</h4>
+          <div class="team-role">Shareholder</div>
+        </div>
+        <!-- Director 3 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Director</h4>
+          <div class="team-role">Independent</div>
+        </div>
+        <!-- Director 4 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Director</h4>
+          <div class="team-role">Chief Executive Officer</div>
+        </div>
       </div>
     </div>
 
-    <!-- MANAGEMENT SECTION -->
+    <!-- MANAGEMENT SECTION – all icons fa-user-tie -->
     <div class="team-category" data-aos="fade-up" data-aos-delay="100">
       <div class="category-header">
         <div class="section-badge"><i class="fas fa-building"></i> Executive Leadership</div>
         <h2 class="section-title">Management Team</h2>
       </div>
       <div class="team-grid">
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-circle"></i></div><h4>Chief Executive Officer</h4><div class="team-role">Strategic Leadership</div><div class="team-desc">Overall company direction, corporate vision and international partnerships.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-clipboard-list"></i></div><h4>Office Manager</h4><div class="team-role">Operations & Admin</div><div class="team-desc">Daily operations, administration and internal coordination across projects.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-map-marked-alt"></i></div><h4>Exploration Manager</h4><div class="team-role">Geological Field Operations</div><div class="team-desc">Leads exploration programs, field logistics and greenfields target generation.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-hard-hat"></i></div><h4>Lead Consulting Geoscientist</h4><div class="team-role">Resource Evaluation</div><div class="team-desc">Expert geological analysis, resource modeling and technical assurance.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Chief Executive Officer</h4><div class="team-role">Strategic Leadership</div><div class="team-desc">Overall company direction, corporate vision and international partnerships.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Office Manager</h4><div class="team-role">Operations & Admin</div><div class="team-desc">Daily operations, administration and internal coordination across projects.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Exploration Manager</h4><div class="team-role">Geological Field Operations</div><div class="team-desc">Leads exploration programs, field logistics and greenfields target generation.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Lead Consulting Geoscientist</h4><div class="team-role">Resource Evaluation</div><div class="team-desc">Expert geological analysis, resource modeling and technical assurance.</div></div>
       </div>
     </div>
 
-    <!-- TECHNICAL TEAM SECTION -->
+    <!-- TECHNICAL TEAM SECTION – all icons fa-user-tie -->
     <div class="team-category" data-aos="fade-up" data-aos-delay="200">
       <div class="category-header">
         <div class="section-badge"><i class="fas fa-microscope"></i> Technical Excellence</div>
         <h2 class="section-title">Technical & Operational Experts</h2>
       </div>
       <div class="team-grid">
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-oil-can"></i></div><h4>Team Leader – Petroleum Exploration</h4><div class="team-role">Petroleum</div><div class="team-desc">Leads hydrocarbon exploration, basin analysis and drilling programs.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-gem"></i></div><h4>Team Leader – Mining Exploration</h4><div class="team-role">Mining</div><div class="team-desc">Directs mineral exploration, resource definition and project advancement.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-handshake"></i></div><h4>Community Affairs Manager</h4><div class="team-role">Stakeholder Relations</div><div class="team-desc">Manages community engagement, local content and social performance programs.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-mountain"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Geology</div><div class="team-desc">Specialist in geological mapping, geochemical sampling and target generation.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-pie"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Resource Estimation</div><div class="team-desc">Experienced in geophysical interpretation and 3D resource modeling.</div></div>
-        <div class="team-card"><div class="team-avatar"><i class="fas fa-leaf"></i></div><h4>ESG & Sustainability Lead</h4><div class="team-role">Environmental & Social</div><div class="team-desc">Drives ESG frameworks, biodiversity and community development initiatives.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Team Leader – Petroleum Exploration</h4><div class="team-role">Petroleum</div><div class="team-desc">Leads hydrocarbon exploration, basin analysis and drilling programs.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Team Leader – Mining Exploration</h4><div class="team-role">Mining</div><div class="team-desc">Directs mineral exploration, resource definition and project advancement.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Community Affairs Manager</h4><div class="team-role">Stakeholder Relations</div><div class="team-desc">Manages community engagement, local content and social performance programs.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Geology</div><div class="team-desc">Specialist in geological mapping, geochemical sampling and target generation.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>Senior Geologist – Exploration</h4><div class="team-role">Resource Estimation</div><div class="team-desc">Experienced in geophysical interpretation and 3D resource modeling.</div></div>
+        <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h4>ESG & Sustainability Lead</h4><div class="team-role">Environmental & Social</div><div class="team-desc">Drives ESG frameworks, biodiversity and community development initiatives.</div></div>
       </div>
     </div>
   </div>
 
-  <!-- Join Our Team Section (premium callout matching index aesthetics) -->
+  <!-- Join Our Team Section -->
   <section class="join-section" id="join-team">
     <div class="container">
       <div class="join-card" data-aos="zoom-in">
@@ -717,7 +673,7 @@
   </section>
 </main>
 
-<!-- Footer updated: removed Compliance, added Login, correct order -->
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -735,7 +691,6 @@
   </div>
 </footer>
 
-<!-- Scripts: AOS and mobile menu (exactly as index) -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 600, once: true, offset: 40 });
