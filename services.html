@@ -2,908 +2,536 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services | Integrated Solutions</title>
-  <meta name="description" content="We provide integrated mining, petroleum, logistics, and development services across Papua New Guinea.">
 
-  <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    :root{
+      --gold:#C8A337;
+      --gold-dark:#A07E15;
+      --gold-light:#F2E5C2;
+      --gold-primary:#D4AF37;
+      --gold-deep:#B8901C;
+      --charcoal:#11181C;
+      --text:#4B5E77;
+      --shadow:0 20px 40px rgba(0,0,0,0.08);
+      --transition:all 0.35s cubic-bezier(0.2,0.9,0.4,1.1);
+      --border-radius-btn:3rem;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #121926;
-      line-height: 1.5;
-      overflow-x: hidden;
+    body{
+      font-family:'Inter',sans-serif;
+      color:#10213A;
+      background:#fff;
+      overflow-x:hidden;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+    .container{
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 2rem;
     }
 
-    :root {
-      --gold: #C8A337;
-      --gold-dark: #A07E15;
-      --gold-light: #F2E5C2;
-      --navy-deep: #0B1420;
-      --slate-charcoal: #1F2937;
-      --off-white: #F8FAFC;
-      --text-muted: #4B5E77;
-      --shadow-premium: 0 25px 45px -18px rgba(0, 0, 0, 0.15), 0 10px 20px -8px rgba(0, 0, 0, 0.05);
-      --transition-smooth: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+    .header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(212,175,55,0.25);
+      z-index:1000;
+      transition:var(--transition);
+      padding:0.8rem 0;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
+    .nav{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
     }
 
-    /* ---------- HEADER (WITHOUT LOGO) ---------- */
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #FFFFFF;
-      border-bottom: 1px solid rgba(200, 163, 55, 0.45);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
-      z-index: 1000;
-      transition: var(--transition-smooth);
-      padding: 10px 0;
+    .nav-links{
+      display:flex;
+      gap:2.2rem;
+      align-items:center;
     }
 
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      flex-wrap: wrap;
+    .nav-links a{
+      text-decoration:none;
+      font-weight:500;
+      font-size:0.95rem;
+      color:var(--charcoal);
+      transition:var(--transition);
+      position:relative;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      align-items: center;
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      bottom:-6px;
+      left:0;
+      width:0;
+      height:2px;
+      background:var(--gold-primary);
+      transition:width 0.25s ease;
     }
 
-    .nav-links a {
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #1E2A3A;
-      transition: 0.25s;
-      letter-spacing: 0.3px;
-      position: relative;
-    }
-
-    .nav-links a:after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover:after,
-    .nav-links a.active:after {
-      width: 100%;
-    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after{width:100%;}
 
     .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--gold);
-    }
-
-    .nav-cta {
-      border: 1.5px solid var(--gold);
-      padding: 8px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      background: transparent;
-      color: var(--gold) !important;
-      transition: all 0.3s;
-    }
-
-    .nav-cta:hover {
-      background: var(--gold);
-      color: #0B1420 !important;
-      border-color: var(--gold);
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: var(--gold);
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--gold);
-      color: #000;
-      padding: 8px;
-      z-index: 1001;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus {
-      top: 0;
-    }
-
-    /* ---------- HERO (GENERIC, NO SERVICE DETAILS) ---------- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background: linear-gradient(115deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 100%),
-                  url('hero.png') center center / cover no-repeat;
-      padding: 140px 0 100px;
-      margin-bottom: 60px; /* added spacing below hero */
-    }
-
-    .hero-content {
-      width: 100%;
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-sub {
-      font-size: 0.82rem;
-      letter-spacing: clamp(2px, 1vw, 8px);
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 22px;
-      font-weight: 600;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5rem);
-      line-height: 1.05;
-      color: #fff;
-      margin-bottom: 26px;
-      font-weight: 800;
-      font-family: 'Cormorant Garamond', serif;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      line-height: 1.7;
-      color: rgba(255,255,255,0.92);
-      max-width: 620px;
-      margin-bottom: 40px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #0B1420;
-      padding: 14px 38px;
-      font-weight: 700;
-      border-radius: 48px;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 12px 22px -12px rgba(0,0,0,0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 22px 28px -14px rgba(0,0,0,0.4);
-    }
-
-    .btn-outline {
-      border: 1.5px solid var(--gold);
-      background: transparent;
-      color: white;
-      padding: 14px 38px;
-      border-radius: 48px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      backdrop-filter: blur(6px);
-    }
-
-    .btn-outline:hover {
-      background: rgba(200,163,55,0.15);
-      border-color: var(--gold-light);
-      transform: translateY(-3px);
-    }
-
-    /* ---------- SERVICES SECTION (WHAT WE DO – NO NEGATIVE MARGIN) ---------- */
-    .services-wrapper {
-      position: relative;
-      z-index: 10;
-    }
-
-    .services-box {
-      background: #fff;
-      border-radius: 40px;
-      padding: 70px 50px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      margin-bottom: 40px;
-    }
-
-    .section-sub {
-      color: var(--gold);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 5px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 16px;
-    }
+    .nav-links a.active{color:var(--gold-deep);}
 
-    .section-title {
-      text-align: center;
-      font-size: 3.4rem;
-      font-family: 'Cormorant Garamond', serif;
-      color: #10213A;
-      margin-bottom: 18px;
-      line-height: 1;
+    .nav-cta{
+      border:1.5px solid var(--gold-primary);
+      padding:0.5rem 1.8rem;
+      border-radius:var(--border-radius-btn);
+      background:transparent;
+      color:var(--gold-deep)!important;
+      font-weight:700;
+      transition:var(--transition);
     }
 
-    .section-desc {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 55px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      font-size: 1rem;
+    .nav-cta:hover{
+      background:var(--gold-primary);
+      color:var(--charcoal)!important;
+      border-color:var(--gold-primary);
+      transform:translateY(-2px);
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.8rem;
+      color:var(--gold-primary);
+      cursor:pointer;
     }
 
-    .service-card {
-      background: #FCFAF7;
-      border: 1px solid #ECEFF4;
-      border-radius: 30px;
-      padding: 38px 30px;
-      transition: 0.3s;
-      text-align: center;
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.55)),url('hero.png') center/cover no-repeat;
+      padding-top:120px;
     }
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-premium);
-      border-color: var(--gold-light);
-    }
-
-    .service-icon {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: #0E2340;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-
-    .service-icon i {
-      color: var(--gold);
-      font-size: 2rem;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      line-height: 1.2;
-      margin-bottom: 18px;
-      color: #10213A;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .mini-line {
-      width: 55px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0 auto 20px;
-    }
-
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-    }
-
-    /* ---------- ASPIRATION CARD (STANDALONE) ---------- */
-    .aspiration-card {
-      background: #fff;
-      border-radius: 40px;
-      padding: 50px 50px;
-      margin: 40px 0;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      border: 1px solid #ECEFF4;
-    }
-
-    .aspiration-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 2fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .aspiration-left {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .aspiration-left i {
-      font-size: 4rem;
-      color: var(--gold);
-    }
-
-    .aspiration-left h3 {
-      font-size: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      margin-bottom: 12px;
-      color: #10213A;
-    }
-
-    .aspiration-left p {
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .aspiration-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .commit-item {
-      text-align: center;
-      padding: 10px;
-    }
-
-    .commit-item i {
-      color: var(--gold);
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-
-    .commit-item p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* ---------- APPROACH SECTION (HOW WE WORK) ---------- */
-    .approach {
-      padding: 80px 0 30px;
-    }
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      margin-top: 55px;
-    }
-
-    .approach-card {
-      text-align: center;
-      padding: 10px 15px;
-    }
-
-    .approach-card i {
-      font-size: 2.3rem;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .approach-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-      color: #10213A;
-    }
-
-    .approach-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-
-    /* ---------- WRIKE MANAGEMENT TOOL SECTION ---------- */
-    .wrike-section {
-      padding: 70px 0 40px;
-    }
-
-    .wrike-card {
-      background: linear-gradient(135deg, #091526 0%, #102847 55%, #182F4A 100%);
-      border-radius: 40px;
-      padding: 55px;
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1.1fr 1.4fr;
-      gap: 45px;
-      align-items: center;
-      box-shadow: var(--shadow-premium);
-      border: 1px solid rgba(200, 163, 55, 0.35);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .wrike-card::before {
-      content: '';
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(200, 163, 55, 0.12);
-      top: -120px;
-      right: -80px;
-    }
-
-    .wrike-card::after {
-      content: '';
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 1px solid rgba(200, 163, 55, 0.25);
-      bottom: -70px;
-      left: -50px;
-    }
-
-    .wrike-left,
-    .wrike-right {
-      position: relative;
-      z-index: 2;
-    }
-
-    .wrike-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      border-radius: 50px;
-      background: rgba(200, 163, 55, 0.12);
-      border: 1px solid rgba(200, 163, 55, 0.35);
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .wrike-left h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.7rem;
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .wrike-left p {
-      color: rgba(255,255,255,0.82);
-      line-height: 1.85;
-      margin-bottom: 26px;
-    }
-
-    .wrike-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .wrike-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--gold-light);
-      border: 1px solid rgba(200, 163, 55, 0.3);
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-weight: 700;
-      font-size: 0.88rem;
-    }
-
-    .wrike-login-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: #0B1420;
-      text-decoration: none;
-      padding: 13px 24px;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      transition: 0.25s;
-      box-shadow: 0 14px 24px -16px rgba(0,0,0,0.45);
-    }
-
-    .wrike-login-btn:hover {
-      background: var(--gold-dark);
-      color: #fff;
-      transform: translateY(-3px);
-    }
-
-    .wrike-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .wrike-feature {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: 24px;
-      backdrop-filter: blur(8px);
-      transition: 0.3s;
-    }
-
-    .wrike-feature:hover {
-      transform: translateY(-5px);
-      background: rgba(200, 163, 55, 0.08);
-      border-color: rgba(200, 163, 55, 0.35);
-    }
-
-    .wrike-feature i {
-      color: var(--gold);
-      font-size: 1.6rem;
-      margin-bottom: 14px;
-    }
-
-    .wrike-feature h4 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .wrike-feature p {
-      color: rgba(255,255,255,0.72);
-      line-height: 1.7;
-      font-size: 0.86rem;
-    }
-
-
-    /* Partners & CTA */
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 35px;
-      align-items: stretch;
-      margin: 30px 0 90px;
-    }
-
-    .partners-box {
-      border: 1px solid #ECECEC;
-      border-radius: 30px;
-      padding: 45px;
-      background: #fff;
-    }
-
-    .partners {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-      margin-top: 35px;
-      text-align: center;
-    }
-
-    .partner {
-      color: #23344D;
-    }
-
-    .partner i {
-      color: var(--gold);
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .partner p {
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .cta-box {
-      border-radius: 30px;
-      padding: 45px;
-      background: linear-gradient(135deg, #091526 0%, #102847 100%);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cta-box h3 {
-      font-size: 2rem;
-      line-height: 1.2;
-      margin-bottom: 18px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .cta-box p {
-      color: rgba(255,255,255,0.8);
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      width: fit-content;
-      transition: 0.25s;
-    }
-
-    .btn:hover {
-      background: var(--gold-dark);
-      transform: translateY(-3px);
-    }
-
-    /* Footer */
-    .footer {
-      background: #FAFBFD;
-      border-top: 1px solid #E9EDF4;
-      padding: 70px 0 30px;
-    }
-
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 50px;
-    }
+    .hero-content{max-width:760px;}
 
-    .footer-col h4 {
-      color: #0F1A2E;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
+    .hero-sub{
+      color:var(--gold);
+      letter-spacing:5px;
+      text-transform:uppercase;
+      font-size:.8rem;
+      margin-bottom:20px;
+      font-weight:700;
+    }
 
-    .footer-links li {
-      margin-bottom: 12px;
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:5rem;
+      line-height:1;
+      color:#fff;
+      margin-bottom:25px;
     }
 
-    .footer-links a {
-      text-decoration: none;
-      color: #5B6678;
-      transition: 0.2s;
+    .hero p{
+      color:rgba(255,255,255,.85);
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:35px;
+      font-size:1.05rem;
     }
 
-    .footer-links a:hover {
-      color: var(--gold);
-    }
+    .btn-group{display:flex;gap:18px;flex-wrap:wrap;}
 
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      margin-top: 24px;
+    .btn-primary,.btn-outline{
+      text-decoration:none;
+      padding:15px 32px;
+      border-radius:50px;
+      font-weight:700;
+      transition:.3s;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
     }
 
-    .social-icons a {
-      background: #FFFFFF;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid #E8ECF2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      transition: 0.25s;
-      text-decoration: none;
-    }
+    .btn-primary{background:var(--gold);color:#fff;}
+    .btn-primary:hover{background:var(--gold-dark);transform:translateY(-3px);}
 
-    .social-icons a:hover {
-      background: var(--gold);
-      color: #FFFFFF;
-      transform: translateY(-3px);
+    .btn-outline{
+      border:1.5px solid rgba(255,255,255,.35);
+      color:#fff;
+      backdrop-filter:blur(10px);
     }
 
-    .contact-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
+    .btn-outline:hover{background:rgba(255,255,255,.1);}
 
-    .contact-line i {
-      color: var(--gold);
-      margin-top: 4px;
-    }
+    .services{padding:100px 0;background:#fff;}
 
-    .contact-line span {
-      color: #5B6678;
+    .section-sub{
+      text-align:center;
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:5px;
+      font-size:.75rem;
+      margin-bottom:18px;
+      font-weight:700;
     }
 
-    .footer-bottom {
-      border-top: 1px solid #E9EDF4;
-      padding-top: 26px;
-      text-align: center;
-      color: #94A3B8;
-      font-size: 0.82rem;
-    }
+    .section-title{
+      text-align:center;
+      font-family:'Cormorant Garamond',serif;
+      font-size:3.5rem;
+      margin-bottom:20px;
+    }
+
+    .section-desc{
+      max-width:850px;
+      margin:auto;
+      text-align:center;
+      line-height:1.9;
+      color:var(--text);
+      margin-bottom:60px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:28px;
+    }
+
+    .service-card{
+      background:#FCFAF7;
+      border-radius:30px;
+      padding:40px 30px;
+      text-align:center;
+      transition:.3s;
+      border:1px solid #ECEFF4;
+      height:100%;
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow);
+    }
+
+    .service-icon{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:#0E2340;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:auto auto 24px;
+    }
+
+    .service-icon i{color:var(--gold);font-size:2rem;}
+
+    .service-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.6rem;
+      margin-bottom:16px;
+      min-height:60px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .mini-line{
+      width:55px;
+      height:2px;
+      background:var(--gold);
+      margin:0 auto 20px;
+    }
+
+    .service-card p{
+      color:var(--text);
+      line-height:1.8;
+      font-size:.95rem;
+    }
+
+    .wrike-section{padding:0 0 100px;}
+
+    .wrike-card{
+      background:linear-gradient(135deg,#102847 0%,#183B63 100%);
+      border-radius:40px;
+      padding:60px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      color:#fff;
+      box-shadow:var(--shadow);
+      align-items:stretch;
+    }
+
+    .wrike-left,.wrike-right{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .wrike-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border-radius:50px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      margin-bottom:24px;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:var(--gold-light);
+      font-weight:700;
+      width:fit-content;
+    }
+
+    .wrike-left h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;
+      margin-bottom:20px;
+      line-height:1;
+    }
+
+    .wrike-left p{
+      line-height:1.9;
+      color:rgba(255,255,255,.8);
+      margin-bottom:28px;
+    }
+
+    .wrike-login-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--gold);
+      color:#fff;
+      text-decoration:none;
+      padding:14px 26px;
+      border-radius:50px;
+      font-weight:700;
+      transition:.3s;
+      width:fit-content;
+    }
+
+    .wrike-login-btn:hover{background:var(--gold-dark);transform:translateY(-3px);}
+
+    .wrike-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      height:100%;
+    }
+
+    .wrike-feature{
+      background:rgba(255,255,255,.06);
+      border-radius:24px;
+      padding:25px;
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      flex-direction:column;
+      min-height:220px;
+    }
+
+    .wrike-feature i{color:var(--gold);font-size:1.7rem;margin-bottom:16px;}
+    .wrike-feature h4{margin-bottom:12px;font-size:1rem;min-height:24px;}
+    .wrike-feature p{line-height:1.7;color:rgba(255,255,255,.75);font-size:.9rem;}
+
+    .footer{
+      background:radial-gradient(circle at top left, rgba(200,163,55,.10), transparent 30%),linear-gradient(135deg,#F7F9FC 0%, #EEF3F8 50%, #F8FBFF 100%);
+      padding:90px 0 35px;
+      border-top:1px solid rgba(200,163,55,.15);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:50px;
+      align-items:start;
+      margin-bottom:55px;
+    }
+
+    .footer-col{display:flex;flex-direction:column;height:100%;}
+
+    .footer-col h4{
+      margin-bottom:24px;
+      color:#10213A;
+      font-size:1rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      min-height:24px;
+      display:flex;
+      align-items:center;
+    }
+
+    .footer-brand p{color:#5B6678;line-height:1.9;max-width:360px;}
+
+    .footer-links{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .footer-links a{
+      text-decoration:none;
+      color:#5B6678;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:.3s;
+      min-height:22px;
+    }
+
+    .footer-links a:hover{color:var(--gold);transform:translateX(5px);}
+
+    .social-icons{display:flex;gap:14px;margin-top:28px;}
+
+    .social-icons a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#fff;
+      border:1px solid rgba(200,163,55,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      text-decoration:none;
+      transition:.3s;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+
+    .social-icons a:hover{background:var(--gold);color:#fff;transform:translateY(-4px);}
+
+    .footer-wrike-simple{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+      padding-top:2px;
+    }
+
+    .wrike-logo-line{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:700;
+      color:#10213A;
+      font-size:1rem;
+      min-height:48px;
+    }
+
+    .wrike-logo-line i{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid rgba(200,163,55,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      font-size:1.2rem;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+      flex-shrink:0;
+    }
+
+    .footer-wrike-btn{
+      width:fit-content;
+      background:linear-gradient(135deg,#C8A337,#D8B653);
+      color:#fff;
+      text-decoration:none;
+      padding:12px 22px;
+      border-radius:40px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      transition:.3s;
+      box-shadow:0 10px 20px rgba(200,163,55,.18);
+    }
+
+    .footer-wrike-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 28px rgba(200,163,55,.28);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(16,33,58,.08);
+      padding-top:28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+      color:#7B8794;
+      font-size:.82rem;
+    }
+
+    @media(max-width:1100px){
+      .services-grid{grid-template-columns:repeat(2,1fr);}
+      .wrike-card{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:repeat(2,1fr);}
+    }
+
+    @media(max-width:768px){
+      .container{padding:0 1.5rem;}
+
+      .menu-toggle{display:block;}
+
+      .nav{justify-content:space-between;}
+
+      .nav-links{
+        position:fixed;
+        top:70px;
+        left:-100%;
+        width:80%;
+        height:calc(100vh - 70px);
+        background:#fff;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:2rem;
+        transition:0.3s ease;
+        gap:1.5rem;
+        box-shadow:4px 0 20px rgba(0,0,0,0.1);
+        z-index:1000;
+      }
+
+      .nav-links.active{left:0;}
+      .nav-links a{font-size:1.1rem;}
+
+      .hero h1{font-size:3.5rem;}
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 1100px) {
       .services-grid,
-      .approach-grid,
-      .aspiration-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .aspiration-inner {
-        grid-template-columns: 1fr;
-      }
-      .bottom-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+      .wrike-grid,
+      .footer-grid{grid-template-columns:1fr;}
 
-    @media (max-width: 850px) {
-      .container {
-        padding: 0 24px;
-      }
-      .menu-toggle {
-        display: block;
-      }
-      .nav {
-        justify-content: space-between;
-      }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        height: calc(100vh - 70px);
-        background: #FFFFFF;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 40px 32px;
-        transition: 0.3s;
-        gap: 30px;
-        z-index: 999;
-        border-right: 1px solid var(--gold);
-        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
-      }
-      .nav-links.active {
-        left: 0;
-      }
-      .nav-links a {
-        font-size: 1.1rem;
-        color: #1E2A3A;
-      }
-      .hero {
-        min-height: auto;
-        padding: 140px 0 90px;
-        margin-bottom: 40px;
-      }
-      .hero h1 {
-        font-size: 3rem;
-      }
-      .services-box {
-        padding: 50px 24px;
-      }
-      .aspiration-card {
-        padding: 35px 25px;
-      }
-      .services-grid,
-      .approach-grid,
-      .aspiration-grid,
-      .partners,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .section-title {
-        font-size: 2.5rem;
-      }
-      .aspiration-left {
-        flex-direction: column;
-      }
-      .partners-box,
-      .cta-box {
-        padding: 35px 25px;
-      }
-      .wrike-card {
-        grid-template-columns: 1fr;
-        padding: 40px 28px;
-      }
-      .wrike-grid {
-        grid-template-columns: 1fr;
-      }
-      .wrike-left h3 {
-        font-size: 2.2rem;
-      }
-    }
+      .wrike-card{padding:40px 28px;}
+      .wrike-feature{min-height:auto;}
 
-    @media (max-width: 768px) {
-      .hero-content {
-        width: 100%;
-      }
-      .hero-sub {
-        font-size: .7rem;
-        letter-spacing: 2px;
-        margin-bottom: 18px;
-      }
-      .hero h1 {
-        font-size: clamp(2.5rem, 11vw, 4rem);
-        line-height: 1.05;
-        margin-bottom: 20px;
-      }
-      .hero p {
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-      .btn-group {
-        width: 100%;
-        flex-direction: column;
-      }
-      .btn-primary,
-      .btn-outline {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .hero {
-        padding-bottom: 60px;
-        margin-bottom: 30px;
+      .footer-bottom{
+        flex-direction:column;
+        text-align:center;
       }
     }
   </style>
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="header">
     <div class="container nav">
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -911,226 +539,193 @@
         <a href="team.html">Team</a>
         <a href="contact.html">Contact</a>
         <a href="login.html">Login</a>
-        <a href="contact.html" class="nav-cta">Partner</a>
+        <a href="contact.html" class="nav-cta">Partner →</a>
       </div>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-sub">✦ OUR CAPABILITIES</div>
-          <h1>Integrated solutions<br>for the extractive industry</h1>
-          <p>We deliver strategic commercial, exploration, logistics and development services across Papua New Guinea.</p>
-          <div class="btn-group">
-            <a href="#services-core" class="btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-outline">Partner with us</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES SECTION – WHAT WE DO (NO OVERLAP) -->
-    <div class="services-wrapper" id="services-core">
-      <div class="container">
-        <div class="services-box">
-          <div class="section-sub">✦ WHAT WE DO</div>
-          <h2 class="section-title">Four‑tier business operations</h2>
-          <p class="section-desc">We are structured to provide end‑to‑end solutions to the extractive industry, from exploration to community development across Papua New Guinea.</p>
-
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-handshake"></i></div>
-              <h3>Commercial Services</h3>
-              <div class="mini-line"></div>
-              <p>Commercial and business services, procurement support, strategic advisory and operational solutions for industry partners.</p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-oil-well"></i></div>
-              <h3>Mining & Petroleum</h3>
-              <div class="mini-line"></div>
-              <p>Mining, Oil and Gas activities in the upstream, mid-stream and downstream sectors.</p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-truck"></i></div>
-              <h3>Logistics</h3>
-              <div class="mini-line"></div>
-              <p>Transport, supply coordination and logistics support tailored for remote operational environments.</p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-users"></i></div>
-              <h3>Development Services</h3>
-              <div class="mini-line"></div>
-              <p>Recruitment, training, mentoring, development partnerships and community-focused service delivery initiatives.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ASPIRATION CARD – STANDALONE -->
+  <section class="hero">
     <div class="container">
-      <div class="aspiration-card">
-        <div class="aspiration-inner">
-          <div class="aspiration-left">
-            <i class="fas fa-bullseye"></i>
-            <div>
-              <h3>Our aspiration</h3>
-              <p>To become a strategic leader in the extraction industry and a strategic joint venture partner across Papua New Guinea.</p>
-            </div>
-          </div>
-          <div class="aspiration-grid">
-            <div class="commit-item"><i class="fas fa-chart-line"></i><p>Contribute economic growth through improved development outcomes.</p></div>
-            <div class="commit-item"><i class="fas fa-people-group"></i><p>Promote human development, gender equality and empowerment.</p></div>
-            <div class="commit-item"><i class="fas fa-building-columns"></i><p>Improve institutional reform and service delivery mechanisms.</p></div>
-          </div>
+      <div class="hero-content">
+        <div class="hero-sub">✦ OUR CAPABILITIES</div>
+
+        <h1>Integrated solutions for the extractive industry</h1>
+
+        <p>
+          We deliver strategic commercial, exploration,
+          logistics and development services across Papua New Guinea.
+        </p>
+
+        <div class="btn-group">
+          <a href="#services" class="btn-primary">
+            Explore Services <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="contact.html" class="btn-outline">Partner with us</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- APPROACH SECTION – HOW WE WORK -->
-    <section class="approach">
-      <div class="container">
-        <div class="section-sub">✦ HOW WE WORK</div>
-        <h2 class="section-title">Our service approach</h2>
-        <div class="approach-grid">
-          <div class="approach-card"><i class="fas fa-magnifying-glass"></i><h4>Needs Assessment</h4><p>Deep analysis of project requirements, operational objectives and stakeholder needs.</p></div>
-          <div class="approach-card"><i class="fas fa-handshake"></i><h4>Collaborative Planning</h4><p>Work closely with clients, communities, operators and development partners.</p></div>
-          <div class="approach-card"><i class="fas fa-chart-column"></i><h4>Execution Excellence</h4><p>Deliver practical solutions using experienced teams and industry-focused practices.</p></div>
-          <div class="approach-card"><i class="fas fa-arrow-trend-up"></i><h4>Continuous Improvement</h4><p>Monitor outcomes and improve systems to ensure long-term sustainability and value.</p></div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- WRIKE MANAGEMENT TOOL SECTION -->
-    <section class="wrike-section">
-      <div class="container">
-        <div class="wrike-card">
-          <div class="wrike-left">
-            <div class="wrike-badge"><i class="fas fa-diagram-project"></i> Project Management Tool</div>
-            <h3>Wrike-powered workflow coordination</h3>
-            <p>
-                We use Wrike as our project management and workflow coordination platform
-                to support operational planning, task management, team collaboration,
-                reporting efficiency and project delivery across our service operations.
-            </p>
-            <div class="wrike-actions">
-              <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
-                Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-              <div class="wrike-pill"><i class="fas fa-check-circle"></i> Better planning. Clearer reporting.</div>
-            </div>
-          </div>
-
-          <div class="wrike-right">
-            <div class="wrike-grid">
-              <div class="wrike-feature">
-                <i class="fas fa-list-check"></i>
-                <h4>Task & Milestone Tracking</h4>
-                <p>Organise project tasks, deadlines and responsibilities so teams can follow progress clearly.</p>
-              </div>
-
-              <div class="wrike-feature">
-                <i class="fas fa-users-gear"></i>
-                <h4>Team Coordination</h4>
-                <p>Improve communication between office teams, technical teams, contractors and partners.</p>
-              </div>
-
-              <div class="wrike-feature">
-                <i class="fas fa-chart-line"></i>
-                <h4>Progress Reporting</h4>
-                <p>Support structured updates, project visibility and management reporting for better decisions.</p>
-              </div>
-
-              <div class="wrike-feature">
-                <i class="fas fa-folder-tree"></i>
-                <h4>Documented Workflows</h4>
-                <p>Keep work processes, approvals and project information organised in one management system.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Partners & CTA -->
+  <section class="services" id="services">
     <div class="container">
-      <div class="bottom-grid">
-        <div class="partners-box">
-          <div class="section-sub" style="text-align:left;">✦ OUR NETWORK</div>
-          <h3 style="font-size:1.8rem; font-family:'Cormorant Garamond';">Trusted partners</h3>
-          <div class="partners">
-            <div class="partner"><i class="fas fa-building"></i><p>Extractive industry leaders</p></div>
-            <div class="partner"><i class="fas fa-chalkboard-user"></i><p>Development agencies</p></div>
-            <div class="partner"><i class="fas fa-handshake"></i><p>Local contractors</p></div>
-            <div class="partner"><i class="fas fa-leaf"></i><p>Community stakeholders</p></div>
-          </div>
+      <div class="section-sub">✦ WHAT WE DO</div>
+      <h2 class="section-title">Four-tier business operations</h2>
+      <p class="section-desc">
+        We are structured to provide end-to-end solutions
+        to the extractive industry across Papua New Guinea.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Commercial Services</h3>
+          <div class="mini-line"></div>
+          <p>Commercial and business services, procurement support and strategic advisory.</p>
         </div>
-        <div class="cta-box">
-          <h3>Partner with us</h3>
-          <p>Let’s build sustainable futures across Papua New Guinea’s resource sector.</p>
-          <a href="contact.html" class="btn">Contact us <i class="fas fa-arrow-right"></i></a>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-oil-well"></i></div>
+          <h3>Mining & Petroleum</h3>
+          <div class="mini-line"></div>
+          <p>Mining, Oil and Gas activities across upstream, midstream and downstream sectors.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-truck"></i></div>
+          <h3>Logistics</h3>
+          <div class="mini-line"></div>
+          <p>Transport and logistics coordination tailored for operational environments.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-users"></i></div>
+          <h3>Development Services</h3>
+          <div class="mini-line"></div>
+          <p>Recruitment, mentoring, training and community-focused initiatives.</p>
         </div>
       </div>
     </div>
-  </main>
+  </section>
+
+  <section class="wrike-section">
+    <div class="container">
+      <div class="wrike-card">
+        <div class="wrike-left">
+          <div class="wrike-badge"><i class="fas fa-diagram-project"></i> Project Management Tool</div>
+          <h3>Wrike-powered workflow coordination</h3>
+          <p>
+            We use Wrike as our project management and workflow coordination platform to support
+            operational planning, reporting efficiency, collaboration and project delivery.
+          </p>
+          <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
+            Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="wrike-right">
+          <div class="wrike-grid">
+            <div class="wrike-feature">
+              <i class="fas fa-list-check"></i>
+              <h4>Task Tracking</h4>
+              <p>Organise project tasks, milestones and responsibilities.</p>
+            </div>
+            <div class="wrike-feature">
+              <i class="fas fa-users-gear"></i>
+              <h4>Team Coordination</h4>
+              <p>Improve communication across teams and operations.</p>
+            </div>
+            <div class="wrike-feature">
+              <i class="fas fa-chart-line"></i>
+              <h4>Progress Reporting</h4>
+              <p>Better reporting visibility for management and stakeholders.</p>
+            </div>
+            <div class="wrike-feature">
+              <i class="fas fa-folder-tree"></i>
+              <h4>Workflow Management</h4>
+              <p>Keep workflows, files and approvals organised in one system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <p style="margin-top:0;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+        <div class="footer-col footer-brand">
+          <h4>Our Commitment</h4>
+          <p>
+            Strategic partner in the extractive industry —
+            locally rooted, globally experienced and committed
+            to sustainable development across Papua New Guinea.
+          </p>
           <div class="social-icons">
-            <a href="#" aria-label="Twitter" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
+
         <div class="footer-col">
           <h4>Explore</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+            <li><a href="team.html"><i class="fas fa-angle-right"></i> Team</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h4>Contact & Compliance</h4>
-          <div class="contact-line"><i class="fas fa-map-marker-alt"></i><span>Kwalimu Precincts, Waigani, NCD</span></div>
-          <div class="contact-line"><i class="fas fa-phone-alt"></i><span>+675 7XXXXXXX</span></div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-location-dot"></i> Kwalimu Precincts, Waigani, NCD</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> +675 7XXXXXXX</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Send enquiry</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Workspace</h4>
+          <div class="footer-wrike-simple">
+            <div class="wrike-logo-line">
+              <i class="fas fa-diagram-project"></i>
+              <span>Wrike Workspace</span>
+            </div>
+            <a href="https://login.wrike.com/login/" class="footer-wrike-btn" target="_blank" rel="noopener noreferrer">
+              Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <p>© 2025 All rights reserved. “All Dreams are within Reach”</p>
+        <p>© 2025 All rights reserved.</p>
+        <p>“All Dreams are within Reach”</p>
       </div>
     </div>
   </footer>
 
   <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-          const expanded = navLinks.classList.toggle('active');
-          menuBtn.setAttribute('aria-expanded', expanded);
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if(menuBtn && navLinks){
+      menuBtn.addEventListener('click', () => {
+        const expanded = navLinks.classList.toggle('active');
+        menuBtn.setAttribute('aria-expanded', expanded);
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuBtn.setAttribute('aria-expanded', 'false');
         });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-      document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
-    })();
+      });
+    }
   </script>
+
 </body>
 </html>
