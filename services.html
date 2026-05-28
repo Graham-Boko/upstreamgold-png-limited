@@ -437,6 +437,166 @@
       line-height: 1.8;
     }
 
+
+    /* ---------- WRIKE MANAGEMENT TOOL SECTION ---------- */
+    .wrike-section {
+      padding: 70px 0 40px;
+    }
+
+    .wrike-card {
+      background: linear-gradient(135deg, #091526 0%, #102847 55%, #182F4A 100%);
+      border-radius: 40px;
+      padding: 55px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 45px;
+      align-items: center;
+      box-shadow: var(--shadow-premium);
+      border: 1px solid rgba(200, 163, 55, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wrike-card::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(200, 163, 55, 0.12);
+      top: -120px;
+      right: -80px;
+    }
+
+    .wrike-card::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 163, 55, 0.25);
+      bottom: -70px;
+      left: -50px;
+    }
+
+    .wrike-left,
+    .wrike-right {
+      position: relative;
+      z-index: 2;
+    }
+
+    .wrike-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background: rgba(200, 163, 55, 0.12);
+      border: 1px solid rgba(200, 163, 55, 0.35);
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .wrike-left h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.7rem;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .wrike-left p {
+      color: rgba(255,255,255,0.82);
+      line-height: 1.85;
+      margin-bottom: 26px;
+    }
+
+    .wrike-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .wrike-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--gold-light);
+      border: 1px solid rgba(200, 163, 55, 0.3);
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .wrike-login-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0B1420;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: 0.25s;
+      box-shadow: 0 14px 24px -16px rgba(0,0,0,0.45);
+    }
+
+    .wrike-login-btn:hover {
+      background: var(--gold-dark);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .wrike-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .wrike-feature {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    .wrike-feature:hover {
+      transform: translateY(-5px);
+      background: rgba(200, 163, 55, 0.08);
+      border-color: rgba(200, 163, 55, 0.35);
+    }
+
+    .wrike-feature i {
+      color: var(--gold);
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .wrike-feature h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .wrike-feature p {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      font-size: 0.86rem;
+    }
+
+
     /* Partners & CTA */
     .bottom-grid {
       display: grid;
@@ -687,6 +847,16 @@
       .cta-box {
         padding: 35px 25px;
       }
+      .wrike-card {
+        grid-template-columns: 1fr;
+        padding: 40px 28px;
+      }
+      .wrike-grid {
+        grid-template-columns: 1fr;
+      }
+      .wrike-left h3 {
+        font-size: 2.2rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -833,6 +1003,59 @@
         </div>
       </div>
     </section>
+
+
+    <!-- WRIKE MANAGEMENT TOOL SECTION -->
+    <section class="wrike-section">
+      <div class="container">
+        <div class="wrike-card">
+          <div class="wrike-left">
+            <div class="wrike-badge"><i class="fas fa-diagram-project"></i> Project Management Tool</div>
+            <h3>Wrike-powered workflow coordination</h3>
+            <p>
+                We use Wrike as our project management and workflow coordination platform
+                to support operational planning, task management, team collaboration,
+                reporting efficiency and project delivery across our service operations.
+            </p>
+            <div class="wrike-actions">
+              <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
+                Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <div class="wrike-pill"><i class="fas fa-check-circle"></i> Better planning. Clearer reporting.</div>
+            </div>
+          </div>
+
+          <div class="wrike-right">
+            <div class="wrike-grid">
+              <div class="wrike-feature">
+                <i class="fas fa-list-check"></i>
+                <h4>Task & Milestone Tracking</h4>
+                <p>Organise project tasks, deadlines and responsibilities so teams can follow progress clearly.</p>
+              </div>
+
+              <div class="wrike-feature">
+                <i class="fas fa-users-gear"></i>
+                <h4>Team Coordination</h4>
+                <p>Improve communication between office teams, technical teams, contractors and partners.</p>
+              </div>
+
+              <div class="wrike-feature">
+                <i class="fas fa-chart-line"></i>
+                <h4>Progress Reporting</h4>
+                <p>Support structured updates, project visibility and management reporting for better decisions.</p>
+              </div>
+
+              <div class="wrike-feature">
+                <i class="fas fa-folder-tree"></i>
+                <h4>Documented Workflows</h4>
+                <p>Keep work processes, approvals and project information organised in one management system.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Partners & CTA -->
     <div class="container">
