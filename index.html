@@ -16,7 +16,6 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-    /* ---------- RESET & VARIABLES (MODERN SYSTEM) ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -56,7 +55,6 @@
       padding: 0 2rem;
     }
 
-    /* Typography Refined */
     h1, h2, h3, .serif-heading {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -93,7 +91,6 @@
       .container { padding: 0 1.5rem; }
     }
 
-    /* Premium Header (Glass) */
     .header {
       position: fixed;
       top: 0;
@@ -174,7 +171,6 @@
       cursor: pointer;
     }
 
-    /* Hero – dramatic & immersive */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -259,7 +255,6 @@
       transform: translateY(-3px);
     }
 
-    /* Stats Bar – premium floating */
     .stats-section {
       margin-top: -3rem;
       position: relative;
@@ -312,7 +307,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Pillars / Core Values – refined cards */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -357,7 +351,6 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* Who We Are – asymmetrical split */
     .who-section {
       padding: 5rem 0;
       background: linear-gradient(120deg, var(--stone) 0%, #ffffff 100%);
@@ -441,7 +434,6 @@
       padding: 2rem;
     }
 
-    /* Feature Grid (Why Choose Us) */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -479,7 +471,6 @@
       color: var(--gold-primary);
     }
 
-    /* Focus Areas – modern cards with image overlays */
     .focus-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -559,7 +550,6 @@
       color: var(--gold-deep);
     }
 
-    /* ESG Section – dark elegant */
     .esg-section {
       background: var(--charcoal);
       color: white;
@@ -594,95 +584,182 @@
       margin-bottom: 1.2rem;
     }
 
-    /* Footer – refined minimal */
-    .footer {
-      background: #F9F7F4;
-      padding: 4rem 0 2rem;
-      border-top: 1px solid #EADFCB;
+    /* FOOTER - MATCHES SERVICE.HTML */
+
+    .footer{
+      background:
+      radial-gradient(circle at top left, rgba(200,163,55,.10), transparent 30%),
+      linear-gradient(135deg,#F7F9FC 0%, #EEF3F8 50%, #F8FBFF 100%);
+      padding:90px 0 35px;
+      border-top:1px solid rgba(200,163,55,.15);
     }
 
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 3rem;
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:50px;
+      align-items:start;
+      margin-bottom:55px;
     }
 
-    .footer-col h4 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 1.2rem;
-      font-size: 1.2rem;
+    .footer-col{
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
 
-    .footer-links {
-      list-style: none;
+    .footer-col h4{
+      margin-bottom:24px;
+      color:#10213A;
+      font-size:1rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      min-height:24px;
+      display:flex;
+      align-items:center;
+      font-family:'Plus Jakarta Sans', sans-serif;
     }
 
-    .footer-links li {
-      margin-bottom: 0.7rem;
+    .footer-brand p{
+      color:#5B6678;
+      line-height:1.9;
+      max-width:360px;
     }
 
-    .footer-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      transition: 0.2s;
+    .footer-links{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
 
-    .footer-links a:hover {
-      color: var(--gold-primary);
+    .footer-links li{
+      margin:0;
     }
 
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.2rem;
+    .footer-links a{
+      text-decoration:none;
+      color:#5B6678;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:.3s;
+      min-height:22px;
     }
 
-    .social-icons a {
-      background: white;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-deep);
-      transition: var(--transition);
-      border: 1px solid #E2D9CE;
+    .footer-links a:hover{
+      color:var(--gold-primary);
+      transform:translateX(5px);
     }
 
-    .social-icons a:hover {
-      background: var(--gold-primary);
-      color: var(--charcoal);
-      transform: translateY(-3px);
+    .social-icons{
+      display:flex;
+      gap:14px;
+      margin-top:28px;
     }
 
-    .contact-line {
-      display: flex;
-      gap: 0.8rem;
-      margin-bottom: 0.8rem;
+    .social-icons a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#fff;
+      border:1px solid rgba(200,163,55,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold-primary);
+      text-decoration:none;
+      transition:.3s;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+      flex-shrink:0;
     }
 
-    .footer-bottom {
-      text-align: center;
-      border-top: 1px solid #E4DCCF;
-      padding-top: 1.8rem;
-      font-size: 0.8rem;
-      color: #8A7F6E;
+    .social-icons a:hover{
+      background:var(--gold-primary);
+      color:#fff;
+      transform:translateY(-4px);
     }
 
-    /* Responsive */
+    .footer-wrike-simple{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+      padding-top:2px;
+    }
+
+    .wrike-logo-line{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:700;
+      color:#10213A;
+      font-size:1rem;
+      min-height:48px;
+    }
+
+    .wrike-logo-line i{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:#FFFFFF;
+      border:1px solid rgba(200,163,55,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold-primary);
+      font-size:1.2rem;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+      flex-shrink:0;
+    }
+
+    .footer-wrike-btn{
+      width:fit-content;
+      background:linear-gradient(135deg,#C8A337,#D8B653);
+      color:#fff;
+      text-decoration:none;
+      padding:12px 22px;
+      border-radius:40px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      transition:.3s;
+      box-shadow:0 10px 20px rgba(200,163,55,.18);
+    }
+
+    .footer-wrike-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 28px rgba(200,163,55,.28);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(16,33,58,.08);
+      padding-top:28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+      color:#7B8794;
+      font-size:.82rem;
+    }
+
     @media (max-width: 1024px) {
       .pillars-grid, .focus-grid, .esg-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .who-wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
+      }
+
+      .footer-grid{
+        grid-template-columns:repeat(2,1fr);
       }
     }
 
@@ -690,6 +767,7 @@
       .menu-toggle {
         display: block;
       }
+
       .nav-links {
         position: fixed;
         top: 70px;
@@ -705,33 +783,44 @@
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
         z-index: 1000;
       }
+
       .nav-links.active {
         left: 0;
       }
+
       .nav-links a {
         font-size: 1.1rem;
       }
+
       .stats-bar {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
-      .pillars-grid, .focus-grid, .esg-grid {
+
+      .pillars-grid, .focus-grid, .esg-grid, .footer-grid {
         grid-template-columns: 1fr;
       }
+
       .hero p {
         font-size: 1rem;
       }
+
       .btn-group {
         flex-direction: column;
         width: 100%;
       }
+
       .btn-primary, .btn-outline {
         justify-content: center;
         text-align: center;
       }
+
+      .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+      }
     }
 
-    /* helper class */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -742,9 +831,11 @@
       text-decoration: none;
       color: black;
     }
+
     .skip-link:focus { top: 0; }
   </style>
 </head>
+
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -764,7 +855,6 @@
 </header>
 
 <main id="main-content">
-  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -779,7 +869,6 @@
     </div>
   </section>
 
-  <!-- Stats Bar -->
   <section class="stats-section">
     <div class="container">
       <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
@@ -791,7 +880,6 @@
     </div>
   </section>
 
-  <!-- Pillars / Core Values -->
   <div class="container">
     <div class="pillars-grid" data-aos="fade-up">
       <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-compass"></i></div><h3>EXPLORATION DRIVEN</h3><p>High-potential gold & mineral assets across PNG.</p></div>
@@ -801,7 +889,6 @@
     </div>
   </div>
 
-  <!-- Who We Are -->
   <section class="who-section">
     <div class="container">
       <div class="who-wrapper" data-aos="fade-right">
@@ -828,7 +915,6 @@
     </div>
   </section>
 
-  <!-- Why Choose Us -->
   <section style="padding: 3rem 0 4rem; background: white;">
     <div class="container">
       <div class="section-badge"><i class="fas fa-star"></i> WHY TRUST US</div>
@@ -841,7 +927,6 @@
     </div>
   </section>
 
-  <!-- Focus Areas -->
   <div class="container" style="margin-bottom: 4rem;">
     <div class="section-badge"><i class="fas fa-cogs"></i> CORE FOCUS</div>
     <h2 class="section-title">Strategic Pillars of Impact</h2>
@@ -853,7 +938,6 @@
     </div>
   </div>
 
-  <!-- ESG Commitment -->
   <section class="esg-section">
     <div class="container" data-aos="fade-up">
       <div class="section-badge" style="background: rgba(212,175,55,0.2);">✦ ESG LEADERSHIP</div>
@@ -861,7 +945,7 @@
       <div class="esg-grid">
         <div class="esg-card"><i class="fas fa-globe-asia esg-icon"></i><h3>Environmental Stewardship</h3><p>Net-zero commitment, biodiversity protection & water conservation.</p></div>
         <div class="esg-card"><i class="fas fa-hand-holding-heart esg-icon"></i><h3>Community Partnerships</h3><p>Investing in local infrastructure, healthcare & indigenous empowerment.</p></div>
-        <div class="esg-card"><i class="fas fa-gavel esg-icon"></i><h3>Governance Standards</h3><p>Transparent reporting, anti‑corruption & board-level ESG oversight.</p></div>
+        <div class="esg-card"><i class="fas fa-gavel esg-icon"></i><h3>Governance Standards</h3><p>Transparent reporting, anti-corruption & board-level ESG oversight.</p></div>
         <div class="esg-card"><i class="fas fa-chart-line esg-icon"></i><h3>Sustainable Development</h3><p>Shared value: local procurement, capacity building & diversification.</p></div>
       </div>
     </div>
@@ -870,18 +954,126 @@
 
 <footer class="footer">
   <div class="container">
+
     <div class="footer-grid">
-      <div class="footer-col">
-        <p style="max-width: 260px;">Strategic partner in extractive industry — locally rooted, globally experienced.</p>
+
+      <div class="footer-col footer-brand">
+        <h4>Our Commitment</h4>
+        <p>
+          Strategic partner in the extractive industry —
+          locally rooted, globally experienced and committed
+          to sustainable development across Papua New Guinea.
+        </p>
+
         <div class="social-icons">
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+          <a href="#" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a href="#" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
         </div>
       </div>
-      <div class="footer-col"><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html">Login</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><div class="contact-line"><i class="fas fa-map-marker-alt" style="color:var(--gold-primary);"></i><span>Kwalimu Precincts, Waigani, NCD</span></div><div class="contact-line"><i class="fas fa-phone-alt" style="color:var(--gold-primary);"></i><span>+675 7XXXXXXX</span></div></div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+
+        <ul class="footer-links">
+          <li>
+            <a href="index.html">
+              <i class="fas fa-angle-right"></i>
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="about.html">
+              <i class="fas fa-angle-right"></i>
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="services.html">
+              <i class="fas fa-angle-right"></i>
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a href="team.html">
+              <i class="fas fa-angle-right"></i>
+              Team
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html">
+              <i class="fas fa-angle-right"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+
+        <ul class="footer-links">
+          <li>
+            <a href="#">
+              <i class="fas fa-location-dot"></i>
+              Kwalimu Precincts, Waigani, NCD
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fas fa-phone"></i>
+              +675 7XXXXXXX
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html">
+              <i class="fas fa-envelope"></i>
+              Send enquiry
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Workspace</h4>
+
+        <div class="footer-wrike-simple">
+          <div class="wrike-logo-line">
+            <i class="fas fa-diagram-project"></i>
+            <span>Wrike Workspace</span>
+          </div>
+
+          <a href="https://login.wrike.com/login/"
+             class="footer-wrike-btn"
+             target="_blank"
+             rel="noopener noreferrer">
+            Open Wrike
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="footer-bottom"><p>© "All Dreams are within Reach"</p></div>
+
+    <div class="footer-bottom">
+      <p>© 2025 All rights reserved.</p>
+      <p>“All Dreams are within Reach”</p>
+    </div>
+
   </div>
 </footer>
 
