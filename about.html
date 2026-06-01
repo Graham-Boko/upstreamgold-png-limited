@@ -12,6 +12,7 @@
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
+
     :root{
       --navy:#061523;
       --navy2:#081c2e;
@@ -34,6 +35,7 @@
     }
 
     html{scroll-behavior:smooth}
+
     body{
       font-family:"Plus Jakarta Sans",Arial,sans-serif;
       color:var(--text);
@@ -46,70 +48,95 @@
     img{max-width:100%;display:block}
     .container{width:min(1180px,91%);margin:auto}
 
-    .skip-link{position:absolute;top:-40px;left:0;background:var(--gold);padding:8px 14px;z-index:100;color:#111;font-weight:800}
+    .skip-link{
+      position:absolute;
+      top:-40px;
+      left:0;
+      background:var(--gold);
+      padding:8px 14px;
+      z-index:100;
+      color:#111;
+      font-weight:800;
+    }
+
     .skip-link:focus{top:0}
 
-    header{height:86px;background:rgba(13,27,42,.96);backdrop-filter:blur(12px);display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between;width:min(1180px,92%);margin:auto;gap:24px}
-    .brand{display:flex;align-items:center;gap:16px;color:#fff;min-width:max-content}
-    .brand-mark{width:74px;height:52px;position:relative;border-bottom:3px solid var(--gold)}
-    .brand-mark:before,.brand-mark:after{content:"";position:absolute;border-left:38px solid transparent;border-right:38px solid transparent;border-bottom:48px solid transparent;left:-1px;top:0}
-    .brand-mark:before{border-bottom-color:var(--gold)}
-    .brand-mark:after{border-left-width:31px;border-right-width:31px;border-bottom:38px solid var(--primary);left:6px;top:7px}
-    .brand-mark span{position:absolute;z-index:2;left:16px;top:26px;width:42px;height:2px;background:var(--gold);box-shadow:0 -8px 0 var(--gold),0 8px 0 var(--gold);transform:skewX(-25deg)}
-    .brand-title{font-size:15px;letter-spacing:1.5px;font-weight:900;line-height:1.12;text-transform:uppercase}
-    .brand-title small{display:block;font-size:12px;color:#c8d2de;letter-spacing:1px;font-weight:600;margin-top:3px}
-    .menu{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#f3f3f3;font-weight:700}
-    .menu a{position:relative;white-space:nowrap}
-    .menu a.active,.menu a:hover{color:var(--gold)}
-    .menu a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s}
-    .menu a:hover:after,.menu a.active:after{width:100%}
-    .menu-toggle{display:none;background:none;border:0;color:var(--gold);font-size:26px;cursor:pointer}
+    header{
+      height:86px;
+      background:rgba(13,27,42,.96);
+      backdrop-filter:blur(12px);
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
 
-    .logo-mark{
-      width:58px;
-      height:58px;
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      width:min(1180px,92%);
+      margin:auto;
+      gap:24px;
       position:relative;
     }
 
-    .logo-mark:before{
+    .brand,
+    .footer-brand{
+      display:none;
+    }
+
+    .menu{
+      display:flex;
+      gap:32px;
+      align-items:center;
+      justify-content:flex-start;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      color:#f3f3f3;
+      font-weight:700;
+    }
+
+    .menu a{
+      position:relative;
+      white-space:nowrap;
+    }
+
+    .menu a.active,
+    .menu a:hover{
+      color:var(--gold);
+    }
+
+    .menu a:after{
       content:"";
       position:absolute;
-      inset:0;
-      clip-path:polygon(50% 0,100% 100%,76% 100%,50% 42%,24% 100%,0 100%);
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
       background:var(--gold);
+      transition:.25s;
     }
 
-    .logo-mark:after{
-      content:"";
-      position:absolute;
-      left:16px;
-      top:27px;
-      width:28px;
-      height:20px;
-      border-left:6px solid var(--primary);
-      border-right:6px solid var(--primary);
-      border-bottom:6px solid var(--primary);
-      transform:skewX(-10deg);
+    .menu a:hover:after,
+    .menu a.active:after{
+      width:100%;
     }
 
-    .brand-text{
-      font-weight:900;
-      font-size:22px;
-      line-height:1.05;
-      letter-spacing:4px;
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:0;
+      color:var(--gold);
+      font-size:26px;
+      cursor:pointer;
+      margin-left:auto;
     }
 
-    .brand-text small{
-      display:block;
-      font-size:8px;
-      letter-spacing:.8px;
-      color:#fff;
-      margin-top:5px;
-    }
-
-    
-.hero{
+    .hero{
       min-height:560px;
       background:linear-gradient(90deg,rgba(13,27,42,.86) 0%,rgba(27,38,59,.55) 48%,rgba(13,27,42,.08) 100%),url('hero.png');
       background-size:cover;
@@ -144,9 +171,7 @@
       max-width:850px;
     }
 
-    .hero h1 span{
-      color:var(--gold);
-    }
+    .hero h1 span{color:var(--gold)}
 
     .gold-line{
       height:1px;
@@ -162,9 +187,6 @@
       margin-bottom:30px;
       font-weight:500;
     }
-
-
-    
 
     .section{
       padding:58px 0 0;
@@ -300,6 +322,150 @@
       font-weight:900;
     }
 
+    .wrike-section{
+      padding:80px 0 90px;
+      background:var(--panel);
+    }
+
+    .wrike-card{
+      background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 58%,var(--accent) 100%);
+      border-radius:34px;
+      padding:56px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      color:#fff;
+      box-shadow:var(--shadow);
+      align-items:stretch;
+      border:1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .wrike-card:before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      right:-120px;
+      top:-120px;
+      background:radial-gradient(circle,rgba(212,162,76,.22),transparent 68%);
+      pointer-events:none;
+    }
+
+    .wrike-left,
+    .wrike-right{
+      position:relative;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .wrike-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border-radius:50px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      margin-bottom:24px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:#f1d7a1;
+      font-weight:800;
+      width:fit-content;
+    }
+
+    .wrike-badge i{color:var(--gold)}
+
+    .wrike-left h3{
+      font-size:clamp(32px,4vw,48px);
+      margin-bottom:20px;
+      line-height:1.02;
+      font-weight:900;
+      letter-spacing:-.8px;
+      text-transform:uppercase;
+    }
+
+    .wrike-left p{
+      line-height:1.85;
+      color:rgba(255,255,255,.82);
+      margin-bottom:28px;
+      font-size:15px;
+      max-width:560px;
+    }
+
+    .wrike-login-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--gold);
+      color:#111;
+      text-decoration:none;
+      padding:14px 26px;
+      border-radius:50px;
+      font-weight:900;
+      transition:.3s ease;
+      width:fit-content;
+      text-transform:uppercase;
+      font-size:13px;
+      box-shadow:0 12px 24px rgba(212,162,76,.18);
+    }
+
+    .wrike-login-btn:hover{
+      background:#e0af58;
+      transform:translateY(-3px);
+    }
+
+    .wrike-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      height:100%;
+    }
+
+    .wrike-feature{
+      background:rgba(255,255,255,.065);
+      border-radius:24px;
+      padding:25px;
+      border:1px solid rgba(255,255,255,.09);
+      display:flex;
+      flex-direction:column;
+      min-height:220px;
+      backdrop-filter:blur(6px);
+      transition:.3s ease;
+    }
+
+    .wrike-feature:hover{
+      background:rgba(255,255,255,.095);
+      transform:translateY(-5px);
+    }
+
+    .wrike-feature i{
+      color:var(--gold);
+      font-size:28px;
+      margin-bottom:16px;
+    }
+
+    .wrike-feature h4{
+      margin-bottom:12px;
+      font-size:15px;
+      min-height:24px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      font-weight:900;
+    }
+
+    .wrike-feature p{
+      line-height:1.7;
+      color:rgba(255,255,255,.76);
+      font-size:14px;
+    }
+
     footer{
       background:var(--primary);
       color:#fff;
@@ -312,13 +478,6 @@
       gap:35px;
       padding-bottom:30px;
       border-bottom:1px solid rgba(255,255,255,.15);
-    }
-
-    .footer-brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:15px;
     }
 
     footer h4{
@@ -335,13 +494,28 @@
       font-size:13px;
     }
 
-    .footer-links{
-      columns:2;
+    .footer ul{
+      list-style:none;
+      padding:0;
     }
 
-    .footer-links a{
-      display:block;
-      margin-bottom:8px;
+    .footer li{
+      margin:8px 0;
+    }
+
+    .footer li a{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .footer li a:after{
+      content:'›';
+      color:var(--gold);
+    }
+
+    .footer li a:hover{
+      color:var(--gold);
     }
 
     .contact-line{
@@ -351,11 +525,15 @@
       align-items:flex-start;
     }
 
-    .contact-line i{color:var(--gold);margin-top:3px}
+    .contact-line i{
+      color:var(--gold);
+      margin-top:3px;
+    }
 
     .social{
       display:flex;
       gap:12px;
+      margin-top:18px;
     }
 
     .social a{
@@ -369,13 +547,34 @@
       font-size:13px;
     }
 
-    .copy{
+    .wrike-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--gold);
+      color:#111;
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:12px;
+      padding:13px 18px;
+      margin-top:15px;
+    }
+
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.12);
+      margin-top:30px;
+      padding-top:13px;
       display:flex;
       justify-content:space-between;
-      gap:20px;
-      padding-top:18px;
-      color:#b7c1cc;
       font-size:12px;
+      color:#b9c3cf;
+      gap:16px;
+    }
+
+    @media(max-width:1040px){
+      .wrike-card{
+        grid-template-columns:1fr;
+      }
     }
 
     @media(max-width:980px){
@@ -386,216 +585,66 @@
 
     @media(max-width:820px){
       .menu-toggle{display:block}
-      .menu{position:fixed;top:86px;left:-100%;width:min(340px,88%);height:calc(100vh - 86px);background:var(--primary);flex-direction:column;align-items:flex-start;padding:28px;transition:.3s;box-shadow:20px 0 45px rgba(0,0,0,.2)}
+
+      .menu{
+        position:fixed;
+        top:86px;
+        left:-100%;
+        width:min(340px,88%);
+        height:calc(100vh - 86px);
+        background:var(--primary);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:28px;
+        transition:.3s;
+        box-shadow:20px 0 45px rgba(0,0,0,.2);
+      }
+
       .menu.active{left:0}
-      .brand-title{display:none}
     }
 
-    
-.footer ul{list-style:none;padding:0}
-.footer li{margin:8px 0}
-.footer li a{display:flex;justify-content:space-between;gap:10px}
-.footer li a:after{content:'›';color:var(--gold)}
-.footer li a:hover{color:var(--gold)}
-.wrike-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;font-weight:900;text-transform:uppercase;font-size:12px;padding:13px 18px;margin-top:15px}
-.copyright{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:13px;display:flex;justify-content:space-between;font-size:12px;color:#b9c3cf;gap:16px}
+    @media(max-width:768px){
+      .wrike-section{
+        padding:60px 0 70px;
+      }
 
+      .wrike-card{
+        padding:40px 28px;
+        border-radius:26px;
+      }
 
-@media(max-width:560px){
+      .wrike-grid{
+        grid-template-columns:1fr;
+      }
+
+      .wrike-feature{
+        min-height:auto;
+      }
+    }
+
+    @media(max-width:560px){
       .hero h1{font-size:40px}
       .hero{min-height:500px}
       .values-grid{grid-template-columns:1fr}
       .value-card{border-right:none;border-bottom:1px solid var(--line)}
       .footer-grid{grid-template-columns:1fr}
-      .copy{flex-direction:column}
+      .copyright{flex-direction:column}
     }
-  
-
-/* WRIKE SECTION - MATCHED TO SERVICES STYLE + ABOUT PALETTE */
-.wrike-section{
-  padding:80px 0 90px;
-  background:var(--panel);
-}
-
-.wrike-card{
-  background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 58%,var(--accent) 100%);
-  border-radius:34px;
-  padding:56px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:45px;
-  color:#fff;
-  box-shadow:var(--shadow);
-  align-items:stretch;
-  border:1px solid rgba(255,255,255,.10);
-  position:relative;
-  overflow:hidden;
-}
-
-.wrike-card:before{
-  content:"";
-  position:absolute;
-  width:360px;
-  height:360px;
-  border-radius:50%;
-  right:-120px;
-  top:-120px;
-  background:radial-gradient(circle,rgba(212,162,76,.22),transparent 68%);
-  pointer-events:none;
-}
-
-.wrike-left,
-.wrike-right{
-  position:relative;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.wrike-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 18px;
-  border-radius:50px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
-  margin-bottom:24px;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  color:#f1d7a1;
-  font-weight:800;
-  width:fit-content;
-}
-
-.wrike-badge i{
-  color:var(--gold);
-}
-
-.wrike-left h3{
-  font-size:clamp(32px,4vw,48px);
-  margin-bottom:20px;
-  line-height:1.02;
-  font-weight:900;
-  letter-spacing:-.8px;
-  text-transform:uppercase;
-}
-
-.wrike-left p{
-  line-height:1.85;
-  color:rgba(255,255,255,.82);
-  margin-bottom:28px;
-  font-size:15px;
-  max-width:560px;
-}
-
-.wrike-login-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:var(--gold);
-  color:#111;
-  text-decoration:none;
-  padding:14px 26px;
-  border-radius:50px;
-  font-weight:900;
-  transition:.3s ease;
-  width:fit-content;
-  text-transform:uppercase;
-  font-size:13px;
-  box-shadow:0 12px 24px rgba(212,162,76,.18);
-}
-
-.wrike-login-btn:hover{
-  background:#e0af58;
-  transform:translateY(-3px);
-}
-
-.wrike-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  height:100%;
-}
-
-.wrike-feature{
-  background:rgba(255,255,255,.065);
-  border-radius:24px;
-  padding:25px;
-  border:1px solid rgba(255,255,255,.09);
-  display:flex;
-  flex-direction:column;
-  min-height:220px;
-  backdrop-filter:blur(6px);
-  transition:.3s ease;
-}
-
-.wrike-feature:hover{
-  background:rgba(255,255,255,.095);
-  transform:translateY(-5px);
-}
-
-.wrike-feature i{
-  color:var(--gold);
-  font-size:28px;
-  margin-bottom:16px;
-}
-
-.wrike-feature h4{
-  margin-bottom:12px;
-  font-size:15px;
-  min-height:24px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
-  font-weight:900;
-}
-
-.wrike-feature p{
-  line-height:1.7;
-  color:rgba(255,255,255,.76);
-  font-size:14px;
-}
-
-@media(max-width:1040px){
-  .wrike-card{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:768px){
-  .wrike-section{
-    padding:60px 0 70px;
-  }
-
-  .wrike-card{
-    padding:40px 28px;
-    border-radius:26px;
-  }
-
-  .wrike-grid{
-    grid-template-columns:1fr;
-  }
-
-  .wrike-feature{
-    min-height:auto;
-  }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
+
 <a href="#main-content" class="skip-link">Skip to content</a>
 
 <header>
   <nav>
-    <a class="brand" href="index.html" aria-label="Home">
-      <div class="brand-mark"><span></span></div>
-      <div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div>
-    </a>
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="brand"></div>
+
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
     <div class="menu" id="navLinks">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
@@ -611,16 +660,17 @@
 
   <section class="hero">
     <div class="container hero-content">
-      <div class="kicker">✦ About Upstream Gold PNG</div>
-      <h1>Building Papua New Guinea’s <span>Resource Future</span></h1>
+      <div class="kicker">✦ About Us</div>
+
+      <h1>
+        Building Papua New Guinea’s <span>Resource Future</span>
+      </h1>
+
       <div class="gold-line"></div>
 
       <p>
-        UPSTREAM GOLD (PNG) LTD is a nationally owned company operating in Papua New Guinea
-        with business interest in the mining of mineral ore.
+        A nationally owned company operating in Papua New Guinea with business interest in the mining of mineral ore.
       </p>
-
-      
     </div>
   </section>
 
@@ -632,22 +682,20 @@
         <div class="gold-line"></div>
 
         <p>
-          UPSTREAM GOLD (PNG) LTD is a nationally owned company operating in Papua New Guinea
-          with business interest in the mining of mineral ore. The company was incorporated on
-          the 18th October 2024 under the Companies Act 1997.
+          The company is nationally owned and operates in Papua New Guinea with business interest in the mining of mineral ore.
+          The company was incorporated on the 18th October 2024 under the Companies Act 1997.
         </p>
 
         <p>
-          We aim to be a strategic leader in the extraction industry and a strategic joint
-          venture partner across PNG.
+          We aim to be a strategic leader in the extraction industry and a strategic joint venture partner across PNG.
         </p>
 
         <p>Our business operations are structured into four key tiers:</p>
 
         <div class="tiers">
-          <div class="tier"><span>01</span> Upstream Commercial Services</div>
-          <div class="tier"><span>02</span> Upstream Petroleum & Mining Exploration Services</div>
-          <div class="tier"><span>03</span> Upstream Logistics</div>
+          <div class="tier"><span>01</span> Commercial Services</div>
+          <div class="tier"><span>02</span> Petroleum & Mining Exploration Services</div>
+          <div class="tier"><span>03</span> Logistics</div>
           <div class="tier"><span>04</span> Development Services</div>
         </div>
       </div>
@@ -657,20 +705,18 @@
         <div class="gold-line"></div>
 
         <p>
-          Although Upstream Gold Ltd is new to the Mining & Petroleum industry in PNG, our team
-          comprises highly experienced geoscientists and development practitioners with collective
-          experience in the extractive industry, both in-country and internationally.
+          Although the company is new to the Mining & Petroleum industry in PNG, the team comprises highly experienced
+          geoscientists and development practitioners with collective experience in the extractive industry,
+          both in-country and internationally.
         </p>
 
         <p>
-          Our key people have been involved in exploration, discoveries and development of mine
-          fields globally as well as locally. The method of operations for each prospect depends
-          on the key relevant drivers that will trigger the start-up.
+          Key people have been involved in exploration, discoveries and development of mine fields globally as well as locally.
+          The method of operations for each prospect depends on the key relevant drivers that will trigger the start-up.
         </p>
 
         <p>
-          As a strategic body corporate, we are governed by a Board of Directors who guide our
-          Vision and Mission.
+          As a strategic body corporate, the company is governed by a Board of Directors who guide the Vision and Mission.
         </p>
       </div>
 
@@ -686,8 +732,7 @@
           <h3>Vision</h3>
           <div class="small-line"></div>
           <p>
-            To promote, enhance and advance Service Delivery through a dynamic development
-            models for growth & prosperity.
+            To promote, enhance and advance service delivery through dynamic development models for growth and prosperity.
           </p>
         </div>
 
@@ -696,8 +741,8 @@
           <h3>Mission</h3>
           <div class="small-line"></div>
           <p>
-            To create and establish strategically positioned businesses, socially responsible
-            programs and practical solutions that will lay the foundations towards the betterment.
+            To create and establish strategically positioned businesses, socially responsible programs and practical solutions
+            that lay the foundations towards better outcomes.
           </p>
         </div>
 
@@ -718,9 +763,9 @@
           <h3>Objectives</h3>
           <div class="small-line"></div>
           <ul>
-            <li>To use natural resources as a catalyst for development in the remote areas of PNG through improved living standards of people.</li>
-            <li>To increase the access of quality individuals to gain better career opportunities.</li>
-            <li>To increase the opportunities of individuals to obtain better training and experiences for poverty reduction and sustainable livelihoods.</li>
+            <li>To use natural resources as a catalyst for development in remote areas of PNG through improved living standards.</li>
+            <li>To increase access for quality individuals to gain better career opportunities.</li>
+            <li>To increase training and experience opportunities for poverty reduction and sustainable livelihoods.</li>
           </ul>
         </div>
 
@@ -728,81 +773,75 @@
     </div>
   </section>
 
+  <section class="wrike-section" id="wrike-workspace">
+    <div class="container">
+      <div class="wrike-card">
 
+        <div class="wrike-left">
+          <div class="wrike-badge">
+            <i class="fas fa-diagram-project"></i>
+            Project Management Tool
+          </div>
 
+          <h3>Wrike-powered workflow coordination</h3>
 
-<section class="wrike-section" id="wrike-workspace">
-  <div class="container">
-    <div class="wrike-card">
+          <p>
+            We use Wrike as our project management and workflow coordination platform to support operational planning,
+            reporting efficiency, collaboration and project delivery.
+          </p>
 
-      <div class="wrike-left">
-        <div class="wrike-badge">
-          <i class="fas fa-diagram-project"></i>
-          Project Management Tool
+          <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
+            Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
         </div>
 
-        <h3>Wrike-powered workflow coordination</h3>
+        <div class="wrike-right">
+          <div class="wrike-grid">
 
-        <p>
-          We use Wrike as our project management and workflow coordination platform
-          to support operational planning, reporting efficiency, collaboration and
-          project delivery.
-        </p>
+            <div class="wrike-feature">
+              <i class="fas fa-list-check"></i>
+              <h4>Task Tracking</h4>
+              <p>Organise project tasks, milestones and responsibilities.</p>
+            </div>
 
-        <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
-          Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
+            <div class="wrike-feature">
+              <i class="fas fa-users-gear"></i>
+              <h4>Team Coordination</h4>
+              <p>Improve communication across teams and operations.</p>
+            </div>
 
-      <div class="wrike-right">
-        <div class="wrike-grid">
+            <div class="wrike-feature">
+              <i class="fas fa-chart-line"></i>
+              <h4>Progress Reporting</h4>
+              <p>Better reporting visibility for management and stakeholders.</p>
+            </div>
 
-          <div class="wrike-feature">
-            <i class="fas fa-list-check"></i>
-            <h4>Task Tracking</h4>
-            <p>Organise project tasks, milestones and responsibilities.</p>
+            <div class="wrike-feature">
+              <i class="fas fa-folder-tree"></i>
+              <h4>Workflow Management</h4>
+              <p>Keep workflows, files and approvals organised in one system.</p>
+            </div>
+
           </div>
-
-          <div class="wrike-feature">
-            <i class="fas fa-users-gear"></i>
-            <h4>Team Coordination</h4>
-            <p>Improve communication across teams and operations.</p>
-          </div>
-
-          <div class="wrike-feature">
-            <i class="fas fa-chart-line"></i>
-            <h4>Progress Reporting</h4>
-            <p>Better reporting visibility for management and stakeholders.</p>
-          </div>
-
-          <div class="wrike-feature">
-            <i class="fas fa-folder-tree"></i>
-            <h4>Workflow Management</h4>
-            <p>Keep workflows, files and approvals organised in one system.</p>
-          </div>
-
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
 </main>
 
-
 <footer>
   <div class="container footer-grid">
+
     <div>
-      <div class="footer-brand">
-        <div class="brand-mark"><span></span></div>
-        <div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div>
-      </div>
+      <div class="footer-brand"></div>
+
       <p>
         Strategic partner in the extractive industry — combining local knowledge,
         technical experience, and responsible project delivery across Papua New Guinea.
       </p>
+
       <div class="social">
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -823,10 +862,12 @@
 
     <div>
       <h4>Contact</h4>
+
       <div class="contact-line">
         <span><i class="fas fa-location-dot"></i></span>
         <p>Kwalimu Precincts, Waigani, NCD</p>
       </div>
+
       <div class="contact-line">
         <span><i class="fas fa-envelope"></i></span>
         <p>upstreamgoldpng@gmail.com</p>
@@ -835,31 +876,34 @@
 
     <div>
       <h4>Workspace</h4>
+
       <p>
-        Wrike Workspace supports project coordination, task tracking,
-        collaboration, and delivery visibility.
+        Wrike Workspace supports project coordination, task tracking, collaboration, and delivery visibility.
       </p>
-      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank">
+
+      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
         Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
       </a>
     </div>
+
   </div>
 
   <div class="container copyright">
-    <span>© 2026 Upstream Gold (PNG) LTD. All rights reserved.</span>
+    <span>© 2026 All rights reserved.</span>
     <span>“All Dreams are within Reach”</span>
   </div>
 </footer>
 
-
 <script>
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
+
   if(menuBtn && navLinks){
     menuBtn.addEventListener('click',()=>{
       const expanded = navLinks.classList.toggle('active');
       menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
+
     document.querySelectorAll('.menu a').forEach(link=>{
       link.addEventListener('click',()=>{
         navLinks.classList.remove('active');
