@@ -1,1100 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Nouveau Mining | Sustainable Excellence PNG</title>
-  <meta name="description" content="100% Papua New Guinean-owned enterprise delivering sustainable mining, exploration, and community-driven growth. Redefining resource development.">
-  <meta name="keywords" content="mining PNG, gold exploration, Papua New Guinea mining, responsible mining, ESG">
-  <meta name="author" content="Nouveau Mining">
+  <meta name="description" content="100% Papua New Guinean-owned enterprise delivering sustainable mining, exploration, and community-driven growth. Redefining resource development." />
+  <meta name="keywords" content="mining PNG, gold exploration, Papua New Guinea mining, responsible mining, ESG" />
+  <meta name="author" content="Nouveau Mining" />
 
-  <!-- Preconnect & Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --gold-primary: #D4AF37;
-      --gold-deep: #B8901C;
-      --gold-soft: #F9E5B3;
-      --charcoal: #11181C;
-      --slate: #1E2A32;
-      --stone: #F5F2EF;
-      --pure-white: #FFFFFF;
-      --off-white: #FCFAF7;
-      --text-dark: #1F2A3E;
-      --text-muted: #5A6E7F;
-      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 35px 50px -20px rgba(0, 0, 0, 0.2);
-      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      --border-radius-card: 2rem;
-      --border-radius-btn: 3rem;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--pure-white);
-      color: var(--text-dark);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    h1, h2, h3, .serif-heading {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .section-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(212, 175, 55, 0.12);
-      backdrop-filter: blur(2px);
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gold-primary);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      color: var(--charcoal);
-    }
-
-    @media (max-width: 768px) {
-      .section-title { font-size: 2.2rem; }
-      .container { padding: 0 1.5rem; }
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-      z-index: 1000;
-      transition: var(--transition);
-      padding: 0.8rem 0;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: var(--charcoal);
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-primary);
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--gold-deep);
-    }
-
-    .nav-cta {
-      border: 1.5px solid var(--gold-primary);
-      padding: 0.5rem 1.8rem;
-      border-radius: var(--border-radius-btn);
-      background: transparent;
-      color: var(--gold-deep) !important;
-      font-weight: 700;
-      transition: var(--transition);
-    }
-
-    .nav-cta:hover {
-      background: var(--gold-primary);
-      color: var(--charcoal) !important;
-      border-color: var(--gold-primary);
-      transform: translateY(-2px);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--gold-primary);
-      cursor: pointer;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background: linear-gradient(125deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 100%), url('hero.png') center/cover no-repeat fixed;
-      padding: 8rem 0 6rem;
-    }
-
-    .hero-content {
-      max-width: 750px;
-    }
-
-    .hero-sub {
-      font-size: 0.8rem;
-      letter-spacing: 4px;
-      color: var(--gold-primary);
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 7vw, 5rem);
-      font-weight: 800;
-      color: white;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2.5rem;
-      max-width: 550px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--gold-primary);
-      color: var(--charcoal);
-      padding: 0.9rem 2.2rem;
-      border-radius: var(--border-radius-btn);
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      transition: var(--transition);
-      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-deep);
-      transform: translateY(-3px);
-      box-shadow: 0 20px 25px -12px black;
-    }
-
-    .btn-outline {
-      border: 1.5px solid var(--gold-primary);
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(4px);
-      color: white;
-      padding: 0.9rem 2rem;
-      border-radius: var(--border-radius-btn);
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .btn-outline:hover {
-      background: var(--gold-primary);
-      color: var(--charcoal);
-      border-color: var(--gold-primary);
-      transform: translateY(-3px);
-    }
-
-    .stats-section {
-      margin-top: -3rem;
-      position: relative;
-      z-index: 15;
-    }
-
-    .stats-bar {
-      background: linear-gradient(135deg, #0F1922 0%, #1A2A32 100%);
-      border-radius: 2rem;
-      padding: 2rem 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .stat-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(212, 175, 55, 0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-    }
-
-    .stat-icon i {
-      font-size: 1.6rem;
-      color: var(--gold-primary);
-    }
-
-    .stat-content h3 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: white;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .stat-content p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-    }
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin: 4rem 0 3rem;
-    }
-
-    .pillar-card {
-      background: var(--off-white);
-      border-radius: var(--border-radius-card);
-      padding: 2rem 1.8rem;
-      text-align: center;
-      transition: var(--transition);
-      border: 1px solid #EBE5DC;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold-primary);
-      box-shadow: var(--shadow-md);
-    }
-
-    .pillar-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--charcoal);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-
-    .pillar-icon i {
-      font-size: 2rem;
-      color: var(--gold-primary);
-    }
-
-    .pillar-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .who-section {
-      padding: 5rem 0;
-      background: linear-gradient(120deg, var(--stone) 0%, #ffffff 100%);
-    }
-
-    .who-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .who-heading {
-      font-size: 3.2rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    .who-line {
-      width: 70px;
-      height: 3px;
-      background: var(--gold-primary);
-      margin: 1rem 0 1.8rem;
-    }
-
-    .who-content p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .who-link-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .who-link-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(212, 175, 55, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-primary);
-    }
-
-    .who-link-item a {
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--charcoal);
-      transition: 0.2s;
-    }
-
-    .who-link-item a:hover {
-      color: var(--gold-deep);
-    }
-
-    .who-image-card {
-      position: relative;
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .who-image-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .who-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, #0B1420cc, #0B142066 40%, transparent);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 2rem;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .feature-card {
-      background: white;
-      border-radius: 1.8rem;
-      padding: 1.8rem;
-      transition: var(--transition);
-      border: 1px solid #EDE6DC;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .feature-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--charcoal);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-    }
-
-    .feature-icon i {
-      font-size: 1.6rem;
-      color: var(--gold-primary);
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .focus-card {
-      background: white;
-      border-radius: 1.8rem;
-      overflow: hidden;
-      transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
-      border: 1px solid #EFE8E0;
-    }
-
-    .focus-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold-primary);
-    }
-
-    .focus-image-wrapper {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 1 / 0.9;
-    }
-
-    .focus-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .focus-card:hover .focus-img {
-      transform: scale(1.06);
-    }
-
-    .image-bottom-icon {
-      position: absolute;
-      bottom: -18px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold-primary);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--charcoal);
-      font-size: 1.3rem;
-      border: 3px solid white;
-    }
-
-    .focus-card h3 {
-      font-size: 1.3rem;
-      padding: 1rem 1rem 0;
-      margin-top: 1rem;
-    }
-
-    .focus-card p {
-      padding: 0 1rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .focus-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 1rem 1rem 1.5rem;
-      text-decoration: none;
-      font-weight: 700;
-      color: var(--gold-deep);
-    }
-
-    .esg-section {
-      background: var(--charcoal);
-      color: white;
-      padding: 5rem 0;
-    }
-
-    .esg-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .esg-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(8px);
-      border-radius: 1.8rem;
-      padding: 2rem 1.5rem;
-      transition: var(--transition);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .esg-card:hover {
-      background: rgba(212, 175, 55, 0.08);
-      transform: translateY(-5px);
-      border-color: var(--gold-primary);
-    }
-
-    .esg-icon {
-      font-size: 2.2rem;
-      color: var(--gold-primary);
-      margin-bottom: 1.2rem;
-    }
-
-    /* FOOTER - MATCHES SERVICE.HTML */
-
-    .footer{
-      background:
-      radial-gradient(circle at top left, rgba(200,163,55,.10), transparent 30%),
-      linear-gradient(135deg,#F7F9FC 0%, #EEF3F8 50%, #F8FBFF 100%);
-      padding:90px 0 35px;
-      border-top:1px solid rgba(200,163,55,.15);
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:50px;
-      align-items:start;
-      margin-bottom:55px;
-    }
-
-    .footer-col{
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-
-    .footer-col h4{
-      margin-bottom:24px;
-      color:#10213A;
-      font-size:1rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      min-height:24px;
-      display:flex;
-      align-items:center;
-      font-family:'Plus Jakarta Sans', sans-serif;
-    }
-
-    .footer-brand p{
-      color:#5B6678;
-      line-height:1.9;
-      max-width:360px;
-    }
-
-    .footer-links{
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .footer-links li{
-      margin:0;
-    }
-
-    .footer-links a{
-      text-decoration:none;
-      color:#5B6678;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      transition:.3s;
-      min-height:22px;
-    }
-
-    .footer-links a:hover{
-      color:var(--gold-primary);
-      transform:translateX(5px);
-    }
-
-    .social-icons{
-      display:flex;
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .social-icons a{
-      width:42px;
-      height:42px;
-      border-radius:50%;
-      background:#fff;
-      border:1px solid rgba(200,163,55,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--gold-primary);
-      text-decoration:none;
-      transition:.3s;
-      box-shadow:0 8px 18px rgba(0,0,0,.04);
-      flex-shrink:0;
-    }
-
-    .social-icons a:hover{
-      background:var(--gold-primary);
-      color:#fff;
-      transform:translateY(-4px);
-    }
-
-    .footer-wrike-simple{
-      display:flex;
-      flex-direction:column;
-      gap:22px;
-      padding-top:2px;
-    }
-
-    .wrike-logo-line{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-weight:700;
-      color:#10213A;
-      font-size:1rem;
-      min-height:48px;
-    }
-
-    .wrike-logo-line i{
-      width:48px;
-      height:48px;
-      border-radius:14px;
-      background:#FFFFFF;
-      border:1px solid rgba(200,163,55,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--gold-primary);
-      font-size:1.2rem;
-      box-shadow:0 8px 18px rgba(0,0,0,.04);
-      flex-shrink:0;
-    }
-
-    .footer-wrike-btn{
-      width:fit-content;
-      background:linear-gradient(135deg,#C8A337,#D8B653);
-      color:#fff;
-      text-decoration:none;
-      padding:12px 22px;
-      border-radius:40px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      transition:.3s;
-      box-shadow:0 10px 20px rgba(200,163,55,.18);
-    }
-
-    .footer-wrike-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 14px 28px rgba(200,163,55,.28);
-    }
-
-    .footer-bottom{
-      border-top:1px solid rgba(16,33,58,.08);
-      padding-top:28px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:20px;
-      color:#7B8794;
-      font-size:.82rem;
-    }
-
-    @media (max-width: 1024px) {
-      .pillars-grid, .focus-grid, .esg-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .who-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .footer-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        height: calc(100vh - 70px);
-        background: var(--pure-white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        transition: 0.3s ease;
-        gap: 1.5rem;
-        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .nav-links a {
-        font-size: 1.1rem;
-      }
-
-      .stats-bar {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .pillars-grid, .focus-grid, .esg-grid, .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn-primary, .btn-outline {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .footer-bottom{
-        flex-direction:column;
-        text-align:center;
-      }
-    }
-
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--gold-primary);
-      padding: 8px;
-      z-index: 1002;
-      text-decoration: none;
-      color: black;
-    }
-
-    .skip-link:focus { top: 0; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --primary:#0d1b2a;
+      --secondary:#1b263b;
+      --accent:#415a77;
+      --soft:#778da9;
+      --light:#e0e1dd;
+      --panel:#f7f9fb;
+      --white:#ffffff;
+      --gold:#d4a24c;
+      --gold-deep:#b88324;
+      --text:#1b263b;
+      --muted:#5d6876;
+      --border:rgba(255,255,255,.14);
+      --shadow:0 18px 45px rgba(13,27,42,.14);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;background:var(--light);color:var(--text);line-height:1.45;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1180px,92%);margin:auto}
+
+    .skip-link{position:absolute;top:-40px;left:0;background:var(--gold);padding:8px 14px;z-index:100;color:#111;font-weight:800}
+    .skip-link:focus{top:0}
+
+    header{height:86px;background:rgba(13,27,42,.96);backdrop-filter:blur(12px);display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;width:min(1180px,92%);margin:auto;gap:24px}
+    .brand{display:flex;align-items:center;gap:16px;color:#fff;min-width:max-content}
+    .brand-mark{width:74px;height:52px;position:relative;border-bottom:3px solid var(--gold)}
+    .brand-mark:before,.brand-mark:after{content:"";position:absolute;border-left:38px solid transparent;border-right:38px solid transparent;border-bottom:48px solid transparent;left:-1px;top:0}
+    .brand-mark:before{border-bottom-color:var(--gold)}
+    .brand-mark:after{border-left-width:31px;border-right-width:31px;border-bottom:38px solid var(--primary);left:6px;top:7px}
+    .brand-mark span{position:absolute;z-index:2;left:16px;top:26px;width:42px;height:2px;background:var(--gold);box-shadow:0 -8px 0 var(--gold),0 8px 0 var(--gold);transform:skewX(-25deg)}
+    .brand-title{font-size:15px;letter-spacing:1.5px;font-weight:900;line-height:1.12;text-transform:uppercase}.brand-title small{display:block;font-size:12px;color:#c8d2de;letter-spacing:1px;font-weight:600;margin-top:3px}
+    .menu{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#f3f3f3;font-weight:700}
+    .menu a{position:relative;white-space:nowrap}.menu a.active,.menu a:hover{color:var(--gold)}
+    .menu a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s}.menu a:hover:after,.menu a.active:after{width:100%}
+    .menu-toggle{display:none;background:none;border:0;color:var(--gold);font-size:26px;cursor:pointer}
+
+    .hero{min-height:560px;background:linear-gradient(90deg,rgba(13,27,42,.86) 0%,rgba(27,38,59,.55) 48%,rgba(13,27,42,.08) 100%),url('hero.png');background-size:cover;background-position:center;display:flex;align-items:center;position:relative}
+    .hero-content{max-width:760px;padding:76px 0}
+    .hero-kicker{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:800;margin-bottom:18px}
+    .hero h1{font-size:clamp(38px,6vw,68px);line-height:1.02;text-transform:uppercase;letter-spacing:.5px;font-weight:900;color:#fff;max-width:850px}
+    .hero h1 span{color:var(--gold)}
+    .eyeline{height:1px;background:var(--gold);width:min(360px,80%);margin:24px 0}
+    .hero p{font-size:18px;max-width:670px;color:#e8edf3;margin-bottom:30px;font-weight:500}
+    .btns{display:flex;gap:16px;flex-wrap:wrap}.btn{padding:15px 23px;text-transform:uppercase;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.22);display:inline-flex;gap:12px;align-items:center;background:rgba(255,255,255,.08);color:#fff;transition:.25s}.btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.14)}.btn.gold{background:var(--gold);color:#111;border-color:var(--gold)}.btn.gold:hover{background:#e0af58}
+
+    .sector-approach{display:grid;grid-template-columns:1.03fr 1fr;background:#fff;border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 14px 35px rgba(0,0,0,.06)}
+    .sectors{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:34px 0 34px 52px;background:var(--secondary);color:#fff}.sector{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.13)}.sector:last-child{border-right:0}.icon{height:66px;margin:auto auto 14px;color:var(--gold);font-size:42px;line-height:1;display:grid;place-items:center}.sector h3{font-size:14px;text-transform:uppercase;margin-bottom:8px;letter-spacing:.6px}.sector p{font-size:12px;color:#d6dee8;line-height:1.42}
+    .approach{background:#f9fafb;color:#1b263b;display:grid;grid-template-columns:1fr 300px;min-height:230px;overflow:hidden}.approach-text{padding:30px 0 24px 36px}.label{color:var(--gold);text-transform:uppercase;font-size:14px;font-weight:900;letter-spacing:.8px;margin-bottom:8px}.approach h2,.excellence h2,.why h2,.section-heading{font-size:34px;line-height:1.04;font-weight:900;letter-spacing:-.6px}.approach p{font-size:13px;margin-top:14px;max-width:430px;font-weight:650;color:#2f2f2f;line-height:1.65}.approach-img{background:linear-gradient(rgba(255,255,255,.04),rgba(255,255,255,.04)),url('who-we-are.png');background-size:cover;background-position:center;border-top-left-radius:180px;border-bottom-left-radius:180px;margin:18px 0;border-left:4px solid var(--gold)}
+
+    .why{padding:54px 0;background:linear-gradient(90deg,#0d1b2a 0%,#1b263b 52%,#415a77 100%);color:#fff}.center{text-align:center}.why h2{margin-bottom:32px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:0}.feature{padding:0 28px;text-align:center;border-right:1px solid rgba(255,255,255,.16)}.feature:last-child{border:0}.feature .icon{height:58px;font-size:38px}.feature h3{font-size:15px;text-transform:uppercase;margin-bottom:9px}.feature p{font-size:13px;color:#dce4ec;line-height:1.48}
+
+    .split{display:grid;grid-template-columns:1.18fr .92fr;background:#fff}.excellence{background:#f7f9fb;color:#1b263b;min-height:365px;display:grid;grid-template-columns:1fr 330px;overflow:hidden}.excellence-text{padding:46px 20px 38px 55px}.excellence p{font-size:14px;font-weight:650;margin:18px 0;max-width:390px;color:#2f3742;line-height:1.65}.excellence-img{background:url('s.png');background-size:cover;background-position:center;border-top-left-radius:180px;margin:25px 0;border-left:3px solid var(--gold)}
+    .png{background:linear-gradient(rgba(13,27,42,.48),rgba(27,38,59,.78)),url('sustainability.png');background-size:cover;background-position:center;padding:38px 40px;color:#fff;text-align:center;border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;justify-content:center}.png h2{font-size:34px;line-height:1.05;margin-bottom:22px}.map{font-size:82px;color:var(--gold);letter-spacing:2px;margin:12px 0 30px;text-shadow:0 4px 20px rgba(0,0,0,.42);font-weight:900}.png-icons{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.18);backdrop-filter:blur(4px)}.png-icons div{padding:18px 8px;border-right:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:800;text-transform:uppercase}.png-icons div:last-child{border:0}.png-icons span{display:block;color:var(--gold);font-size:28px;margin-bottom:5px}
+
+    .focus-panel{padding:56px 0;background:#fff}.focus-grid{display:grid;grid-template-columns:repeat(4,1fr);box-shadow:var(--shadow);border:1px solid rgba(13,27,42,.08);margin-top:26px}.focus-card{background:#fff;min-height:330px;border-right:1px solid rgba(13,27,42,.09);display:flex;flex-direction:column}.focus-card:last-child{border-right:0}.focus-img{height:150px;background-size:cover;background-position:center}.focus-body{padding:22px}.focus-card h3{font-size:16px;text-transform:uppercase;margin-bottom:10px}.focus-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:auto}.focus-link{display:inline-flex;gap:8px;align-items:center;margin-top:18px;color:var(--gold-deep);font-weight:900;font-size:13px;text-transform:uppercase}
+
+    footer{background:#0d1b2a;padding:42px 0 16px;border-top:1px solid rgba(255,255,255,.08);color:#fff}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.45fr;gap:50px}.footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:18px}.footer-brand .brand-mark{width:66px;height:45px}.footer-brand .brand-mark:before{border-left-width:34px;border-right-width:34px;border-bottom-width:42px}.footer-brand .brand-mark:after{border-left-width:28px;border-right-width:28px;border-bottom-width:33px;left:5px;top:6px}.footer-brand .brand-mark span{left:14px;top:23px;width:38px}.footer h4{font-size:14px;text-transform:uppercase;margin-bottom:18px;letter-spacing:.8px;color:#fff}.footer p,.footer li{font-size:14px;color:#d9e0e7;line-height:1.7}.footer ul{list-style:none}.footer li{margin:8px 0}.footer li a{display:flex;justify-content:space-between;gap:10px}.footer li a:after{content:'›';color:var(--gold)}.footer li a:hover{color:var(--gold)}.social{display:flex;gap:12px;margin-top:20px}.social a{background:var(--gold);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#111;font-size:13px}.contact-line{display:flex;gap:14px;margin-bottom:16px}.contact-line span{color:var(--gold);min-width:18px}.wrike-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;font-weight:900;text-transform:uppercase;font-size:12px;padding:13px 18px;margin-top:15px}.copyright{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:13px;display:flex;justify-content:space-between;font-size:12px;color:#b9c3cf;gap:16px}
+
+    @media(max-width:1040px){.menu{gap:14px;font-size:11px}.sector-approach,.split{grid-template-columns:1fr}.approach,.excellence{grid-template-columns:1fr}.approach-img,.excellence-img{min-height:260px;border-radius:0;margin:0;border-left:0;border-top:4px solid var(--gold)}.sectors{padding-left:0}.footer-grid{grid-template-columns:1fr 1fr}.focus-grid{grid-template-columns:1fr 1fr}.png{border-left:0}}
+    @media(max-width:820px){.menu-toggle{display:block}.menu{position:fixed;top:86px;left:-100%;width:min(340px,88%);height:calc(100vh - 86px);background:var(--primary);flex-direction:column;align-items:flex-start;padding:28px;transition:.3s;box-shadow:20px 0 45px rgba(0,0,0,.2)}.menu.active{left:0}.brand-title{display:none}.hero{min-height:520px}.sectors,.features{grid-template-columns:1fr 1fr}.sector,.feature{border:0;padding:18px}.approach-text,.excellence-text{padding:35px 28px}.footer-grid{grid-template-columns:1fr}.png-icons{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.hero h1{font-size:34px}.hero p{font-size:16px}.btns{flex-direction:column;align-items:flex-start}.sectors,.features,.focus-grid,.png-icons{grid-template-columns:1fr}.copyright{flex-direction:column}.map{font-size:60px}.approach h2,.excellence h2,.why h2,.section-heading{font-size:28px}}
   </style>
 </head>
-
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<header class="header">
-  <div class="container nav">
+<header>
+  <nav>
+    <a class="brand" href="index.html" aria-label="Home">
+      <div class="brand-mark"><span></span></div>
+      <div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div>
+    </a>
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-    <div class="nav-links" id="navLinks">
+    <div class="menu" id="navLinks">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="team.html">Team</a>
       <a href="contact.html">Contact</a>
       <a href="login.html">Login</a>
-      <a href="contact.html" class="nav-cta">Partner →</a>
     </div>
-  </div>
+  </nav>
 </header>
 
 <main id="main-content">
   <section class="hero">
-    <div class="container">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <div class="hero-sub">✦ BOLD. ROOTED. FORWARD.</div>
-        <h1>Redefining Resource<br>Excellence in PNG</h1>
-        <p>A 100% Papua New Guinean-owned company delivering sustainable mining, exploration, and community-first development.</p>
-        <div class="btn-group">
-          <a href="services.html" class="btn-primary">Our Capabilities <i class="fas fa-arrow-right"></i></a>
-          <a href="contact.html" class="btn-outline">Executive Dialogue</a>
-        </div>
+    <div class="container hero-content">
+      <div class="hero-kicker">✦ Bold. Rooted. Forward.</div>
+      <h1>Redefining Resource <span>Excellence</span> in PNG</h1>
+      <div class="eyeline"></div>
+      <p>A nationally owned company delivering responsible mining, exploration, and practical development partnerships across Papua New Guinea.</p>
+      <div class="btns">
+        <a class="btn gold" href="services.html">Our Capabilities ›</a>
+        <a class="btn" href="contact.html">Executive Dialogue ›</a>
       </div>
     </div>
   </section>
 
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-calendar-alt"></i></div><div class="stat-content"><h3>2024</h3><p>Established</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-content"><h3>60+</h3><p>YEARS COMBINED EXPERIENCE</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-map-marker-alt"></i></div><div class="stat-content"><h3>PNG</h3><p>OPERATIONS</p></div></div>
-        <div class="stat-item"><div class="stat-icon"><i class="fas fa-handshake"></i></div><div class="stat-content"><h3>100%</h3><p>COMMITMENT</p></div></div>
+  <section class="sector-approach" id="approach">
+    <div class="sectors">
+      <div class="sector"><div class="icon"><i class="fas fa-compass"></i></div><h3>Exploration Driven</h3><p>High-potential gold and mineral assets across Papua New Guinea.</p></div>
+      <div class="sector"><div class="icon"><i class="fas fa-tools"></i></div><h3>Operational Capability</h3><p>Practical support for project delivery across challenging environments.</p></div>
+      <div class="sector"><div class="icon"><i class="fas fa-handshake"></i></div><h3>Partnership Focus</h3><p>Working with operators, investors, and development partners.</p></div>
+      <div class="sector"><div class="icon"><i class="fas fa-gem"></i></div><h3>Value Creation</h3><p>Long-term shared success for all stakeholders.</p></div>
+    </div>
+    <div class="approach">
+      <div class="approach-text">
+        <div class="label">Our Identity</div>
+        <h2>Building Papua New Guinea’s Tomorrow, Today</h2>
+        <p>Established in 2024, our leadership team brings together geoscientists, development practitioners, and former government executives with 60+ years of combined experience in major national projects.</p>
+      </div>
+      <div class="approach-img" role="img" aria-label="Papua New Guinea landscape and community"></div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container center">
+      <div class="label">Why Trust Us</div>
+      <h2>What Sets Us Apart</h2>
+      <div class="features">
+        <div class="feature"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><h3>Local Insight</h3><p>Strong understanding of PNG’s operating environment and development priorities.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-chalkboard-user"></i></div><h3>Technical Mastery</h3><p>World-class expertise in mining, petroleum, and logistics.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-handshake"></i></div><h3>Unwavering Integrity</h3><p>Ethical operations and transparent governance.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-chart-line"></i></div><h3>Practical Impact</h3><p>Focused on useful outcomes, capacity building, and long-term value.</p></div>
       </div>
     </div>
   </section>
 
-  <div class="container">
-    <div class="pillars-grid" data-aos="fade-up">
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-compass"></i></div><h3>EXPLORATION DRIVEN</h3><p>High-potential gold & mineral assets across PNG.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-flag-checkered"></i></div><h3>PNG ROOTED</h3><p>Proudly national, committed to local prosperity.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-seedling"></i></div><h3>RESPONSIBLE GROWTH</h3><p>Integrity, environment & community first.</p></div>
-      <div class="pillar-card"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>VALUE CREATION</h3><p>Long-term shared success for all stakeholders.</p></div>
+  <section class="split" id="sustainability">
+    <div class="excellence">
+      <div class="excellence-text">
+        <div class="label">Responsible Development</div>
+        <h2>Resources as a Catalyst for Progress</h2>
+        <p>We support resource development that strengthens business opportunities, improves service delivery, and creates practical pathways for people in remote areas.</p>
+        <p>Our approach connects commercial capability with disciplined governance and clear project outcomes.</p>
+        <a class="btn gold" href="services.html">Explore Services ›</a>
+      </div>
+      <div class="excellence-img" role="img" aria-label="Resource development"></div>
     </div>
-  </div>
-
-  <section class="who-section">
-    <div class="container">
-      <div class="who-wrapper" data-aos="fade-right">
-        <div class="who-content">
-          <div class="section-badge"><i class="fas fa-leaf"></i> OUR IDENTITY</div>
-          <h2 class="who-heading">Building Papua New Guinea’s Tomorrow, Today</h2>
-          <div class="who-line"></div>
-          <p>We are a 100% Papua New Guinean-owned company, established in 2024.</p>
-          <p>Our leadership team brings together geoscientists, development practitioners, and former government executives with over 100 years of combined experience in major national projects.</p>
-          <div class="who-links">
-            <div class="who-link-item"><div class="who-link-icon"><i class="fas fa-user-tie"></i></div><a href="about.html">Discover our journey →</a></div>
-            <div class="who-link-item"><div class="who-link-icon"><i class="fas fa-users"></i></div><a href="team.html">Meet the leadership →</a></div>
-          </div>
-        </div>
-        <div class="who-image-card" data-aos="zoom-in">
-          <img src="who-we-are.png" alt="Papua New Guinea landscape and community" width="800" height="600" loading="lazy">
-          <div class="who-image-overlay">
-            <div style="color:var(--gold-primary); letter-spacing:3px;">✦ LOCALLY ROOTED</div>
-            <div style="width:50px; height:2px; background:var(--gold-primary); margin:0.6rem 0 1rem;"></div>
-            <div style="color:white; font-size:1.3rem; font-weight:500;">Proudly investing in PNG’s future through responsible development and partnerships.</div>
-          </div>
-        </div>
+    <div class="png">
+      <div class="label">Supporting the</div>
+      <h2>Future of PNG</h2>
+      <div class="map">PNG</div>
+      <div class="png-icons">
+        <div><span><i class="fas fa-hard-hat"></i></span>Resources</div>
+        <div><span><i class="fas fa-graduation-cap"></i></span>Education</div>
+        <div><span><i class="fas fa-chalkboard"></i></span>Training</div>
+        <div><span><i class="fas fa-leaf"></i></span>Livelihoods</div>
       </div>
     </div>
   </section>
 
-  <section style="padding: 3rem 0 4rem; background: white;">
+  <section class="focus-panel">
     <div class="container">
-      <div class="section-badge"><i class="fas fa-star"></i> WHY TRUST US</div>
-      <div class="feature-grid" data-aos="fade-up">
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-flag-checkered"></i></div><h3>Nationally Owned</h3><p>Deep community roots, aligned with PNG’s development vision.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Technical Mastery</h3><p>World-class expertise in mining, petroleum & logistics.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-handshake"></i></div><h3>Unwavering Integrity</h3><p>Ethical operations, transparent governance.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-seedling"></i></div><h3>Sustainable Growth</h3><p>Empowering local economies and future generations.</p></div>
+      <div class="label">Delivery Areas</div>
+      <h2 class="section-heading">Focused Areas of Delivery</h2>
+      <div class="focus-grid">
+        <article class="focus-card"><div class="focus-img" style="background-image:url('s.png')"></div><div class="focus-body"><h3>Natural Resource Development</h3><p>Responsible exploration to fuel economic progress.</p><a href="services.html" class="focus-link">Explore <i class="fas fa-arrow-right"></i></a></div></article>
+        <article class="focus-card"><div class="focus-img" style="background-image:url('education.png')"></div><div class="focus-body"><h3>Education & Career Pathways</h3><p>Bridging talent to transformative opportunities.</p><a href="services.html" class="focus-link">Learn More <i class="fas fa-arrow-right"></i></a></div></article>
+        <article class="focus-card"><div class="focus-img" style="background-image:url('training.png')"></div><div class="focus-body"><h3>Training & Capacity Building</h3><p>Practical skills for real-world mining and leadership.</p><a href="services.html" class="focus-link">Discover <i class="fas fa-arrow-right"></i></a></div></article>
+        <article class="focus-card"><div class="focus-img" style="background-image:url('sustainability.png')"></div><div class="focus-body"><h3>Sustainable Livelihoods</h3><p>Empowering communities through economic resilience.</p><a href="services.html" class="focus-link">Join Us <i class="fas fa-arrow-right"></i></a></div></article>
       </div>
     </div>
   </section>
 
-  <div class="container" style="margin-bottom: 4rem;">
-    <div class="section-badge"><i class="fas fa-cogs"></i> CORE FOCUS</div>
-    <h2 class="section-title">Strategic Pillars of Impact</h2>
-    <div class="focus-grid" data-aos="fade-up">
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="s.png" alt="Resource Development" class="focus-img" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-hard-hat"></i></div></div><h3>Natural Resource Development</h3><p>Responsible exploration to fuel economic progress.</p><a href="services.html" class="focus-link">Explore <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="education.png" alt="Education" class="focus-img" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-graduation-cap"></i></div></div><h3>Education & Career Pathways</h3><p>Bridging talent to transformative opportunities.</p><a href="services.html" class="focus-link">Learn more <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="training.png" alt="Training" class="focus-img" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-chalkboard"></i></div></div><h3>Training & Capacity Building</h3><p>Practical skills for real-world mining & leadership.</p><a href="services.html" class="focus-link">Discover <i class="fas fa-arrow-right"></i></a></div>
-      <div class="focus-card"><div class="focus-image-wrapper"><img src="sustainability.png" alt="Sustainable Livelihoods" class="focus-img" loading="lazy"><div class="image-bottom-icon"><i class="fas fa-leaf"></i></div></div><h3>Sustainable Livelihoods</h3><p>Empowering communities through economic resilience.</p><a href="services.html" class="focus-link">Join us <i class="fas fa-arrow-right"></i></a></div>
-    </div>
-  </div>
-
-  <section class="esg-section">
-    <div class="container" data-aos="fade-up">
-      <div class="section-badge" style="background: rgba(212,175,55,0.2);">✦ ESG LEADERSHIP</div>
-      <h2 class="section-title" style="color: white;">Sustainability & Governance Excellence</h2>
-      <div class="esg-grid">
-        <div class="esg-card"><i class="fas fa-globe-asia esg-icon"></i><h3>Environmental Stewardship</h3><p>Net-zero commitment, biodiversity protection & water conservation.</p></div>
-        <div class="esg-card"><i class="fas fa-hand-holding-heart esg-icon"></i><h3>Community Partnerships</h3><p>Investing in local infrastructure, healthcare & indigenous empowerment.</p></div>
-        <div class="esg-card"><i class="fas fa-gavel esg-icon"></i><h3>Governance Standards</h3><p>Transparent reporting, anti-corruption & board-level ESG oversight.</p></div>
-        <div class="esg-card"><i class="fas fa-chart-line esg-icon"></i><h3>Sustainable Development</h3><p>Shared value: local procurement, capacity building & diversification.</p></div>
+  <section class="why">
+    <div class="container center">
+      <div class="label">ESG Leadership</div>
+      <h2>Governance & Sustainability Standards</h2>
+      <div class="features">
+        <div class="feature"><div class="icon"><i class="fas fa-globe-asia"></i></div><h3>Environmental Stewardship</h3><p>Net-zero commitment, biodiversity protection, and water conservation.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Community Partnerships</h3><p>Investing in local infrastructure, healthcare, and indigenous empowerment.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-gavel"></i></div><h3>Governance Standards</h3><p>Transparent reporting, anti-corruption, and board-level ESG oversight.</p></div>
+        <div class="feature"><div class="icon"><i class="fas fa-chart-line"></i></div><h3>Development Outcomes</h3><p>Clear reporting, measurable delivery, and practical long-term benefits.</p></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div class="footer-col footer-brand">
-        <h4>Our Commitment</h4>
-        <p>
-          Strategic partner in the extractive industry —
-          locally rooted, globally experienced and committed
-          to sustainable development across Papua New Guinea.
-        </p>
-
-        <div class="social-icons">
-          <a href="#" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-
-          <a href="#" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-
-          <a href="#" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </div>
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand"><div class="brand-mark"><span></span></div><div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div></div>
+      <p>Strategic partner in the extractive industry — combining local knowledge, technical experience, and responsible project delivery across Papua New Guinea.</p>
+      <div class="social">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
-
-      <div class="footer-col">
-        <h4>Explore</h4>
-
-        <ul class="footer-links">
-          <li>
-            <a href="index.html">
-              <i class="fas fa-angle-right"></i>
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="about.html">
-              <i class="fas fa-angle-right"></i>
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="services.html">
-              <i class="fas fa-angle-right"></i>
-              Services
-            </a>
-          </li>
-
-          <li>
-            <a href="team.html">
-              <i class="fas fa-angle-right"></i>
-              Team
-            </a>
-          </li>
-
-          <li>
-            <a href="contact.html">
-              <i class="fas fa-angle-right"></i>
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-
-        <ul class="footer-links">
-          <li>
-            <a href="#">
-              <i class="fas fa-location-dot"></i>
-              Kwalimu Precincts, Waigani, NCD
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fas fa-phone"></i>
-              +675 7XXXXXXX
-            </a>
-          </li>
-
-          <li>
-            <a href="contact.html">
-              <i class="fas fa-envelope"></i>
-              Send enquiry
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Workspace</h4>
-
-        <div class="footer-wrike-simple">
-          <div class="wrike-logo-line">
-            <i class="fas fa-diagram-project"></i>
-            <span>Wrike Workspace</span>
-          </div>
-
-          <a href="https://login.wrike.com/login/"
-             class="footer-wrike-btn"
-             target="_blank"
-             rel="noopener noreferrer">
-            Open Wrike
-            <i class="fas fa-arrow-up-right-from-square"></i>
-          </a>
-        </div>
-      </div>
-
     </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 All rights reserved.</p>
-      <p>“All Dreams are within Reach”</p>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-
+    <div>
+      <h4>Contact</h4>
+      <div class="contact-line"><span><i class="fas fa-location-dot"></i></span><p>Kwalimu Precincts, Waigani, NCD</p></div>
+      <div class="contact-line"><span><i class="fas fa-phone"></i></span><p>+675 7XXXXXXX</p></div>
+      <div class="contact-line"><span><i class="fas fa-envelope"></i></span><p><a href="contact.html">Send enquiry</a></p></div>
+    </div>
+    <div>
+      <h4>Workspace</h4>
+      <p>Wrike Workspace supports project coordination, task tracking, collaboration, and delivery visibility.</p>
+      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">Open Wrike <i class="fas fa-arrow-up-right-from-square"></i></a>
+    </div>
   </div>
+  <div class="container copyright"><span>© 2025 All rights reserved.</span><span>“All Dreams are within Reach”</span></div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 600, once: true, offset: 40 });
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
-  if(menuBtn) {
-    menuBtn.addEventListener('click', () => {
+  if(menuBtn && navLinks){
+    menuBtn.addEventListener('click',()=>{
       const expanded = navLinks.classList.toggle('active');
-      menuBtn.setAttribute('aria-expanded', expanded);
+      menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll('.menu a').forEach(link=>{
+      link.addEventListener('click',()=>{
         navLinks.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-expanded','false');
       });
     });
   }
-  document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
 </script>
-</body> 
+</body>
 </html>
