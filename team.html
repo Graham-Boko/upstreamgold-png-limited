@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
-
     *{
       box-sizing:border-box;
       margin:0;
@@ -323,109 +322,134 @@
 
     footer{
       background:#0d1b2a;
-      padding:42px 0 16px;
-      border-top:1px solid rgba(255,255,255,.08);
       color:#fff;
+      padding:50px 0 18px;
+      border-top:3px solid var(--gold);
     }
 
     .footer-grid{
       display:grid;
-      grid-template-columns:1.5fr 1fr 1fr 1.45fr;
-      gap:50px;
+      grid-template-columns:repeat(3,1fr);
+      gap:40px;
+      align-items:start;
     }
 
-    footer h4{
-      font-size:14px;
-      text-transform:uppercase;
-      margin-bottom:18px;
-      letter-spacing:.8px;
-      color:#fff;
-    }
-
-    footer p,
-    footer li{
-      font-size:14px;
-      color:#d9e0e7;
-      line-height:1.7;
-    }
-
-    footer ul{
-      list-style:none;
-    }
-
-    footer li{
-      margin:8px 0;
-    }
-
-    footer li a{
+    .footer-card{
       display:flex;
-      justify-content:space-between;
-      gap:10px;
+      flex-direction:column;
+      align-items:flex-start;
     }
 
-    footer li a:after{
-      content:'›';
-      color:var(--gold);
-    }
-
-    footer li a:hover{
-      color:var(--gold);
-    }
-
-    .social{
-      display:flex;
-      gap:12px;
-      margin-top:20px;
-    }
-
-    .social a{
-      background:var(--gold);
-      width:30px;
-      height:30px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      color:#111;
+    .footer h4{
       font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--gold);
+      margin-bottom:18px;
+    }
+
+    .footer ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+
+    .footer li{
+      margin-bottom:14px;
+    }
+
+    .footer li a{
+      color:#d9e0e7;
+      font-size:14px;
+      font-weight:400;
+      line-height:1.7;
+      display:block;
+      transition:.25s;
+    }
+
+    .footer li a:hover{
+      color:var(--gold);
     }
 
     .contact-line{
       display:flex;
-      gap:14px;
-      margin-bottom:16px;
+      gap:12px;
+      margin-bottom:14px;
+      align-items:flex-start;
     }
 
     .contact-line span{
       color:var(--gold);
-      min-width:18px;
+      margin-top:4px;
+    }
+
+    .footer p{
+      color:#d9e0e7;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .footer-card > p{
+      margin-bottom:12px;
+    }
+
+    .social-links{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .social-links a{
+      width:38px;
+      height:38px;
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      font-size:15px;
+      transition:.25s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--gold);
+      color:#111;
+      border-color:var(--gold);
     }
 
     .wrike-btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       background:var(--gold);
       color:#111;
-      font-weight:900;
-      text-transform:uppercase;
+      padding:12px 18px;
       font-size:12px;
-      padding:13px 18px;
-      margin-top:15px;
+      font-weight:800;
+      text-transform:uppercase;
+      margin-top:8px;
+      width:max-content;
+      transition:.25s ease;
+    }
+
+    .wrike-btn:hover{
+      background:#e0af58;
+      transform:translateY(-2px);
     }
 
     .copyright{
-      border-top:1px solid rgba(255,255,255,.12);
       margin-top:30px;
-      padding-top:13px;
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,.12);
       display:flex;
       justify-content:space-between;
+      gap:20px;
       font-size:12px;
       color:#b9c3cf;
-      gap:16px;
     }
 
     @media(max-width:1040px){
-
       .menu{
         gap:14px;
         font-size:11px;
@@ -443,7 +467,6 @@
     }
 
     @media(max-width:820px){
-
       nav{
         justify-content:space-between;
       }
@@ -477,14 +500,25 @@
       .section{
         padding:54px 0;
       }
+    }
 
+    @media(max-width:768px){
       .footer-grid{
         grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      .footer-card{
+        text-align:left;
+      }
+
+      .copyright{
+        flex-direction:column;
+        text-align:center;
       }
     }
 
     @media(max-width:560px){
-
       .hero h1{
         font-size:34px;
       }
@@ -502,21 +536,14 @@
       .section-heading{
         font-size:28px;
       }
-
-      .copyright{
-        flex-direction:column;
-      }
     }
-
   </style>
 </head>
 
 <body>
 
 <header>
-
   <nav>
-
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
       <i class="fas fa-bars"></i>
     </button>
@@ -528,17 +555,13 @@
       <a href="team.html" class="active">Team</a>
       <a href="contact.html">Contact</a>
     </div>
-
   </nav>
-
 </header>
 
 <main>
 
   <section class="hero">
-
     <div class="container hero-content">
-
       <div class="hero-kicker">
         ✦ Governance. Leadership. Expertise.
       </div>
@@ -553,13 +576,10 @@
         Meet the leadership, management, and technical professionals supporting responsible resource development,
         operational delivery, and long-term value creation in Papua New Guinea.
       </p>
-
     </div>
-
   </section>
 
   <section class="section">
-
     <div class="container">
 
       <div class="label">
@@ -573,7 +593,6 @@
       <div class="board-grid">
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -583,11 +602,9 @@
           <div class="role">
             Shareholder
           </div>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -600,7 +617,6 @@
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -610,11 +626,9 @@
           <div class="role">
             Shareholder
           </div>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user-tie"></i>
           </div>
@@ -624,11 +638,9 @@
           <div class="role">
             Independent
           </div>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -643,11 +655,9 @@
       </div>
 
     </div>
-
   </section>
 
   <section class="section alt">
-
     <div class="container">
 
       <div class="label">
@@ -661,7 +671,6 @@
       <div class="management-grid">
 
         <article class="card management-card ceo-card">
-
           <div class="avatar">
             <i class="fas fa-user-tie"></i>
           </div>
@@ -677,11 +686,9 @@
           <p>
             Leads overall company direction, corporate vision, stakeholder relationships, and strategic partnerships.
           </p>
-
         </article>
 
         <article class="card management-card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -697,11 +704,9 @@
           <p>
             Coordinates daily operations, administration, documentation, and internal support across company activities.
           </p>
-
         </article>
 
         <article class="card management-card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -717,11 +722,9 @@
           <p>
             Leads exploration programs, field logistics, technical planning, and greenfields target generation.
           </p>
-
         </article>
 
         <article class="card management-card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -737,17 +740,14 @@
           <p>
             Provides geological analysis, resource modelling, technical assurance, and professional advisory support.
           </p>
-
         </article>
 
       </div>
 
     </div>
-
   </section>
 
   <section class="section">
-
     <div class="container">
 
       <div class="label">
@@ -761,7 +761,6 @@
       <div class="technical-grid">
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -777,11 +776,9 @@
           <p>
             Leads hydrocarbon exploration, basin analysis, technical interpretation, and drilling program support.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -797,11 +794,9 @@
           <p>
             Directs mineral exploration, resource definition, field planning, and project advancement activities.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -817,11 +812,9 @@
           <p>
             Manages community engagement, local content coordination, and social performance programs.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -837,11 +830,9 @@
           <p>
             Specialist in geological mapping, geochemical sampling, target generation, and exploration reporting.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="avatar">
             <i class="fas fa-user"></i>
           </div>
@@ -857,52 +848,20 @@
           <p>
             Experienced in geophysical interpretation, resource modelling, and technical evaluation workflows.
           </p>
-
         </article>
 
       </div>
 
     </div>
-
   </section>
 
 </main>
 
-<footer>
-
+<footer class="footer">
   <div class="container footer-grid">
 
-    <div>
-
-      <p>
-        Strategic partner in the extractive industry — combining local knowledge, technical experience,
-        and responsible project delivery across Papua New Guinea.
-      </p>
-
-      <div class="social">
-
-        <a href="#" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-
-        <a href="#" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-
-        <a href="#" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-
-      </div>
-
-    </div>
-
-    <div>
-
-      <h4>
-        Explore
-      </h4>
-
+    <div class="footer-card">
+      <h4>Explore</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -910,18 +869,14 @@
         <li><a href="team.html">Team</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
     </div>
 
-    <div>
-
-      <h4>
-        Contact
-      </h4>
+    <div class="footer-card">
+      <h4>Contact</h4>
 
       <div class="contact-line">
         <span><i class="fas fa-location-dot"></i></span>
-        <p>Kwalimu Precincts, Waigani, NCD</p>
+        <p>Kwalimu Precincts, Ground Level, Somare Circuit, Waigani, NCD</p>
       </div>
 
       <div class="contact-line">
@@ -934,23 +889,26 @@
         <p><a href="contact.html">Send enquiry</a></p>
       </div>
 
+      <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
     </div>
 
-    <div>
-
-      <h4>
-        Workspace
-      </h4>
-
+    <div class="footer-card">
+      <h4>Workspace</h4>
       <p>
-        Wrike Workspace supports project coordination, task tracking,
-        collaboration, and delivery visibility.
+        Wrike Workspace supports our project coordination, task tracking, collaboration, and delivery visibility.
       </p>
 
       <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
         Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
       </a>
-
     </div>
 
   </div>
@@ -959,44 +917,33 @@
     <span>© 2025 All rights reserved.</span>
     <span>“All Dreams are within Reach”</span>
   </div>
-
 </footer>
 
 <script>
-
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
 
   if(menuBtn && navLinks){
-
     menuBtn.addEventListener('click',()=>{
-
       const expanded = navLinks.classList.toggle('active');
 
       menuBtn.setAttribute(
         'aria-expanded',
         expanded ? 'true' : 'false'
       );
-
     });
 
     document.querySelectorAll('.menu a').forEach(link=>{
-
       link.addEventListener('click',()=>{
-
         navLinks.classList.remove('active');
 
         menuBtn.setAttribute(
           'aria-expanded',
           'false'
         );
-
       });
-
     });
-
   }
-
 </script>
 
 </body>
