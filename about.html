@@ -466,51 +466,50 @@
     }
 
     footer{
-      background:var(--primary);
+      background:#0d1b2a;
       color:#fff;
-      padding:38px 0 18px;
+      padding:50px 0 18px;
+      border-top:3px solid var(--gold);
     }
 
     .footer-grid{
       display:grid;
-      grid-template-columns:1.4fr 1.2fr 1.2fr 1fr;
-      gap:35px;
-      padding-bottom:30px;
-      border-bottom:1px solid rgba(255,255,255,.15);
+      grid-template-columns:repeat(3,1fr);
+      gap:40px;
+      align-items:start;
     }
 
-    footer h4{
-      color:var(--gold);
+    .footer-card{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+
+    .footer h4{
       font-size:13px;
       text-transform:uppercase;
-      margin-bottom:15px;
-      font-weight:900;
-    }
-
-    footer p,
-    footer a{
-      color:#dbe3ec;
-      font-size:13px;
+      letter-spacing:1px;
+      color:var(--gold);
+      margin-bottom:18px;
     }
 
     .footer ul{
       list-style:none;
+      margin:0;
       padding:0;
     }
 
     .footer li{
-      margin:8px 0;
+      margin-bottom:14px;
     }
 
     .footer li a{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-    }
-
-    .footer li a:after{
-      content:'›';
-      color:var(--gold);
+      color:#d9e0e7;
+      font-size:14px;
+      font-weight:400;
+      line-height:1.7;
+      display:block;
+      transition:.25s;
     }
 
     .footer li a:hover{
@@ -520,66 +519,94 @@
     .contact-line{
       display:flex;
       gap:12px;
-      margin-bottom:10px;
+      margin-bottom:14px;
       align-items:flex-start;
     }
 
-    .contact-line i{
+    .contact-line span{
       color:var(--gold);
-      margin-top:3px;
+      margin-top:4px;
     }
 
-    .social{
+    .footer p{
+      color:#d9e0e7;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .footer-card > p{
+      margin-bottom:12px;
+    }
+
+    .social-links{
       display:flex;
       gap:12px;
       margin-top:18px;
     }
 
-    .social a{
-      width:34px;
-      height:34px;
-      border:1px solid var(--gold);
-      border-radius:50%;
+    .social-links a{
+      width:38px;
+      height:38px;
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
       color:var(--gold);
-      display:grid;
-      place-items:center;
-      font-size:13px;
+      font-size:15px;
+      transition:.25s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--gold);
+      color:#111;
+      border-color:var(--gold);
     }
 
     .wrike-btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       background:var(--gold);
       color:#111;
-      font-weight:900;
-      text-transform:uppercase;
+      padding:12px 18px;
       font-size:12px;
-      padding:13px 18px;
-      margin-top:15px;
+      font-weight:800;
+      text-transform:uppercase;
+      margin-top:8px;
+      width:max-content;
+      transition:.25s ease;
+    }
+
+    .wrike-btn:hover{
+      background:#e0af58;
+      transform:translateY(-2px);
     }
 
     .copyright{
-      border-top:1px solid rgba(255,255,255,.12);
       margin-top:30px;
-      padding-top:13px;
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,.12);
       display:flex;
       justify-content:space-between;
+      gap:20px;
       font-size:12px;
       color:#b9c3cf;
-      gap:16px;
     }
 
     @media(max-width:1040px){
       .wrike-card{
         grid-template-columns:1fr;
       }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
     }
 
     @media(max-width:980px){
       .identity-grid{grid-template-columns:1fr}
       .values-grid{grid-template-columns:1fr 1fr}
-      .footer-grid{grid-template-columns:1fr 1fr}
     }
 
     @media(max-width:820px){
@@ -619,6 +646,20 @@
       .wrike-feature{
         min-height:auto;
       }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      .footer-card{
+        text-align:left;
+      }
+
+      .copyright{
+        flex-direction:column;
+        text-align:center;
+      }
     }
 
     @media(max-width:560px){
@@ -626,8 +667,6 @@
       .hero{min-height:500px}
       .values-grid{grid-template-columns:1fr}
       .value-card{border-right:none;border-bottom:1px solid var(--line)}
-      .footer-grid{grid-template-columns:1fr}
-      .copyright{flex-direction:column}
     }
   </style>
 </head>
@@ -829,25 +868,10 @@
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="container footer-grid">
 
-    <div>
-      <div class="footer-brand"></div>
-
-      <p>
-        Strategic partner in the extractive industry — combining local knowledge,
-        technical experience, and responsible project delivery across Papua New Guinea.
-      </p>
-
-      <div class="social">
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      </div>
-    </div>
-
-    <div>
+    <div class="footer-card">
       <h4>Explore</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -858,7 +882,7 @@
       </ul>
     </div>
 
-    <div>
+    <div class="footer-card">
       <h4>Contact</h4>
 
       <div class="contact-line">
@@ -867,17 +891,29 @@
       </div>
 
       <div class="contact-line">
+        <span><i class="fas fa-phone"></i></span>
+        <p>+675 7XXXXXXX</p>
+      </div>
+
+      <div class="contact-line">
         <span><i class="fas fa-envelope"></i></span>
-        <p>xxxxxx@gmail.com</p>
+        <p><a href="contact.html">Send enquiry</a></p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
       </div>
     </div>
 
-    <div>
+    <div class="footer-card">
       <h4>Workspace</h4>
-
-      <p>
-        Wrike Workspace supports project coordination, task tracking, collaboration, and delivery visibility.
-      </p>
+      <p>Wrike Workspace supports our project coordination, task tracking, collaboration, and delivery visibility.</p>
 
       <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
         Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
@@ -887,7 +923,7 @@
   </div>
 
   <div class="container copyright">
-    <span>© 2026 All rights reserved.</span>
+    <span>© 2025 All rights reserved.</span>
     <span>“All Dreams are within Reach”</span>
   </div>
 </footer>
