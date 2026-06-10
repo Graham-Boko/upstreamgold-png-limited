@@ -298,105 +298,131 @@
 
     footer{
       background:#0d1b2a;
-      padding:42px 0 16px;
-      border-top:1px solid rgba(255,255,255,.08);
       color:#fff;
+      padding:50px 0 18px;
+      border-top:3px solid var(--gold);
     }
 
     .footer-grid{
       display:grid;
-      grid-template-columns:1.5fr 1fr 1fr 1.45fr;
-      gap:50px;
+      grid-template-columns:repeat(3,1fr);
+      gap:40px;
+      align-items:start;
     }
 
-    footer h4{
-      font-size:14px;
-      text-transform:uppercase;
-      margin-bottom:18px;
-      letter-spacing:.8px;
-      color:#fff;
-    }
-
-    footer p,
-    footer li{
-      font-size:14px;
-      color:#d9e0e7;
-      line-height:1.7;
-    }
-
-    footer ul{
-      list-style:none;
-    }
-
-    footer li{
-      margin:8px 0;
-    }
-
-    footer li a{
+    .footer-card{
       display:flex;
-      justify-content:space-between;
-      gap:10px;
+      flex-direction:column;
+      align-items:flex-start;
     }
 
-    footer li a:after{
-      content:'›';
-      color:var(--gold);
-    }
-
-    footer li a:hover{
-      color:var(--gold);
-    }
-
-    .social{
-      display:flex;
-      gap:12px;
-      margin-top:20px;
-    }
-
-    .social a{
-      background:var(--gold);
-      width:30px;
-      height:30px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      color:#111;
+    .footer h4{
       font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--gold);
+      margin-bottom:18px;
+    }
+
+    .footer ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+
+    .footer li{
+      margin-bottom:14px;
+    }
+
+    .footer li a{
+      color:#d9e0e7;
+      font-size:14px;
+      font-weight:400;
+      line-height:1.7;
+      display:block;
+      transition:.25s;
+    }
+
+    .footer li a:hover{
+      color:var(--gold);
     }
 
     .contact-line{
       display:flex;
-      gap:14px;
-      margin-bottom:16px;
+      gap:12px;
+      margin-bottom:14px;
+      align-items:flex-start;
     }
 
     .contact-line span{
       color:var(--gold);
-      min-width:18px;
+      margin-top:4px;
+    }
+
+    .footer p{
+      color:#d9e0e7;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .footer-card > p{
+      margin-bottom:12px;
+    }
+
+    .social-links{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .social-links a{
+      width:38px;
+      height:38px;
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      font-size:15px;
+      transition:.25s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--gold);
+      color:#111;
+      border-color:var(--gold);
     }
 
     .wrike-btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       background:var(--gold);
       color:#111;
-      font-weight:900;
-      text-transform:uppercase;
+      padding:12px 18px;
       font-size:12px;
-      padding:13px 18px;
-      margin-top:15px;
+      font-weight:800;
+      text-transform:uppercase;
+      margin-top:8px;
+      width:max-content;
+      transition:.25s ease;
+    }
+
+    .wrike-btn:hover{
+      background:#e0af58;
+      transform:translateY(-2px);
     }
 
     .copyright{
-      border-top:1px solid rgba(255,255,255,.12);
       margin-top:30px;
-      padding-top:13px;
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,.12);
       display:flex;
       justify-content:space-between;
+      gap:20px;
       font-size:12px;
       color:#b9c3cf;
-      gap:16px;
     }
 
     @media(max-width:1040px){
@@ -445,9 +471,21 @@
         background-size:cover;
         background-position:center;
       }
+    }
 
+    @media(max-width:768px){
       .footer-grid{
         grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      .footer-card{
+        text-align:left;
+      }
+
+      .copyright{
+        flex-direction:column;
+        text-align:center;
       }
     }
 
@@ -470,10 +508,6 @@
 
       .service-card{
         min-height:auto;
-      }
-
-      .copyright{
-        flex-direction:column;
       }
     }
   </style>
@@ -585,35 +619,11 @@
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="container footer-grid">
 
-    <div>
-      <div class="footer-brand"></div>
-
-      <p>
-        Strategic partner in the extractive industry — combining local knowledge,
-        technical experience, and responsible project delivery across Papua New Guinea.
-      </p>
-
-      <div class="social">
-        <a href="#" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-
-        <a href="#" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-
-        <a href="#" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-      </div>
-    </div>
-
-    <div>
+    <div class="footer-card">
       <h4>Explore</h4>
-
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -623,12 +633,12 @@
       </ul>
     </div>
 
-    <div>
+    <div class="footer-card">
       <h4>Contact</h4>
 
       <div class="contact-line">
         <span><i class="fas fa-location-dot"></i></span>
-        <p>Kwalimu Precincts, Waigani, NCD</p>
+        <p>Kwalimu Precincts, Ground Level, Somare Circuit, Waigani, NCD</p>
       </div>
 
       <div class="contact-line">
@@ -640,14 +650,22 @@
         <span><i class="fas fa-envelope"></i></span>
         <p><a href="contact.html">Send enquiry</a></p>
       </div>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
     </div>
 
-    <div>
+    <div class="footer-card">
       <h4>Workspace</h4>
-
       <p>
-        Wrike Workspace supports project coordination, task tracking,
-        collaboration, and delivery visibility.
+        Wrike Workspace supports our project coordination, task tracking, collaboration, and delivery visibility.
       </p>
 
       <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
