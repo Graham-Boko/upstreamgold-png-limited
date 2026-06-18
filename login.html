@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Login Page</title>
+  <title>Log In</title>
+  <meta name="description" content="Secure access page for the company dashboard." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +13,7 @@
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
+
     :root{
       --primary:#0d1b2a;
       --secondary:#1b263b;
@@ -26,6 +28,7 @@
       --muted:#5d6876;
       --border:rgba(255,255,255,.14);
       --shadow:0 18px 45px rgba(13,27,42,.14);
+      --shadow-strong:0 24px 55px rgba(13,27,42,.18);
     }
 
     html{scroll-behavior:smooth}
@@ -36,10 +39,11 @@
       color:var(--text);
       line-height:1.5;
       overflow-x:hidden;
+      min-height:100vh;
     }
 
     a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+    button,input{font-family:inherit}
     .container{width:min(1180px,92%);margin:auto}
 
     .skip-link{
@@ -55,79 +59,117 @@
 
     .skip-link:focus{top:0}
 
-    header{height:86px;background:rgba(13,27,42,.96);backdrop-filter:blur(12px);display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between;width:min(1180px,92%);margin:auto;gap:24px}
-    .brand{display:flex;align-items:center;gap:16px;color:#fff;min-width:max-content}
-    .brand-mark{width:74px;height:52px;position:relative;border-bottom:3px solid var(--gold)}
-    .brand-mark:before,.brand-mark:after{content:"";position:absolute;border-left:38px solid transparent;border-right:38px solid transparent;border-bottom:48px solid transparent;left:-1px;top:0}
-    .brand-mark:before{border-bottom-color:var(--gold)}
-    .brand-mark:after{border-left-width:31px;border-right-width:31px;border-bottom:38px solid var(--primary);left:6px;top:7px}
-    .brand-mark span{position:absolute;z-index:2;left:16px;top:26px;width:42px;height:2px;background:var(--gold);box-shadow:0 -8px 0 var(--gold),0 8px 0 var(--gold);transform:skewX(-25deg)}
-    .brand-title{font-size:15px;letter-spacing:1.5px;font-weight:900;line-height:1.12;text-transform:uppercase}.brand-title small{display:block;font-size:12px;color:#c8d2de;letter-spacing:1px;font-weight:600;margin-top:3px}
-    .menu{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#f3f3f3;font-weight:700}
-    .menu a{position:relative;white-space:nowrap}.menu a.active,.menu a:hover{color:var(--gold)}
-    .menu a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--gold);transition:.25s}.menu a:hover:after,.menu a.active:after{width:100%}
-    .menu-toggle{display:none;background:none;border:0;color:var(--gold);font-size:26px;cursor:pointer}
+    header{
+      height:86px;
+      background:rgba(13,27,42,.96);
+      backdrop-filter:blur(12px);
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
 
-    .login-page{
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      width:min(1180px,92%);
+      margin:auto;
+      gap:24px;
+      position:relative;
+    }
+
+    .menu{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      color:#f3f3f3;
+      font-weight:700;
+    }
+
+    .menu a{
+      position:relative;
+      white-space:nowrap;
+    }
+
+    .menu a.active,
+    .menu a:hover{
+      color:var(--gold);
+    }
+
+    .menu a:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--gold);
+      transition:.25s;
+    }
+
+    .menu a:hover:after,
+    .menu a.active:after{
+      width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:0;
+      color:var(--gold);
+      font-size:26px;
+      cursor:pointer;
+    }
+
+    .login-wrap{
       min-height:calc(100vh - 86px);
       background:
-        linear-gradient(90deg,rgba(13,27,42,.92) 0%,rgba(27,38,59,.72) 48%,rgba(13,27,42,.36) 100%),
+        linear-gradient(90deg,rgba(13,27,42,.92) 0%,rgba(27,38,59,.80) 48%,rgba(13,27,42,.58) 100%),
         url('hero.png');
       background-size:cover;
       background-position:center;
       display:flex;
       align-items:center;
-      padding:74px 0;
-      position:relative;
+      padding:76px 0;
     }
 
-    .login-page:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 15% 20%,rgba(212,162,76,.18),transparent 28%),
-        radial-gradient(circle at 85% 80%,rgba(65,90,119,.30),transparent 30%);
-      pointer-events:none;
-    }
-
-    .login-layout{
-      position:relative;
-      z-index:1;
+    .login-grid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:36px;
+      grid-template-columns:1fr 460px;
+      gap:48px;
       align-items:center;
     }
 
     .login-copy{
       color:#fff;
-      max-width:650px;
+      max-width:680px;
     }
 
-    .hero-kicker{
+    .login-kicker{
       font-size:13px;
       letter-spacing:3px;
       color:var(--gold);
       text-transform:uppercase;
-      font-weight:800;
+      font-weight:900;
       margin-bottom:18px;
     }
 
     .login-copy h1{
-      font-size:clamp(40px,6vw,68px);
+      font-size:clamp(38px,6vw,68px);
       line-height:1.02;
       text-transform:uppercase;
       letter-spacing:.5px;
       font-weight:900;
       color:#fff;
-      max-width:850px;
     }
 
-    .login-copy h1 span{
-      color:var(--gold);
-    }
+    .login-copy h1 span{color:var(--gold)}
 
     .eyeline{
       height:1px;
@@ -138,54 +180,17 @@
 
     .login-copy p{
       font-size:18px;
-      max-width:620px;
+      max-width:650px;
       color:#e8edf3;
-      margin-bottom:28px;
       font-weight:500;
       line-height:1.75;
     }
 
-    .login-highlights{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:34px;
-      max-width:680px;
-    }
-
-    .highlight{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.13);
-      padding:18px;
-      backdrop-filter:blur(6px);
-    }
-
-    .highlight i{
-      color:var(--gold);
-      font-size:24px;
-      margin-bottom:12px;
-    }
-
-    .highlight h3{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      margin-bottom:6px;
-      color:#fff;
-    }
-
-    .highlight p{
-      font-size:12px;
-      color:#dce4ec;
-      line-height:1.5;
-      margin:0;
-    }
-
     .login-card{
-      background:rgba(255,255,255,.96);
-      border:1px solid rgba(255,255,255,.48);
-      box-shadow:0 28px 70px rgba(0,0,0,.28);
-      padding:42px;
+      background:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:var(--shadow-strong);
+      padding:38px 36px;
       position:relative;
       overflow:hidden;
     }
@@ -200,139 +205,83 @@
       background:var(--gold);
     }
 
-    .login-card:after{
-      content:"";
-      position:absolute;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      right:-110px;
-      top:-110px;
-      background:rgba(212,162,76,.11);
-      pointer-events:none;
-    }
-
-    .login-card-content{
-      position:relative;
-      z-index:1;
-    }
-
-    .login-logo{
-      width:78px;
-      height:58px;
-      margin-bottom:26px;
-      position:relative;
-      border-bottom:3px solid var(--gold);
-    }
-
-    .login-logo:before,
-    .login-logo:after{
-      content:"";
-      position:absolute;
-      border-left:40px solid transparent;
-      border-right:40px solid transparent;
-      border-bottom:50px solid transparent;
-      left:-1px;
-      top:0;
-    }
-
-    .login-logo:before{border-bottom-color:var(--gold)}
-
-    .login-logo:after{
-      border-left-width:32px;
-      border-right-width:32px;
-      border-bottom:39px solid var(--primary);
-      left:7px;
-      top:7px;
-    }
-
-    .login-logo span{
-      position:absolute;
-      z-index:2;
-      left:17px;
-      top:27px;
-      width:44px;
-      height:2px;
-      background:var(--gold);
-      box-shadow:0 -8px 0 var(--gold),0 8px 0 var(--gold);
-      transform:skewX(-25deg);
-    }
-
     .login-card h2{
-      font-size:34px;
-      line-height:1.08;
+      font-size:30px;
+      line-height:1.1;
       font-weight:900;
-      letter-spacing:-.6px;
-      color:var(--text);
+      text-transform:uppercase;
+      color:var(--primary);
       margin-bottom:10px;
     }
 
-    .login-card .intro{
+    .login-card p{
       color:var(--muted);
       font-size:14px;
-      line-height:1.75;
-      margin-bottom:28px;
+      line-height:1.7;
+      margin-bottom:26px;
+      font-weight:500;
     }
 
-    .login-form{
-      display:grid;
-      gap:18px;
+    .form-group{
+      margin-bottom:18px;
     }
 
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    label{
+    .form-group label{
+      display:block;
       font-size:12px;
-      font-weight:900;
       text-transform:uppercase;
-      letter-spacing:.8px;
-      color:var(--text);
+      letter-spacing:.7px;
+      font-weight:900;
+      color:var(--primary);
+      margin-bottom:9px;
     }
 
     .input-wrap{
-      position:relative;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border:1px solid rgba(13,27,42,.12);
+      background:#f7f9fb;
+      padding:0 14px;
+      height:50px;
+      transition:.25s ease;
+    }
+
+    .input-wrap:focus-within{
+      border-color:rgba(212,162,76,.75);
+      box-shadow:0 0 0 4px rgba(212,162,76,.14);
+      background:#fff;
     }
 
     .input-wrap i{
-      position:absolute;
-      left:16px;
-      top:50%;
-      transform:translateY(-50%);
       color:var(--gold-deep);
       font-size:15px;
+      min-width:18px;
+      text-align:center;
     }
 
-    input{
+    .input-wrap input{
+      border:0;
+      outline:0;
+      background:transparent;
       width:100%;
-      border:1px solid rgba(13,27,42,.12);
-      background:#f8fafc;
-      padding:15px 16px 15px 44px;
-      font-family:inherit;
-      font-size:14px;
+      height:100%;
       color:var(--text);
-      outline:none;
-      transition:.25s;
+      font-size:14px;
+      font-weight:600;
     }
 
-    input:focus{
-      border-color:var(--gold);
-      background:#fff;
-      box-shadow:0 0 0 4px rgba(212,162,76,.12);
-    }
+    .input-wrap input::placeholder{color:#8b96a3}
 
     .login-options{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      font-size:13px;
+      gap:16px;
+      margin:4px 0 24px;
       color:var(--muted);
-      margin-top:2px;
+      font-size:13px;
+      font-weight:650;
     }
 
     .remember{
@@ -341,127 +290,104 @@
       gap:8px;
     }
 
-    .remember input{
-      width:auto;
-      padding:0;
-      accent-color:var(--gold);
-    }
+    .remember input{accent-color:var(--gold)}
 
-    .login-options a{
-      color:var(--gold-deep);
-      font-weight:800;
-    }
-
-    .login-btn{
+    .submit-btn{
+      width:100%;
+      height:52px;
       border:0;
       background:var(--gold);
       color:#111;
-      padding:15px 23px;
       text-transform:uppercase;
+      font-size:13px;
       font-weight:900;
-      font-size:13px;
-      display:inline-flex;
-      gap:12px;
-      align-items:center;
-      justify-content:center;
+      letter-spacing:.6px;
       cursor:pointer;
-      transition:.25s;
-      margin-top:6px;
-      width:100%;
-    }
-
-    .login-btn:hover{
-      transform:translateY(-3px);
-      background:#e0af58;
-    }
-
-    .security-note{
-      margin-top:22px;
-      padding:16px;
-      background:#f8fafc;
-      border:1px solid rgba(13,27,42,.08);
-      display:grid;
-      grid-template-columns:34px 1fr;
-      gap:12px;
-      align-items:flex-start;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-    }
-
-    .security-note i{
-      color:var(--gold-deep);
-      font-size:20px;
-      margin-top:2px;
-    }
-
-    .portal-links{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .portal-link{
-      border:1px solid rgba(13,27,42,.1);
-      padding:15px;
-      background:#fff;
       display:flex;
       align-items:center;
-      gap:12px;
-      color:var(--text);
+      justify-content:center;
+      gap:10px;
+      transition:.25s ease;
+    }
+
+    .submit-btn:hover{
+      background:#e0af58;
+      transform:translateY(-2px);
+    }
+
+    .login-message{
+      margin-top:16px;
       font-size:13px;
-      font-weight:900;
-      text-transform:uppercase;
-      transition:.25s;
+      line-height:1.6;
+      color:#9a3412;
+      font-weight:700;
+      display:none;
     }
 
-    .portal-link:hover{
-      border-color:var(--gold);
-      color:var(--gold-deep);
+    .login-note{
+      margin-top:22px;
+      padding-top:20px;
+      border-top:1px solid rgba(13,27,42,.09);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
     }
 
-    .portal-link i{
-      color:var(--gold-deep);
-      font-size:18px;
+    footer{
+      background:#0d1b2a;
+      color:#fff;
+      padding:22px 0;
+      border-top:3px solid var(--gold);
     }
 
-    footer{background:#0d1b2a;padding:42px 0 16px;border-top:1px solid rgba(255,255,255,.08);color:#fff}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.45fr;gap:50px}.footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:18px}.footer-brand .brand-mark{width:66px;height:45px}.footer-brand .brand-mark:before{border-left-width:34px;border-right-width:34px;border-bottom-width:42px}.footer-brand .brand-mark:after{border-left-width:28px;border-right-width:28px;border-bottom-width:33px;left:5px;top:6px}.footer-brand .brand-mark span{left:14px;top:23px;width:38px}.footer h4{font-size:14px;text-transform:uppercase;margin-bottom:18px;letter-spacing:.8px;color:#fff}.footer p,.footer li{font-size:14px;color:#d9e0e7;line-height:1.7}.footer ul{list-style:none}.footer li{margin:8px 0}.footer li a{display:flex;justify-content:space-between;gap:10px}.footer li a:after{content:'›';color:var(--gold)}.footer li a:hover{color:var(--gold)}.social{display:flex;gap:12px;margin-top:20px}.social a{background:var(--gold);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#111;font-size:13px}.contact-line{display:flex;gap:14px;margin-bottom:16px}.contact-line span{color:var(--gold);min-width:18px}.wrike-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#111;font-weight:900;text-transform:uppercase;font-size:12px;padding:13px 18px;margin-top:15px}.copyright{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:13px;display:flex;justify-content:space-between;font-size:12px;color:#b9c3cf;gap:16px}
+    .copyright{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-size:12px;
+      color:#b9c3cf;
+    }
 
     @media(max-width:1040px){
       .menu{gap:14px;font-size:11px}
-      .login-layout{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr 1fr}
+      .login-grid{grid-template-columns:1fr;gap:34px}
+      .login-card{max-width:560px}
     }
 
-    @media(max-width:820px){
+    @media(max-width:860px){
+      header{height:auto;min-height:76px}
+
+      nav{
+        width:100%;
+        padding:18px 24px;
+        justify-content:space-between;
+      }
+
       .menu-toggle{display:block}
+
       .menu{
-        position:fixed;
-        top:86px;
-        left:-100%;
-        width:min(340px,88%);
-        height:calc(100vh - 86px);
-        background:var(--primary);
+        position:absolute;
+        left:0;
+        right:0;
+        top:76px;
+        background:rgba(13,27,42,.98);
         flex-direction:column;
         align-items:flex-start;
-        padding:28px;
-        transition:.3s;
-        box-shadow:20px 0 45px rgba(0,0,0,.2);
+        padding:22px 24px;
+        display:none;
+        border-top:1px solid rgba(255,255,255,.08);
       }
-      .menu.active{left:0}
-      .brand-title{display:none}
-      .login-page{padding:54px 0}
-      .footer-grid{grid-template-columns:1fr}
-      .login-highlights{grid-template-columns:1fr}
+
+      .menu.active{display:flex}
+      .login-wrap{min-height:auto;padding:60px 0}
     }
 
     @media(max-width:560px){
       .login-copy h1{font-size:34px}
       .login-copy p{font-size:16px}
-      .login-card{padding:32px 24px}
-      .portal-links{grid-template-columns:1fr}
-      .copyright{flex-direction:column}
+      .login-card{padding:32px 26px}
+      .login-options{flex-direction:column;align-items:flex-start}
+      .copyright{flex-direction:column;text-align:center}
     }
   </style>
 </head>
@@ -471,165 +397,92 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html" aria-label="Home">
-      <div class="brand-mark"><span></span></div>
-      <div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div>
-    </a>
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
     <div class="menu" id="navLinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="team.html">Team</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html" class="active">Login</a>
+      <a href="login.html" class="active">Log In</a>
     </div>
   </nav>
 </header>
 
 <main id="main-content">
-
-  <section class="login-page">
-    <div class="container login-layout">
-
+  <section class="login-wrap">
+    <div class="container login-grid">
       <div class="login-copy">
-        <div class="hero-kicker">✦ Secure Workspace Access</div>
-        <h1>Project Access for <span>Authorised Teams</span></h1>
+        <div class="login-kicker">Secure Access</div>
+        <h1>Company <span>Login</span></h1>
         <div class="eyeline"></div>
-        <p>
-          Sign in to access project coordination tools, operational workflows,
-          reporting resources and internal workspace links.
-        </p>
-
-        <div class="login-highlights">
-          <div class="highlight">
-            <i class="fas fa-diagram-project"></i>
-            <h3>Workflow</h3>
-            <p>Coordinate project tasks, files and approvals.</p>
-          </div>
-
-          <div class="highlight">
-            <i class="fas fa-chart-line"></i>
-            <h3>Reporting</h3>
-            <p>Track progress and improve delivery visibility.</p>
-          </div>
-
-          <div class="highlight">
-            <i class="fas fa-shield-halved"></i>
-            <h3>Secure</h3>
-            <p>Designed for authorised team access only.</p>
-          </div>
-        </div>
+        <p>Access the company portal for documents, internal directory information and important company dates.</p>
       </div>
 
       <div class="login-card">
-        <div class="login-card-content">
-          <div class="login-logo"><span></span></div>
-          <h2>Login Portal</h2>
-          <p class="intro">
-            Enter your credentials to continue to the internal workspace.
-          </p>
+        <h2>Log In</h2>
+        <p>Enter your login details to continue to the dashboard.</p>
 
-          <form class="login-form" action="#" method="post">
-            <div class="field">
-              <label for="email">Email Address</label>
-              <div class="input-wrap">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" name="email" placeholder="name@company.com">
-              </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username or Email</label>
+            <div class="input-wrap">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" name="username" placeholder="Enter username or email" required>
             </div>
-
-            <div class="field">
-              <label for="password">Password</label>
-              <div class="input-wrap">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" name="password" placeholder="Enter password">
-              </div>
-            </div>
-
-            <div class="login-options">
-              <label class="remember">
-                <input type="checkbox" name="remember">
-                Remember me
-              </label>
-              <a href="#">Forgot password?</a>
-            </div>
-
-            <button class="login-btn" type="submit">
-              Sign In <i class="fas fa-arrow-right"></i>
-            </button>
-          </form>
-
-          <div class="portal-links">
-            <a class="portal-link" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-diagram-project"></i>
-              Wrike
-            </a>
-            <a class="portal-link" href="contact.html">
-              <i class="fas fa-headset"></i>
-              Support
-            </a>
           </div>
 
-          <div class="security-note">
-            <i class="fas fa-circle-info"></i>
-            <span>
-              This portal is intended for authorised personnel and approved partners.
-              For access support, contact the administration team.
-            </span>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
           </div>
+
+          <div class="login-options">
+            <label class="remember">
+              <input type="checkbox" name="remember">
+              <span>Remember me</span>
+            </label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button class="submit-btn" type="submit">
+            Continue to Dashboard <i class="fas fa-arrow-right"></i>
+          </button>
+
+          <div class="login-message" id="loginMessage">Please enter your username and password.</div>
+        </form>
+
+        <div class="login-note">
+          This page is prepared for front-end display. A real website will need proper backend authentication before private documents are protected.
         </div>
       </div>
-
     </div>
   </section>
-
 </main>
 
 <footer>
-  <div class="container footer-grid">
-    <div>
-      <div class="footer-brand"><div class="brand-mark"><span></span></div><div class="brand-title">Resource Excellence<small>Papua New Guinea</small></div></div>
-      <p>Strategic partner in the extractive industry — combining local knowledge, technical experience, and responsible project delivery across Papua New Guinea.</p>
-      <div class="social">
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      </div>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <div class="contact-line"><span><i class="fas fa-location-dot"></i></span><p>Kwalimu Precincts, Waigani, NCD</p></div>
-      <div class="contact-line"><span><i class="fas fa-phone"></i></span><p>+675 7XXXXXXX</p></div>
-      <div class="contact-line"><span><i class="fas fa-envelope"></i></span><p><a href="contact.html">Send enquiry</a></p></div>
-    </div>
-    <div>
-      <h4>Workspace</h4>
-      <p>Wrike Workspace supports project coordination, task tracking, collaboration, and delivery visibility.</p>
-      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">Open Wrike <i class="fas fa-arrow-up-right-from-square"></i></a>
-    </div>
+  <div class="container copyright">
+    <span>© 2025 All rights reserved.</span>
+    <span>“All Dreams are within Reach”</span>
   </div>
-  <div class="container copyright"><span>© 2025 All rights reserved.</span><span>“All Dreams are within Reach”</span></div>
 </footer>
 
 <script>
   const menuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
+
   if(menuBtn && navLinks){
     menuBtn.addEventListener('click',()=>{
       const expanded = navLinks.classList.toggle('active');
       menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
+
     document.querySelectorAll('.menu a').forEach(link=>{
       link.addEventListener('click',()=>{
         navLinks.classList.remove('active');
@@ -637,7 +490,25 @@
       });
     });
   }
-</script>
 
+  const loginForm = document.getElementById('loginForm');
+  const loginMessage = document.getElementById('loginMessage');
+
+  if(loginForm){
+    loginForm.addEventListener('submit', function(event){
+      event.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if(!username || !password){
+        loginMessage.style.display = 'block';
+        return;
+      }
+
+      sessionStorage.setItem('portalLoggedIn','true');
+      window.location.href = 'dashboard.html';
+    });
+  }
+</script>
 </body>
 </html>
