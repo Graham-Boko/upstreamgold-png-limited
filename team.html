@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Team</title>
-  <meta name="description" content="Leadership, management, and technical team supporting responsible resource development in Papua New Guinea." />
-  <meta name="keywords" content="team, management, mining team, PNG resource development, technical team" />
+  <title>Company Portal</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,938 +11,1375 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
 
     :root{
-      --primary:#0d1b2a;
-      --secondary:#1b263b;
-      --accent:#415a77;
-      --soft:#778da9;
-      --light:#e0e1dd;
-      --panel:#f7f9fb;
-      --white:#ffffff;
+      --primary:#071524;
+      --secondary:#0d1b2a;
+      --accent:#1b263b;
+      --slate:#415a77;
       --gold:#d4a24c;
       --gold-deep:#b88324;
-      --text:#1b263b;
-      --muted:#5d6876;
-      --shadow:0 18px 45px rgba(13,27,42,.14);
+      --panel:#f5f7fb;
+      --white:#ffffff;
+      --text:#172033;
+      --muted:#657184;
+      --line:#e4e9f1;
+      --shadow:0 18px 48px rgba(13,27,42,.10);
+      --shadow-soft:0 10px 28px rgba(13,27,42,.07);
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;
-      background:var(--light);
+      background:var(--panel);
       color:var(--text);
-      line-height:1.45;
+      line-height:1.5;
+      min-height:100vh;
       overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font-family:inherit}
 
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    .container{
-      width:min(1180px,92%);
-      margin:auto;
-    }
-
-    header{
-      height:86px;
-      background:rgba(13,27,42,.96);
-      backdrop-filter:blur(12px);
+    .app{
       display:flex;
-      align-items:center;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      position:sticky;
-      top:0;
-      z-index:50;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      width:min(1180px,92%);
-      margin:auto;
-      gap:24px;
-    }
-
-    .menu{
-      display:flex;
-      gap:24px;
-      align-items:center;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      color:#f3f3f3;
-      font-weight:700;
-    }
-
-    .menu a{
-      position:relative;
-      white-space:nowrap;
-    }
-
-    .menu a.active,
-    .menu a:hover{
-      color:var(--gold);
-    }
-
-    .menu a:after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-8px;
-      width:0;
-      height:2px;
-      background:var(--gold);
-      transition:.25s;
-    }
-
-    .menu a:hover:after,
-    .menu a.active:after{
-      width:100%;
-    }
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:0;
-      color:var(--gold);
-      font-size:26px;
-      cursor:pointer;
-    }
-
-    .hero{
-      min-height:460px;
+      min-height:100vh;
       background:
-        linear-gradient(90deg,rgba(13,27,42,.91) 0%,rgba(27,38,59,.72) 52%,rgba(13,27,42,.15) 100%),
-        url('hero.png');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      color:#fff;
-      position:relative;
+        radial-gradient(circle at top right,rgba(212,162,76,.08),transparent 28%),
+        linear-gradient(180deg,#f7f9fc 0%,#eef2f7 100%);
     }
 
-    .hero-content{
-      max-width:790px;
-      padding:76px 0;
-    }
-
-    .hero-kicker{
-      font-size:13px;
-      letter-spacing:3px;
-      color:var(--gold);
-      text-transform:uppercase;
-      font-weight:900;
-      margin-bottom:18px;
-    }
-
-    .hero h1{
-      font-size:clamp(38px,6vw,68px);
-      line-height:1.02;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-      font-weight:900;
-      color:#fff;
-    }
-
-    .hero h1 span{
-      color:var(--gold);
-    }
-
-    .eyeline{
-      height:1px;
-      background:var(--gold);
-      width:min(360px,80%);
-      margin:24px 0;
-    }
-
-    .hero p{
-      font-size:18px;
-      max-width:710px;
-      color:#e8edf3;
-      font-weight:500;
-    }
-
-    .section{
-      padding:68px 0;
-      background:#fff;
-    }
-
-    .section.alt{
-      background:#f7f9fb;
-    }
-
-    .label{
-      color:var(--gold);
-      text-transform:uppercase;
-      font-size:14px;
-      font-weight:900;
-      letter-spacing:.8px;
-      margin-bottom:8px;
-    }
-
-    .section-heading{
-      font-size:34px;
-      line-height:1.04;
-      font-weight:900;
-      letter-spacing:-.6px;
-      color:var(--primary);
-      margin-bottom:34px;
-    }
-
-    .board-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:22px;
-    }
-
-    .management-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .technical-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:22px;
-    }
-
-    .card{
-      background:#fff;
-      border:1px solid rgba(13,27,42,.08);
-      box-shadow:var(--shadow);
-      padding:26px 22px;
-      min-height:236px;
+    .sidebar{
+      width:292px;
+      height:100vh;
+      position:fixed;
+      inset:0 auto 0 0;
+      z-index:100;
       display:flex;
       flex-direction:column;
-      position:relative;
+      background:linear-gradient(180deg,var(--primary) 0%,var(--secondary) 62%,#101f33 100%);
+      border-right:1px solid rgba(255,255,255,.08);
+      box-shadow:18px 0 50px rgba(7,21,36,.20);
+      transform:translateX(-100%);
+      transition:.28s ease;
       overflow:hidden;
     }
 
-    .card:before{
+    .sidebar:before{
       content:"";
       position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:5px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-deep));
-    }
-
-    .avatar{
-      width:64px;
-      height:64px;
+      width:320px;
+      height:320px;
       border-radius:50%;
-      background:linear-gradient(135deg,#0d1b2a,#415a77);
-      display:grid;
-      place-items:center;
-      color:var(--gold);
-      font-size:28px;
-      margin-bottom:18px;
-      border:1px solid rgba(212,162,76,.36);
+      top:-145px;
+      right:-155px;
+      background:radial-gradient(circle,rgba(212,162,76,.24),transparent 68%);
+      pointer-events:none;
     }
 
-    .card h3{
-      font-size:17px;
-      text-transform:uppercase;
-      color:var(--primary);
-      margin-bottom:8px;
-      line-height:1.25;
-      font-weight:900;
+    .sidebar.open{transform:translateX(0)}
+
+    @media(min-width:1025px){
+      .sidebar{transform:translateX(0)}
+      .main{margin-left:292px}
     }
 
-    .role{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      color:var(--gold-deep);
-      font-weight:900;
-      margin-bottom:14px;
-    }
-
-    .card p{
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.62;
-      font-weight:600;
-    }
-
-    .management-card{
-      min-height:236px;
-    }
-
-    .management-card .avatar,
-    .technical-grid .avatar{
-      background:linear-gradient(135deg,#1b263b,#0d1b2a);
-    }
-
-    .ceo-card{
-      background:#fff;
-      color:var(--text);
-    }
-
-    .ceo-card h3{
-      color:var(--primary);
-    }
-
-    .ceo-card p{
-      color:var(--muted);
-    }
-
-    .ceo-card .role{
-      color:var(--gold-deep);
-    }
-
-    .ceo-card .avatar{
-      background:linear-gradient(135deg,#1b263b,#0d1b2a);
-      color:var(--gold);
-      border:1px solid rgba(212,162,76,.36);
-    }
-
-    footer{
-      background:#0d1b2a;
-      color:#fff;
-      padding:50px 0 18px;
-      border-top:3px solid var(--gold);
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:40px;
-      align-items:start;
-    }
-
-    .footer-card{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-    }
-
-    .footer h4{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:var(--gold);
-      margin-bottom:18px;
-    }
-
-    .footer ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
-
-    .footer li{
-      margin-bottom:14px;
-    }
-
-    .footer li a{
-      color:#d9e0e7;
-      font-size:14px;
-      font-weight:400;
-      line-height:1.7;
-      display:block;
-      transition:.25s;
-    }
-
-    .footer li a:hover{
-      color:var(--gold);
-    }
-
-    .contact-line{
-      display:flex;
-      gap:12px;
-      margin-bottom:14px;
-      align-items:flex-start;
-    }
-
-    .contact-line span{
-      color:var(--gold);
-      margin-top:4px;
-    }
-
-    .footer p{
-      color:#d9e0e7;
-      line-height:1.7;
-      font-size:14px;
-    }
-
-    .footer-card > p{
-      margin-bottom:12px;
-    }
-
-    .social-links{
-      display:flex;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .social-links a{
-      width:38px;
-      height:38px;
-      border:1px solid rgba(255,255,255,.15);
+    .sidebar-brand{
+      min-height:98px;
+      padding:0 26px;
       display:flex;
       align-items:center;
-      justify-content:center;
+      gap:14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      position:relative;
+      z-index:1;
+    }
+
+    .brand-icon{
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(212,162,76,.52);
+      background:rgba(255,255,255,.06);
+      color:var(--gold);
+      font-size:20px;
+    }
+
+    .brand-text{
+      color:#fff;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:1px;
+      line-height:1.35;
+    }
+
+    .brand-text span{
+      display:block;
+      color:#d9e0e7;
+      font-size:11px;
+      letter-spacing:1.6px;
+      margin-top:3px;
+      font-weight:800;
+    }
+
+    .nav-menu{
+      list-style:none;
+      padding:24px 18px;
+      flex:1;
+      position:relative;
+      z-index:1;
+      overflow:auto;
+    }
+
+    .nav-menu::-webkit-scrollbar{width:4px}
+    .nav-menu::-webkit-scrollbar-thumb{background:rgba(212,162,76,.35)}
+
+    .nav-item{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      padding:14px 16px;
+      margin-bottom:9px;
+      cursor:pointer;
+      color:#d9e1ea;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.75px;
+      font-weight:850;
+      border:1px solid transparent;
+      transition:.22s ease;
+      user-select:none;
+    }
+
+    .nav-item i{
+      width:20px;
+      text-align:center;
       color:var(--gold);
       font-size:15px;
-      transition:.25s ease;
     }
 
-    .social-links a:hover{
-      background:var(--gold);
-      color:#111;
-      border-color:var(--gold);
+    .nav-item.active,
+    .nav-item:hover{
+      background:rgba(255,255,255,.075);
+      border-color:rgba(212,162,76,.34);
+      color:#fff;
+      transform:translateX(4px);
     }
 
-    .wrike-btn{
-      display:inline-flex;
+    .wrike-side-link{
+      padding:20px 18px 24px;
+      border-top:1px solid rgba(255,255,255,.10);
+      position:relative;
+      z-index:1;
+    }
+
+    .wrike-btn-side{
+      display:flex;
       align-items:center;
       justify-content:center;
       gap:10px;
       background:var(--gold);
       color:#111;
-      padding:12px 18px;
+      padding:14px 16px;
       font-size:12px;
-      font-weight:800;
+      font-weight:900;
       text-transform:uppercase;
-      margin-top:8px;
-      width:max-content;
-      transition:.25s ease;
+      letter-spacing:.35px;
+      transition:.22s ease;
+      box-shadow:0 12px 24px rgba(212,162,76,.18);
     }
 
-    .wrike-btn:hover{
-      background:#e0af58;
+    .wrike-btn-side:hover{
+      background:#e1b05e;
       transform:translateY(-2px);
     }
 
-    .copyright{
-      margin-top:30px;
-      padding-top:15px;
-      border-top:1px solid rgba(255,255,255,.12);
+    .main{
+      width:100%;
+      min-height:100vh;
+      flex:1;
+    }
+
+    .topbar{
+      min-height:86px;
       display:flex;
+      align-items:center;
       justify-content:space-between;
       gap:20px;
+      padding:0 32px;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:80;
+    }
+
+    .topbar-left{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-width:0;
+    }
+
+    .mobile-toggle{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--gold-deep);
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    @media(min-width:1025px){.mobile-toggle{display:none}}
+
+    .page-title{min-width:0}
+
+    .page-title .kicker{
+      color:var(--gold-deep);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+
+    .page-title h1{
+      color:var(--primary);
+      font-size:21px;
+      line-height:1.1;
+      font-weight:900;
+      letter-spacing:-.2px;
+      text-transform:uppercase;
+    }
+
+    .topbar-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .search-wrapper{
+      height:42px;
+      width:280px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:0 14px;
+      color:var(--gold-deep);
+      box-shadow:0 8px 18px rgba(13,27,42,.04);
+    }
+
+    .search-wrapper input{
+      border:0;
+      outline:0;
+      background:transparent;
+      color:var(--text);
+      width:100%;
+      font-size:13px;
+      font-weight:650;
+    }
+
+    .search-wrapper input::placeholder{color:#8a95a5}
+
+    .top-link{
+      height:42px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:0 15px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--primary);
       font-size:12px;
-      color:#b9c3cf;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.45px;
+      transition:.22s ease;
+      white-space:nowrap;
+    }
+
+    .top-link:hover{
+      border-color:rgba(212,162,76,.45);
+      color:var(--gold-deep);
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .content{
+      width:min(1180px,92%);
+      margin:auto;
+      padding:36px 0 64px;
+    }
+
+    .section-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      padding:30px 32px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fff 0%,#fafbfc 100%);
+    }
+
+    .section-head h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--primary);
+      font-size:clamp(24px,3vw,34px);
+      line-height:1.05;
+      font-weight:900;
+      letter-spacing:-.6px;
+      text-transform:uppercase;
+    }
+
+    .section-head h2 i{color:var(--gold-deep);font-size:.85em}
+
+    .section-label{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(212,162,76,.34);
+      background:rgba(212,162,76,.10);
+      color:var(--gold-deep);
+      padding:8px 13px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      white-space:nowrap;
+    }
+
+    .document-list,.date-list,.link-list{
+      padding:8px 32px 18px;
+    }
+
+    .document-row,.date-row,.link-row{
+      display:grid;
+      grid-template-columns:1fr auto auto;
+      gap:18px;
+      align-items:center;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .document-row:last-child,.date-row:last-child,.link-row:last-child{border-bottom:0}
+
+    .document-meta,.link-meta{
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      min-width:0;
+    }
+
+    .doc-icon,.date-icon,.contact-icon,.tile-icon,.link-icon{
+      width:48px;
+      height:48px;
+      flex:0 0 48px;
+      display:grid;
+      place-items:center;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      color:var(--gold-deep);
+      font-size:18px;
+    }
+
+    .document-meta h3,.date-details h3,.contact-info h3,.tile h3,.link-meta h3{
+      color:var(--primary);
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      font-weight:900;
+      line-height:1.3;
+      margin-bottom:6px;
+    }
+
+    .document-meta p,.date-details p,.contact-info p,.tile p,.link-meta p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      font-weight:600;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(212,162,76,.36);
+      background:rgba(212,162,76,.11);
+      color:var(--gold-deep);
+      padding:7px 12px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.65px;
+      white-space:nowrap;
+    }
+
+    .action-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-width:92px;
+      background:var(--primary);
+      color:#fff;
+      padding:10px 15px;
+      border:1px solid var(--primary);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.55px;
+      transition:.22s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .action-btn:hover{
+      background:var(--gold);
+      color:#111;
+      border-color:var(--gold);
+      transform:translateY(-2px);
+    }
+
+    .tile-grid{
+      padding:28px 32px 32px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .tile{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      padding:24px;
+      min-height:206px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      transition:.22s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .tile:before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:4px;
+      background:var(--gold);
+    }
+
+    .tile:hover{
+      transform:translateY(-4px);
+      border-color:rgba(212,162,76,.40);
+      box-shadow:0 18px 34px rgba(13,27,42,.10);
+    }
+
+    .tile-icon{
+      width:52px;
+      height:52px;
+      flex-basis:52px;
+      margin-bottom:18px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:var(--gold);
+      border-color:rgba(212,162,76,.38);
+    }
+
+    .tile .badge{margin-top:auto}
+
+    .directory-grid{
+      padding:28px 32px 32px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .contact-card{
+      display:grid;
+      grid-template-columns:54px 1fr;
+      gap:16px;
+      align-items:flex-start;
+      padding:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      transition:.22s ease;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(212,162,76,.40);
+      box-shadow:0 18px 34px rgba(13,27,42,.10);
+    }
+
+    .contact-icon{
+      width:54px;
+      height:54px;
+      flex-basis:54px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:var(--gold);
+      border-color:rgba(212,162,76,.38);
+      font-size:20px;
+    }
+
+    .contact-info .role-row{
+      display:flex;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    .contact-line{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:650;
+      word-break:break-word;
+    }
+
+    .contact-line i{width:16px;color:var(--gold-deep)}
+    .contact-line a{color:var(--gold-deep)}
+
+    .date-row{grid-template-columns:64px 1fr auto}
+
+    .date-box{
+      width:64px;
+      height:64px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      background:var(--primary);
+      color:#fff;
+      border:1px solid rgba(212,162,76,.38);
+      text-transform:uppercase;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .date-box strong{font-size:20px;margin-bottom:6px;color:var(--gold)}
+    .date-box span{font-size:11px;letter-spacing:.8px}
+
+    .support-wrap{
+      padding:28px 32px 32px;
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:22px;
+    }
+
+    .support-box{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      padding:26px;
+    }
+
+    .support-box h3{
+      color:var(--primary);
+      font-size:18px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .support-box p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.75;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .request-form{
+      display:grid;
+      gap:14px;
+    }
+
+    .field label{
+      display:block;
+      color:var(--primary);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      font-weight:900;
+      margin-bottom:7px;
+    }
+
+    .field input,.field select,.field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:#f9fbfd;
+      color:var(--text);
+      padding:12px 13px;
+      outline:0;
+      font-size:13px;
+      font-weight:650;
+    }
+
+    .field textarea{min-height:96px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(212,162,76,.65);background:#fff}
+
+    .empty-state{
+      display:none;
+      margin-top:22px;
+      padding:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+      text-align:center;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .home-wrap{
+      display:grid;
+      gap:24px;
+    }
+
+    .home-hero{
+      background:linear-gradient(135deg,rgba(13,27,42,.96) 0%,rgba(27,38,59,.92) 58%,rgba(65,90,119,.88) 100%);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      padding:42px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .home-hero:before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      right:-150px;
+      top:-160px;
+      background:radial-gradient(circle,rgba(212,162,76,.24),transparent 68%);
+      pointer-events:none;
+    }
+
+    .home-hero > *{position:relative;z-index:1}
+
+    .home-label{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .home-label:before{
+      content:"";
+      width:9px;
+      height:9px;
+      background:var(--gold);
+      display:inline-block;
+    }
+
+    .home-hero h2{
+      font-size:clamp(34px,5vw,58px);
+      line-height:1.02;
+      text-transform:uppercase;
+      letter-spacing:-1px;
+      font-weight:900;
+      max-width:850px;
+      margin-bottom:18px;
+    }
+
+    .home-hero p{
+      color:#e4eaf1;
+      font-size:16px;
+      line-height:1.8;
+      max-width:780px;
+      font-weight:600;
+      margin-bottom:26px;
+    }
+
+    .home-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .home-actions .action-btn{
+      background:var(--gold);
+      color:#111;
+      border-color:var(--gold);
+    }
+
+    .home-actions .action-btn.secondary{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-color:rgba(255,255,255,.22);
+    }
+
+    .home-actions .action-btn:hover{
+      background:#e1b05e;
+      border-color:#e1b05e;
+      color:#111;
+    }
+
+    .home-live-wrap{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .live-time-card{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      padding:32px;
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:20px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .live-time-card:before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:4px;
+      background:var(--gold);
+    }
+
+    .live-time-icon{
+      width:72px;
+      height:72px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:var(--gold);
+      border:1px solid rgba(212,162,76,.38);
+      font-size:26px;
+    }
+
+    .live-time-meta .live-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold-deep);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:10px;
+    }
+
+    .live-time-meta .live-label:before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#17a34a;
+      display:inline-block;
+      box-shadow:0 0 0 4px rgba(23,163,74,.12);
+    }
+
+    .portal-clock{
+      color:var(--primary);
+      font-size:clamp(34px,5vw,58px);
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-1px;
+      margin-bottom:12px;
+    }
+
+    .portal-date{
+      color:var(--muted);
+      font-size:15px;
+      font-weight:800;
+      line-height:1.5;
+    }
+
+    .portal-zone{
+      margin-top:10px;
+      display:inline-flex;
+      border:1px solid rgba(212,162,76,.34);
+      background:rgba(212,162,76,.10);
+      color:var(--gold-deep);
+      padding:7px 11px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.55px;
+    }
+
+    .home-info-card{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .home-info-card h3{
+      color:var(--primary);
+      font-size:18px;
+      text-transform:uppercase;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .home-info-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.75;
+      font-weight:650;
+    }
+
+    @media(max-width:1110px){
+      .tile-grid{grid-template-columns:repeat(2,1fr)}
+      .home-live-wrap{grid-template-columns:1fr}
     }
 
     @media(max-width:1040px){
-      .menu{
-        gap:14px;
-        font-size:11px;
-      }
-
-      .board-grid,
-      .management-grid,
-      .technical-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
-      }
+      .topbar{padding:0 22px}
+      .directory-grid,.support-wrap{grid-template-columns:1fr}
+      .search-wrapper{width:230px}
     }
 
     @media(max-width:820px){
-      nav{
-        justify-content:space-between;
-      }
-
-      .menu-toggle{
-        display:block;
-      }
-
-      .menu{
-        position:fixed;
-        top:86px;
-        left:-100%;
-        width:min(340px,88%);
-        height:calc(100vh - 86px);
-        background:var(--primary);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:28px;
-        transition:.3s;
-        box-shadow:20px 0 45px rgba(0,0,0,.2);
-      }
-
-      .menu.active{
-        left:0;
-      }
-
-      .hero{
-        min-height:430px;
-      }
-
-      .section{
-        padding:54px 0;
-      }
-    }
-
-    @media(max-width:768px){
-      .footer-grid{
-        grid-template-columns:1fr;
-        gap:30px;
-      }
-
-      .footer-card{
-        text-align:left;
-      }
-
-      .copyright{
-        flex-direction:column;
-        text-align:center;
-      }
+      .topbar{align-items:flex-start;flex-direction:column;padding:18px 22px;gap:14px;position:relative}
+      .topbar-actions{width:100%;justify-content:space-between;flex-wrap:wrap}
+      .search-wrapper{width:100%;order:3}
+      .top-link{flex:1}
+      .content{padding:28px 0 50px}
+      .section-head{padding:26px 24px;flex-direction:column;align-items:flex-start}
+      .document-list,.date-list,.directory-grid,.tile-grid,.link-list,.support-wrap{padding-left:24px;padding-right:24px}
+      .document-row,.link-row{grid-template-columns:1fr;gap:12px;align-items:flex-start}
+      .action-btn{width:100%}
+      .date-row{grid-template-columns:54px 1fr;gap:16px}
+      .date-row .badge{grid-column:2}
+      .date-box{width:54px;height:54px}
+      .tile-grid{grid-template-columns:1fr}
+      .home-hero{padding:30px 24px}
+      .live-time-card{grid-template-columns:1fr;padding:26px}
+      .portal-clock{font-size:42px}
     }
 
     @media(max-width:560px){
-      .hero h1{
-        font-size:34px;
-      }
-
-      .hero p{
-        font-size:16px;
-      }
-
-      .board-grid,
-      .management-grid,
-      .technical-grid{
-        grid-template-columns:1fr;
-      }
-
-      .section-heading{
-        font-size:28px;
-      }
+      .sidebar{width:min(330px,88%)}
+      .sidebar-brand{min-height:84px}
+      .brand-icon{width:42px;height:42px}
+      .brand-text{font-size:12px}
+      .content{width:min(100% - 28px,1180px)}
+      .section-head h2{font-size:24px}
+      .document-list,.date-list,.directory-grid,.tile-grid,.link-list,.support-wrap{padding-left:18px;padding-right:18px}
+      .document-meta,.link-meta{align-items:flex-start}
+      .doc-icon,.link-icon{width:44px;height:44px;flex-basis:44px}
+      .contact-card{grid-template-columns:1fr;padding:20px}
+      .contact-icon{width:50px;height:50px}
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <nav>
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="menu" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="team.html" class="active">Team</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-kicker">
-        ✦ Governance. Leadership. Expertise.
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon"><i class="fas fa-building"></i></div>
+        <div class="brand-text">Company Portal<span>Corporate Access</span></div>
       </div>
 
-      <h1>
-        Our <span>Team</span>
-      </h1>
-
-      <div class="eyeline"></div>
-
-      <p>
-        Meet the leadership, management, and technical professionals supporting responsible resource development,
-        operational delivery, and long-term value creation in Papua New Guinea.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-
-      <div class="label">
-        Governance
-      </div>
-
-      <h2 class="section-heading">
-        Board of Directors
-      </h2>
-
-      <div class="board-grid">
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>Chairman</h3>
-
-          <div class="role">
-            Shareholder
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>Director</h3>
-
-          <div class="role">
-            Shareholder
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>Director</h3>
-
-          <div class="role">
-            Shareholder
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-
-          <h3>Director</h3>
-
-          <div class="role">
-            Independent
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>Director</h3>
-
-          <div class="role">
-            Chief Executive Officer
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-
-      <div class="label">
-        Executive Leadership
-      </div>
-
-      <h2 class="section-heading">
-        Management Team
-      </h2>
-
-      <div class="management-grid">
-
-        <article class="card management-card ceo-card">
-          <div class="avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-
-          <h3>
-            Chief Executive Officer
-          </h3>
-
-          <div class="role">
-            Strategic Leadership
-          </div>
-
-          <p>
-            Leads overall company direction, corporate vision, stakeholder relationships, and strategic partnerships.
-          </p>
-        </article>
-
-        <article class="card management-card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Office Manager
-          </h3>
-
-          <div class="role">
-            Operations & Admin
-          </div>
-
-          <p>
-            Coordinates daily operations, administration, documentation, and internal support across company activities.
-          </p>
-        </article>
-
-        <article class="card management-card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Exploration Manager
-          </h3>
-
-          <div class="role">
-            Geological Field Operations
-          </div>
-
-          <p>
-            Leads exploration programs, field logistics, technical planning, and greenfields target generation.
-          </p>
-        </article>
-
-        <article class="card management-card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Lead Consulting Geoscientist
-          </h3>
-
-          <div class="role">
-            Resource Evaluation
-          </div>
-
-          <p>
-            Provides geological analysis, resource modelling, technical assurance, and professional advisory support.
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-
-      <div class="label">
-        Technical Excellence
-      </div>
-
-      <h2 class="section-heading">
-        Technical & Operational Experts
-      </h2>
-
-      <div class="technical-grid">
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Team Leader – Petroleum Exploration
-          </h3>
-
-          <div class="role">
-            Petroleum
-          </div>
-
-          <p>
-            Leads hydrocarbon exploration, basin analysis, technical interpretation, and drilling program support.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Team Leader – Mining Exploration
-          </h3>
-
-          <div class="role">
-            Mining
-          </div>
-
-          <p>
-            Directs mineral exploration, resource definition, field planning, and project advancement activities.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Community Affairs Manager
-          </h3>
-
-          <div class="role">
-            Stakeholder Relations
-          </div>
-
-          <p>
-            Manages community engagement, local content coordination, and social performance programs.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Senior Geologist – Exploration
-          </h3>
-
-          <div class="role">
-            Geology
-          </div>
-
-          <p>
-            Specialist in geological mapping, geochemical sampling, target generation, and exploration reporting.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="avatar">
-            <i class="fas fa-user"></i>
-          </div>
-
-          <h3>
-            Senior Geologist – Exploration
-          </h3>
-
-          <div class="role">
-            Resource Estimation
-          </div>
-
-          <p>
-            Experienced in geophysical interpretation, resource modelling, and technical evaluation workflows.
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-card">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item active" data-page="home"><i class="fas fa-home"></i><span>Home</span></li>
+        <li class="nav-item" data-page="documents"><i class="fas fa-file-alt"></i><span>Document</span></li>
+        <li class="nav-item" data-page="directory"><i class="fas fa-address-book"></i><span>Directory</span></li>
+        <li class="nav-item" data-page="compliance"><i class="fas fa-shield-alt"></i><span>Compliance</span></li>
+        <li class="nav-item" data-page="policies"><i class="fas fa-clipboard-list"></i><span>Policies</span></li>
+        <li class="nav-item" data-page="resources"><i class="fas fa-folder-open"></i><span>Resources</span></li>
+        <li class="nav-item" data-page="dates"><i class="fas fa-calendar-alt"></i><span>Important Dates</span></li>
+        <li class="nav-item" data-page="support"><i class="fas fa-headset"></i><span>Support</span></li>
+        <li class="nav-item" data-page="links"><i class="fas fa-link"></i><span>Useful Links</span></li>
       </ul>
-    </div>
 
-    <div class="footer-card">
-      <h4>Contact</h4>
-
-      <div class="contact-line">
-        <span><i class="fas fa-location-dot"></i></span>
-        <p>Kwalimu Precincts, Ground Level, Somare Circuit, Waigani, NCD</p>
-      </div>
-
-      <div class="contact-line">
-        <span><i class="fas fa-phone"></i></span>
-        <p>+675 7XXXXXXX</p>
-      </div>
-
-      <div class="contact-line">
-        <span><i class="fas fa-envelope"></i></span>
-        <p><a href="contact.html">Send enquiry</a></p>
-      </div>
-
-      <div class="social-links">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
+      <div class="wrike-side-link">
+        <a href="https://login.wrike.com/login/" class="wrike-btn-side" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-wrike"></i>
+          <span>Wrike Workspace</span>
+          <i class="fas fa-external-link-alt"></i>
         </a>
       </div>
-    </div>
+    </aside>
 
-    <div class="footer-card">
-      <h4>Workspace</h4>
-      <p>
-        Wrike Workspace supports our project coordination, task tracking, collaboration, and delivery visibility.
-      </p>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+          <div class="page-title">
+            <div class="kicker">Private Access Area</div>
+            <h1 id="currentPageTitle">Home</h1>
+          </div>
+        </div>
 
-      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
-        Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
-      </a>
-    </div>
+        <div class="topbar-actions">
+          <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="globalSearch" placeholder="Search portal">
+          </div>
+          <a href="index.html" class="top-link"><i class="fas fa-home"></i> Website</a>
+          <a href="login.html" class="top-link"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+      </header>
 
+      <div class="content">
+        <div id="pageContainer"></div>
+        <div class="empty-state" id="emptyState">No matching results found.</div>
+      </div>
+    </main>
   </div>
 
-  <div class="container copyright">
-    <span>© 2025 All rights reserved.</span>
-    <span>“All Dreams are within Reach”</span>
-  </div>
-</footer>
+  <script>
+    const documents = [
+      { title: 'IPA Certificate', desc: 'Company registration document for verification and reference.', format: 'PDF' },
+      { title: 'TIN Certificate', desc: 'Tax Identification Number record for corporate administration.', format: 'PDF' },
+      { title: 'Business Plan / Profile', desc: 'Business profile and company information document for review.', format: 'PDF' }
+    ];
 
-<script>
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.getElementById('navLinks');
+    const directoryContacts = [
+      { role: 'Chief Executive Officer', dept: 'Executive', email: 'ceo@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Exploration Manager', dept: 'Technical', email: 'exploration@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Lead Consulting Geoscientist', dept: 'Geology', email: 'geoscience@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Senior Geologist', dept: 'Geology', email: 'geology@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Community Affairs Manager', dept: 'Community', email: 'community@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Chief Financial Officer', dept: 'Finance', email: 'finance@company.com', phone: '+675 7XXXXXXX' },
+      { role: 'Head of HSE & Compliance', dept: 'HSE', email: 'hse@company.com', phone: '+675 7XXXXXXX' }
+    ];
 
-  if(menuBtn && navLinks){
-    menuBtn.addEventListener('click',()=>{
-      const expanded = navLinks.classList.toggle('active');
+    const complianceItems = [
+      { icon: 'fas fa-certificate', title: 'Company Registration', desc: 'Registration records, certificates and related corporate verification details.', label: 'Corporate' },
+      { icon: 'fas fa-receipt', title: 'Tax Records', desc: 'Tax identification and related finance administration references.', label: 'Finance' },
+      { icon: 'fas fa-balance-scale', title: 'Permit Register', desc: 'A central place for licences, permits and statutory reference documents.', label: 'Register' },
+      { icon: 'fas fa-check-circle', title: 'Compliance Checklist', desc: 'A simple internal checklist for required corporate and operational records.', label: 'Checklist' },
+      { icon: 'fas fa-hard-hat', title: 'HSE References', desc: 'Health, safety and environment references used for corporate governance.', label: 'HSE' },
+      { icon: 'fas fa-users-cog', title: 'Governance Records', desc: 'Board, management and governance reference records for internal use.', label: 'Governance' }
+    ];
 
-      menuBtn.setAttribute(
-        'aria-expanded',
-        expanded ? 'true' : 'false'
-      );
-    });
+    const policyItems = [
+      { icon: 'fas fa-laptop-code', title: 'IT Policy', desc: 'Information technology rules, access use and basic cyber safety guidance.', label: 'Policy' },
+      { icon: 'fas fa-hard-hat', title: 'HSE Policy', desc: 'Health, safety and environment policy references for company operations.', label: 'Policy' },
+      { icon: 'fas fa-user-shield', title: 'Code of Conduct', desc: 'Professional conduct and ethical behaviour requirements for company representatives.', label: 'Policy' },
+      { icon: 'fas fa-lock', title: 'Information Security', desc: 'Guidance for handling company files, private records and portal access.', label: 'Policy' },
+      { icon: 'fas fa-file-signature', title: 'Document Control', desc: 'Rules for document versions, approvals, storage and release of company records.', label: 'Policy' },
+      { icon: 'fas fa-handshake', title: 'Stakeholder Engagement', desc: 'Internal reference for professional communication with partners and stakeholders.', label: 'Policy' }
+    ];
 
-    document.querySelectorAll('.menu a').forEach(link=>{
-      link.addEventListener('click',()=>{
-        navLinks.classList.remove('active');
+    const resourceItems = [
+      { icon: 'fas fa-id-card', title: 'Company Profile', desc: 'Corporate summary used for introductions, meetings and business reference.', label: 'Profile' },
+      { icon: 'fas fa-file-word', title: 'Letterhead Template', desc: 'Standard letterhead for formal company letters and correspondence.', label: 'Template' },
+      { icon: 'fas fa-envelope-open-text', title: 'Letter Templates', desc: 'Common formal letters for requests, introductions and corporate communication.', label: 'Template' },
+      { icon: 'fas fa-images', title: 'Brand Assets', desc: 'Logo files, colours and basic visual assets for consistent presentation.', label: 'Brand' },
+      { icon: 'fas fa-file-powerpoint', title: 'Presentation Material', desc: 'Slides or brief documents used for meetings and company introductions.', label: 'Material' },
+      { icon: 'fas fa-archive', title: 'Archive', desc: 'Older files kept for record reference and future checking.', label: 'Archive' }
+    ];
 
-        menuBtn.setAttribute(
-          'aria-expanded',
-          'false'
-        );
+    const importantDates = [
+      { day: '01', month: 'Jan', name: "New Year's Day" },
+      { day: '03', month: 'Apr', name: 'Good Friday' },
+      { day: '06', month: 'Apr', name: 'Easter Monday' },
+      { day: '17', month: 'Jun', name: "King's Birthday" },
+      { day: '23', month: 'Jul', name: 'National Remembrance Day' },
+      { day: '26', month: 'Aug', name: 'National Day of Repentance' },
+      { day: '16', month: 'Sep', name: 'Independence Day' },
+      { day: '25', month: 'Dec', name: 'Christmas Day' },
+      { day: '26', month: 'Dec', name: 'Boxing Day' }
+    ];
+
+    const usefulLinks = [
+      { icon: 'fas fa-globe', title: 'Public Website', desc: 'Return to the company website homepage.', url: 'index.html', label: 'Website' },
+      { icon: 'fas fa-info-circle', title: 'About Page', desc: 'Open the public company background page.', url: 'about.html', label: 'Website' },
+      { icon: 'fas fa-briefcase', title: 'Services Page', desc: 'Open the company services and business areas page.', url: 'services.html', label: 'Website' },
+      { icon: 'fas fa-users', title: 'Team Page', desc: 'Open the public leadership and team page.', url: 'team.html', label: 'Website' },
+      { icon: 'fas fa-address-card', title: 'Contact Page', desc: 'Open the public contact information page.', url: 'contact.html', label: 'Website' },
+      { icon: 'fab fa-wrike', title: 'Wrike Workspace', desc: 'Open Wrike for work planning and workspace activity.', url: 'https://login.wrike.com/login/', label: 'External' }
+    ];
+
+    const pageTitles = {
+      home: 'Home',
+      documents: 'Document',
+      directory: 'Directory',
+      compliance: 'Compliance',
+      policies: 'Policies',
+      resources: 'Resources',
+      dates: 'Important Dates',
+      support: 'Support',
+      links: 'Useful Links'
+    };
+
+    const pageIcons = {
+      home: 'fas fa-home',
+      documents: 'fas fa-file-alt',
+      directory: 'fas fa-address-book',
+      compliance: 'fas fa-shield-alt',
+      policies: 'fas fa-clipboard-list',
+      resources: 'fas fa-folder-open',
+      dates: 'fas fa-calendar-alt',
+      support: 'fas fa-headset',
+      links: 'fas fa-link'
+    };
+
+    function tileMarkup(items){
+      return items.map(item => `
+        <article class="tile searchable-item">
+          <div class="tile-icon"><i class="${item.icon}"></i></div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+          <span class="badge">${item.label}</span>
+        </article>
+      `).join('');
+    }
+
+    function renderHome(){
+      return `
+        <div class="home-wrap searchable-section">
+          <section class="home-live-wrap searchable-section home-live-top">
+            <div class="live-time-card searchable-item" aria-live="polite">
+              <div class="live-time-icon"><i class="fas fa-clock"></i></div>
+              <div class="live-time-meta">
+                <div class="live-label">Live Time and Date</div>
+                <div class="portal-clock" id="portalClock">--:--:--</div>
+                <div class="portal-date" id="portalDate">Loading date...</div>
+                <div class="portal-zone">Port Moresby, Papua New Guinea • UTC+10</div>
+              </div>
+            </div>
+
+            <div class="home-info-card searchable-item">
+              <h3>Portal Access</h3>
+              <p>Use the side menu to open company documents, directory contacts, compliance references, policies, resources, important dates and support.</p>
+            </div>
+          </section>
+
+          <section class="home-hero searchable-item">
+            <div class="home-label">Corporate Portal</div>
+            <h2>Welcome to the Company Portal</h2>
+            <p>This portal gives authorised users a clean access point for company documents, internal contacts, compliance references, policies, resources and important dates.</p>
+            <div class="home-actions">
+              <button class="action-btn" type="button" onclick="setActivePage('documents')"><i class="fas fa-file-alt"></i> View Documents</button>
+              <button class="action-btn secondary" type="button" onclick="setActivePage('directory')"><i class="fas fa-address-book"></i> Open Directory</button>
+              <button class="action-btn secondary" type="button" onclick="setActivePage('support')"><i class="fas fa-headset"></i> Get Support</button>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderDocuments(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.documents}"></i> Document</h2>
+            <span class="section-label">Company Files</span>
+          </div>
+          <div class="document-list">
+            ${documents.map(doc => `
+              <div class="document-row searchable-item">
+                <div class="document-meta">
+                  <div class="doc-icon"><i class="fas fa-file-alt"></i></div>
+                  <div>
+                    <h3>${doc.title}</h3>
+                    <p>${doc.desc}</p>
+                  </div>
+                </div>
+                <span class="badge">${doc.format}</span>
+                <a href="#" class="action-btn" onclick="event.preventDefault();"><i class="fas fa-eye"></i> View</a>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDirectory(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.directory}"></i> Directory</h2>
+            <span class="section-label">Internal Contacts</span>
+          </div>
+          <div class="directory-grid">
+            ${directoryContacts.map(contact => `
+              <article class="contact-card searchable-item">
+                <div class="contact-icon"><i class="fas fa-user"></i></div>
+                <div class="contact-info">
+                  <div class="role-row">
+                    <h3>${contact.role}</h3>
+                    <span class="badge">${contact.dept}</span>
+                  </div>
+                  <div class="contact-line"><i class="fas fa-envelope"></i><a href="mailto:${contact.email}">${contact.email}</a></div>
+                  <div class="contact-line"><i class="fas fa-phone-alt"></i><span>${contact.phone}</span></div>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderCompliance(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.compliance}"></i> Compliance</h2>
+            <span class="section-label">Corporate Records</span>
+          </div>
+          <div class="tile-grid">
+            ${tileMarkup(complianceItems)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPolicies(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.policies}"></i> Policies</h2>
+            <span class="section-label">Policy Library</span>
+          </div>
+          <div class="tile-grid">
+            ${tileMarkup(policyItems)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderResources(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.resources}"></i> Resources</h2>
+            <span class="section-label">Templates & References</span>
+          </div>
+          <div class="tile-grid">
+            ${tileMarkup(resourceItems)}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDates(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.dates}"></i> Important Dates</h2>
+            <span class="section-label">2026</span>
+          </div>
+          <div class="date-list">
+            ${importantDates.map(item => `
+              <div class="date-row searchable-item">
+                <div class="date-box"><strong>${item.day}</strong><span>${item.month}</span></div>
+                <div class="date-details">
+                  <h3>${item.name}</h3>
+                  <p>Papua New Guinea public holiday.</p>
+                </div>
+                <span class="badge">Public Holiday</span>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSupport(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.support}"></i> Support</h2>
+            <span class="section-label">Portal Assistance</span>
+          </div>
+          <div class="support-wrap">
+            <div class="support-box searchable-item">
+              <h3>Portal Help</h3>
+              <p>Use this area to request help with portal access, missing documents, incorrect details or website related information.</p>
+              <a class="action-btn" href="mailto:admin@company.com?subject=Portal%20Support%20Request"><i class="fas fa-envelope"></i> Email Admin</a>
+            </div>
+            <div class="support-box searchable-item">
+              <h3>Request Form</h3>
+              <form class="request-form" onsubmit="submitRequest(event)">
+                <div class="field">
+                  <label for="requestName">Your Name</label>
+                  <input id="requestName" type="text" placeholder="Enter your name">
+                </div>
+                <div class="field">
+                  <label for="requestType">Request Type</label>
+                  <select id="requestType">
+                    <option>Document Access</option>
+                    <option>Update Directory Details</option>
+                    <option>Report Missing Information</option>
+                    <option>Portal Support</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="requestMessage">Message</label>
+                  <textarea id="requestMessage" placeholder="Write your request here"></textarea>
+                </div>
+                <button class="action-btn" type="submit"><i class="fas fa-paper-plane"></i> Prepare Email</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderLinks(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <h2><i class="${pageIcons.links}"></i> Useful Links</h2>
+            <span class="section-label">Quick Access</span>
+          </div>
+          <div class="link-list">
+            ${usefulLinks.map(link => `
+              <div class="link-row searchable-item">
+                <div class="link-meta">
+                  <div class="link-icon"><i class="${link.icon}"></i></div>
+                  <div>
+                    <h3>${link.title}</h3>
+                    <p>${link.desc}</p>
+                  </div>
+                </div>
+                <span class="badge">${link.label}</span>
+                <a href="${link.url}" class="action-btn" ${link.url.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}><i class="fas fa-external-link-alt"></i> Open</a>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    const pages = {
+      home: renderHome,
+      documents: renderDocuments,
+      directory: renderDirectory,
+      compliance: renderCompliance,
+      policies: renderPolicies,
+      resources: renderResources,
+      dates: renderDates,
+      support: renderSupport,
+      links: renderLinks
+    };
+
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navItems = document.querySelectorAll('.nav-item');
+    const pageContainer = document.getElementById('pageContainer');
+    const currentPageTitle = document.getElementById('currentPageTitle');
+    const globalSearch = document.getElementById('globalSearch');
+    const emptyState = document.getElementById('emptyState');
+
+    function setActivePage(page){
+      navItems.forEach(item => item.classList.toggle('active', item.dataset.page === page));
+      currentPageTitle.textContent = pageTitles[page] || 'Document';
+      pageContainer.innerHTML = pages[page]();
+      globalSearch.value = '';
+      emptyState.style.display = 'none';
+      updatePortalClock();
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        setActivePage(item.dataset.page);
+        if(window.innerWidth <= 1024) sidebar.classList.remove('open');
       });
     });
-  }
-</script>
 
+    mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+
+    document.addEventListener('click', (event) => {
+      if(window.innerWidth > 1024) return;
+      if(!sidebar.contains(event.target) && !mobileToggle.contains(event.target)){
+        sidebar.classList.remove('open');
+      }
+    });
+
+    globalSearch.addEventListener('input', () => {
+      const term = globalSearch.value.trim().toLowerCase();
+      const items = document.querySelectorAll('.searchable-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const isMatch = !term || item.innerText.toLowerCase().includes(term);
+        item.style.display = isMatch ? '' : 'none';
+        if(isMatch) visibleCount++;
+      });
+
+      emptyState.style.display = term && visibleCount === 0 ? 'block' : 'none';
+    });
+
+    function updatePortalClock(){
+      const clock = document.getElementById('portalClock');
+      const date = document.getElementById('portalDate');
+      if(!clock || !date) return;
+
+      const now = new Date();
+      clock.textContent = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Pacific/Port_Moresby',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      }).format(now);
+
+      date.textContent = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Pacific/Port_Moresby',
+        weekday: 'long',
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      }).format(now);
+    }
+
+    function submitRequest(event){
+      event.preventDefault();
+      const name = document.getElementById('requestName').value.trim();
+      const type = document.getElementById('requestType').value;
+      const message = document.getElementById('requestMessage').value.trim();
+      const subject = encodeURIComponent('Portal Request - ' + type);
+      const body = encodeURIComponent(`Name: ${name || 'Not provided'}\nRequest Type: ${type}\n\nMessage:\n${message || 'No message provided.'}`);
+      window.location.href = `mailto:admin@company.com?subject=${subject}&body=${body}`;
+    }
+
+    setActivePage('home');
+    setInterval(updatePortalClock, 1000);
+  </script>
 </body>
 </html>
