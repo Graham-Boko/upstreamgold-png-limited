@@ -3,949 +3,1734 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>About Us | Who We Are</title>
+  <title>Company Portal | Refined Corporate Dashboard</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
 
     :root{
-      --navy:#061523;
-      --navy2:#081c2e;
-      --gold:#d49a2a;
-      --gold2:#b87915;
-      --white:#fff;
-      --cream:#f3f1ed;
-      --text:#07111f;
-      --muted:#505b67;
-      --line:rgba(212,154,42,.32);
-      --primary:#0d1b2a;
-      --secondary:#1b263b;
-      --accent:#415a77;
-      --soft:#778da9;
-      --light:#e0e1dd;
-      --panel:#f7f9fb;
-      --gold-deep:#b88324;
-      --border:rgba(255,255,255,.14);
-      --shadow:0 18px 45px rgba(13,27,42,.14);
+      --navy:#071524;
+      --navy-2:#0d1b2a;
+      --navy-3:#132642;
+      --navy-4:#1b314f;
+      --gold:#d4a24c;
+      --gold-2:#b88324;
+      --gold-soft:#fff6e8;
+      --bg:#f4f7fb;
+      --panel:#ffffff;
+      --text:#162033;
+      --muted:#687789;
+      --line:#e2e8f0;
+      --soft:#f8fafc;
+      --soft-2:#eef3f8;
+      --green:#1f7a56;
+      --red:#b85050;
+      --blue:#315f9b;
+      --amber:#a36f14;
+      --sidebar:294px;
+      --radius:22px;
+      --shadow:0 18px 44px rgba(7,21,36,.10);
+      --shadow-soft:0 10px 26px rgba(7,21,36,.07);
+      --ring:0 0 0 4px rgba(212,162,76,.15);
     }
 
     html{scroll-behavior:smooth}
 
     body{
-      font-family:"Plus Jakarta Sans",Arial,sans-serif;
-      color:var(--text);
-      background:var(--light);
-      line-height:1.55;
+      min-height:100vh;
       overflow-x:hidden;
+      font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(212,162,76,.12), transparent 28%),
+        radial-gradient(circle at 0% 18%, rgba(49,95,155,.08), transparent 24%),
+        linear-gradient(180deg,#f9fbfd 0%,#edf2f8 100%);
+      color:var(--text);
+      line-height:1.5;
     }
 
     a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{width:min(1180px,91%);margin:auto}
+    button,input,select{font:inherit}
+    button{border:0}
+    ::selection{background:rgba(212,162,76,.25)}
 
-    .skip-link{
-      position:absolute;
-      top:-40px;
-      left:0;
-      background:var(--gold);
-      padding:8px 14px;
-      z-index:100;
-      color:#111;
-      font-weight:800;
-    }
+    .app{min-height:100vh;display:flex}
 
-    .skip-link:focus{top:0}
-
-    header{
-      height:86px;
-      background:rgba(13,27,42,.96);
-      backdrop-filter:blur(12px);
-      display:flex;
-      align-items:center;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      position:sticky;
-      top:0;
-      z-index:50;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      width:min(1180px,92%);
-      margin:auto;
-      gap:24px;
-      position:relative;
-    }
-
-    .brand,
-    .footer-brand{
+    .sidebar-overlay{
+      position:fixed;
+      inset:0;
       display:none;
+      background:rgba(3,12,22,.52);
+      z-index:89;
     }
 
-    .menu{
+    .sidebar-overlay.show{display:block}
+
+    .sidebar{
+      position:fixed;
+      inset:0 auto 0 0;
+      z-index:100;
+      width:var(--sidebar);
+      height:100vh;
       display:flex;
-      gap:32px;
+      flex-direction:column;
+      overflow:hidden;
+      color:#fff;
+      background:linear-gradient(180deg,#04101d 0%,#071524 45%,#0c1d31 100%);
+      border-right:1px solid rgba(255,255,255,.10);
+      box-shadow:18px 0 50px rgba(7,21,36,.24);
+      transform:translateX(-105%);
+      transition:transform .24s ease;
+    }
+
+    .sidebar.open{transform:translateX(0)}
+
+    @media(min-width:1025px){
+      .sidebar{transform:none}
+      .main{margin-left:var(--sidebar)}
+      .sidebar-overlay{display:none!important}
+    }
+
+    .sidebar:before{
+      content:"";
+      position:absolute;
+      width:370px;
+      height:370px;
+      right:-185px;
+      top:-165px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(212,162,76,.23),transparent 70%);
+      pointer-events:none;
+    }
+
+    .sidebar-brand{
+      min-height:114px;
+      padding:24px;
+      display:flex;
       align-items:center;
-      justify-content:flex-start;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      color:#f3f3f3;
-      font-weight:700;
-    }
-
-    .menu a{
+      gap:14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
       position:relative;
-      white-space:nowrap;
+      z-index:1;
     }
 
-    .menu a.active,
-    .menu a:hover{
-      color:var(--gold);
+    .brand-mark{
+      width:56px;
+      height:56px;
+      flex:0 0 56px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      border:1px solid rgba(212,162,76,.35);
+      background:rgba(255,255,255,.06);
     }
 
-    .menu a:after{
+    .brand-mark svg{width:38px;height:38px;display:block}
+
+    .brand-text strong{
+      display:block;
+      color:#fff;
+      font-size:17px;
+      font-weight:900;
+      letter-spacing:.1px;
+      line-height:1.15;
+    }
+
+    .brand-text span{
+      display:block;
+      margin-top:5px;
+      color:#e8bf71;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.55px;
+      text-transform:uppercase;
+    }
+
+    .nav-menu{
+      list-style:none;
+      padding:18px 12px;
+      flex:1;
+      overflow:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .nav-menu::-webkit-scrollbar{width:5px}
+    .nav-menu::-webkit-scrollbar-thumb{background:rgba(212,162,76,.35);border-radius:999px}
+
+    .nav-item{
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:8px;
+      padding:0 16px;
+      color:#dce4ee;
+      border:1px solid transparent;
+      border-radius:16px;
+      cursor:pointer;
+      user-select:none;
+      font-size:14px;
+      font-weight:850;
+      position:relative;
+      transition:background .2s ease,border-color .2s ease,color .2s ease;
+    }
+
+    .nav-item i{
+      width:22px;
+      text-align:center;
+      color:#dce4ee;
+      font-size:17px;
+      transition:color .2s ease;
+    }
+
+    .nav-item:hover{
+      background:rgba(255,255,255,.055);
+      border-color:rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    .nav-item:hover i{color:var(--gold)}
+
+    .nav-item.active{
+      color:#fff;
+      background:linear-gradient(90deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
+      border-color:rgba(212,162,76,.31);
+    }
+
+    .nav-item.active:before{
       content:"";
       position:absolute;
       left:0;
-      bottom:-8px;
-      width:0;
-      height:2px;
+      top:10px;
+      bottom:10px;
+      width:4px;
+      border-radius:999px;
       background:var(--gold);
-      transition:.25s;
     }
 
-    .menu a:hover:after,
-    .menu a.active:after{
-      width:100%;
-    }
+    .nav-item.active i{color:var(--gold)}
 
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:0;
-      color:var(--gold);
-      font-size:26px;
-      cursor:pointer;
-    }
-
-    .hero{
-      min-height:560px;
-      background:linear-gradient(90deg,rgba(13,27,42,.86) 0%,rgba(27,38,59,.55) 48%,rgba(13,27,42,.08) 100%),url('hero.png');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
+    .sidebar-footer{
+      padding:18px 16px 22px;
+      border-top:1px solid rgba(255,255,255,.10);
       position:relative;
-      color:#fff;
+      z-index:1;
     }
 
-    .hero-content{
-      max-width:760px;
-      padding:76px 0;
-    }
-
-    .kicker{
-      font-size:13px;
-      letter-spacing:3px;
-      color:var(--gold);
-      text-transform:uppercase;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-
-    .hero h1{
-      font-size:clamp(38px,6vw,68px);
-      line-height:1.02;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-      font-weight:900;
-      color:#fff;
-      max-width:850px;
-    }
-
-    .hero h1 span{color:var(--gold)}
-
-    .gold-line{
-      height:1px;
-      background:var(--gold);
-      width:min(360px,80%);
-      margin:24px 0;
-    }
-
-    .hero p{
-      font-size:18px;
-      max-width:670px;
-      color:#e8edf3;
-      margin-bottom:30px;
-      font-weight:500;
-    }
-
-    .section{
-      padding:58px 0 0;
-      background:var(--panel);
-    }
-
-    .identity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:stretch;
-    }
-
-    .identity-card{
-      padding:0 0 25px;
-    }
-
-    .history-card{
-      background:var(--primary);
-      color:#fff;
-      padding:35px 40px;
-      min-height:360px;
-      background-image:radial-gradient(circle at top right,rgba(212,154,42,.13),transparent 34%);
-    }
-
-    .section-title{
-      font-size:34px;
-      font-weight:900;
-      text-transform:uppercase;
-      line-height:1.15;
-      margin-bottom:14px;
-    }
-
-    .identity-card p,
-    .history-card p{
-      font-size:15px;
-      margin-bottom:15px;
-    }
-
-    .identity-card p{color:#111827}
-    .history-card p{color:#eef3f7}
-
-    .tiers{
-      margin-top:16px;
-      display:grid;
-      gap:8px;
-    }
-
-    .tier{
+    .workspace-btn{
+      width:100%;
+      min-height:54px;
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:12px;
-      font-size:14px;
+      padding:0 16px;
+      border-radius:15px;
+      border:1px solid rgba(212,162,76,.55);
+      background:rgba(255,255,255,.035);
+      color:#f2c879;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.2px;
+      transition:background .2s ease,border-color .2s ease;
     }
 
-    .tier span{
-      width:25px;
-      height:25px;
-      border-radius:6px;
-      background:var(--gold);
-      color:#fff;
-      font-size:12px;
-      font-weight:900;
+    .workspace-btn:hover{background:rgba(212,162,76,.10);border-color:rgba(212,162,76,.75)}
+
+    .main{width:100%;min-height:100vh}
+
+    .topbar{
+      min-height:88px;
+      position:sticky;
+      top:0;
+      z-index:80;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:0 clamp(18px,3vw,34px);
+      background:rgba(255,255,255,.89);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-left{display:flex;align-items:center;gap:14px;min-width:0}
+
+    .mobile-toggle{
+      width:46px;
+      height:46px;
       display:grid;
       place-items:center;
+      flex:0 0 46px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--gold-2);
+      font-size:19px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(7,21,36,.05);
     }
 
-    .values-wrap{
-      padding:35px 0 58px;
-      background:var(--panel);
-    }
+    @media(min-width:1025px){.mobile-toggle{display:none}}
 
-    .values-grid{
-      background:#ffffff;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      box-shadow:var(--shadow);
-    }
+    .page-title{min-width:0}
 
-    .value-card{
-      padding:42px 36px;
-      min-height:310px;
-      border-right:1px solid var(--line);
-      text-align:left;
-    }
-
-    .value-card:last-child{border-right:none}
-
-    .value-card .icon{
-      color:var(--gold);
-      font-size:44px;
-      height:56px;
-      margin-bottom:22px;
-      text-align:center;
-    }
-
-    .value-card h3{
-      text-align:center;
-      font-size:17px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:14px;
-    }
-
-    .value-card .small-line{
-      width:42px;
-      height:2px;
-      background:var(--gold);
-      margin:0 auto 24px;
-    }
-
-    .value-card p,
-    .value-card li{
-      font-size:14px;
-      color:#121a25;
-    }
-
-    .value-card ul{
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-
-    .value-card li{
+    .page-title .kicker{
       display:flex;
-      gap:12px;
-      align-items:flex-start;
-    }
-
-    .value-card li:before{
-      content:"✓";
-      color:var(--gold);
+      align-items:center;
+      gap:8px;
+      color:var(--gold-2);
+      font-size:12px;
       font-weight:900;
+      letter-spacing:.45px;
+      text-transform:uppercase;
+      margin-bottom:4px;
     }
 
-    .wrike-section{
-      padding:80px 0 90px;
+    .page-title h1{
+      color:var(--navy);
+      font-size:clamp(21px,2.2vw,28px);
+      font-weight:900;
+      line-height:1.1;
+      letter-spacing:-.55px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .topbar-actions{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:12px;
+      min-width:0;
+    }
+
+    .search-wrapper{
+      height:54px;
+      width:min(390px,28vw);
+      min-width:240px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border:1px solid #d9e0eb;
+      background:#fff;
+      color:#8793a5;
+      border-radius:16px;
+      padding:0 16px;
+      box-shadow:0 8px 18px rgba(7,21,36,.04);
+    }
+
+    .search-wrapper:focus-within{border-color:rgba(212,162,76,.72);box-shadow:var(--ring)}
+
+    .search-wrapper input{
+      width:100%;
+      border:0;
+      outline:0;
+      color:var(--text);
+      background:transparent;
+      font-size:14px;
+      font-weight:750;
+    }
+
+    .top-link{
+      height:54px;
+      min-width:132px;
+      padding:0 17px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:16px;
+      border:1px solid #d9e0eb;
+      background:#fff;
+      color:var(--navy);
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      white-space:nowrap;
+      box-shadow:0 8px 18px rgba(7,21,36,.035);
+      transition:border-color .2s ease,background .2s ease,color .2s ease;
+    }
+
+    .top-link.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+    .top-link:hover{border-color:rgba(212,162,76,.62)}
+
+    .content{
+      width:min(1360px,calc(100% - 44px));
+      margin:0 auto;
+      padding:28px 0 56px;
+    }
+
+    .section-panel{
       background:var(--panel);
-    }
-
-    .wrike-card{
-      background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 58%,var(--accent) 100%);
-      border-radius:34px;
-      padding:56px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:45px;
-      color:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
-      align-items:stretch;
-      border:1px solid rgba(255,255,255,.10);
-      position:relative;
       overflow:hidden;
     }
 
-    .wrike-card:before{
+    .section-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      padding:28px 30px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fff,#fbfcfe);
+    }
+
+    .section-head h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--navy);
+      font-size:clamp(23px,2.8vw,34px);
+      font-weight:900;
+      line-height:1.05;
+      letter-spacing:-.7px;
+    }
+
+    .section-head h2 i{color:var(--gold-2);font-size:.86em}
+
+    .section-head p{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:750;
+      margin-top:9px;
+      max-width:760px;
+      line-height:1.72;
+    }
+
+    .section-label,.badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(212,162,76,.34);
+      background:rgba(212,162,76,.10);
+      color:var(--gold-2);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.65px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .badge.green{border-color:rgba(31,122,86,.25);background:rgba(31,122,86,.09);color:var(--green)}
+    .badge.red{border-color:rgba(184,80,80,.25);background:rgba(184,80,80,.08);color:var(--red)}
+    .badge.blue{border-color:rgba(49,95,155,.22);background:rgba(49,95,155,.08);color:var(--blue)}
+    .badge.amber{border-color:rgba(163,111,20,.24);background:rgba(163,111,20,.08);color:var(--amber)}
+
+    .empty-state{
+      display:none;
+      margin-top:20px;
+      padding:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+      font-weight:850;
+    }
+
+    .home-grid{display:grid;gap:22px}
+
+    .hero-card{
+      min-height:365px;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:20px;
+      align-items:stretch;
+      border-radius:28px;
+      overflow:hidden;
+      background:
+        linear-gradient(125deg,rgba(7,21,36,.99) 0%,rgba(13,35,67,.96) 54%,rgba(39,78,135,.82) 100%);
+      box-shadow:0 24px 58px rgba(7,21,36,.18);
+      position:relative;
+    }
+
+    .hero-card:before{
       content:"";
       position:absolute;
-      width:360px;
-      height:360px;
+      width:520px;
+      height:520px;
+      right:-220px;
+      top:-190px;
       border-radius:50%;
-      right:-120px;
-      top:-120px;
       background:radial-gradient(circle,rgba(212,162,76,.22),transparent 68%);
       pointer-events:none;
     }
 
-    .wrike-left,
-    .wrike-right{
+    .hero-card:after{
+      content:"";
+      position:absolute;
+      left:-80px;
+      bottom:-120px;
+      width:420px;
+      height:250px;
+      border-radius:50%;
+      border:1px solid rgba(212,162,76,.22);
+      pointer-events:none;
+    }
+
+    .hero-copy{
       position:relative;
       z-index:1;
+      padding:46px clamp(24px,4vw,58px);
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .wrike-badge{
+    .home-label{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:10px 18px;
-      border-radius:50px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      margin-bottom:24px;
-      font-size:12px;
+      color:#e9bf6e;
       text-transform:uppercase;
-      letter-spacing:2px;
-      color:#f1d7a1;
-      font-weight:800;
-      width:fit-content;
-    }
-
-    .wrike-badge i{color:var(--gold)}
-
-    .wrike-left h3{
-      font-size:clamp(32px,4vw,48px);
+      letter-spacing:3.5px;
+      font-size:11px;
+      font-weight:900;
       margin-bottom:20px;
-      line-height:1.02;
-      font-weight:900;
-      letter-spacing:-.8px;
-      text-transform:uppercase;
     }
 
-    .wrike-left p{
-      line-height:1.85;
-      color:rgba(255,255,255,.82);
-      margin-bottom:28px;
+    .home-label:before{content:"";width:34px;height:2px;background:#e9bf6e;border-radius:999px}
+
+    .hero-copy h2{
+      color:#fff;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:clamp(36px,4.7vw,64px);
+      line-height:1.07;
+      font-weight:700;
+      letter-spacing:-1.1px;
+      margin-bottom:18px;
+      max-width:660px;
+    }
+
+    .hero-copy p{
+      color:#dbe5f1;
       font-size:15px;
-      max-width:560px;
+      font-weight:650;
+      line-height:1.86;
+      max-width:730px;
     }
 
-    .wrike-login-btn{
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+    .hero-btn,.action-btn,.profile-action-btn,.small-action{
+      min-height:44px;
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      background:var(--gold);
-      color:#111;
-      text-decoration:none;
-      padding:14px 26px;
-      border-radius:50px;
+      justify-content:center;
+      gap:9px;
+      padding:0 15px;
+      border-radius:13px;
+      border:1px solid var(--navy);
+      background:var(--navy);
+      color:#fff;
+      cursor:pointer;
+      font-size:11px;
       font-weight:900;
-      transition:.3s ease;
-      width:fit-content;
+      letter-spacing:.55px;
       text-transform:uppercase;
-      font-size:13px;
-      box-shadow:0 12px 24px rgba(212,162,76,.18);
+      white-space:nowrap;
+      transition:background .2s ease,border-color .2s ease,color .2s ease;
     }
 
-    .wrike-login-btn:hover{
-      background:#e0af58;
-      transform:translateY(-3px);
-    }
+    .hero-btn.gold,.download-btn,.profile-action-btn.gold,.small-action.gold{background:var(--gold);border-color:var(--gold);color:#111}
+    .hero-btn.ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24);color:#fff}
+    .hero-btn:hover,.action-btn:hover,.profile-action-btn:hover,.small-action:hover{border-color:var(--gold);background:var(--gold);color:#111}
 
-    .wrike-grid{
+    .hero-side{
+      position:relative;
+      z-index:1;
+      padding:34px;
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-      height:100%;
+      align-content:center;
+      gap:16px;
     }
 
-    .wrike-feature{
-      background:rgba(255,255,255,.065);
-      border-radius:24px;
-      padding:25px;
-      border:1px solid rgba(255,255,255,.09);
+    .time-card,.status-card{
+      background:rgba(255,255,255,.105);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      border-radius:20px;
+      padding:22px;
+      backdrop-filter:blur(10px);
+    }
+
+    .time-label{
+      color:#e7bf70;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:8px;
+    }
+
+    .portal-clock{
+      font-size:clamp(34px,4vw,50px);
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-1px;
+      margin-bottom:10px;
+    }
+
+    .portal-clock .ampm{font-size:.48em;margin-left:5px;vertical-align:11px}
+    .portal-date,.status-card p{color:#dfe8f1;font-size:13px;font-weight:750;line-height:1.72}
+    .status-list{display:grid;gap:10px;margin-top:14px}
+    .status-line{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#eef4fb;font-size:12px;font-weight:850}
+    .status-dot{display:inline-flex;align-items:center;gap:7px;color:#f2c879}
+    .status-dot:before{content:"";width:8px;height:8px;border-radius:999px;background:#54d18c;box-shadow:0 0 0 4px rgba(84,209,140,.14)}
+
+    .kpi-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .kpi-card{
+      min-height:154px;
       display:flex;
       flex-direction:column;
-      min-height:220px;
-      backdrop-filter:blur(6px);
-      transition:.3s ease;
+      justify-content:space-between;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow-soft);
+      padding:22px;
     }
 
-    .wrike-feature:hover{
-      background:rgba(255,255,255,.095);
-      transform:translateY(-5px);
-    }
-
-    .wrike-feature i{
+    .kpi-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .kpi-icon,.doc-icon,.contact-icon,.card-icon,.insight-icon{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+      background:linear-gradient(135deg,var(--navy),var(--navy-3));
       color:var(--gold);
-      font-size:28px;
-      margin-bottom:16px;
-    }
-
-    .wrike-feature h4{
-      margin-bottom:12px;
-      font-size:15px;
-      min-height:24px;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-      font-weight:900;
-    }
-
-    .wrike-feature p{
-      line-height:1.7;
-      color:rgba(255,255,255,.76);
-      font-size:14px;
-    }
-
-    footer{
-      background:#0d1b2a;
-      color:#fff;
-      padding:50px 0 18px;
-      border-top:3px solid var(--gold);
-    }
-
-    .footer-grid{
+      border:1px solid rgba(212,162,76,.28);
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:40px;
+      place-items:center;
+      flex:0 0 50px;
+      font-size:17px;
+    }
+
+    .kpi-value{font-size:35px;line-height:1;font-weight:900;color:var(--navy);letter-spacing:-.95px;margin-top:20px}
+    .kpi-title{font-size:13px;font-weight:900;color:var(--navy);margin-top:8px}
+    .kpi-desc{font-size:12px;font-weight:750;color:var(--muted);line-height:1.6;margin-top:4px}
+
+    .dashboard-split{
+      display:grid;
+      grid-template-columns:1.16fr .84fr;
+      gap:22px;
       align-items:start;
     }
 
-    .footer-card{
+    .mini-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .mini-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:22px 24px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fff,#fbfcfe);
+    }
+
+    .mini-head h3{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--navy);
+      font-size:17px;
+      font-weight:900;
+      letter-spacing:-.25px;
+    }
+
+    .mini-head h3 i{color:var(--gold-2)}
+    .mini-body{padding:20px 24px 24px}
+
+    .notice-list,.activity-list,.date-preview-list,.control-grid{display:grid;gap:12px}
+
+    .notice-item,.activity-item,.date-preview-item,.control-item{
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      align-items:flex-start;
+      padding:15px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fbfcfe;
+    }
+
+    .notice-icon,.activity-icon{
+      width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#fff;color:var(--gold-2);border:1px solid rgba(212,162,76,.25);font-size:16px
+    }
+
+    .notice-item h4,.activity-item h4,.date-preview-item h4,.control-item h4{font-size:13px;font-weight:900;color:var(--navy);margin-bottom:4px}
+    .notice-item p,.activity-item p,.date-preview-item p,.control-item p{font-size:12px;font-weight:750;color:var(--muted);line-height:1.6}
+
+    .control-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--gold-soft);color:var(--gold-2);border:1px solid rgba(212,162,76,.26)}
+    .progress-grid{display:grid;gap:14px}
+    .progress-item{display:grid;gap:8px}
+    .progress-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:900;color:var(--navy)}
+    .progress-track{height:10px;background:#edf1f6;border-radius:999px;overflow:hidden;border:1px solid #e4e9f1}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:999px}
+
+    .document-tools,.control-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      padding:20px 30px 10px;
+    }
+
+    .tool-note{color:var(--muted);font-size:13px;font-weight:750;line-height:1.6;max-width:750px}
+    .chip-row{display:flex;gap:8px;flex-wrap:wrap}
+
+    .chip-btn{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--navy);
+      padding:9px 13px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.55px;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:background .2s ease,color .2s ease,border-color .2s ease;
+    }
+
+    .chip-btn.active,.chip-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+
+    .document-list,.date-list{padding:8px 30px 24px}
+    .document-category{padding-top:18px}
+    .document-category:first-child{padding-top:10px}
+
+    .document-category-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 0;
+      color:var(--gold-2);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.95px;
+      border-bottom:1px solid rgba(212,162,76,.24);
+    }
+
+    .document-row,.date-row{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto auto;
+      gap:14px;
+      align-items:center;
+      padding:20px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .document-row:last-child,.date-row:last-child{border-bottom:0}
+
+    .document-meta,.contact-meta{display:flex;align-items:flex-start;gap:14px;min-width:0}
+
+    .document-meta h3,.contact-info h3,.insight-card h3,.partner-card h3,.date-details h3,.profile-panel h4{
+      color:var(--navy);
+      font-size:15px;
+      font-weight:900;
+      line-height:1.32;
+      margin-bottom:5px;
+    }
+
+    .document-meta p,.contact-info p,.insight-card p,.partner-card p,.date-details p,.profile-panel p{
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.64;
+      font-weight:750;
+    }
+
+    .directory-grid,.governance-grid,.partner-grid{
+      padding:28px 30px 30px;
+      display:grid;
+      gap:18px;
+    }
+
+    .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .governance-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+    .contact-card,.insight-card,.partner-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow-soft);
+      padding:22px;
+      transition:border-color .2s ease,background .2s ease;
+    }
+
+    .contact-card:hover,.insight-card:hover,.partner-card:hover{border-color:rgba(212,162,76,.42);background:#fffdf9}
+
+    .contact-card{
+      min-height:164px;
+      display:grid;
+      grid-template-columns:54px minmax(0,1fr);
+      gap:16px;
+      align-items:flex-start;
+    }
+
+    .contact-icon{width:54px;height:54px;flex-basis:54px}
+    .contact-line{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:12.5px;font-weight:780;margin-top:8px;word-break:break-word}
+    .contact-line i{width:15px;color:var(--gold-2);padding-top:2px}
+    .contact-line a{color:var(--gold-2)}
+
+    .insight-card{
+      min-height:175px;
       display:flex;
       flex-direction:column;
-      align-items:flex-start;
-    }
-
-    .footer h4{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:var(--gold);
-      margin-bottom:18px;
-    }
-
-    .footer ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
-
-    .footer li{
-      margin-bottom:14px;
-    }
-
-    .footer li a{
-      color:#d9e0e7;
-      font-size:14px;
-      font-weight:400;
-      line-height:1.7;
-      display:block;
-      transition:.25s;
-    }
-
-    .footer li a:hover{
-      color:var(--gold);
-    }
-
-    .contact-line{
-      display:flex;
-      gap:12px;
-      margin-bottom:14px;
-      align-items:flex-start;
-    }
-
-    .contact-line span{
-      color:var(--gold);
-      margin-top:4px;
-    }
-
-    .footer p{
-      color:#d9e0e7;
-      line-height:1.7;
-      font-size:14px;
-    }
-
-    .footer-card > p{
-      margin-bottom:12px;
-    }
-
-    .social-links{
-      display:flex;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .social-links a{
-      width:38px;
-      height:38px;
-      border:1px solid rgba(255,255,255,.15);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--gold);
-      font-size:15px;
-      transition:.25s ease;
-    }
-
-    .social-links a:hover{
-      background:var(--gold);
-      color:#111;
-      border-color:var(--gold);
-    }
-
-    .wrike-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      background:var(--gold);
-      color:#111;
-      padding:12px 18px;
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      margin-top:8px;
-      width:max-content;
-      transition:.25s ease;
-    }
-
-    .wrike-btn:hover{
-      background:#e0af58;
-      transform:translateY(-2px);
-    }
-
-    .copyright{
-      margin-top:30px;
-      padding-top:15px;
-      border-top:1px solid rgba(255,255,255,.12);
-      display:flex;
       justify-content:space-between;
-      gap:20px;
-      font-size:12px;
-      color:#b9c3cf;
+      gap:17px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .insight-card:before{display:none!important}
+    .insight-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .insight-icon{margin-bottom:15px}
+    .insight-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+
+    .partner-card{
+      min-height:242px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .partner-number{
+      width:50px;
+      height:50px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--navy),var(--navy-3));
+      border:1px solid rgba(212,162,76,.35);
+      border-radius:15px;
+      color:var(--gold);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.8px;
+      margin-bottom:16px;
+    }
+
+    .partner-details{display:grid;gap:7px;margin-top:13px}
+    .partner-detail{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:12px;font-weight:850;line-height:1.5}
+    .partner-detail i{color:var(--gold-2);width:14px;margin-top:2px}
+
+    .partner-profile-btn{
+      width:100%;
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:#fff;
+      color:var(--navy);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.55px;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:background .2s ease,border-color .2s ease,color .2s ease;
+    }
+
+    .partner-profile-btn:hover{background:rgba(212,162,76,.08);border-color:rgba(212,162,76,.55);color:var(--gold-2)}
+
+    .partner-profile-view{padding:30px}
+
+    .partner-profile-header{
+      display:grid;
+      grid-template-columns:76px minmax(0,1fr) auto;
+      align-items:center;
+      gap:18px;
+      padding:28px;
+      border-radius:22px;
+      color:#fff;
+      background:linear-gradient(135deg,#071524,#0d1b2a 62%,#1b263b);
+      position:relative;
+      overflow:hidden;
+      margin-bottom:20px;
+    }
+
+    .partner-profile-header:before{content:"";position:absolute;width:260px;height:260px;right:-120px;top:-125px;border-radius:50%;background:radial-gradient(circle,rgba(212,162,76,.24),transparent 70%)}
+    .partner-profile-header>*{position:relative;z-index:1}
+    .partner-profile-logo{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(212,162,76,.38);color:var(--gold);font-size:18px;font-weight:900;letter-spacing:.8px}
+    .partner-profile-header h3{font-size:clamp(24px,3vw,34px);font-weight:900;line-height:1.1;margin-bottom:8px;letter-spacing:-.7px}
+    .partner-profile-header p{color:#dfe8f1;font-size:13px;font-weight:750;line-height:1.6}
+    .back-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(212,162,76,.50);background:rgba(212,162,76,.10);color:#f2c879;border-radius:13px;padding:13px 15px;font-size:11px;font-weight:900;letter-spacing:.45px;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+    .back-btn:hover{background:rgba(212,162,76,.17)}
+
+    .partner-profile-grid,.profile-section-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+    .profile-section-grid.two{grid-template-columns:1.08fr .92fr}
+
+    .partner-profile-info,.profile-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      padding:22px;
+    }
+
+    .info-label{display:flex;align-items:center;gap:8px;color:var(--gold-2);font-size:10px;font-weight:900;letter-spacing:.65px;text-transform:uppercase;margin-bottom:8px}
+    .partner-profile-info strong{display:block;color:var(--navy);font-size:14px;font-weight:900;line-height:1.45;word-break:break-word}
+    .profile-panel h4{display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:15px}
+    .profile-panel h4 i{color:var(--gold-2)}
+    .profile-detail-list{display:grid;gap:12px}
+    .profile-detail-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+    .profile-detail-row:last-child{padding-bottom:0;border-bottom:0}
+    .profile-detail-row span{color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.55px}
+    .profile-detail-row strong{color:var(--navy);font-size:13px;font-weight:850;line-height:1.5;word-break:break-word}
+    .profile-doc-list{display:grid;gap:12px}
+    .profile-doc-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe;color:var(--navy);font-size:13px;font-weight:850}
+    .profile-doc-item div{display:flex;align-items:center;gap:10px;min-width:0}
+    .profile-doc-item i{color:var(--gold-2)}
+    .profile-doc-item a{color:var(--gold-2);font-size:11px;font-weight:900;text-transform:uppercase;white-space:nowrap}
+    .profile-action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+
+    .date-row{grid-template-columns:64px minmax(0,1fr) auto}
+
+    .date-box{
+      width:64px;
+      height:64px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      border-radius:16px;
+      background:var(--navy);
+      border:1px solid rgba(212,162,76,.38);
+      color:#fff;
+      text-transform:uppercase;
+      line-height:1;
+      font-weight:900;
+      flex:0 0 64px;
+    }
+
+    .date-box strong{font-size:20px;color:var(--gold);margin-bottom:6px}
+    .date-box span{font-size:11px;letter-spacing:.75px}
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:150;
+      display:none;
+      place-items:center;
+      padding:22px;
+      background:rgba(3,12,22,.58);
+    }
+
+    .modal.show{display:grid}
+
+    .modal-card{
+      width:min(760px,100%);
+      max-height:88vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:22px;
+      box-shadow:0 30px 80px rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.38);
+    }
+
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:22px 24px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#fff,#fbfcfe);
+    }
+
+    .modal-head h3{color:var(--navy);font-size:18px;font-weight:900;letter-spacing:-.2px}
+    .modal-close{width:40px;height:40px;border-radius:13px;background:#fff;border:1px solid var(--line);color:var(--navy);cursor:pointer;font-size:16px}
+    .modal-body{padding:24px;display:grid;gap:14px;color:var(--muted);font-size:14px;font-weight:750;line-height:1.72}
+    .modal-body strong{color:var(--navy)}
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      z-index:180;
+      min-width:min(520px,calc(100% - 32px));
+      transform:translateX(-50%) translateY(18px);
+      opacity:0;
+      pointer-events:none;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:15px 17px;
+      border-radius:16px;
+      background:var(--navy);
+      color:#fff;
+      box-shadow:0 18px 45px rgba(7,21,36,.28);
+      border:1px solid rgba(212,162,76,.35);
+      transition:opacity .22s ease,transform .22s ease;
+      font-size:13px;
+      font-weight:850;
+    }
+
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .toast i{color:var(--gold)}
+
+    @media(max-width:1180px){
+      .hero-card{grid-template-columns:1fr}
+      .hero-side{grid-template-columns:1fr 1fr;padding-top:0}
+      .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .dashboard-split{grid-template-columns:1fr}
+      .governance-grid,.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
     @media(max-width:1040px){
-      .wrike-card{
-        grid-template-columns:1fr;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
-      }
+      .topbar{align-items:flex-start;flex-direction:column;padding:18px 22px}
+      .topbar-actions{width:100%;justify-content:space-between;flex-wrap:wrap}
+      .search-wrapper{width:100%;min-width:100%;order:3}
+      .top-link{flex:1;min-width:calc(50% - 6px)}
+      .directory-grid{grid-template-columns:1fr}
     }
 
-    @media(max-width:980px){
-      .identity-grid{grid-template-columns:1fr}
-      .values-grid{grid-template-columns:1fr 1fr}
+    @media(max-width:860px){
+      .content{width:min(100% - 28px,1360px);padding:22px 0 42px}
+      .hero-copy{padding:36px 24px}
+      .hero-side{grid-template-columns:1fr;padding:0 24px 24px}
+      .section-head{padding:24px 20px;flex-direction:column;align-items:flex-start}
+      .document-tools,.document-list,.date-list,.directory-grid,.governance-grid,.partner-grid,.partner-profile-view{padding-left:20px;padding-right:20px}
+      .document-row{grid-template-columns:1fr;align-items:stretch;gap:12px}
+      .document-row .badge{width:max-content}
+      .document-row .chip-row{width:100%;display:grid;grid-template-columns:1fr 1fr}
+      .action-btn{width:100%}
+      .date-row{grid-template-columns:56px 1fr;gap:16px;align-items:start}
+      .date-row .badge{grid-column:2;width:max-content}
+      .date-box{width:56px;height:56px;flex-basis:56px}
+      .partner-profile-header{grid-template-columns:1fr;align-items:flex-start}
+      .partner-profile-grid,.profile-section-grid,.profile-section-grid.two{grid-template-columns:1fr}
+      .profile-detail-row{grid-template-columns:1fr;gap:5px}
     }
 
-    @media(max-width:820px){
-      .menu-toggle{display:block}
-
-      .menu{
-        position:fixed;
-        top:86px;
-        left:-100%;
-        width:min(340px,88%);
-        height:calc(100vh - 86px);
-        background:var(--primary);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:28px;
-        transition:.3s;
-        box-shadow:20px 0 45px rgba(0,0,0,.2);
-      }
-
-      .menu.active{left:0}
+    @media(max-width:640px){
+      .sidebar{width:min(330px,88vw)}
+      .content{width:min(100% - 22px,1360px)}
+      .hero-copy h2{font-size:34px}
+      .home-label{letter-spacing:2.4px}
+      .kpi-grid,.governance-grid,.partner-grid{grid-template-columns:1fr}
+      .top-link{min-width:100%}
+      .document-row .chip-row{grid-template-columns:1fr}
+      .contact-card{grid-template-columns:1fr}
+      .mini-head{flex-direction:column;align-items:flex-start}
+      .profile-doc-item{align-items:flex-start;flex-direction:column}
     }
 
-    @media(max-width:768px){
-      .wrike-section{
-        padding:60px 0 70px;
-      }
-
-      .wrike-card{
-        padding:40px 28px;
-        border-radius:26px;
-      }
-
-      .wrike-grid{
-        grid-template-columns:1fr;
-      }
-
-      .wrike-feature{
-        min-height:auto;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr;
-        gap:30px;
-      }
-
-      .footer-card{
-        text-align:left;
-      }
-
-      .copyright{
-        flex-direction:column;
-        text-align:center;
-      }
-    }
-
-    @media(max-width:560px){
-      .hero h1{font-size:40px}
-      .hero{min-height:500px}
-      .values-grid{grid-template-columns:1fr}
-      .value-card{border-right:none;border-bottom:1px solid var(--line)}
+    @media print{
+      .sidebar,.topbar,.sidebar-overlay,.modal,.toast,.action-btn,.profile-action-btn,.small-action,.workspace-btn{display:none!important}
+      .main{margin-left:0!important}
+      .content{width:100%;padding:0}
+      .section-panel,.hero-card,.kpi-card,.mini-panel,.contact-card,.insight-card,.partner-card{box-shadow:none;break-inside:avoid}
+      body{background:#fff}
     }
   </style>
 </head>
-
 <body>
+  <div class="app">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<a href="#main-content" class="skip-link">Skip to content</a>
-
-<header>
-  <nav>
-    <div class="brand"></div>
-
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="menu" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="services.html">Services</a>
-      <a href="team.html">Team</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-</header>
-
-<main id="main-content">
-
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="kicker">✦ About Us</div>
-
-      <h1>
-        Building Papua New Guinea’s <span>Resource Future</span>
-      </h1>
-
-      <div class="gold-line"></div>
-
-      <p>
-        A nationally owned company operating in Papua New Guinea with business interest in the mining of mineral ore.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container identity-grid">
-
-      <div class="identity-card">
-        <h2 class="section-title">Corporate Identity</h2>
-        <div class="gold-line"></div>
-
-        <p>
-          The company is nationally owned and operates in Papua New Guinea with business interest in the mining of mineral ore.
-          The company was incorporated on the 18th October 2024 under the Companies Act 1997.
-        </p>
-
-        <p>
-          We aim to be a strategic leader in the extraction industry and a strategic joint venture partner across PNG.
-        </p>
-
-        <p>Our business operations are structured into four key tiers:</p>
-
-        <div class="tiers">
-          <div class="tier"><span>01</span> Commercial Services</div>
-          <div class="tier"><span>02</span> Petroleum & Mining Exploration Services</div>
-          <div class="tier"><span>03</span> Logistics</div>
-          <div class="tier"><span>04</span> Development Services</div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 54H54" stroke="#D4A24C" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M16 50V25L22 20V50" stroke="#D4A24C" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M26 50V12L32 8V50" stroke="#D4A24C" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M36 50V18L42 14V50" stroke="#D4A24C" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M46 50V28L52 24V50" stroke="#D4A24C" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M10 54C18 48 28 46 38 47C45 47.7 50 50 54 54" stroke="#D4A24C" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Company Portal</strong>
+          <span>Corporate Access</span>
         </div>
       </div>
 
-      <div class="history-card">
-        <h2 class="section-title">Company History</h2>
-        <div class="gold-line"></div>
-
-        <p>
-          Although the company is new to the Mining & Petroleum industry in PNG, the team comprises highly experienced
-          geoscientists and development practitioners with collective experience in the extractive industry,
-          both in-country and internationally.
-        </p>
-
-        <p>
-          Key people have been involved in exploration, discoveries and development of mine fields globally as well as locally.
-          The method of operations for each prospect depends on the key relevant drivers that will trigger the start-up.
-        </p>
-
-        <p>
-          As a strategic body corporate, the company is governed by a Board of Directors who guide the Vision and Mission.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="values-wrap">
-    <div class="container">
-      <div class="values-grid">
-
-        <div class="value-card">
-          <div class="icon"><i class="fa-regular fa-eye"></i></div>
-          <h3>Vision</h3>
-          <div class="small-line"></div>
-          <p>
-            To promote, enhance and advance service delivery through dynamic development models for growth and prosperity.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Mission</h3>
-          <div class="small-line"></div>
-          <p>
-            To create and establish strategically positioned businesses, socially responsible programs and practical solutions
-            that lay the foundations towards better outcomes.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="icon"><i class="fa-regular fa-gem"></i></div>
-          <h3>Core Values</h3>
-          <div class="small-line"></div>
-          <ul>
-            <li>Transparency</li>
-            <li>Accountability</li>
-            <li>Team Work</li>
-            <li>Innovation</li>
-          </ul>
-        </div>
-
-        <div class="value-card">
-          <div class="icon"><i class="fa-solid fa-mountain-sun"></i></div>
-          <h3>Objectives</h3>
-          <div class="small-line"></div>
-          <ul>
-            <li>To use natural resources as a catalyst for development in remote areas of PNG through improved living standards.</li>
-            <li>To increase access for quality individuals to gain better career opportunities.</li>
-            <li>To increase training and experience opportunities for poverty reduction and sustainable livelihoods.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="wrike-section" id="wrike-workspace">
-    <div class="container">
-      <div class="wrike-card">
-
-        <div class="wrike-left">
-          <div class="wrike-badge">
-            <i class="fas fa-diagram-project"></i>
-            Project Management Tool
-          </div>
-
-          <h3>Wrike-powered workflow coordination</h3>
-
-          <p>
-            We use Wrike as our project management and workflow coordination platform to support operational planning,
-            reporting efficiency, collaboration and project delivery.
-          </p>
-
-          <a href="https://login.wrike.com/login/" class="wrike-login-btn" target="_blank" rel="noopener noreferrer">
-            Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
-          </a>
-        </div>
-
-        <div class="wrike-right">
-          <div class="wrike-grid">
-
-            <div class="wrike-feature">
-              <i class="fas fa-list-check"></i>
-              <h4>Task Tracking</h4>
-              <p>Organise project tasks, milestones and responsibilities.</p>
-            </div>
-
-            <div class="wrike-feature">
-              <i class="fas fa-users-gear"></i>
-              <h4>Team Coordination</h4>
-              <p>Improve communication across teams and operations.</p>
-            </div>
-
-            <div class="wrike-feature">
-              <i class="fas fa-chart-line"></i>
-              <h4>Progress Reporting</h4>
-              <p>Better reporting visibility for management and stakeholders.</p>
-            </div>
-
-            <div class="wrike-feature">
-              <i class="fas fa-folder-tree"></i>
-              <h4>Workflow Management</h4>
-              <p>Keep workflows, files and approvals organised in one system.</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-card">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item active" data-page="home"><i class="fas fa-chart-pie"></i><span>Home</span></li>
+        <li class="nav-item" data-page="partners"><i class="fas fa-handshake"></i><span>JV Partners</span></li>
+        <li class="nav-item" data-page="documents"><i class="fas fa-folder-open"></i><span>Documents</span></li>
+        <li class="nav-item" data-page="governance"><i class="fas fa-shield-halved"></i><span>Governance</span></li>
+        <li class="nav-item" data-page="directory"><i class="fas fa-address-book"></i><span>Directory</span></li>
+        <li class="nav-item" data-page="dates"><i class="fas fa-calendar-days"></i><span>Important Dates</span></li>
       </ul>
-    </div>
 
-    <div class="footer-card">
-      <h4>Contact</h4>
-
-      <div class="contact-line">
-        <span><i class="fas fa-location-dot"></i></span>
-        <p>Kwalimu Precincts, Ground Level, Somare Circuit, Waigani, NCD</p>
-      </div>
-
-      <div class="contact-line">
-        <span><i class="fas fa-phone"></i></span>
-        <p>+675 7XXXXXXX</p>
-      </div>
-
-      <div class="contact-line">
-        <span><i class="fas fa-envelope"></i></span>
-        <p><a href="contact.html">Send enquiry</a></p>
-      </div>
-
-      <div class="social-links">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
+      <div class="sidebar-footer">
+        <a href="https://login.wrike.com/login/" class="workspace-btn" target="_blank" rel="noopener noreferrer">
+          <span><i class="fab fa-wrike"></i> Wrike Workspace</span>
+          <i class="fas fa-arrow-up-right-from-square"></i>
         </a>
       </div>
-    </div>
+    </aside>
 
-    <div class="footer-card">
-      <h4>Workspace</h4>
-      <p>Wrike Workspace supports our project coordination, task tracking, collaboration, and delivery visibility.</p>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+          <div class="page-title">
+            <div class="kicker"><i class="fas fa-lock"></i> Private Access Area</div>
+            <h1 id="currentPageTitle">Home</h1>
+          </div>
+        </div>
 
-      <a class="wrike-btn" href="https://login.wrike.com/login/" target="_blank" rel="noopener noreferrer">
-        Open Wrike <i class="fas fa-arrow-up-right-from-square"></i>
-      </a>
-    </div>
+        <div class="topbar-actions">
+          <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="globalSearch" placeholder="Search current section">
+          </div>
+          <a href="index.html" class="top-link"><i class="fas fa-globe"></i> Website</a>
+          <a href="login.html" class="top-link dark"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+      </header>
 
+      <div class="content">
+        <div id="pageContainer"></div>
+        <div class="empty-state" id="emptyState">No matching results found.</div>
+      </div>
+    </main>
   </div>
 
-  <div class="container copyright">
-    <span>© 2025 All rights reserved.</span>
-    <span>“All Dreams are within Reach”</span>
+  <div class="modal" id="documentModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle">Document Preview</h3>
+        <button class="modal-close" type="button" onclick="closeDocumentModal()" aria-label="Close preview"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
   </div>
-</footer>
 
-<script>
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.getElementById('navLinks');
+  <div class="modal" id="registerModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <div class="modal-head">
+        <h3 id="registerTitle">Register Details</h3>
+        <button class="modal-close" type="button" onclick="closeRegisterModal()" aria-label="Close register"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="registerBody"></div>
+    </div>
+  </div>
 
-  if(menuBtn && navLinks){
-    menuBtn.addEventListener('click',()=>{
-      const expanded = navLinks.classList.toggle('active');
-      menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    });
+  <div class="toast" id="toast"><i class="fas fa-circle-check"></i><span id="toastText">Ready</span></div>
 
-    document.querySelectorAll('.menu a').forEach(link=>{
-      link.addEventListener('click',()=>{
-        navLinks.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded','false');
+  <script>
+    const documentCategories = [
+      {
+        name:'Corporate Documents',
+        icon:'fas fa-building',
+        items:[
+          {id:'ipa-certificate', title:'IPA Certificate', desc:'Company registration document for verification and official reference.', access:'Restricted', type:'Corporate Record', owner:'Corporate Office', updated:'2026', file:'documents/ipa-certificate.pdf'},
+          {id:'tin-certificate', title:'TIN Certificate', desc:'Tax Identification Number record for finance and administration reference.', access:'Restricted', type:'Corporate Record', owner:'Finance / Admin', updated:'2026', file:'documents/tin-certificate.pdf'},
+          {id:'business-profile', title:'Business Plan / Profile', desc:'Business profile and corporate information document for review.', access:'Confidential', type:'Corporate Profile', owner:'Executive Office', updated:'2026', file:'documents/business-plan-profile.pdf'}
+        ]
+      },
+      {
+        name:'Compliance Records',
+        icon:'fas fa-shield-halved',
+        items:[
+          {id:'company-registration', title:'Company Registration', desc:'Registration records, certificates and related corporate verification details.', access:'Restricted', type:'Compliance Record', owner:'Corporate Office', updated:'2026', file:'documents/company-registration.pdf'},
+          {id:'tax-records', title:'Tax Records', desc:'Tax identification and related finance administration references.', access:'Confidential', type:'Compliance Record', owner:'Finance / Admin', updated:'2026', file:'documents/tax-records.pdf'},
+          {id:'permit-register', title:'Permit Register', desc:'Licences, permits and statutory reference documents.', access:'Internal', type:'Register', owner:'Compliance', updated:'2026', file:'documents/permit-register.pdf'},
+          {id:'hse-references', title:'HSE References', desc:'Health, safety and environment references used for corporate governance.', access:'Internal', type:'Compliance Reference', owner:'HSE / Operations', updated:'2026', file:'documents/hse-references.pdf'}
+        ]
+      },
+      {
+        name:'Policies',
+        icon:'fas fa-clipboard-list',
+        items:[
+          {id:'it-policy', title:'IT Policy', desc:'Information technology rules, access use and basic cyber safety guidance.', access:'Internal', type:'Policy', owner:'IT / Admin', updated:'2026', file:'documents/it-policy.pdf'},
+          {id:'hse-policy', title:'HSE Policy', desc:'Health, safety and environment policy references for company operations.', access:'Internal', type:'Policy', owner:'HSE / Operations', updated:'2026', file:'documents/hse-policy.pdf'},
+          {id:'code-of-conduct', title:'Code of Conduct', desc:'Professional conduct and ethical behaviour requirements for company representatives.', access:'Internal', type:'Policy', owner:'Executive Office', updated:'2026', file:'documents/code-of-conduct.pdf'},
+          {id:'information-security', title:'Information Security', desc:'Guidance for handling company files, private records and portal access.', access:'Restricted', type:'Policy', owner:'IT / Admin', updated:'2026', file:'documents/information-security.pdf'}
+        ]
+      }
+    ];
+
+    const directoryContacts = [
+      {role:'Chief Executive Officer', department:'Executive Office', email:'ceo@company.com', phone:'+675 0000 0001'},
+      {role:'Office Manager', department:'Administration', email:'admin@company.com', phone:'+675 0000 0002'},
+      {role:'Exploration Manager', department:'Exploration', email:'exploration@company.com', phone:'+675 0000 0003'},
+      {role:'Lead Consulting Geoscientist', department:'Technical Advisory', email:'geoscience@company.com', phone:'+675 0000 0004'},
+      {role:'Team Leader – Petroleum Exploration', department:'Petroleum', email:'petroleum@company.com', phone:'+675 0000 0005'},
+      {role:'Team Leader – Mining Exploration', department:'Mining', email:'mining@company.com', phone:'+675 0000 0006'},
+      {role:'Community Affairs Manager', department:'Stakeholder Relations', email:'community@company.com', phone:'+675 0000 0007'},
+      {role:'Senior Geologist – Exploration', department:'Geology', email:'geology@company.com', phone:'+675 0000 0008'},
+      {role:'Senior Geologist – Resource Estimation', department:'Resource Evaluation', email:'resources@company.com', phone:'+675 0000 0009'}
+    ];
+
+    const importantDates = [
+      {day:'01', month:'Jan', name:"New Year's Day", type:'Public Holiday'},
+      {day:'03', month:'Apr', name:'Good Friday', type:'Public Holiday'},
+      {day:'06', month:'Apr', name:'Easter Monday', type:'Public Holiday'},
+      {day:'17', month:'Jun', name:"King's Birthday", type:'Public Holiday'},
+      {day:'23', month:'Jul', name:'National Remembrance Day', type:'Public Holiday'},
+      {day:'26', month:'Aug', name:'National Day of Repentance', type:'Public Holiday'},
+      {day:'16', month:'Sep', name:'Independence Day', type:'Public Holiday'},
+      {day:'25', month:'Dec', name:'Christmas Day', type:'Public Holiday'},
+      {day:'26', month:'Dec', name:'Boxing Day', type:'Public Holiday'}
+    ];
+
+    const governanceItems = [
+      {id:'board-papers', icon:'fas fa-file-contract', title:'Board Papers', label:'Restricted', purpose:'Central register for board meeting packs, agendas and formal papers.'},
+      {id:'resolution-register', icon:'fas fa-stamp', title:'Resolution Register', label:'Controlled', purpose:'Controlled record area for company resolutions and formal decisions.'},
+      {id:'shareholder-notices', icon:'fas fa-users-cog', title:'Shareholder Notices', label:'Confidential', purpose:'Reference area for shareholder communications and formal notices.'},
+      {id:'governance-framework', icon:'fas fa-scale-balanced', title:'Governance Framework', label:'Internal', purpose:'Policy, conduct and decision-making references for corporate oversight.'},
+      {id:'access-control', icon:'fas fa-user-shield', title:'Access Control', label:'Restricted', purpose:'Restricted-access reference area for authorised company representatives.'},
+      {id:'corporate-archive', icon:'fas fa-box-archive', title:'Corporate Archive', label:'Archive', purpose:'Long-term storage point for completed corporate records and historical files.'}
+    ];
+
+    const partnerProfiles = [
+      {name:'Partner Company 1', location:'Papua New Guinea', mainFocus:'Exploration Partnership', category:'Exploration Partner', status:'Active Profile', contactPerson:'Company Representative', email:'partner1@company.com', phone:'+675 0000 0001', website:'www.partnercompany1.com', agreementType:'JV Partner Profile', lastUpdated:'Internal reference', summary:'Partner Company 1 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','JV Reference File','Due Diligence Notes']},
+      {name:'Partner Company 2', location:'Papua New Guinea', mainFocus:'Technical Partnership', category:'Technical Partner', status:'Active Profile', contactPerson:'Company Representative', email:'partner2@company.com', phone:'+675 0000 0002', website:'www.partnercompany2.com', agreementType:'Technical Collaboration Profile', lastUpdated:'Internal reference', summary:'Partner Company 2 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','Technical Capability File','Reference Notes']},
+      {name:'Partner Company 3', location:'Papua New Guinea', mainFocus:'Resource Partnership', category:'Resource Partner', status:'Active Profile', contactPerson:'Company Representative', email:'partner3@company.com', phone:'+675 0000 0003', website:'www.partnercompany3.com', agreementType:'Resource Partnership Profile', lastUpdated:'Internal reference', summary:'Partner Company 3 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','Resource Reference File','Partner Notes']},
+      {name:'Partner Company 4', location:'Papua New Guinea', mainFocus:'Operational Partnership', category:'Operational Partner', status:'Profile Review', contactPerson:'Company Representative', email:'partner4@company.com', phone:'+675 0000 0004', website:'www.partnercompany4.com', agreementType:'Operational Partner Profile', lastUpdated:'Internal reference', summary:'Partner Company 4 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','Operations Reference File','Internal Notes']},
+      {name:'Partner Company 5', location:'Papua New Guinea', mainFocus:'Strategic Partnership', category:'Strategic Partner', status:'Under Discussion', contactPerson:'Company Representative', email:'partner5@company.com', phone:'+675 0000 0005', website:'www.partnercompany5.com', agreementType:'Strategic Partner Profile', lastUpdated:'Internal reference', summary:'Partner Company 5 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','Strategic Reference File','Discussion Notes']},
+      {name:'Partner Company 6', location:'Papua New Guinea', mainFocus:'Commercial Partnership', category:'Commercial Partner', status:'Profile Review', contactPerson:'Company Representative', email:'partner6@company.com', phone:'+675 0000 0006', website:'www.partnercompany6.com', agreementType:'Commercial Partner Profile', lastUpdated:'Internal reference', summary:'Partner Company 6 profile area for company background, partnership notes, contact details and reference information.', documents:['Company Profile','Commercial Reference File','Partner Notes']}
+    ];
+
+    const notices = [
+      {icon:'fas fa-lock', title:'Private access control', desc:'Use this portal for company reference material only. Keep login details confidential.'},
+      {icon:'fas fa-folder-tree', title:'Document structure refined', desc:'Corporate Documents, Compliance Records and Policies are separated for easier review.'},
+      {icon:'fas fa-handshake', title:'JV profiles upgraded', desc:'Partner cards now open into full company profile pages with website and contact details.'}
+    ];
+
+    const recentActivity = [
+      {icon:'fas fa-folder-open', title:'Document register refined', desc:'The document area now includes category filters, preview modal and file actions.'},
+      {icon:'fas fa-shield-halved', title:'Governance area polished', desc:'Governance cards are stable, clean and do not use moving card effects.'},
+      {icon:'fas fa-mobile-screen', title:'Responsive layout improved', desc:'Cards, buttons and lists are aligned for desktop, tablet and phone screens.'}
+    ];
+
+    const pageTitles = {home:'Home', partners:'JV Partners', documents:'Documents', governance:'Governance', directory:'Directory', dates:'Important Dates'};
+    const pageIcons = {home:'fas fa-chart-pie', partners:'fas fa-handshake', documents:'fas fa-folder-open', governance:'fas fa-shield-halved', directory:'fas fa-address-book', dates:'fas fa-calendar-days'};
+    const allDocuments = () => documentCategories.flatMap(category => category.items.map(item => ({...item, category:category.name, icon:category.icon})));
+
+    function renderHome(){
+      const docs = allDocuments();
+      const kpis = [
+        {icon:'fas fa-folder-open', value:docs.length, title:'Total Documents', desc:'Files listed across corporate, compliance and policy categories.'},
+        {icon:'fas fa-handshake', value:partnerProfiles.length, title:'JV Partner Profiles', desc:'Partner companies with detailed profile pages.'},
+        {icon:'fas fa-shield-halved', value:governanceItems.length, title:'Governance Registers', desc:'Board, resolution, shareholder and archive areas.'},
+        {icon:'fas fa-address-book', value:directoryContacts.length, title:'Directory Contacts', desc:'Internal company representatives for quick reference.'}
+      ];
+
+      return `
+        <div class="home-grid searchable-section">
+          <section class="hero-card searchable-item">
+            <div class="hero-copy">
+              <div class="home-label">Corporate Portal</div>
+              <h2>Refined company dashboard for secure corporate access</h2>
+              <p>A polished private dashboard for JV partner records, document control, governance references, directory contacts and important dates. Operational task tracking remains in Wrike, so this portal stays clean and focused on company information.</p>
+              <div class="hero-actions">
+                <button class="hero-btn gold" type="button" onclick="setActivePage('documents')"><i class="fas fa-folder-open"></i> Open Documents</button>
+                <button class="hero-btn ghost" type="button" onclick="setActivePage('partners')"><i class="fas fa-handshake"></i> View JV Partners</button>
+                <button class="hero-btn ghost" type="button" onclick="setActivePage('governance')"><i class="fas fa-shield-halved"></i> Governance</button>
+              </div>
+            </div>
+
+            <div class="hero-side">
+              <div class="time-card searchable-item" aria-live="polite">
+                <div class="time-label">Live Time and Date</div>
+                <div class="portal-clock" id="portalClock">--:--:-- <span class="ampm">--</span></div>
+                <div class="portal-date" id="portalDate">Loading date...</div>
+              </div>
+              <div class="status-card searchable-item">
+                <div class="time-label">Portal Status</div>
+                <p>Private company access dashboard for authorised users.</p>
+                <div class="status-list">
+                  <div class="status-line"><span class="status-dot">Portal Online</span><span>Secure</span></div>
+                  <div class="status-line"><span>Timezone</span><span>UTC+10</span></div>
+                  <div class="status-line"><span>Location</span><span>Port Moresby</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="kpi-grid">
+            ${kpis.map(kpi => `
+              <article class="kpi-card searchable-item">
+                <div class="kpi-top">
+                  <div class="kpi-icon"><i class="${kpi.icon}"></i></div>
+                  <span class="badge green">Active</span>
+                </div>
+                <div>
+                  <div class="kpi-value">${String(kpi.value).padStart(2,'0')}</div>
+                  <div class="kpi-title">${kpi.title}</div>
+                  <div class="kpi-desc">${kpi.desc}</div>
+                </div>
+              </article>
+            `).join('')}
+          </section>
+
+          <section class="dashboard-split">
+            <div class="mini-panel searchable-item">
+              <div class="mini-head"><h3><i class="fas fa-bullhorn"></i> Portal Notices</h3><span class="section-label">Internal</span></div>
+              <div class="mini-body"><div class="notice-list">${notices.map(item => `<div class="notice-item searchable-item"><div class="notice-icon"><i class="${item.icon}"></i></div><div><h4>${item.title}</h4><p>${item.desc}</p></div></div>`).join('')}</div></div>
+            </div>
+            <div class="mini-panel searchable-item">
+              <div class="mini-head"><h3><i class="fas fa-chart-simple"></i> Document Control</h3><span class="section-label">Snapshot</span></div>
+              <div class="mini-body">
+                <div class="progress-grid">
+                  <div class="progress-item"><div class="progress-top"><span>Corporate Documents</span><span>90%</span></div><div class="progress-track"><div class="progress-fill" style="width:90%"></div></div></div>
+                  <div class="progress-item"><div class="progress-top"><span>Compliance Records</span><span>80%</span></div><div class="progress-track"><div class="progress-fill" style="width:80%"></div></div></div>
+                  <div class="progress-item"><div class="progress-top"><span>Policies</span><span>85%</span></div><div class="progress-track"><div class="progress-fill" style="width:85%"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="dashboard-split">
+            <div class="mini-panel searchable-item">
+              <div class="mini-head"><h3><i class="fas fa-clock-rotate-left"></i> Recent Portal Activity</h3><span class="section-label">Records</span></div>
+              <div class="mini-body"><div class="activity-list">${recentActivity.map(item => `<div class="activity-item searchable-item"><div class="activity-icon"><i class="${item.icon}"></i></div><div><h4>${item.title}</h4><p>${item.desc}</p></div></div>`).join('')}</div></div>
+            </div>
+            <div class="mini-panel searchable-item">
+              <div class="mini-head"><h3><i class="fas fa-layer-group"></i> Quick Controls</h3><span class="section-label">Actions</span></div>
+              <div class="mini-body"><div class="control-grid">
+                <button class="control-item searchable-item" type="button" onclick="setActivePage('documents')"><div class="control-icon"><i class="fas fa-file-lines"></i></div><div><h4>Open document register</h4><p>Go to corporate, compliance and policy records.</p></div></button>
+                <button class="control-item searchable-item" type="button" onclick="setActivePage('directory')"><div class="control-icon"><i class="fas fa-address-book"></i></div><div><h4>Open directory</h4><p>View internal contact references.</p></div></button>
+                <button class="control-item searchable-item" type="button" onclick="setActivePage('dates')"><div class="control-icon"><i class="fas fa-calendar-check"></i></div><div><h4>Open important dates</h4><p>View known public holidays and company dates.</p></div></button>
+              </div></div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function accessBadge(access){
+      const cls = access === 'Confidential' ? 'red' : access === 'Internal' ? 'green' : access === 'Restricted' ? 'blue' : access === 'Controlled' ? 'amber' : '';
+      return `<span class="badge ${cls}">${access}</span>`;
+    }
+
+    function documentRows(items){
+      return items.map(doc => `
+        <div class="document-row searchable-item" data-access="${doc.access}" data-title="${doc.title}">
+          <div class="document-meta">
+            <div class="doc-icon"><i class="fas fa-file-lines"></i></div>
+            <div>
+              <h3>${doc.title}</h3>
+              <p>${doc.desc}</p>
+              <p><strong>Owner:</strong> ${doc.owner} &nbsp; • &nbsp; <strong>Updated:</strong> ${doc.updated}</p>
+            </div>
+          </div>
+          ${accessBadge(doc.access)}
+          <div class="chip-row">
+            <button class="action-btn download-btn" type="button" onclick="downloadDocument('${doc.id}')"><i class="fas fa-download"></i> Download</button>
+            <button class="action-btn" type="button" onclick="openDocumentModal('${doc.id}')"><i class="fas fa-eye"></i> View</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderDocuments(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.documents}"></i> Documents</h2>
+              <p>Corporate files are arranged into Corporate Documents, Compliance Records and Policies. Use the buttons below to filter, view a preview, or open/download the linked document file.</p>
+            </div>
+            <span class="section-label">Company Files</span>
+          </div>
+
+          <div class="document-tools searchable-item">
+            <p class="tool-note">Access levels are displayed on each file so users can quickly identify internal, restricted and confidential records.</p>
+            <div class="chip-row">
+              <button class="chip-btn active" type="button" onclick="filterDocuments('All', this)">All</button>
+              <button class="chip-btn" type="button" onclick="filterDocuments('Corporate Documents', this)">Corporate Documents</button>
+              <button class="chip-btn" type="button" onclick="filterDocuments('Compliance Records', this)">Compliance Records</button>
+              <button class="chip-btn" type="button" onclick="filterDocuments('Policies', this)">Policies</button>
+            </div>
+          </div>
+
+          <div class="document-list">
+            ${documentCategories.map(category => `
+              <div class="document-category searchable-item" data-category="${category.name}">
+                <div class="document-category-title"><i class="${category.icon}"></i><span>${category.name}</span></div>
+                ${documentRows(category.items)}
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDirectory(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.directory}"></i> Directory</h2>
+              <p>Internal corporate contact reference for company representatives. Update the email and phone placeholders with your official details.</p>
+            </div>
+            <span class="section-label">Internal Contacts</span>
+          </div>
+          <div class="directory-grid">
+            ${directoryContacts.map(contact => `
+              <article class="contact-card searchable-item">
+                <div class="contact-icon"><i class="fas fa-user"></i></div>
+                <div class="contact-info">
+                  <h3>${contact.role}</h3>
+                  <p>${contact.department}</p>
+                  <div class="contact-line"><i class="fas fa-envelope"></i><a href="mailto:${contact.email}">${contact.email}</a></div>
+                  <div class="contact-line"><i class="fas fa-phone"></i><span>${contact.phone}</span></div>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderGovernance(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.governance}"></i> Governance</h2>
+              <p>Corporate governance reference area for board records, resolutions, notices, access controls and archived company records.</p>
+            </div>
+            <span class="section-label">Executive Control</span>
+          </div>
+          <div class="governance-grid">
+            ${governanceItems.map(item => `
+              <article class="insight-card searchable-item">
+                <div>
+                  <div class="insight-card-top">
+                    <div class="insight-icon"><i class="${item.icon}"></i></div>
+                    ${accessBadge(item.label)}
+                  </div>
+                  <h3>${item.title}</h3>
+                </div>
+                <div class="insight-actions">
+                  <button class="small-action" type="button" onclick="openRegisterModal('${item.id}')"><i class="fas fa-eye"></i> Open Register</button>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPartners(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.partners}"></i> JV Partners</h2>
+              <p>Partner companies are displayed as steady corporate cards. Select View Profile to open the full company profile.</p>
+            </div>
+            <span class="section-label">Partner Profiles</span>
+          </div>
+          <div class="partner-grid">
+            ${partnerProfiles.map((partner,index) => `
+              <article class="partner-card searchable-item">
+                <div>
+                  <div class="partner-number">${String(index + 1).padStart(2,'0')}</div>
+                  <h3>${partner.name}</h3>
+                  <p>JV partner profile</p>
+                  <div class="partner-details">
+                    <div class="partner-detail"><i class="fas fa-map-marker-alt"></i><span>${partner.location}</span></div>
+                    <div class="partner-detail"><i class="fas fa-bullseye"></i><span>${partner.mainFocus}</span></div>
+                    <div class="partner-detail"><i class="fas fa-globe"></i><span>${partner.website}</span></div>
+                  </div>
+                </div>
+                <button class="partner-profile-btn" type="button" onclick="openPartnerProfile(${index})">View Profile <i class="fas fa-arrow-right"></i></button>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPartnerProfile(partner,index){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.partners}"></i> Company Profile</h2>
+              <p>Detailed partner reference page for company profile information, contact details and linked partner documents.</p>
+            </div>
+            <span class="section-label">JV Partner</span>
+          </div>
+          <div class="partner-profile-view searchable-item">
+            <div class="partner-profile-header">
+              <div class="partner-profile-logo">${String(index + 1).padStart(2,'0')}</div>
+              <div>
+                <h3>${partner.name}</h3>
+                <p>${partner.category} • ${partner.status}</p>
+              </div>
+              <button class="back-btn" type="button" onclick="setActivePage('partners')"><i class="fas fa-arrow-left"></i> Back to JV Partners</button>
+            </div>
+
+            <div class="partner-profile-grid">
+              <div class="partner-profile-info"><div class="info-label"><i class="fas fa-map-marker-alt"></i> Location</div><strong>${partner.location}</strong></div>
+              <div class="partner-profile-info"><div class="info-label"><i class="fas fa-bullseye"></i> Main Focus</div><strong>${partner.mainFocus}</strong></div>
+              <div class="partner-profile-info"><div class="info-label"><i class="fas fa-globe"></i> Website</div><strong>${partner.website}</strong></div>
+            </div>
+
+            <div class="profile-section-grid two">
+              <div class="profile-panel">
+                <h4><i class="fas fa-building"></i> Profile Summary</h4>
+                <p>${partner.summary}</p>
+                <div class="profile-action-row">
+                  <a class="profile-action-btn gold" href="https://${partner.website}" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open Website</a>
+                  <a class="profile-action-btn" href="mailto:${partner.email}"><i class="fas fa-envelope"></i> Email Contact</a>
+                </div>
+              </div>
+
+              <div class="profile-panel">
+                <h4><i class="fas fa-id-card"></i> Contact Information</h4>
+                <div class="profile-detail-list">
+                  <div class="profile-detail-row"><span>Contact</span><strong>${partner.contactPerson}</strong></div>
+                  <div class="profile-detail-row"><span>Email</span><strong>${partner.email}</strong></div>
+                  <div class="profile-detail-row"><span>Phone</span><strong>${partner.phone}</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-section-grid two">
+              <div class="profile-panel">
+                <h4><i class="fas fa-circle-info"></i> Company Details</h4>
+                <div class="profile-detail-list">
+                  <div class="profile-detail-row"><span>Category</span><strong>${partner.category}</strong></div>
+                  <div class="profile-detail-row"><span>Status</span><strong>${partner.status}</strong></div>
+                  <div class="profile-detail-row"><span>Agreement Type</span><strong>${partner.agreementType}</strong></div>
+                  <div class="profile-detail-row"><span>Last Updated</span><strong>${partner.lastUpdated}</strong></div>
+                </div>
+              </div>
+              <div class="profile-panel">
+                <h4><i class="fas fa-folder-open"></i> Profile Documents</h4>
+                <div class="profile-doc-list">
+                  ${partner.documents.map(doc => `<div class="profile-doc-item"><div><i class="fas fa-file-lines"></i><span>${doc}</span></div><a href="#" onclick="showToast('Profile document placeholder. Link this to the real file path.');return false;">View</a></div>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDates(){
+      return `
+        <section class="section-panel searchable-section">
+          <div class="section-head">
+            <div>
+              <h2><i class="${pageIcons.dates}"></i> Important Dates</h2>
+              <p>Important public holiday dates displayed for quick corporate reference. Add company-only dates here when they are confirmed.</p>
+            </div>
+            <span class="section-label">2026</span>
+          </div>
+          <div class="date-list">
+            ${importantDates.map(item => `
+              <div class="date-row searchable-item">
+                <div class="date-box"><strong>${item.day}</strong><span>${item.month}</span></div>
+                <div class="date-details"><h3>${item.name}</h3><p>Papua New Guinea ${item.type.toLowerCase()}.</p></div>
+                <span class="badge green">${item.type}</span>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    const pages = {home:renderHome, partners:renderPartners, documents:renderDocuments, governance:renderGovernance, directory:renderDirectory, dates:renderDates};
+
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navItems = document.querySelectorAll('.nav-item');
+    const pageContainer = document.getElementById('pageContainer');
+    const currentPageTitle = document.getElementById('currentPageTitle');
+    const globalSearch = document.getElementById('globalSearch');
+    const emptyState = document.getElementById('emptyState');
+    const documentModal = document.getElementById('documentModal');
+    const modalBody = document.getElementById('modalBody');
+    const registerModal = document.getElementById('registerModal');
+    const registerBody = document.getElementById('registerBody');
+    const registerTitle = document.getElementById('registerTitle');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toastText');
+
+    function findDocument(id){return allDocuments().find(doc => doc.id === id)}
+    function findRegister(id){return governanceItems.find(item => item.id === id)}
+
+    function setActivePage(page){
+      navItems.forEach(item => item.classList.toggle('active', item.dataset.page === page));
+      currentPageTitle.textContent = pageTitles[page] || 'Home';
+      pageContainer.innerHTML = pages[page]();
+      globalSearch.value = '';
+      emptyState.style.display = 'none';
+      closeSidebar();
+      updatePortalClock();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function openPartnerProfile(index){
+      const partner = partnerProfiles[index];
+      if(!partner) return;
+      navItems.forEach(item => item.classList.toggle('active', item.dataset.page === 'partners'));
+      currentPageTitle.textContent = partner.name;
+      pageContainer.innerHTML = renderPartnerProfile(partner,index);
+      globalSearch.value = '';
+      emptyState.style.display = 'none';
+      closeSidebar();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    navItems.forEach(item => item.addEventListener('click', () => setActivePage(item.dataset.page)));
+
+    function openSidebar(){sidebar.classList.add('open');sidebarOverlay.classList.add('show')}
+    function closeSidebar(){sidebar.classList.remove('open');sidebarOverlay.classList.remove('show')}
+    mobileToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    window.addEventListener('resize', () => { if(window.innerWidth > 1024) closeSidebar(); });
+
+    globalSearch.addEventListener('input', () => {
+      const term = globalSearch.value.trim().toLowerCase();
+      const items = pageContainer.querySelectorAll('.searchable-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const match = !term || item.innerText.toLowerCase().includes(term);
+        item.style.display = match ? '' : 'none';
+        if(match) visibleCount++;
       });
-    });
-  }
-</script>
 
+      emptyState.style.display = term && visibleCount === 0 ? 'block' : 'none';
+    });
+
+    function filterDocuments(categoryName, button){
+      document.querySelectorAll('.chip-btn').forEach(chip => chip.classList.remove('active'));
+      button.classList.add('active');
+      document.querySelectorAll('.document-category').forEach(category => {
+        const match = categoryName === 'All' || category.dataset.category === categoryName;
+        category.style.display = match ? 'block' : 'none';
+      });
+      globalSearch.value = '';
+      emptyState.style.display = 'none';
+    }
+
+    function openDocumentModal(id){
+      const doc = findDocument(id);
+      if(!doc) return;
+      modalBody.innerHTML = `
+        <div class="document-meta">
+          <div class="doc-icon"><i class="fas fa-file-lines"></i></div>
+          <div>
+            <h3>${doc.title}</h3>
+            <p>${doc.desc}</p>
+          </div>
+        </div>
+        <p><strong>Access Level:</strong> ${doc.access}</p>
+        <p><strong>Document Type:</strong> ${doc.type}</p>
+        <p><strong>Owner:</strong> ${doc.owner}</p>
+        <p><strong>Last Updated:</strong> ${doc.updated}</p>
+        <p><strong>File Path:</strong> ${doc.file}</p>
+        <p>This preview panel is working. Link the file path to your real PDF inside the <strong>documents</strong> folder to open the actual document.</p>
+        <div class="profile-action-row">
+          <a class="profile-action-btn gold" href="${doc.file}" target="_blank" rel="noopener noreferrer"><i class="fas fa-eye"></i> Open File</a>
+          <a class="profile-action-btn" href="${doc.file}" download><i class="fas fa-download"></i> Download</a>
+        </div>
+      `;
+      documentModal.classList.add('show');
+      documentModal.setAttribute('aria-hidden','false');
+    }
+
+    function closeDocumentModal(){documentModal.classList.remove('show');documentModal.setAttribute('aria-hidden','true')}
+
+    function openRegisterModal(id){
+      const item = findRegister(id);
+      if(!item) return;
+      registerTitle.textContent = item.title;
+      registerBody.innerHTML = `
+        <div class="document-meta">
+          <div class="doc-icon"><i class="${item.icon}"></i></div>
+          <div>
+            <h3>${item.title}</h3>
+            <p>${item.purpose}</p>
+          </div>
+        </div>
+        <p><strong>Access Level:</strong> ${item.label}</p>
+        <p><strong>Register Status:</strong> Active reference area</p>
+        <p><strong>Suggested file path:</strong> documents/governance/${item.id}.pdf</p>
+        <p>Use this area to connect the governance register to the real company record when the file is ready.</p>
+      `;
+      registerModal.classList.add('show');
+      registerModal.setAttribute('aria-hidden','false');
+    }
+
+    function closeRegisterModal(){registerModal.classList.remove('show');registerModal.setAttribute('aria-hidden','true')}
+
+    documentModal.addEventListener('click', event => { if(event.target === documentModal) closeDocumentModal(); });
+    registerModal.addEventListener('click', event => { if(event.target === registerModal) closeRegisterModal(); });
+    document.addEventListener('keydown', event => { if(event.key === 'Escape'){ closeDocumentModal(); closeRegisterModal(); closeSidebar(); } });
+
+    function downloadDocument(id){
+      const doc = findDocument(id);
+      if(!doc) return;
+      showToast(`${doc.title} is ready. Make sure ${doc.file} exists in your documents folder.`);
+      const link = document.createElement('a');
+      link.href = doc.file;
+      link.download = '';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    let toastTimer;
+    function showToast(message){
+      toastText.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3600);
+    }
+
+    function updatePortalClock(){
+      const clock = document.getElementById('portalClock');
+      const date = document.getElementById('portalDate');
+      if(!clock || !date) return;
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Port_Moresby',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).formatToParts(now);
+      const hour = parts.find(p => p.type === 'hour')?.value || '00';
+      const minute = parts.find(p => p.type === 'minute')?.value || '00';
+      const second = parts.find(p => p.type === 'second')?.value || '00';
+      const dayPeriod = parts.find(p => p.type === 'dayPeriod')?.value || 'AM';
+      clock.innerHTML = `${hour}:${minute}:${second} <span class="ampm">${dayPeriod}</span>`;
+      date.textContent = new Intl.DateTimeFormat('en-GB',{timeZone:'Pacific/Port_Moresby',weekday:'long',day:'2-digit',month:'long',year:'numeric'}).format(now) + ' • Port Moresby, Papua New Guinea';
+    }
+
+    setActivePage('home');
+    setInterval(updatePortalClock, 1000);
+  </script>
 </body>
 </html>
